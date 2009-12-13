@@ -1,0 +1,230 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# Author: Muflone Ubuntu Trucchi <muflone@vbsimple.net>
+# 
+# Copyright: 2009 Muflone Ubuntu Trucchi
+# License: GPL-2+
+#  This program is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU General Public License as published by the Free
+#  Software Foundation; either version 2 of the License, or (at your option)
+#  any later version.
+# 
+#  This program is distributed in the hope that it will be useful, but WITHOUT
+#  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+#  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+#  more details.
+# 
+# On Debian GNU/Linux systems, the full text of the GNU General Public License
+# can be found in the file /usr/share/common-licenses/GPL-2.
+
+import gtk
+import gtk.glade
+import pygtk
+import ConfigParser
+import os.path
+import sys
+import struct
+import socket
+import gettext
+from gettext import gettext as _
+
+__file_path__ = os.path.dirname(os.path.abspath(__file__))
+CONFIG_FILE = '~/.gwakeonlan'
+APP_NAME = 'gwakeonlan'
+APP_TITLE = 'gWakeOnLan'
+APP_VERSION = '0.2'
+
+PATHS = {
+  'locale': [
+    '%s/locale' % __file_path__,
+    '%s/share/locale' % sys.prefix],
+  'ui': [
+    '%s/ui' % __file_path__,
+    '%s/share/%s/ui' % (sys.prefix, APP_NAME)],
+  'gfx': [
+    '%s/gfx' % __file_path__,
+    '%s/share/%s/gfx' % (sys.prefix, APP_NAME)],
+  'doc': [
+    '%s/doc' % __file_path__,
+    '%s/share/doc/%s' % (sys.prefix, APP_NAME)]
+}
+
+def __searchPath(key, append = ''):
+  "Returns the correct path for the specified key"
+  for path in PATHS[key]:
+    if os.path.isdir(path):
+      if append:
+        return os.path.join(path, append)
+      else:
+        return path
+
+APP_LOGO = __searchPath('gfx', '%s.svg' % APP_NAME)
+
+def showHostDialog(hostname, mac):
+  "Show the host dialog with the indicated values, run, then hide"
+  txtHostName.set_text(hostname)
+  txtMACAddress.set_text(mac.replace(':', ''))
+  txtHostName.grab_focus()
+  response = 0
+  while not response:
+    response = dlgHost.run()
+    if response == gtk.RESPONSE_OK and \
+      not (len(txtHostName.get_text()) > 0 and \
+      len(txtMACAddress.get_text()) == 12 and \
+      all(c in '1234567890ABCDEF' for c in txtMACAddress.get_text().upper())):
+      response = 0
+  dlgHost.hide()
+  return response
+
+def formatMAC(mac):
+  "Return the mac address formatted with colon"
+  return ':'.join([mac[i:i+2] for i in xrange(0, len(mac), 2)]).upper()
+
+def saveHosts():
+  "Save hosts list"
+  config = ConfigParser.RawConfigParser()
+  config.add_section('hosts')
+  for host in modelHosts:
+    config.set('hosts', host[1], host[2].replace(':', ''))
+  filename = open(os.path.expanduser(CONFIG_FILE), mode='w')
+  config.write(filename)
+  filename.close()
+
+def loadHosts():
+  "Load hosts list"
+  config = ConfigParser.RawConfigParser()
+  config.add_section('hosts')
+  if os.path.exists(os.path.expanduser(CONFIG_FILE)):
+    config.read(os.path.expanduser(CONFIG_FILE))
+    for host in config.items('hosts'):
+      modelHosts.append([False, host[0].upper(), formatMAC(host[1])])
+    
+def wake_on_lan(macaddress):
+  "Turn on remote machine using WOL."
+  print 'turn on: %s' % macaddress
+  # Magic packet (6 times FF + 16 times MAC address)
+  packet = 'FF' * 6 + macaddress.replace(':', '') * 16
+  data = []
+  for i in xrange(0, len(packet), 2):
+    data.append(struct.pack('B', int(packet[i:i+2], 16)))
+
+  # Broadcast it to the LAN.
+  print 'sending broadcast packet %s [%d/%d]' % (packet, len(packet), len(data))
+  sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+  sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+  sock.sendto(''.join(data), ('<broadcast>', 7))
+
+def on_winMain_delete_event(widget, data=None):
+  "Close the main Window, the host window and gtk main loop then save the hosts"
+  dlgHost.destroy()
+  gtk.main_quit()
+  saveHosts()
+  return 0
+
+def on_btnWake_clicked(widget, data=None):
+  "Awake the selected hosts"
+  for host in modelHosts:
+    if host[0]:
+      wake_on_lan(host[2])
+
+def on_btnAdd_clicked(widget, data=None):
+  "Add a new host"
+  if showHostDialog('', '') == gtk.RESPONSE_OK:
+    modelHosts.append([False, txtHostName.get_text().upper(),
+      formatMAC(txtMACAddress.get_text())])
+
+def on_btnEdit_clicked(widget, data=None):
+  "Edit the selected host"
+  selected = tvwHosts.get_selection().get_selected()[1]
+  if selected:
+    if showHostDialog(
+      modelHosts[selected][1], modelHosts[selected][2]) == gtk.RESPONSE_OK:
+      modelHosts[selected][1] = txtHostName.get_text()
+      modelHosts[selected][2] = formatMAC(txtMACAddress.get_text())
+
+def on_btnDelete_clicked(widget, data=None):
+  "Delete the selected host"
+  selected = tvwHosts.get_selection().get_selected()[1]
+  if selected:
+    modelHosts.remove(selected)
+
+def on_btnAbout_clicked(widget, data=None):
+  "Shows the about dialog"
+  about = gtk.AboutDialog()
+  about.set_program_name(APP_TITLE)
+  about.set_version(APP_VERSION)
+  about.set_comments(_('A GTK utility to awake turned off computers through '
+    'the Wake on LAN feature.'))
+  about.set_icon_from_file(APP_LOGO)
+  about.set_logo(gtk.gdk.pixbuf_new_from_file(APP_LOGO))
+  about.set_copyright('Copyright 2009 Muflone Ubuntu Trucchi')
+  about.set_license(open(__searchPath('doc','copyright')).read())
+  about.set_website_label('Ubuntu Trucchi')
+  gtk.about_dialog_set_url_hook(lambda url, data=None: url)
+  about.set_website('http://www.ubuntutrucchi.it')
+  about.set_authors(['Muflone', 'http://www.ubuntutrucchi.it'])
+  about.run()
+  about.destroy()
+
+def on_selected_toggle(renderer, path, data=None):
+  "Select or deselect an item"
+  modelHosts[path][0] = not modelHosts[path][0]
+
+# Signals handler
+signals = {
+  'on_winMain_delete_event': on_winMain_delete_event,
+  'on_btnWake_clicked': on_btnWake_clicked,
+  'on_btnAdd_clicked': on_btnAdd_clicked,
+  'on_btnEdit_clicked': on_btnEdit_clicked,
+  'on_btnDelete_clicked': on_btnDelete_clicked,
+  'on_btnAbout_clicked': on_btnAbout_clicked
+}
+
+# Load domain for translation
+for module in (gettext, gtk.glade):
+  module.bindtextdomain(APP_NAME, __searchPath('locale'))
+  module.textdomain(APP_NAME)
+
+# Load interfaces
+gladeFile = gtk.glade.XML(fname=__searchPath('ui', '%s.glade' % APP_NAME),
+  domain=APP_NAME)
+gladeFile.signal_autoconnect(signals)
+gw = gladeFile.get_widget
+# Main window
+winMain = gw('winMain')
+winMain.set_icon_from_file(APP_LOGO)
+tvwHosts = gw('tvwHosts')
+# Prepares the treeview
+modelHosts = gtk.ListStore(bool, str, str)
+tvwHosts.set_model(modelHosts)
+loadHosts()
+# Column for selected
+newCell = gtk.CellRendererToggle()
+newColumn = gtk.TreeViewColumn('', newCell, active=0)
+newColumn.set_resizable(False)
+newColumn.set_expand(False)
+newCell.set_property('activatable', True)
+newCell.connect('toggled', on_selected_toggle)
+tvwHosts.append_column(newColumn)
+# Column for hostname
+newCell = gtk.CellRendererText()
+newColumn = gtk.TreeViewColumn(_('Host name'), newCell, text=1)
+newColumn.set_resizable(True)
+newColumn.set_expand(True)
+tvwHosts.append_column(newColumn)
+# Column for MAC address
+newCell = gtk.CellRendererText()
+newColumn = gtk.TreeViewColumn(_('MAC address'), newCell, text=2)
+newColumn.set_resizable(True)
+tvwHosts.append_column(newColumn)
+
+# Host window
+dlgHost = gw('dlgHost')
+dlgHost.set_icon_from_file(APP_LOGO)
+txtHostName = gw('txtHostName')
+txtMACAddress = gw('txtMACAddress')
+txtMACAddress.set_activates_default(True)
+
+winMain.show()
+gtk.main()
