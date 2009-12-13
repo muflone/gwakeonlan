@@ -1,3 +1,14 @@
 * text=auto !eol
+doc/changelog -text
+doc/copyright -text
+gfx/gwakeonlan.svg -text
 /gwakeonlan -text
+locale/en_US.po -text
+locale/en_US/LC_MESSAGES/gwakeonlan.mo -text
+locale/gwakeonlan.pot -text
+locale/i18n-1.sh -text
+locale/i18n-2.sh -text
+locale/i18n-3.sh -text
+locale/it.po -text
+locale/it/LC_MESSAGES/gwakeonlan.mo -text
 ui/gwakeonlan.glade -text

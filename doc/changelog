@@ -1,0 +1,12 @@
+gwakeonlan (0.2) all; urgency=low
+
+  * Fixed wake_on_lan function which missed the magic packet creation code.
+
+ -- Muflone <muflone@vbsimple.net>  Fri, 12 Sep 2009 23:40:00 +0100
+
+gwakeonlan (0.1) all; urgency=low
+
+  * Initial release
+
+ -- Muflone <muflone@vbsimple.net>  Fri, 6 Sep 2009 00:19:00 +0100
+
