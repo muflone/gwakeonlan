@@ -9,3 +9,5 @@ do (
   msgfmt --output-file=$filemo/LC_MESSAGES/gwakeonlan.mo $file
 )
 done
+echo ok
+read

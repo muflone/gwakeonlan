@@ -1,0 +1,37 @@
+.\" $Id: gwakeonlan.1 0.3 2009-12-13 21:23 muflone $
+.\"
+.\" Copyright (c) 2009 Fabio Castelli
+
+.TH GWAKEONLAN "1" "December 13, 2009"
+
+.SH NAME
+.B gWakeOnLan
+\- Wake up your machines using Wake on LAN.
+
+.SH SYNOPSIS
+gwakeonlan
+
+.SH DESCRIPTION
+.PP
+.B gWakeOnLan
+is a A GTK+ utility to awake turned off computers through the Wake on LAN feature.
+
+.PP
+The machines to turn on need to be shut off with the Wake on LAN magic packet
+enabled. Linux environments can enable this using:
+
+.PP
+ethtool -s <nic device> wol g
+
+.SH FILES
+Hosts list will be kept under ~/.gwakeonlan
+
+.SH AUTHORS
+.B gWakeOnLan
+was written by Fabio Castelli <muflone@vbsimple.net>
+
+.SH HOMEPAGE
+International project: http://code.google.com/p/gwakeonlan/
+
+Italian project: http://ubuntrucchi.wordpress.com/progetti-projects/gwakeonlan/
+

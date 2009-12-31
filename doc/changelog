@@ -1,3 +1,11 @@
+gwakeonlan (0.3) all; urgency=low
+
+  * Added confirmation before delete an existing host.
+  * Added french translation by Emmanuel <info@simple-linux.com>.
+  * Added setup.py for distutils support.
+
+ -- Muflone <muflone@vbsimple.net>  Sun, 13 Dic 2009 21:38:10 +0100
+
 gwakeonlan (0.2) all; urgency=low
 
   * Fixed wake_on_lan function which missed the magic packet creation code.
