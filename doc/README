@@ -1,0 +1,26 @@
+gWakeOnLan - Wake up your machines using Wake on LAN.
+Copyright 2009 Fabio Castelli <muflone@vbsimple.net>
+License: GPL-2+ (please see the copyright file)
+
+Description:
+  gWakeOnLan is a GTK+ utility to awake turned off machines usign the Wake on
+  LAN feature.
+
+  The machines to turn on need to be shut off with the Wake on LAN magic packet
+  enabled.
+
+Requirements:
+  Python >= 2.4
+  Python bindings for GTK2
+  Python bindings for Glade and libglade support
+  rsvg library
+
+Personal configuration
+  User's hosts list will be kept under ~/.gwakeonlan
+
+Please report any bugs in gWakeOnLan to the author:
+  Fabio Castelli <muflone@vbsimple.net>
+
+Homepage:
+  Official project: http://code.google.com/p/gwakeonlan/
+  Italian project : http://ubuntrucchi.wordpress.com/progetti-projects/gwakeonlan/

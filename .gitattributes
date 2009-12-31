@@ -2,6 +2,7 @@
 data/gwakeonlan.desktop -text
 data/gwakeonlan.glade -text
 data/gwakeonlan.svg -text
+doc/README -text
 doc/changelog -text
 doc/copyright -text
 /gwakeonlan -text
