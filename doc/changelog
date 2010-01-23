@@ -1,3 +1,12 @@
+gwakeonlan (0.4) all; urgency=low
+
+  * Added spanish translation by Matias Bellone <matiasbellone+debian@gmail.com>.
+  * Added doc/translators for translators notice on about dialog.
+  * Modified the manpage for further info about bugs reporting and copyright.
+  * Bump copyright year
+
+ -- Muflone <muflone@vbsimple.net>  Sat, 16 Jan 2010 17:00:40 +0100
+
 gwakeonlan (0.3) all; urgency=low
 
   * Added confirmation before delete an existing host.

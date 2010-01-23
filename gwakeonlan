@@ -4,7 +4,7 @@
 ##
 #   Project: gWakeOnLan - Wake up your machines using Wake on LAN.
 #    Author: Fabio Castelli <muflone@vbsimple.net>
-# Copyright: 2009 Fabio Castelli
+# Copyright: 2009-2010 Fabio Castelli
 #   License: GPL-2+
 #  This program is free software; you can redistribute it and/or modify it
 #  under the terms of the GNU General Public License as published by the Free
@@ -34,7 +34,7 @@ __file_path__ = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = '~/.gwakeonlan'
 APP_NAME = 'gwakeonlan'
 APP_TITLE = 'gWakeOnLan'
-APP_VERSION = '0.3'
+APP_VERSION = '0.4'
 
 PATHS = {
   'locale': [
@@ -61,6 +61,16 @@ def __searchPath(key, append = ''):
         return path
 
 APP_LOGO = __searchPath('gfx', '%s.svg' % APP_NAME)
+
+def readTextFile(filename):
+  "Read a text file and return its content"
+  try:
+    f = open(filename, 'r')
+    text = f.read()
+    f.close()
+  except:
+    text = ''
+  return text
 
 def showHostDialog(hostname, mac):
   "Show the host dialog with the indicated values, run, then hide"
@@ -169,8 +179,9 @@ def on_btnAbout_clicked(widget, data=None):
     'the Wake on LAN feature.'))
   about.set_icon_from_file(APP_LOGO)
   about.set_logo(gtk.gdk.pixbuf_new_from_file(APP_LOGO))
-  about.set_copyright('Copyright 2009 Fabio Castelli')
-  about.set_license(open(__searchPath('doc','copyright'), 'r').read())
+  about.set_copyright('Copyright 2009-2010 Fabio Castelli')
+  about.set_translator_credits(readTextFile(__searchPath('doc','translators')))
+  about.set_license(readTextFile(__searchPath('doc','copyright')))
   about.set_website_label('gWakeOnLan')
   gtk.about_dialog_set_url_hook(lambda url, data=None: url)
   about.set_website('http://code.google.com/p/gwakeonlan/')

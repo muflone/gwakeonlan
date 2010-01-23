@@ -1,15 +1,15 @@
 # gWakeOnLan - Wake up your machines using Wake on LAN.
-# Copyright (C) 2009 Fabio Castelli
+# Copyright (C) 2009-2010 Fabio Castelli
 # This file is distributed under the GPL v2 license (see copyright file).
-# Fabio Castelli <muflone@vbsimple.net>, 2009.
+# Fabio Castelli <muflone@vbsimple.net>, 2009-2010.
 # English translation for gwakeonlan package.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gwakeonlan 0.3\n"
+"Project-Id-Version: gwakeonlan 0.4\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
-"POT-Creation-Date: 2009-12-13 21:51+0100\n"
-"PO-Revision-Date: 2009-12-13 21:52+0100\n"
+"POT-Creation-Date: 2010-01-16 15:26+0100\n"
+"PO-Revision-Date: 2010-01-16 15:30+0100\n"
 "Last-Translator: Muflone <muflone@vbsimple.net>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"

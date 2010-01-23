@@ -3,7 +3,7 @@
 ##
 #   Project: gWakeOnLan - Wake up your machines using Wake on LAN.
 #    Author: Fabio Castelli <muflone@vbsimple.net>
-# Copyright: 2009 Fabio Castelli
+# Copyright: 2009-2010 Fabio Castelli
 #   License: GPL-2+
 #  This program is free software; you can redistribute it and/or modify it
 #  under the terms of the GNU General Public License as published by the Free
@@ -63,7 +63,7 @@ class InstallData(install_data):
 
 
 setup(name='gWakeOnLan',
-      version='0.3',
+      version='0.4',
       description='Wake up your machines using Wake on LAN.',
       author='Fabio Castelli',
       author_email='muflone@vbsimple.net',
@@ -73,7 +73,7 @@ setup(name='gWakeOnLan',
       data_files=[
                   ('share/applications', ['data/gwakeonlan.desktop']),
                   ('share/man/man1', ['man/gwakeonlan.1']),
-                  ('share/doc/gwakeonlan', ['doc/README', 'doc/changelog']),
+                  ('share/doc/gwakeonlan', ['doc/README', 'doc/changelog', 'doc/translators']),
                   ('share/gwakeonlan', ['data/gwakeonlan.glade', 'data/gwakeonlan.svg']),
                  ],
       cmdclass={'install_data': InstallData}
