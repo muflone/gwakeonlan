@@ -1,3 +1,9 @@
+gwakeonlan (0.4.1) all; urgency=low
+
+  * Added russian translation by Сергей Богатов <hsh@runtu.org>.
+
+ -- Muflone <muflone@vbsimple.net>  Sat, 13 Feb 2010 14:20:20 +0100
+
 gwakeonlan (0.4) all; urgency=low
 
   * Added spanish translation by Matias Bellone <matiasbellone+debian@gmail.com>.

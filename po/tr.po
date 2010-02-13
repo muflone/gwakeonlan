@@ -2,67 +2,66 @@
 # Copyright (C) 2009-2010 Fabio Castelli
 # This file is distributed under the GPL v2 license (see copyright file).
 # Fabio Castelli <muflone@vbsimple.net>, 2009-2010.
-# Spanish translation for gwakeonlan package.
+# Turkish translation for gwakeonlan package.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gwakeonlan 0.4.1\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-01-16 15:26+0100\n"
-"PO-Revision-Date: 2010-01-16 15:33+0100\n"
-"Last-Translator: Matias Bellone <matiasbellone+debian@gmail.com>\n"
-"Language-Team: Spanish\n"
+"PO-Revision-Date: 2010-02-13 14:37+0100\n"
+"Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
+"Language-Team: Turkish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../data/gwakeonlan.glade.h:1
 msgid "About"
-msgstr "Acerca de"
+msgstr ""
 
 #: ../data/gwakeonlan.glade.h:2
 msgid "Add Host"
-msgstr "Añadir equipo"
+msgstr ""
 
 #: ../data/gwakeonlan.glade.h:3
 msgid "Delete Host"
-msgstr "Eliminar equipo"
+msgstr ""
 
 #: ../data/gwakeonlan.glade.h:4
 msgid "Edit Host"
-msgstr "Editar equipo"
+msgstr ""
 
 #: ../data/gwakeonlan.glade.h:5
 msgid "Host name:"
-msgstr "Nombre del equipo:"
+msgstr ""
 
 #: ../data/gwakeonlan.glade.h:6
 msgid "Insert the host name and its MAC address"
-msgstr "Introduzca el nombre del equipo y su dirección MAC"
+msgstr ""
 
 #: ../data/gwakeonlan.glade.h:7
 msgid "MAC Address:"
-msgstr "Dirección MAC:"
+msgstr ""
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
-msgstr "Encender"
+msgstr ""
 
 #: ../gwakeonlan:154
 msgid "Are you sure you want to remove the selected host?"
-msgstr "¿Está seguro que desea eliminar el equipo seleccionado?"
+msgstr ""
 
 #: ../gwakeonlan:168
 msgid ""
 "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
 msgstr ""
-"Una aplicación GTK+ para encender equipos apagados a través de Wake on LAN"
 
 #: ../gwakeonlan:224
 msgid "Host name"
-msgstr "Nombre del equipo"
+msgstr ""
 
 #: ../gwakeonlan:230
 msgid "MAC address"
-msgstr "Dirección MAC"
+msgstr ""

@@ -7,7 +7,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gwakeonlan 0.4\n"
+"Project-Id-Version: gwakeonlan 0.4.1\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-01-16 15:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"

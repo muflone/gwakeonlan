@@ -34,7 +34,7 @@ __file_path__ = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = '~/.gwakeonlan'
 APP_NAME = 'gwakeonlan'
 APP_TITLE = 'gWakeOnLan'
-APP_VERSION = '0.4'
+APP_VERSION = '0.4.1'
 
 PATHS = {
   'locale': [
