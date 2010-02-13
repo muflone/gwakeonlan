@@ -18,5 +18,5 @@ msginit --input=gwakeonlan.pot --output-file=pl.po --locale=pl
 msginit --input=gwakeonlan.pot --output-file=pt.po --locale=pt_PT
 msginit --input=gwakeonlan.pot --output-file=sk.po --locale=sk
 msginit --input=gwakeonlan.pot --output-file=tr.po --locale=tr
-msginit --input=gwakeonlan.pot --output-file=zh.po --locale=zh_CH
+msginit --input=gwakeonlan.pot --output-file=zh_CN.po --locale=zh_CN
 read
