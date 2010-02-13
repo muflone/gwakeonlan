@@ -30,5 +30,5 @@ po/pt.po -text
 po/ru.po -text
 po/sk.po -text
 po/tr.po -text
-po/zh.po -text
+po/zh_CN.po -text
 /setup.py -text
