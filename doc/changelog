@@ -1,8 +1,9 @@
 gwakeonlan (0.4.1) all; urgency=low
 
   * Added russian translation by Сергей Богатов <hsh@runtu.org>.
+  * Fixed typo in manpage.
 
- -- Muflone <muflone@vbsimple.net>  Sat, 13 Feb 2010 14:20:20 +0100
+ -- Muflone <muflone@vbsimple.net>  Sat, 13 Feb 2010 19:39:24 +0100
 
 gwakeonlan (0.4) all; urgency=low
 
