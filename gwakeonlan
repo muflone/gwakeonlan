@@ -34,7 +34,8 @@ __file_path__ = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = '~/.gwakeonlan'
 APP_NAME = 'gwakeonlan'
 APP_TITLE = 'gWakeOnLan'
-APP_VERSION = '0.4.1'
+APP_VERSION = '0.5.0'
+COL_SELECTED, COL_MACHINE, COL_ADDRESS, COL_DESTINATION, COL_PORTNR = range(5)
 
 PATHS = {
   'locale': [
@@ -72,46 +73,84 @@ def readTextFile(filename):
     text = ''
   return text
 
-def showHostDialog(hostname, mac):
-  "Show the host dialog with the indicated values, run, then hide"
-  txtHostName.set_text(hostname)
-  txtMACAddress.set_text(mac.replace(':', ''))
-  txtHostName.grab_focus()
+def showMachineDialog(machine, mac, destination, portnr):
+  "Show the machine dialog with the indicated values, run, then hide"
+  txtMachineName.set_text(machine)
+  txtMACAddress.set_text(mac)
+  txtHostAddress.set_text(destination)
+  spinPortNumber.set_value(portnr)
+  if destination == '255.255.255.255':
+    radioRequestLocal.set_active(True)
+  else:
+    radioRequestInternet.set_active(True)
+  txtMachineName.grab_focus()
   response = 0
+  lblError.set_property('visible', False)
   while not response:
-    response = dlgHost.run()
-    if response == gtk.RESPONSE_OK and \
-      not (len(txtHostName.get_text()) > 0 and \
-      len(txtMACAddress.get_text()) == 12 and \
-      all(c in '1234567890ABCDEF' for c in txtMACAddress.get_text().upper())):
-      response = 0
-  dlgHost.hide()
+    response = dlgMachine.run()
+    mac = txtMACAddress.get_text()
+    # Replace separator characters
+    for c in (':-= '):
+      mac = mac.replace(c, '')
+    if response == gtk.RESPONSE_OK:
+      # Check values for valid response
+      err_msg = ''
+      if not txtMachineName.get_text():
+        err_msg = _('Missing machine name')
+      elif not (len(mac) == 12 and all(c in '1234567890ABCDEF' for c in mac.upper())):
+        err_msg = _('Invalid MAC address')
+      elif radioRequestInternet.get_active() and not txtHostAddress.get_text():
+        err_msg = _('Invalid destination host')
+      # There was an error, don't close the dialog
+      if err_msg:
+        lblError.set_property('visible', True)
+        lblError.set_markup('<span foreground="red"><b>%s</b></span>' % err_msg)
+        response = 0
+  txtMACAddress.set_text(mac)
+  if radioRequestLocal.get_active():
+    txtHostAddress.set_text('255.255.255.255')
+  dlgMachine.hide()
   return response
 
 def formatMAC(mac):
   "Return the mac address formatted with colon"
   return ':'.join([mac[i:i+2] for i in xrange(0, len(mac), 2)]).upper()
 
-def saveHosts():
-  "Save hosts list"
+def saveMachines():
+  "Save machines list"
   config = ConfigParser.RawConfigParser()
+  # Allow saving in case sensitive
+  config.optionxform = str
   config.add_section('hosts')
-  for host in modelHosts:
-    config.set('hosts', host[1], host[2].replace(':', ''))
+  for machine in modelMachines:
+    config.set('hosts', machine[COL_MACHINE], '%s\\%s\\%d' % (
+      machine[COL_ADDRESS].replace(':', ''),
+      machine[COL_DESTINATION],
+      machine[COL_PORTNR])
+    )
   filename = open(os.path.expanduser(CONFIG_FILE), mode='w')
   config.write(filename)
   filename.close()
 
-def loadHosts():
-  "Load hosts list"
+def loadMachines():
+  "Load machines list"
   config = ConfigParser.RawConfigParser()
+  # Allow loading in case sensitive
+  config.optionxform = str
   config.add_section('hosts')
   if os.path.exists(os.path.expanduser(CONFIG_FILE)):
     config.read(os.path.expanduser(CONFIG_FILE))
-    for host in config.items('hosts'):
-      modelHosts.append([False, host[0].upper(), formatMAC(host[1])])
+    for machine in config.items('hosts'):
+      machine = ('%s\\%s\\255.255.255.255\\9' % machine).split('\\', 4)
+      modelMachines.append([
+        False,
+        machine[0],
+        formatMAC(machine[1]),
+        machine[2],
+        int(machine[3])
+      ])
     
-def wake_on_lan(macaddress):
+def wake_on_lan(macaddress, destination, portnr):
   "Turn on remote machine using WOL."
   print 'turn on: %s' % macaddress
   # Magic packet (6 times FF + 16 times MAC address)
@@ -124,50 +163,67 @@ def wake_on_lan(macaddress):
   print 'sending broadcast packet %s [%d/%d]' % (packet, len(packet), len(data))
   sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
   sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-  sock.sendto(''.join(data), ('<broadcast>', 7))
+  sock.sendto(''.join(data), (destination, portnr)) #'<broadcast>', 7))
 
 def on_winMain_delete_event(widget, data=None):
-  "Close the main Window, the host window and gtk main loop then save the hosts"
-  dlgHost.destroy()
+  "Close the main Window, the machine window and gtk main loop then save the machines"
+  dlgMachine.destroy()
   gtk.main_quit()
-  saveHosts()
+  saveMachines()
   return 0
 
 def on_btnWake_clicked(widget, data=None):
-  "Awake the selected hosts"
-  for host in modelHosts:
-    if host[0]:
-      wake_on_lan(host[2])
+  "Awake the selected machine"
+  for machine in modelMachines:
+    if machine[COL_SELECTED]:
+      wake_on_lan(
+        machine[COL_ADDRESS],
+        machine[COL_DESTINATION],
+        machine[PORTNR]
+      )
 
 def on_btnAdd_clicked(widget, data=None):
-  "Add a new host"
-  if showHostDialog('', '') == gtk.RESPONSE_OK:
-    modelHosts.append([False, txtHostName.get_text().upper(),
-      formatMAC(txtMACAddress.get_text())])
+  "Add a new machine"
+  if showMachineDialog('', '', '255.255.255.255', 9) == gtk.RESPONSE_OK:
+    modelMachines.append([
+      False,
+      txtMachineName.get_text(),
+      formatMAC(txtMACAddress.get_text()),
+      txtHostAddress.get_text(),
+      spinPortNumber.get_value_as_int()
+    ])
 
 def on_btnEdit_clicked(widget, data=None):
-  "Edit the selected host"
-  selected = tvwHosts.get_selection().get_selected()[1]
+  "Edit the selected machine"
+  selected = tvwMachines.get_selection().get_selected()[1]
   if selected:
-    if showHostDialog(
-      modelHosts[selected][1], modelHosts[selected][2]) == gtk.RESPONSE_OK:
-      modelHosts[selected][1] = txtHostName.get_text()
-      modelHosts[selected][2] = formatMAC(txtMACAddress.get_text())
+    iter = modelMachines[selected]
+    if showMachineDialog(
+      iter[COL_MACHINE],
+      iter[COL_ADDRESS],
+      iter[COL_DESTINATION],
+      iter[COL_PORTNR],
+    ) == gtk.RESPONSE_OK:
+      # Edit information
+      iter[COL_MACHINE] = txtMachineName.get_text()
+      iter[COL_ADDRESS] = formatMAC(txtMACAddress.get_text())
+      iter[COL_DESTINATION] = txtHostAddress.get_text()
+      iter[COL_PORTNR] = spinPortNumber.get_value_as_int()
 
 def on_btnDelete_clicked(widget, data=None):
-  "Delete the selected host"
-  selected = tvwHosts.get_selection().get_selected()[1]
+  "Delete the selected machine"
+  selected = tvwMachines.get_selection().get_selected()[1]
   if selected:
-    # Ask confirm to delete the selected host
+    # Ask confirm to delete the selected machine
     diag = gtk.MessageDialog(parent=None, flags=gtk.DIALOG_MODAL,
       type=gtk.MESSAGE_QUESTION, buttons=gtk.BUTTONS_YES_NO,
-      message_format=_('Are you sure you want to remove the selected host?')
+      message_format=_('Are you sure you want to remove the selected machine?')
     )
     diag.set_default_response(gtk.RESPONSE_NO)
     diag.set_icon_from_file(APP_LOGO)
     if diag.run() == gtk.RESPONSE_YES:
       # Response was yes
-      modelHosts.remove(selected)
+      modelMachines.remove(selected)
     diag.destroy()
 
 def on_btnAbout_clicked(widget, data=None):
@@ -182,7 +238,7 @@ def on_btnAbout_clicked(widget, data=None):
   about.set_copyright('Copyright 2009-2010 Fabio Castelli')
   about.set_translator_credits(readTextFile(__searchPath('doc','translators')))
   about.set_license(readTextFile(__searchPath('doc','copyright')))
-  about.set_website_label('gWakeOnLan')
+  about.set_website_label(APP_TITLE)
   gtk.about_dialog_set_url_hook(lambda url, data=None: url)
   about.set_website('http://code.google.com/p/gwakeonlan/')
   about.set_authors(['Fabio Castelli <muflone@vbsimple.net>',
@@ -192,7 +248,45 @@ def on_btnAbout_clicked(widget, data=None):
 
 def on_selected_toggle(renderer, path, data=None):
   "Select or deselect an item"
-  modelHosts[path][0] = not modelHosts[path][0]
+  modelMachines[path][COL_SELECTED] = not modelMachines[path][COL_SELECTED]
+
+def on_radioRequest_toggled(widget, data=None):
+  "Activates the host and port number only for internet request type"
+  active = radioRequestInternet.get_active()
+  lblHostAddress.set_sensitive(active)
+  txtHostAddress.set_sensitive(active)
+
+def createColumns(treeview):
+  # Column for selected
+  newCell = gtk.CellRendererToggle()
+  newColumn = gtk.TreeViewColumn('', newCell, active=COL_SELECTED)
+  newColumn.set_resizable(False)
+  newCell.set_property('activatable', True)
+  newCell.connect('toggled', on_selected_toggle)
+  treeview.append_column(newColumn)
+  # Column for machine name
+  newCell = gtk.CellRendererText()
+  newColumn = gtk.TreeViewColumn(_('Machine name'), newCell, text=COL_MACHINE)
+  newColumn.set_resizable(True)
+  newColumn.set_expand(True)
+  treeview.append_column(newColumn)
+  # Column for MAC address
+  newCell = gtk.CellRendererText()
+  newColumn = gtk.TreeViewColumn(_('MAC address'), newCell, text=COL_ADDRESS)
+  newColumn.set_resizable(True)
+  newColumn.set_expand(True)
+  treeview.append_column(newColumn)
+  # Column for destination
+  newCell = gtk.CellRendererText()
+  newColumn = gtk.TreeViewColumn(_('Destination'), newCell, text=COL_DESTINATION)
+  newColumn.set_resizable(True)
+  newColumn.set_expand(True)
+  treeview.append_column(newColumn)
+  # Column for destination
+  newCell = gtk.CellRendererText()
+  newCell.set_property('xalign', 0.50)
+  newColumn = gtk.TreeViewColumn(_('Port NR'), newCell, text=COL_PORTNR)
+  treeview.append_column(newColumn)
 
 # Signals handlers
 signals = {
@@ -201,7 +295,8 @@ signals = {
   'on_btnAdd_clicked': on_btnAdd_clicked,
   'on_btnEdit_clicked': on_btnEdit_clicked,
   'on_btnDelete_clicked': on_btnDelete_clicked,
-  'on_btnAbout_clicked': on_btnAbout_clicked
+  'on_btnAbout_clicked': on_btnAbout_clicked,
+  'on_radioRequest_toggled': on_radioRequest_toggled
 }
 
 # Load domain for translation
@@ -217,37 +312,29 @@ gw = gladeFile.get_widget
 # Main window
 winMain = gw('winMain')
 winMain.set_icon_from_file(APP_LOGO)
-tvwHosts = gw('tvwHosts')
-# Prepares the treeview
-modelHosts = gtk.ListStore(bool, str, str)
-tvwHosts.set_model(modelHosts)
-loadHosts()
-# Column for selected
-newCell = gtk.CellRendererToggle()
-newColumn = gtk.TreeViewColumn('', newCell, active=0)
-newColumn.set_resizable(False)
-newColumn.set_expand(False)
-newCell.set_property('activatable', True)
-newCell.connect('toggled', on_selected_toggle)
-tvwHosts.append_column(newColumn)
-# Column for hostname
-newCell = gtk.CellRendererText()
-newColumn = gtk.TreeViewColumn(_('Host name'), newCell, text=1)
-newColumn.set_resizable(True)
-newColumn.set_expand(True)
-tvwHosts.append_column(newColumn)
-# Column for MAC address
-newCell = gtk.CellRendererText()
-newColumn = gtk.TreeViewColumn(_('MAC address'), newCell, text=2)
-newColumn.set_resizable(True)
-tvwHosts.append_column(newColumn)
-
-# Host window
-dlgHost = gw('dlgHost')
-dlgHost.set_icon_from_file(APP_LOGO)
-txtHostName = gw('txtHostName')
+tvwMachines = gw('tvwMachines')
+# Model for selection, machine name, mac address, destination, port number
+modelMachines = gtk.ListStore(bool, str, str, str, int)
+tvwMachines.set_model(modelMachines)
+loadMachines()
+createColumns(tvwMachines)
+# Machine window
+dlgMachine = gw('dlgMachine')
+dlgMachine.set_icon_from_file(APP_LOGO)
+txtMachineName = gw('txtMachineName')
 txtMACAddress = gw('txtMACAddress')
+lblHostAddress = gw('lblHostAddress')
+txtHostAddress = gw('txtHostAddress')
+lblPortNumber = gw('lblPortNumber')
+spinPortNumber = gw('spinPortNumber')
+radioRequestLocal = gw('radioRequestLocal')
+radioRequestInternet = gw('radioRequestInternet')
+lblError = gw('lblError')
+
+txtMachineName.set_activates_default(True)
 txtMACAddress.set_activates_default(True)
+spinPortNumber.set_activates_default(True)
+txtHostAddress.set_activates_default(True)
 
 winMain.show()
 gtk.main()

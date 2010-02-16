@@ -17,6 +17,7 @@
             <child>
               <widget class="GtkToolButton" id="btnWake">
                 <property name="visible">True</property>
+                <property name="is_important">True</property>
                 <property name="label" translatable="yes">Turn On</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-execute</property>
@@ -104,14 +105,14 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkScrolledWindow" id="scrollHosts">
+          <widget class="GtkScrolledWindow" id="scrollMachines">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="hscrollbar_policy">automatic</property>
             <property name="vscrollbar_policy">automatic</property>
             <property name="shadow_type">in</property>
             <child>
-              <widget class="GtkTreeView" id="tvwHosts">
+              <widget class="GtkTreeView" id="tvwMachines">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
               </widget>
@@ -124,7 +125,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="GtkDialog" id="dlgHost">
+  <widget class="GtkDialog" id="dlgMachine">
     <property name="can_default">True</property>
     <property name="has_default">True</property>
     <property name="border_width">5</property>
@@ -156,13 +157,16 @@
             <child>
               <widget class="GtkTable" id="table1">
                 <property name="visible">True</property>
-                <property name="n_rows">3</property>
-                <property name="n_columns">2</property>
+                <property name="n_rows">7</property>
+                <property name="n_columns">3</property>
+                <property name="column_spacing">8</property>
+                <property name="row_spacing">7</property>
                 <child>
-                  <widget class="GtkLabel" id="lblHostName">
+                  <widget class="GtkLabel" id="lblMachineName">
                     <property name="visible">True</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Host name:</property>
+                    <property name="label" translatable="yes">_Machine name:</property>
+                    <property name="use_underline">True</property>
                   </widget>
                   <packing>
                     <property name="top_attach">1</property>
@@ -174,7 +178,8 @@
                   <widget class="GtkLabel" id="lblMACAddress">
                     <property name="visible">True</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">MAC Address:</property>
+                    <property name="label" translatable="yes">MAC _Address:</property>
+                    <property name="use_underline">True</property>
                   </widget>
                   <packing>
                     <property name="top_attach">2</property>
@@ -183,7 +188,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkEntry" id="txtHostName">
+                  <widget class="GtkEntry" id="txtMachineName">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="max_length">30</property>
@@ -191,7 +196,7 @@
                   </widget>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="right_attach">2</property>
+                    <property name="right_attach">3</property>
                     <property name="top_attach">1</property>
                     <property name="bottom_attach">2</property>
                   </packing>
@@ -200,12 +205,12 @@
                   <widget class="GtkEntry" id="txtMACAddress">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="max_length">12</property>
+                    <property name="max_length">17</property>
                     <property name="invisible_char">&#x25CF;</property>
                   </widget>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="right_attach">2</property>
+                    <property name="right_attach">3</property>
                     <property name="top_attach">2</property>
                     <property name="bottom_attach">3</property>
                   </packing>
@@ -216,7 +221,125 @@
                     <property name="label" translatable="yes">Insert the host name and its MAC address</property>
                   </widget>
                   <packing>
+                    <property name="right_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="lblRequestType">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Request type:</property>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">4</property>
+                    <property name="bottom_attach">5</property>
+                    <property name="x_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="txtHostAddress">
+                    <property name="visible">True</property>
+                    <property name="sensitive">False</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">128</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">5</property>
+                    <property name="bottom_attach">6</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="lblHostAddress">
+                    <property name="visible">True</property>
+                    <property name="sensitive">False</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">_Destination host:</property>
+                    <property name="use_underline">True</property>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">5</property>
+                    <property name="bottom_attach">6</property>
+                    <property name="x_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="lblPortNumber">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">_UDP port number:</property>
+                    <property name="use_underline">True</property>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">3</property>
+                    <property name="bottom_attach">4</property>
+                    <property name="x_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="spinPortNumber">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">5</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="adjustment">90 1 65545 1 10 10</property>
+                    <property name="numeric">True</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">3</property>
+                    <property name="bottom_attach">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkRadioButton" id="radioRequestLocal">
+                    <property name="label" translatable="yes">_Local (broadcast)</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_radioRequest_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
                     <property name="right_attach">2</property>
+                    <property name="top_attach">4</property>
+                    <property name="bottom_attach">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkRadioButton" id="radioRequestInternet">
+                    <property name="label" translatable="yes">_Internet</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="use_underline">True</property>
+                    <property name="draw_indicator">True</property>
+                    <property name="group">radioRequestLocal</property>
+                    <signal name="toggled" handler="on_radioRequest_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">4</property>
+                    <property name="bottom_attach">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="lblError">
+                    <property name="visible">True</property>
+                    <property name="label">&lt;b&gt;&lt;span foreground="red"&gt;ERROR&lt;/span&gt;&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">6</property>
+                    <property name="bottom_attach">7</property>
                   </packing>
                 </child>
               </widget>
