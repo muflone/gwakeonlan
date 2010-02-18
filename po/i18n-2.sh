@@ -4,7 +4,6 @@ msginit --input=gwakeonlan.pot --output-file=it.po --locale=it_IT
 msginit --input=gwakeonlan.pot --output-file=fr.po --locale=fr_FR
 msginit --input=gwakeonlan.pot --output-file=es.po --locale=es_ES
 msginit --input=gwakeonlan.pot --output-file=ru.po --locale=ru_RU
-read
 msginit --input=gwakeonlan.pot --output-file=ar.po --locale=ar
 msginit --input=gwakeonlan.pot --output-file=bg.po --locale=bg
 msginit --input=gwakeonlan.pot --output-file=cs.po --locale=cs

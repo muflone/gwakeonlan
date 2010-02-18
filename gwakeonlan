@@ -34,7 +34,7 @@ __file_path__ = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = '~/.gwakeonlan'
 APP_NAME = 'gwakeonlan'
 APP_TITLE = 'gWakeOnLan'
-APP_VERSION = '0.5.0'
+APP_VERSION = '0.5'
 COL_SELECTED, COL_MACHINE, COL_ADDRESS, COL_REQTYPE, COL_DESTINATION, COL_PORTNR = range(6)
 SECTION_MAINWIN = 'main window'
 SECTION_HOSTS = 'hosts'
@@ -439,7 +439,7 @@ txtHostAddress.set_activates_default(True)
 createColumns(tvwMachines)
 loadConfig()
 tvwMachines.set_model(modelMachines)
-# Auto-resize to the content
+# Auto-resize columns to the content
 tvwMachines.realize()
 tvwMachines.columns_autosize()
 modelMachines.set_sort_column_id(COL_MACHINE, gtk.SORT_ASCENDING)

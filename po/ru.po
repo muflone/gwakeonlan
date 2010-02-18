@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gwakeonlan 0.4.1\n"
+"Project-Id-Version: gwakeonlan 0.5.1\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
-"POT-Creation-Date: 2010-01-16 15:26+0100\n"
-"PO-Revision-Date: 2010-02-13 13:54+0100\n"
+"POT-Creation-Date: 2010-02-18 23:46+0100\n"
+"PO-Revision-Date: 2010-02-18 23:48+0100\n"
 "Last-Translator: HsH <hsh@runtu.org>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -19,52 +19,115 @@ msgstr ""
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../data/gwakeonlan.glade.h:1
+msgid "<big><b>Insert the machine name and its MAC address</b></big>"
+msgstr ""
+
+#: ../data/gwakeonlan.glade.h:2
 msgid "About"
 msgstr "Справка"
 
-#: ../data/gwakeonlan.glade.h:2
-msgid "Add Host"
+#: ../data/gwakeonlan.glade.h:3
+msgid "Add machine"
 msgstr "Добавить"
 
-#: ../data/gwakeonlan.glade.h:3
-msgid "Delete Host"
+#: ../data/gwakeonlan.glade.h:4
+msgid "Delete Machine"
 msgstr "Удалить"
 
-#: ../data/gwakeonlan.glade.h:4
-msgid "Edit Host"
+#: ../data/gwakeonlan.glade.h:5
+msgid "Edit Machine"
 msgstr "Редактировать"
 
-#: ../data/gwakeonlan.glade.h:5
-msgid "Host name:"
-msgstr "Имя компьютера:"
-
 #: ../data/gwakeonlan.glade.h:6
-msgid "Insert the host name and its MAC address"
-msgstr "Введите имя и MAC-адрес компьютера"
+msgid "MAC _Address:"
+msgstr "M_AC адрес:"
 
 #: ../data/gwakeonlan.glade.h:7
-msgid "MAC Address:"
-msgstr "MAC адрес:"
+msgid "Request type:"
+msgstr ""
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
 msgstr "Включить"
 
-#: ../gwakeonlan:154
-msgid "Are you sure you want to remove the selected host?"
-msgstr "Удалить выбранный компьютер из списка?"
+#: ../data/gwakeonlan.glade.h:9
+msgid "_Destination host:"
+msgstr ""
 
-#: ../gwakeonlan:168
+#: ../data/gwakeonlan.glade.h:10
+msgid "_Internet"
+msgstr ""
+
+#: ../data/gwakeonlan.glade.h:11
+msgid "_Local (broadcast)"
+msgstr ""
+
+#: ../data/gwakeonlan.glade.h:12
+msgid "_Machine name:"
+msgstr ""
+
+#: ../data/gwakeonlan.glade.h:13
+msgid "_UDP port number:"
+msgstr ""
+
+#: ../gwakeonlan:81
+msgid "Add a new machine"
+msgstr ""
+
+#: ../gwakeonlan:81
+msgid "Edit machine"
+msgstr ""
+
+#: ../gwakeonlan:106
+msgid "Missing machine name"
+msgstr ""
+
+#: ../gwakeonlan:108
+msgid "Invalid MAC address"
+msgstr ""
+
+#: ../gwakeonlan:110
+msgid "Invalid destination host"
+msgstr ""
+
+#: ../gwakeonlan:131
+msgid "Local"
+msgstr ""
+
+#: ../gwakeonlan:131
+msgid "Internet"
+msgstr ""
+
+#: ../gwakeonlan:265
+msgid "Are you sure you want to remove the selected machine?"
+msgstr ""
+
+#: ../gwakeonlan:267
+msgid "Delete machine"
+msgstr ""
+
+#: ../gwakeonlan:280
 msgid ""
 "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
 msgstr ""
 "Утилита для включения компьютера посредством функции \"Wake on Lan\"."
 
-#: ../gwakeonlan:224
-msgid "Host name"
-msgstr "Имя компьютера"
+#: ../gwakeonlan:357
+msgid "Machine name"
+msgstr ""
 
-#: ../gwakeonlan:230
+#: ../gwakeonlan:365
 msgid "MAC address"
 msgstr "MAC адрес"
 
+#: ../gwakeonlan:370
+msgid "Request type"
+msgstr ""
+
+#: ../gwakeonlan:375
+msgid "Destination"
+msgstr ""
+
+#: ../gwakeonlan:383
+msgid "Port NR"
+msgstr ""
