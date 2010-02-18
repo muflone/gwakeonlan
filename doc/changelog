@@ -1,3 +1,16 @@
+gwakeonlan (0.5.0) all; urgency=low
+
+  * Added support for internet wake up.
+  * Added UDP port number specification.
+  * Set turn on button as important to force it to show the caption.
+  * Added dialog title for add, edit and remove machines.
+  * Added dialog confirm to delete an existing machine.
+  * Added window size and position saving when close the app.
+  * Added columns sorting on the treeview.
+  * Added default sort order for machine names.
+
+ -- Muflone <muflone@vbsimple.net>  Sat, 13 Feb 2010 19:39:24 +0100
+
 gwakeonlan (0.4.1) all; urgency=low
 
   * Added russian translation by Сергей Богатов <hsh@runtu.org>.

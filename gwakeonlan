@@ -35,7 +35,9 @@ CONFIG_FILE = '~/.gwakeonlan'
 APP_NAME = 'gwakeonlan'
 APP_TITLE = 'gWakeOnLan'
 APP_VERSION = '0.5.0'
-COL_SELECTED, COL_MACHINE, COL_ADDRESS, COL_DESTINATION, COL_PORTNR = range(5)
+COL_SELECTED, COL_MACHINE, COL_ADDRESS, COL_REQTYPE, COL_DESTINATION, COL_PORTNR = range(6)
+SECTION_MAINWIN = 'main window'
+SECTION_HOSTS = 'hosts'
 
 PATHS = {
   'locale': [
@@ -75,17 +77,21 @@ def readTextFile(filename):
 
 def showMachineDialog(machine, mac, destination, portnr):
   "Show the machine dialog with the indicated values, run, then hide"
+  dlgMachine.set_title(machine and _('Edit machine') or _('Add machine'))
   txtMachineName.set_text(machine)
   txtMACAddress.set_text(mac)
   txtHostAddress.set_text(destination)
   spinPortNumber.set_value(portnr)
+  # Select local or internet radio button
   if destination == '255.255.255.255':
     radioRequestLocal.set_active(True)
   else:
     radioRequestInternet.set_active(True)
   txtMachineName.grab_focus()
   response = 0
+  # Hide errors label
   lblError.set_property('visible', False)
+  # Repeat until there're no more errors or dialog is closed
   while not response:
     response = dlgMachine.run()
     mac = txtMACAddress.get_text()
@@ -105,8 +111,11 @@ def showMachineDialog(machine, mac, destination, portnr):
       if err_msg:
         lblError.set_property('visible', True)
         lblError.set_markup('<span foreground="red"><b>%s</b></span>' % err_msg)
+        # Don't close the dialog if there's some error
         response = 0
+  # Replace MAC address without separators
   txtMACAddress.set_text(mac)
+  # If local request set the broadcast mask
   if radioRequestLocal.get_active():
     txtHostAddress.set_text('255.255.255.255')
   dlgMachine.hide()
@@ -116,70 +125,109 @@ def formatMAC(mac):
   "Return the mac address formatted with colon"
   return ':'.join([mac[i:i+2] for i in xrange(0, len(mac), 2)]).upper()
 
-def saveMachines():
-  "Save machines list"
+def get_request_type(host):
+  "Return the request type for the specified host"
+  return host == '255.255.255.255' and _('Local') or _('Internet')
+
+def saveConfig():
+  "Save configuration for window and machines"
   config = ConfigParser.RawConfigParser()
-  # Allow saving in case sensitive
+  # Allow saving in case sensitive (useful for machine names)
   config.optionxform = str
-  config.add_section('hosts')
+
+  # Main window settings section
+  config.add_section(SECTION_MAINWIN)
+  # Window position
+  position = winMain.get_position()
+  config.set(SECTION_MAINWIN, 'left', position[0])
+  config.set(SECTION_MAINWIN, 'top', position[1])
+  # Window size
+  size = winMain.get_size()
+  config.set(SECTION_MAINWIN, 'width', size[0])
+  config.set(SECTION_MAINWIN, 'height', size[1])
+
+  # Hosts section
+  config.add_section(SECTION_HOSTS)
   for machine in modelMachines:
-    config.set('hosts', machine[COL_MACHINE], '%s\\%s\\%d' % (
+    config.set(SECTION_HOSTS, machine[COL_MACHINE], '%s\\%s\\%d' % (
       machine[COL_ADDRESS].replace(':', ''),
       machine[COL_DESTINATION],
       machine[COL_PORTNR])
     )
+  # Save changes
   filename = open(os.path.expanduser(CONFIG_FILE), mode='w')
   config.write(filename)
   filename.close()
 
-def loadMachines():
-  "Load machines list"
+def loadConfig():
+  "Load configuration for window and machines"
   config = ConfigParser.RawConfigParser()
   # Allow loading in case sensitive
   config.optionxform = str
-  config.add_section('hosts')
   if os.path.exists(os.path.expanduser(CONFIG_FILE)):
     config.read(os.path.expanduser(CONFIG_FILE))
-    for machine in config.items('hosts'):
-      machine = ('%s\\%s\\255.255.255.255\\9' % machine).split('\\', 4)
-      modelMachines.append([
-        False,
-        machine[0],
-        formatMAC(machine[1]),
-        machine[2],
-        int(machine[3])
-      ])
+
+    # Main window settings
+    if config.has_section(SECTION_MAINWIN):
+      # Move window to saved position
+      if config.has_option(SECTION_MAINWIN, 'left'):
+        position_left = config.getint(SECTION_MAINWIN, 'left')
+        if config.has_option(SECTION_MAINWIN, 'top'):
+          position_top = config.getint(SECTION_MAINWIN, 'top')
+        winMain.move(position_left, position_top)
+      # Set size to saved size
+      if config.has_option(SECTION_MAINWIN, 'width'):
+        position_width = config.getint(SECTION_MAINWIN, 'width')
+        if config.has_option(SECTION_MAINWIN, 'height'):
+          position_height = config.getint(SECTION_MAINWIN, 'height')
+        winMain.resize(position_width, position_height)
+
+    # Hosts settings
+    if config.has_section(SECTION_HOSTS):
+      for machine in config.items(SECTION_HOSTS):
+        machine = ('%s\\%s\\255.255.255.255\\9' % machine).split('\\', 4)
+        modelMachines.append([
+          False,
+          machine[0],
+          formatMAC(machine[1]),
+          get_request_type(machine[2]),
+          machine[2],
+          int(machine[3])
+        ])
     
 def wake_on_lan(macaddress, destination, portnr):
   "Turn on remote machine using WOL."
-  print 'turn on: %s' % macaddress
+  print 'turning on: %s through %s using port number %d' % (
+    macaddress, destination, portnr)
   # Magic packet (6 times FF + 16 times MAC address)
   packet = 'FF' * 6 + macaddress.replace(':', '') * 16
   data = []
   for i in xrange(0, len(packet), 2):
     data.append(struct.pack('B', int(packet[i:i+2], 16)))
 
-  # Broadcast it to the LAN.
-  print 'sending broadcast packet %s [%d/%d]' % (packet, len(packet), len(data))
+  # Send magic packet to the destination
+  print 'sending packet %s [%d/%d]\n' % (packet, len(packet), len(data))
   sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
   sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-  sock.sendto(''.join(data), (destination, portnr)) #'<broadcast>', 7))
+  if destination == '255.255.255.255':
+    destination = '<broadcast>'
+  sock.sendto(''.join(data), (destination, portnr))
 
 def on_winMain_delete_event(widget, data=None):
-  "Close the main Window, the machine window and gtk main loop then save the machines"
+  "Save configuration then close the windows and gtk main loop"
+  saveConfig()
   dlgMachine.destroy()
   gtk.main_quit()
-  saveMachines()
   return 0
 
 def on_btnWake_clicked(widget, data=None):
-  "Awake the selected machine"
+  "Awake the selected machines"
   for machine in modelMachines:
     if machine[COL_SELECTED]:
       wake_on_lan(
         machine[COL_ADDRESS],
         machine[COL_DESTINATION],
-        machine[PORTNR]
+        machine[COL_PORTNR]
       )
 
 def on_btnAdd_clicked(widget, data=None):
@@ -189,6 +237,7 @@ def on_btnAdd_clicked(widget, data=None):
       False,
       txtMachineName.get_text(),
       formatMAC(txtMACAddress.get_text()),
+      get_request_type(txtHostAddress.get_text()),
       txtHostAddress.get_text(),
       spinPortNumber.get_value_as_int()
     ])
@@ -202,11 +251,12 @@ def on_btnEdit_clicked(widget, data=None):
       iter[COL_MACHINE],
       iter[COL_ADDRESS],
       iter[COL_DESTINATION],
-      iter[COL_PORTNR],
+      iter[COL_PORTNR]
     ) == gtk.RESPONSE_OK:
       # Edit information
       iter[COL_MACHINE] = txtMachineName.get_text()
       iter[COL_ADDRESS] = formatMAC(txtMACAddress.get_text())
+      iter[COL_REQTYPE] = get_request_type(txtHostAddress.get_text())
       iter[COL_DESTINATION] = txtHostAddress.get_text()
       iter[COL_PORTNR] = spinPortNumber.get_value_as_int()
 
@@ -215,16 +265,17 @@ def on_btnDelete_clicked(widget, data=None):
   selected = tvwMachines.get_selection().get_selected()[1]
   if selected:
     # Ask confirm to delete the selected machine
-    diag = gtk.MessageDialog(parent=None, flags=gtk.DIALOG_MODAL,
+    dialog = gtk.MessageDialog(parent=None, flags=gtk.DIALOG_MODAL,
       type=gtk.MESSAGE_QUESTION, buttons=gtk.BUTTONS_YES_NO,
       message_format=_('Are you sure you want to remove the selected machine?')
     )
-    diag.set_default_response(gtk.RESPONSE_NO)
-    diag.set_icon_from_file(APP_LOGO)
-    if diag.run() == gtk.RESPONSE_YES:
+    dialog.set_title(_('Delete machine'))
+    dialog.set_default_response(gtk.RESPONSE_NO)
+    dialog.set_icon_from_file(APP_LOGO)
+    if dialog.run() == gtk.RESPONSE_YES:
       # Response was yes
       modelMachines.remove(selected)
-    diag.destroy()
+    dialog.destroy()
 
 def on_btnAbout_clicked(widget, data=None):
   "Shows the about dialog"
@@ -261,6 +312,7 @@ def createColumns(treeview):
   newCell = gtk.CellRendererToggle()
   newColumn = gtk.TreeViewColumn('', newCell, active=COL_SELECTED)
   newColumn.set_resizable(False)
+  newColumn.set_sort_column_id(COL_SELECTED)
   newCell.set_property('activatable', True)
   newCell.connect('toggled', on_selected_toggle)
   treeview.append_column(newColumn)
@@ -268,24 +320,32 @@ def createColumns(treeview):
   newCell = gtk.CellRendererText()
   newColumn = gtk.TreeViewColumn(_('Machine name'), newCell, text=COL_MACHINE)
   newColumn.set_resizable(True)
+  newColumn.set_sort_column_id(COL_MACHINE)
   newColumn.set_expand(True)
   treeview.append_column(newColumn)
   # Column for MAC address
   newCell = gtk.CellRendererText()
+  newCell.set_property('xpad', 3)
   newColumn = gtk.TreeViewColumn(_('MAC address'), newCell, text=COL_ADDRESS)
-  newColumn.set_resizable(True)
-  newColumn.set_expand(True)
+  newColumn.set_sort_column_id(COL_ADDRESS)
+  treeview.append_column(newColumn)
+  # Column for request type
+  newCell = gtk.CellRendererText()
+  newColumn = gtk.TreeViewColumn(_('Request type'), newCell, text=COL_REQTYPE)
+  newColumn.set_sort_column_id(COL_REQTYPE)
   treeview.append_column(newColumn)
   # Column for destination
   newCell = gtk.CellRendererText()
   newColumn = gtk.TreeViewColumn(_('Destination'), newCell, text=COL_DESTINATION)
   newColumn.set_resizable(True)
+  newColumn.set_sort_column_id(COL_DESTINATION)
   newColumn.set_expand(True)
   treeview.append_column(newColumn)
   # Column for destination
   newCell = gtk.CellRendererText()
   newCell.set_property('xalign', 0.50)
   newColumn = gtk.TreeViewColumn(_('Port NR'), newCell, text=COL_PORTNR)
+  newColumn.set_sort_column_id(COL_PORTNR)
   treeview.append_column(newColumn)
 
 # Signals handlers
@@ -313,14 +373,19 @@ gw = gladeFile.get_widget
 winMain = gw('winMain')
 winMain.set_icon_from_file(APP_LOGO)
 tvwMachines = gw('tvwMachines')
-# Model for selection, machine name, mac address, destination, port number
-modelMachines = gtk.ListStore(bool, str, str, str, int)
-tvwMachines.set_model(modelMachines)
-loadMachines()
-createColumns(tvwMachines)
+# Model for selection, machine name, mac address, request type, destination, port number
+modelMachines = gtk.ListStore(bool, str, str, str, str, int)
 # Machine window
 dlgMachine = gw('dlgMachine')
 dlgMachine.set_icon_from_file(APP_LOGO)
+
+# Load configuration
+loadConfig()
+createColumns(tvwMachines)
+
+tvwMachines.set_model(modelMachines)
+modelMachines.set_sort_column_id(COL_MACHINE, gtk.SORT_ASCENDING)
+
 txtMachineName = gw('txtMachineName')
 txtMACAddress = gw('txtMACAddress')
 lblHostAddress = gw('lblHostAddress')

@@ -129,8 +129,9 @@
     <property name="can_default">True</property>
     <property name="has_default">True</property>
     <property name="border_width">5</property>
+    <property name="resizable">False</property>
     <property name="modal">True</property>
-    <property name="window_position">center-on-parent</property>
+    <property name="window_position">mouse</property>
     <property name="type_hint">normal</property>
     <property name="has_separator">False</property>
     <child internal-child="vbox">
@@ -284,7 +285,7 @@
                     <property name="can_focus">True</property>
                     <property name="max_length">5</property>
                     <property name="invisible_char">&#x25CF;</property>
-                    <property name="adjustment">90 1 65545 1 10 10</property>
+                    <property name="adjustment">90 1 65535 1 10 0</property>
                     <property name="numeric">True</property>
                   </widget>
                   <packing>
