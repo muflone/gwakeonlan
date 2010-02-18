@@ -38,6 +38,7 @@ APP_VERSION = '0.5.0'
 COL_SELECTED, COL_MACHINE, COL_ADDRESS, COL_REQTYPE, COL_DESTINATION, COL_PORTNR = range(6)
 SECTION_MAINWIN = 'main window'
 SECTION_HOSTS = 'hosts'
+ARP_CACHE_FILENAME = '/proc/net/arp'
 
 PATHS = {
   'locale': [
@@ -75,9 +76,9 @@ def readTextFile(filename):
     text = ''
   return text
 
-def showMachineDialog(machine, mac, destination, portnr):
+def showMachineDialog(action_add, machine, mac, destination, portnr):
   "Show the machine dialog with the indicated values, run, then hide"
-  dlgMachine.set_title(machine and _('Edit machine') or _('Add machine'))
+  dlgMachine.set_title(action_add and _('Add a new machine') or _('Edit machine'))
   txtMachineName.set_text(machine)
   txtMACAddress.set_text(mac)
   txtHostAddress.set_text(destination)
@@ -180,7 +181,8 @@ def loadConfig():
         position_width = config.getint(SECTION_MAINWIN, 'width')
         if config.has_option(SECTION_MAINWIN, 'height'):
           position_height = config.getint(SECTION_MAINWIN, 'height')
-        winMain.resize(position_width, position_height)
+        #winMain.resize(position_width, position_height)
+        winMain.set_default_size(position_width, position_height)
 
     # Hosts settings
     if config.has_section(SECTION_HOSTS):
@@ -231,16 +233,8 @@ def on_btnWake_clicked(widget, data=None):
       )
 
 def on_btnAdd_clicked(widget, data=None):
-  "Add a new machine"
-  if showMachineDialog('', '', '255.255.255.255', 9) == gtk.RESPONSE_OK:
-    modelMachines.append([
-      False,
-      txtMachineName.get_text(),
-      formatMAC(txtMACAddress.get_text()),
-      get_request_type(txtHostAddress.get_text()),
-      txtHostAddress.get_text(),
-      spinPortNumber.get_value_as_int()
-    ])
+  "Add a new empty machine"
+  addMachine('', '', '255.255.255.255', 9)
 
 def on_btnEdit_clicked(widget, data=None):
   "Edit the selected machine"
@@ -248,6 +242,7 @@ def on_btnEdit_clicked(widget, data=None):
   if selected:
     iter = modelMachines[selected]
     if showMachineDialog(
+      False,
       iter[COL_MACHINE],
       iter[COL_ADDRESS],
       iter[COL_DESTINATION],
@@ -307,6 +302,47 @@ def on_radioRequest_toggled(widget, data=None):
   lblHostAddress.set_sensitive(active)
   txtHostAddress.set_sensitive(active)
 
+def addMachine(machine, mac, destination, portnr):
+  "Show the dialog to add a machine with specified arguments"
+  if showMachineDialog(True, machine, mac, destination, portnr) == gtk.RESPONSE_OK:
+    modelMachines.append([
+      False,
+      txtMachineName.get_text(),
+      formatMAC(txtMACAddress.get_text()),
+      get_request_type(txtHostAddress.get_text()),
+      txtHostAddress.get_text(),
+      spinPortNumber.get_value_as_int()
+    ])
+  
+def on_btnAdd_show_menu(widget, data=None):
+  "Detect machines from the arp cache"
+  if os.path.isfile(ARP_CACHE_FILENAME):
+    try:
+      arpf = open(ARP_CACHE_FILENAME, 'r')
+      # Remove previous detected addresses
+      for item in menuDetected.get_children():
+        menuDetected.remove(item)
+      detected_addresses.clear()
+
+      # Skip first and last line
+      for line in arpf.readlines()[1:]:
+        if line:
+          # Add IP address
+          menu_item = gtk.MenuItem(line[:17].rstrip())
+          menu_item.show()
+          menu_item.connect('activate', on_menuitemMachineDetected_activate)
+          detected_addresses[line[:17].rstrip()] = (menu_item, line[41:59])
+          menuDetected.append(menu_item)
+      arpf.close()
+    except:
+      print 'unable to read from %s' % ARP_CACHE_FILENAME
+  
+def on_menuitemMachineDetected_activate(widget, data=None):
+  "Add a detected machine from the arp cache"
+  ip_address = widget.get_children()[0].get_label()
+  mac_address = detected_addresses[ip_address][1].upper()
+  addMachine(ip_address, mac_address, '255.255.255.255', 9)
+
 def createColumns(treeview):
   # Column for selected
   newCell = gtk.CellRendererToggle()
@@ -355,6 +391,8 @@ signals = {
   'on_btnAdd_clicked': on_btnAdd_clicked,
   'on_btnEdit_clicked': on_btnEdit_clicked,
   'on_btnDelete_clicked': on_btnDelete_clicked,
+  'on_btnAdd_show_menu': on_btnAdd_show_menu,
+  'on_menuitemMachineDetected_activate': on_menuitemMachineDetected_activate,
   'on_btnAbout_clicked': on_btnAbout_clicked,
   'on_radioRequest_toggled': on_radioRequest_toggled
 }
@@ -373,19 +411,15 @@ gw = gladeFile.get_widget
 winMain = gw('winMain')
 winMain.set_icon_from_file(APP_LOGO)
 tvwMachines = gw('tvwMachines')
+btnAdd = gw('btnAdd')
+menuDetected = gw('menuitemMachineDetected').get_submenu()
+detected_addresses = {}
 # Model for selection, machine name, mac address, request type, destination, port number
 modelMachines = gtk.ListStore(bool, str, str, str, str, int)
-# Machine window
+
+# Machine dialog
 dlgMachine = gw('dlgMachine')
 dlgMachine.set_icon_from_file(APP_LOGO)
-
-# Load configuration
-loadConfig()
-createColumns(tvwMachines)
-
-tvwMachines.set_model(modelMachines)
-modelMachines.set_sort_column_id(COL_MACHINE, gtk.SORT_ASCENDING)
-
 txtMachineName = gw('txtMachineName')
 txtMACAddress = gw('txtMACAddress')
 lblHostAddress = gw('lblHostAddress')
@@ -400,6 +434,15 @@ txtMachineName.set_activates_default(True)
 txtMACAddress.set_activates_default(True)
 spinPortNumber.set_activates_default(True)
 txtHostAddress.set_activates_default(True)
+
+# Load configuration
+createColumns(tvwMachines)
+loadConfig()
+tvwMachines.set_model(modelMachines)
+# Auto-resize to the content
+tvwMachines.realize()
+tvwMachines.columns_autosize()
+modelMachines.set_sort_column_id(COL_MACHINE, gtk.SORT_ASCENDING)
 
 winMain.show()
 gtk.main()

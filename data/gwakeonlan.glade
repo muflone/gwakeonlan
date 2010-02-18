@@ -12,6 +12,27 @@
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <child>
+          <widget class="GtkMenuBar" id="menubar1">
+            <child>
+              <widget class="GtkMenuItem" id="menuitemMachineDetected">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Detected</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_menuitemMachineDetected_activate"/>
+                <child>
+                  <widget class="GtkMenu" id="menuMachineDetected">
+                    <property name="visible">True</property>
+                  </widget>
+                </child>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
           <widget class="GtkToolbar" id="toolbar1">
             <property name="visible">True</property>
             <child>
@@ -38,12 +59,14 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkToolButton" id="btnAdd">
+              <widget class="GtkMenuToolButton" id="btnAdd">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Add Host</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-add</property>
+                <property name="menu">menuMachineDetected</property>
                 <signal name="clicked" handler="on_btnAdd_clicked"/>
+                <signal name="show_menu" handler="on_btnAdd_show_menu"/>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -101,7 +124,7 @@
           </widget>
           <packing>
             <property name="expand">False</property>
-            <property name="position">0</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -119,7 +142,7 @@
             </child>
           </widget>
           <packing>
-            <property name="position">1</property>
+            <property name="position">2</property>
           </packing>
         </child>
       </widget>
