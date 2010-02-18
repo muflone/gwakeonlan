@@ -1,4 +1,4 @@
-gwakeonlan (0.5.0) all; urgency=low
+gwakeonlan (0.5) all; urgency=low
 
   * Added support for internet wake up.
   * Added UDP port number specification.
@@ -8,8 +8,9 @@ gwakeonlan (0.5.0) all; urgency=low
   * Added window size and position saving when close the app.
   * Added columns sorting on the treeview.
   * Added default sort order for machine names.
+  * Added reading of ARP cache table for last used devices.
 
- -- Muflone <muflone@vbsimple.net>  Sat, 13 Feb 2010 19:39:24 +0100
+ -- Muflone <muflone@vbsimple.net>  Sat, 19 Feb 2010 00:42:24 +0100
 
 gwakeonlan (0.4.1) all; urgency=low
 
