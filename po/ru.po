@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gwakeonlan 0.5.1\n"
+"Project-Id-Version: gwakeonlan 0.5\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-02-18 23:46+0100\n"
 "PO-Revision-Date: 2010-02-18 23:48+0100\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../data/gwakeonlan.glade.h:1
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr ""
+msgstr "<big><b>Введите имя и MAC адрес компьютера</b></big>"
 
 #: ../data/gwakeonlan.glade.h:2
 msgid "About"
@@ -40,11 +40,11 @@ msgstr "Редактировать"
 
 #: ../data/gwakeonlan.glade.h:6
 msgid "MAC _Address:"
-msgstr "M_AC адрес:"
+msgstr "MAC _адрес:"
 
 #: ../data/gwakeonlan.glade.h:7
 msgid "Request type:"
-msgstr ""
+msgstr "Тип запроса:"
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
@@ -52,59 +52,59 @@ msgstr "Включить"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"
-msgstr ""
+msgstr "_Расположение компьютера:"
 
 #: ../data/gwakeonlan.glade.h:10
 msgid "_Internet"
-msgstr ""
+msgstr "_Интернет"
 
 #: ../data/gwakeonlan.glade.h:11
 msgid "_Local (broadcast)"
-msgstr ""
+msgstr "_Локальная сеть"
 
 #: ../data/gwakeonlan.glade.h:12
 msgid "_Machine name:"
-msgstr ""
+msgstr "_Имя компьютера:"
 
 #: ../data/gwakeonlan.glade.h:13
 msgid "_UDP port number:"
-msgstr ""
+msgstr "_Номер порта UDP:"
 
 #: ../gwakeonlan:81
 msgid "Add a new machine"
-msgstr ""
+msgstr "Добавить компьютер"
 
 #: ../gwakeonlan:81
 msgid "Edit machine"
-msgstr ""
+msgstr "Редактировать"
 
 #: ../gwakeonlan:106
 msgid "Missing machine name"
-msgstr ""
+msgstr "Не задано имя компьютера"
 
 #: ../gwakeonlan:108
 msgid "Invalid MAC address"
-msgstr ""
+msgstr "Неверный MAC адрес"
 
 #: ../gwakeonlan:110
 msgid "Invalid destination host"
-msgstr ""
+msgstr "Неверное расположение"
 
 #: ../gwakeonlan:131
 msgid "Local"
-msgstr ""
+msgstr "Сеть"
 
 #: ../gwakeonlan:131
 msgid "Internet"
-msgstr ""
+msgstr "Интернет"
 
 #: ../gwakeonlan:265
 msgid "Are you sure you want to remove the selected machine?"
-msgstr ""
+msgstr "Удалить выбранный компьютер из списка?"
 
 #: ../gwakeonlan:267
 msgid "Delete machine"
-msgstr ""
+msgstr "Удалить компьютер"
 
 #: ../gwakeonlan:280
 msgid ""
@@ -114,7 +114,7 @@ msgstr ""
 
 #: ../gwakeonlan:357
 msgid "Machine name"
-msgstr ""
+msgstr "Имя компьютера"
 
 #: ../gwakeonlan:365
 msgid "MAC address"
@@ -122,12 +122,12 @@ msgstr "MAC адрес"
 
 #: ../gwakeonlan:370
 msgid "Request type"
-msgstr ""
+msgstr "Тип запроса"
 
 #: ../gwakeonlan:375
 msgid "Destination"
-msgstr ""
+msgstr "Расположение"
 
 #: ../gwakeonlan:383
 msgid "Port NR"
-msgstr ""
+msgstr "Порт"

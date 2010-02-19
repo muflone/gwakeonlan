@@ -6,11 +6,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gwakeonlan 0.5.1\n"
+"Project-Id-Version: gwakeonlan 0.5\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-02-18 23:46+0100\n"
 "PO-Revision-Date: 2010-02-18 23:48+0100\n"
-"Last-Translator: Emmanuel <info@simple-linux.com>\n"
+"Last-Translator: Emmanuel <emmanuel@simple-linux.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../data/gwakeonlan.glade.h:1
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr ""
+msgstr "<big><b>Insérer le nom de la machine et son adresse MAC</b></big>"
 
 #: ../data/gwakeonlan.glade.h:2
 msgid "About"
@@ -43,7 +43,7 @@ msgstr "_Adresse MAC:"
 
 #: ../data/gwakeonlan.glade.h:7
 msgid "Request type:"
-msgstr ""
+msgstr "Type de requête:"
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
@@ -51,59 +51,59 @@ msgstr "Allumer"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"
-msgstr ""
+msgstr "Hôte de _destination:"
 
 #: ../data/gwakeonlan.glade.h:10
 msgid "_Internet"
-msgstr ""
+msgstr "_Internet"
 
 #: ../data/gwakeonlan.glade.h:11
 msgid "_Local (broadcast)"
-msgstr ""
+msgstr "_Local (diffusion)"
 
 #: ../data/gwakeonlan.glade.h:12
 msgid "_Machine name:"
-msgstr ""
+msgstr "Nom de la _machine:"
 
 #: ../data/gwakeonlan.glade.h:13
 msgid "_UDP port number:"
-msgstr ""
+msgstr "Numéro porte _UDP:"
 
 #: ../gwakeonlan:81
 msgid "Add a new machine"
-msgstr ""
+msgstr "Ajouter une nouvelle machine"
 
 #: ../gwakeonlan:81
 msgid "Edit machine"
-msgstr ""
+msgstr "Éditer machine"
 
 #: ../gwakeonlan:106
 msgid "Missing machine name"
-msgstr ""
+msgstr "Nom de la machine manquant"
 
 #: ../gwakeonlan:108
 msgid "Invalid MAC address"
-msgstr ""
+msgstr "Adresse MAC pas valide"
 
 #: ../gwakeonlan:110
 msgid "Invalid destination host"
-msgstr ""
+msgstr "Hôte de destination pas valide"
 
 #: ../gwakeonlan:131
 msgid "Local"
-msgstr ""
+msgstr "Local"
 
 #: ../gwakeonlan:131
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../gwakeonlan:265
 msgid "Are you sure you want to remove the selected machine?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer la machine sélectionnée?"
 
 #: ../gwakeonlan:267
 msgid "Delete machine"
-msgstr ""
+msgstr "Éliminer machine"
 
 #: ../gwakeonlan:280
 msgid ""
@@ -114,7 +114,7 @@ msgstr ""
 
 #: ../gwakeonlan:357
 msgid "Machine name"
-msgstr ""
+msgstr "Nom de la machine"
 
 #: ../gwakeonlan:365
 msgid "MAC address"
@@ -122,12 +122,12 @@ msgstr "Adresse MAC"
 
 #: ../gwakeonlan:370
 msgid "Request type"
-msgstr ""
+msgstr "Type de requête"
 
 #: ../gwakeonlan:375
 msgid "Destination"
-msgstr ""
+msgstr "Destination"
 
 #: ../gwakeonlan:383
 msgid "Port NR"
-msgstr ""
+msgstr "Porte NR"
