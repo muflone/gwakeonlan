@@ -12,32 +12,12 @@
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <child>
-          <widget class="GtkMenuBar" id="menubar1">
-            <child>
-              <widget class="GtkMenuItem" id="menuitemMachineDetected">
-                <property name="visible">True</property>
-                <property name="label">Detected</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_menuitemMachineDetected_activate"/>
-                <child>
-                  <widget class="GtkMenu" id="menuMachineDetected">
-                    <property name="visible">True</property>
-                  </widget>
-                </child>
-              </widget>
-            </child>
-          </widget>
-          <packing>
-            <property name="expand">False</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
           <widget class="GtkToolbar" id="toolbar1">
             <property name="visible">True</property>
             <child>
               <widget class="GtkToolButton" id="btnWake">
                 <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Turn On</property>
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Turn On</property>
                 <property name="use_underline">True</property>
@@ -61,10 +41,10 @@
             <child>
               <widget class="GtkMenuToolButton" id="btnAdd">
                 <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Add machine</property>
                 <property name="label" translatable="yes">Add machine</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-add</property>
-                <property name="menu">menuMachineDetected</property>
                 <signal name="clicked" handler="on_btnAdd_clicked"/>
                 <signal name="show_menu" handler="on_btnAdd_show_menu"/>
               </widget>
@@ -76,6 +56,7 @@
             <child>
               <widget class="GtkToolButton" id="btnEdit">
                 <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Edit Machine</property>
                 <property name="label" translatable="yes">Edit Machine</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-edit</property>
@@ -89,6 +70,7 @@
             <child>
               <widget class="GtkToolButton" id="btnDelete">
                 <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Delete Machine</property>
                 <property name="label" translatable="yes">Delete Machine</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-remove</property>
@@ -111,6 +93,7 @@
             <child>
               <widget class="GtkToolButton" id="btnAbout">
                 <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">About</property>
                 <property name="label" translatable="yes">About</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-about</property>
@@ -124,7 +107,7 @@
           </widget>
           <packing>
             <property name="expand">False</property>
-            <property name="position">1</property>
+            <property name="position">0</property>
           </packing>
         </child>
         <child>
@@ -142,7 +125,7 @@
             </child>
           </widget>
           <packing>
-            <property name="position">2</property>
+            <property name="position">1</property>
           </packing>
         </child>
       </widget>
@@ -163,7 +146,7 @@
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child>
-          <widget class="GtkVBox" id="vbox1">
+          <widget class="GtkVBox" id="vbox2">
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <property name="spacing">6</property>

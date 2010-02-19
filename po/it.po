@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gwakeonlan 0.5\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-02-18 23:46+0100\n"
-"PO-Revision-Date: 2010-02-18 23:48+0100\n"
+"PO-Revision-Date: 2010-02-19 15:11+0100\n"
 "Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
 "Language-Team: Italian\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "Tipo di richiesta:"
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
-msgstr "Accendere"
+msgstr "Accendi"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"
@@ -63,11 +63,11 @@ msgstr "_Locale (broadcast)"
 
 #: ../data/gwakeonlan.glade.h:12
 msgid "_Machine name:"
-msgstr "Nome _macchina:"
+msgstr "Nome della _macchina:"
 
 #: ../data/gwakeonlan.glade.h:13
 msgid "_UDP port number:"
-msgstr "Numero porta _UDP:"
+msgstr "Numero di porta _UDP:"
 
 #: ../gwakeonlan:81
 msgid "Add a new machine"
@@ -79,7 +79,7 @@ msgstr "Modifica macchina"
 
 #: ../gwakeonlan:106
 msgid "Missing machine name"
-msgstr "Nome macchina mancante"
+msgstr "Nome della macchina mancante"
 
 #: ../gwakeonlan:108
 msgid "Invalid MAC address"
@@ -106,28 +106,30 @@ msgid "Delete machine"
 msgstr "Elimina macchina"
 
 #: ../gwakeonlan:280
-msgid ""
-"A GTK+ utility to awake turned off computers through the Wake on LAN feature."
-msgstr ""
-"Un'utilità GTK+ per risvegliare computer spenti attraverso la caratteristica "
-"Wake On LAN."
+msgid "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
+msgstr "Un'utilità GTK+ per risvegliare computer spenti attraverso la caratteristica Wake On LAN."
 
-#: ../gwakeonlan:357
+#: ../gwakeonlan:342
+msgid "No machines detected"
+msgstr "Nessuna macchina rilevata"
+
+#: ../gwakeonlan:364
 msgid "Machine name"
-msgstr "Nome macchina"
+msgstr "Nome della macchina"
 
-#: ../gwakeonlan:365
+#: ../gwakeonlan:372
 msgid "MAC address"
 msgstr "Indirizzo MAC"
 
-#: ../gwakeonlan:370
+#: ../gwakeonlan:377
 msgid "Request type"
 msgstr "Tipo di richiesta"
 
-#: ../gwakeonlan:375
+#: ../gwakeonlan:382
 msgid "Destination"
 msgstr "Destinazione"
 
-#: ../gwakeonlan:383
+#: ../gwakeonlan:390
 msgid "Port NR"
 msgstr "NR porta"
+

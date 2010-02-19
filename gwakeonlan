@@ -316,13 +316,14 @@ def addMachine(machine, mac, destination, portnr):
   
 def on_btnAdd_show_menu(widget, data=None):
   "Detect machines from the arp cache"
+  # Remove previous detected addresses
+  for item in menuDetected.get_children():
+    menuDetected.remove(item)
+  detected_addresses.clear()
+  # Read ARP cache file
   if os.path.isfile(ARP_CACHE_FILENAME):
     try:
       arpf = open(ARP_CACHE_FILENAME, 'r')
-      # Remove previous detected addresses
-      for item in menuDetected.get_children():
-        menuDetected.remove(item)
-      detected_addresses.clear()
 
       # Skip first and last line
       for line in arpf.readlines()[1:]:
@@ -336,6 +337,12 @@ def on_btnAdd_show_menu(widget, data=None):
       arpf.close()
     except:
       print 'unable to read from %s' % ARP_CACHE_FILENAME
+  # If no machines are detected add a disabled caption
+  if not menuDetected.get_children():
+    menu_item = gtk.MenuItem(_('No machines detected'))
+    menu_item.set_sensitive(False)
+    menu_item.show()
+    menuDetected.append(menu_item)
   
 def on_menuitemMachineDetected_activate(widget, data=None):
   "Add a detected machine from the arp cache"
@@ -412,7 +419,11 @@ winMain = gw('winMain')
 winMain.set_icon_from_file(APP_LOGO)
 tvwMachines = gw('tvwMachines')
 btnAdd = gw('btnAdd')
-menuDetected = gw('menuitemMachineDetected').get_submenu()
+#menuDetected = gw('menuitemMachineDetected').get_submenu()
+menuDetected = gtk.Menu()
+#menuDetected.connect('
+btnAdd.set_menu(menuDetected)
+
 detected_addresses = {}
 # Model for selection, machine name, mac address, request type, destination, port number
 modelMachines = gtk.ListStore(bool, str, str, str, str, int)

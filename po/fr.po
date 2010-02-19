@@ -112,22 +112,26 @@ msgstr ""
 "Un outil GTK+ pour réveiller les ordinateurs éteints grâce à la "
 "caractéristique Wake On LAN."
 
-#: ../gwakeonlan:357
+#: ../gwakeonlan:342
+msgid "No machines detected"
+msgstr "Aucune machine détectée"
+
+#: ../gwakeonlan:364
 msgid "Machine name"
 msgstr "Nom de la machine"
 
-#: ../gwakeonlan:365
+#: ../gwakeonlan:372
 msgid "MAC address"
 msgstr "Adresse MAC"
 
-#: ../gwakeonlan:370
+#: ../gwakeonlan:377
 msgid "Request type"
 msgstr "Type de requête"
 
-#: ../gwakeonlan:375
+#: ../gwakeonlan:382
 msgid "Destination"
 msgstr "Destination"
 
-#: ../gwakeonlan:383
+#: ../gwakeonlan:390
 msgid "Port NR"
 msgstr "Porte NR"

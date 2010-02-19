@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gwakeonlan 0.5\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-02-18 23:46+0100\n"
-"PO-Revision-Date: 2010-02-18 23:48+0100\n"
+"PO-Revision-Date: 2010-02-19 15:11+0100\n"
 "Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
 "Language-Team: Portuguese\n"
 "MIME-Version: 1.0\n"
@@ -106,26 +106,30 @@ msgid "Delete machine"
 msgstr ""
 
 #: ../gwakeonlan:280
-msgid ""
-"A GTK+ utility to awake turned off computers through the Wake on LAN feature."
+msgid "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
 msgstr ""
 
-#: ../gwakeonlan:357
+#: ../gwakeonlan:342
+msgid "No machines detected"
+msgstr ""
+
+#: ../gwakeonlan:364
 msgid "Machine name"
 msgstr ""
 
-#: ../gwakeonlan:365
+#: ../gwakeonlan:372
 msgid "MAC address"
 msgstr ""
 
-#: ../gwakeonlan:370
+#: ../gwakeonlan:377
 msgid "Request type"
 msgstr ""
 
-#: ../gwakeonlan:375
+#: ../gwakeonlan:382
 msgid "Destination"
 msgstr ""
 
-#: ../gwakeonlan:383
+#: ../gwakeonlan:390
 msgid "Port NR"
 msgstr ""
+
