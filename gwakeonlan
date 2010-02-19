@@ -25,9 +25,11 @@ import pygtk
 import ConfigParser
 import os.path
 import sys
+import time
 import struct
 import socket
 import gettext
+from optparse import OptionParser
 from gettext import gettext as _
 
 __file_path__ = os.path.dirname(os.path.abspath(__file__))
@@ -39,6 +41,7 @@ COL_SELECTED, COL_MACHINE, COL_ADDRESS, COL_REQTYPE, COL_DESTINATION, COL_PORTNR
 SECTION_MAINWIN = 'main window'
 SECTION_HOSTS = 'hosts'
 ARP_CACHE_FILENAME = '/proc/net/arp'
+VERBOSE_LEVEL_QUIET, VERBOSE_LEVEL_NORMAL, VERBOSE_LEVEL_MAX = range(3)
 
 PATHS = {
   'locale': [
@@ -65,6 +68,11 @@ def __searchPath(key, append = ''):
         return path
 
 APP_LOGO = __searchPath('gfx', '%s.svg' % APP_NAME)
+
+def logText(text, verbose_level=VERBOSE_LEVEL_NORMAL):
+  "Print a text with current date and time based on verbose level"
+  if verbose_level <= options.verbose_level:
+    print '[%s] %s' % (time.strftime('%Y/%m/%d %H:%M:%S'), text)
 
 def readTextFile(filename):
   "Read a text file and return its content"
@@ -199,8 +207,8 @@ def loadConfig():
     
 def wake_on_lan(macaddress, destination, portnr):
   "Turn on remote machine using WOL."
-  print 'turning on: %s through %s using port number %d' % (
-    macaddress, destination, portnr)
+  logText('turning on: %s through %s using port number %d' % (
+    macaddress, destination, portnr))
   # Magic packet (6 times FF + 16 times MAC address)
   packet = 'FF' * 6 + macaddress.replace(':', '') * 16
   data = []
@@ -208,7 +216,8 @@ def wake_on_lan(macaddress, destination, portnr):
     data.append(struct.pack('B', int(packet[i:i+2], 16)))
 
   # Send magic packet to the destination
-  print 'sending packet %s [%d/%d]\n' % (packet, len(packet), len(data))
+  logText('sending packet %s [%d/%d]\n' % (
+    packet, len(packet), len(data)))
   sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
   sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
   if destination == '255.255.255.255':
@@ -329,14 +338,19 @@ def on_btnAdd_show_menu(widget, data=None):
       for line in arpf.readlines()[1:]:
         if line:
           # Add IP address
+          logText('arp line:\n%s' % line, VERBOSE_LEVEL_MAX)
           menu_item = gtk.MenuItem(line[:17].rstrip())
           menu_item.show()
           menu_item.connect('activate', on_menuitemMachineDetected_activate)
-          detected_addresses[line[:17].rstrip()] = (menu_item, line[41:59])
+          detected_ip = line[:17].rstrip()
+          detected_mac = line[41:58]
+          logText('discovered %s with address %s' % (
+            detected_ip, detected_mac))
+          detected_addresses[detected_ip] = (menu_item, detected_mac)
           menuDetected.append(menu_item)
       arpf.close()
     except:
-      print 'unable to read from %s' % ARP_CACHE_FILENAME
+      logText('unable to read from %s' % ARP_CACHE_FILENAME)
   # If no machines are detected add a disabled caption
   if not menuDetected.get_children():
     menu_item = gtk.MenuItem(_('No machines detected'))
@@ -390,6 +404,17 @@ def createColumns(treeview):
   newColumn = gtk.TreeViewColumn(_('Port NR'), newCell, text=COL_PORTNR)
   newColumn.set_sort_column_id(COL_PORTNR)
   treeview.append_column(newColumn)
+
+# Command line options and arguments
+parser = OptionParser(usage='usage: %prog [options]')
+parser.set_defaults(verbose_level=VERBOSE_LEVEL_NORMAL)
+parser.add_option('-v', '--verbose', dest='verbose_level',
+                  action='store_const', const=VERBOSE_LEVEL_MAX,
+                  help='show error and information messages')
+parser.add_option('-q', '--quiet', dest='verbose_level',
+                  action='store_const', const=VERBOSE_LEVEL_QUIET,
+                  help='hide error and information messages')
+(options, args) = parser.parse_args()
 
 # Signals handlers
 signals = {
