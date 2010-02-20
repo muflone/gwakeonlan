@@ -14,8 +14,7 @@ Description:
 
 Requirements:
   Python >= 2.4
-  Python bindings for GTK2
-  Python bindings for Glade and libglade support
+  Python bindings for GTK2 >= 2.12
   rsvg library
 
 Personal configuration
