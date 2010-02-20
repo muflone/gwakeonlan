@@ -9,7 +9,7 @@ if ! [ -f gwakeonlan.pot ]
 then
   touch gwakeonlan.pot
 fi
-xgettext --language=Python --keyword=_ --keyword=N_ --output gwakeonlan.pot --join-existing ../data/*.glade.h ../gwakeonlan
+xgettext --language=Python --keyword=_ --keyword=N_ --output gwakeonlan.pot ../data/*.glade.h ../gwakeonlan
 rm ../data/*.glade.h
 echo ok
 read

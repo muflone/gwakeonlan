@@ -1,137 +1,235 @@
 <?xml version="1.0"?>
-<glade-interface>
-  <!-- interface-requires gtk+ 2.16 -->
+<interface>
+  <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy project-wide -->
-  <widget class="GtkWindow" id="winMain">
+  <object class="GtkListStore" id="modelMachines">
+    <columns>
+      <!-- column-name modelFieldSelected -->
+      <column type="gboolean"/>
+      <!-- column-name modelFieldMachine -->
+      <column type="gchararray"/>
+      <!-- column-name modelFieldMacAddress -->
+      <column type="gchararray"/>
+      <!-- column-name modelFieldRequestType -->
+      <column type="gchararray"/>
+      <!-- column-name modelFieldDestination -->
+      <column type="gchararray"/>
+      <!-- column-name modelFieldPortNr -->
+      <column type="gint"/>
+    </columns>
+  </object>
+  <object class="GtkWindow" id="winMain">
     <property name="title">gWakeOnLan</property>
     <property name="default_width">400</property>
     <property name="default_height">250</property>
     <signal name="delete_event" handler="on_winMain_delete_event"/>
     <child>
-      <widget class="GtkVBox" id="vbox1">
+      <object class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <child>
-          <widget class="GtkToolbar" id="toolbar1">
+          <object class="GtkToolbar" id="toolbar1">
             <property name="visible">True</property>
             <child>
-              <widget class="GtkToolButton" id="btnWake">
+              <object class="GtkToolButton" id="btnWake">
                 <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Turn On</property>
+                <property name="tooltip_text" translatable="yes">Turn On</property>
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Turn On</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-execute</property>
                 <signal name="clicked" handler="on_btnWake_clicked"/>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="homogeneous">True</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkSeparatorToolItem" id="btnSeparator">
+              <object class="GtkSeparatorToolItem" id="btnSeparator">
                 <property name="visible">True</property>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="homogeneous">True</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkMenuToolButton" id="btnAdd">
+              <object class="GtkMenuToolButton" id="btnAdd">
                 <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Add machine</property>
+                <property name="tooltip_text" translatable="yes">Add machine</property>
                 <property name="label" translatable="yes">Add machine</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-add</property>
                 <signal name="clicked" handler="on_btnAdd_clicked"/>
                 <signal name="show_menu" handler="on_btnAdd_show_menu"/>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="homogeneous">True</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkToolButton" id="btnEdit">
+              <object class="GtkToolButton" id="btnEdit">
                 <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Edit Machine</property>
-                <property name="label" translatable="yes">Edit Machine</property>
+                <property name="tooltip_text" translatable="yes">Edit machine</property>
+                <property name="label" translatable="yes">Edit machine</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-edit</property>
                 <signal name="clicked" handler="on_btnEdit_clicked"/>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="homogeneous">True</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkToolButton" id="btnDelete">
+              <object class="GtkToolButton" id="btnDelete">
                 <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Delete Machine</property>
-                <property name="label" translatable="yes">Delete Machine</property>
+                <property name="tooltip_text" translatable="yes">Delete machine</property>
+                <property name="label" translatable="yes">Delete machine</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-remove</property>
                 <signal name="clicked" handler="on_btnDelete_clicked"/>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="homogeneous">True</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkSeparatorToolItem" id="btnSeparator2">
+              <object class="GtkSeparatorToolItem" id="btnSeparator2">
                 <property name="visible">True</property>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="homogeneous">True</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkToolButton" id="btnAbout">
+              <object class="GtkToolButton" id="btnAbout">
                 <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">About</property>
+                <property name="tooltip_text" translatable="yes">About</property>
                 <property name="label" translatable="yes">About</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-about</property>
                 <signal name="clicked" handler="on_btnAbout_clicked"/>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="homogeneous">True</property>
               </packing>
             </child>
-          </widget>
+          </object>
           <packing>
             <property name="expand">False</property>
             <property name="position">0</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkScrolledWindow" id="scrollMachines">
+          <object class="GtkScrolledWindow" id="scrollMachines">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="border_width">3</property>
             <property name="hscrollbar_policy">automatic</property>
             <property name="vscrollbar_policy">automatic</property>
             <property name="shadow_type">in</property>
             <child>
-              <widget class="GtkTreeView" id="tvwMachines">
+              <object class="GtkTreeView" id="tvwMachines">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-              </widget>
+                <property name="model">modelMachines</property>
+                <child>
+                  <object class="GtkTreeViewColumn" id="columnSelected">
+                    <property name="clickable">True</property>
+                    <child>
+                      <object class="GtkCellRendererToggle" id="cellSelected">
+                        <signal name="toggled" handler="on_cellSelected_toggled"/>
+                      </object>
+                      <attributes>
+                        <attribute name="active">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="columnMachine">
+                    <property name="resizable">True</property>
+                    <property name="title">Machine name</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellMachine"/>
+                      <attributes>
+                        <attribute name="text">1</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="columnMacAddress">
+                    <property name="title">MAC address</property>
+                    <property name="clickable">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellMacAddress">
+                        <property name="xpad">3</property>
+                      </object>
+                      <attributes>
+                        <attribute name="text">2</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="columnRequestType">
+                    <property name="title">Request type</property>
+                    <property name="clickable">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellRequestType"/>
+                      <attributes>
+                        <attribute name="text">3</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="columnDestination">
+                    <property name="resizable">True</property>
+                    <property name="title">Destination</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellDestination"/>
+                      <attributes>
+                        <attribute name="text">4</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="columnPortNr">
+                    <property name="title">Port NR</property>
+                    <property name="clickable">True</property>
+                    <property name="alignment">0.5</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellPortNr"/>
+                      <attributes>
+                        <attribute name="text">5</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+              </object>
             </child>
-          </widget>
+          </object>
           <packing>
             <property name="position">1</property>
           </packing>
         </child>
-      </widget>
+      </object>
     </child>
-  </widget>
-  <widget class="GtkDialog" id="dlgMachine">
+  </object>
+  <object class="GtkDialog" id="dlgMachine">
     <property name="can_default">True</property>
     <property name="has_default">True</property>
     <property name="border_width">9</property>
@@ -141,36 +239,36 @@
     <property name="type_hint">normal</property>
     <property name="has_separator">False</property>
     <child internal-child="vbox">
-      <widget class="GtkVBox" id="dialog-vbox1">
+      <object class="GtkVBox" id="dialog-vbox1">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child>
-          <widget class="GtkVBox" id="vbox2">
+          <object class="GtkVBox" id="vbox2">
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <property name="spacing">6</property>
             <child>
-              <widget class="GtkLabel" id="lblTitle">
+              <object class="GtkLabel" id="lblTitle">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Insert the machine name and its MAC address&lt;/b&gt;&lt;/big&gt;</property>
                 <property name="use_markup">True</property>
-              </widget>
+              </object>
               <packing>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkHBox" id="hbox1">
+              <object class="GtkHBox" id="hbox1">
                 <property name="visible">True</property>
                 <property name="spacing">7</property>
                 <child>
-                  <widget class="GtkImage" id="imgComputer">
+                  <object class="GtkImage" id="imgComputer">
                     <property name="visible">True</property>
                     <property name="yalign">0.10000000149011612</property>
                     <property name="pixel_size">72</property>
                     <property name="icon_name">computer</property>
-                  </widget>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="padding">4</property>
@@ -178,30 +276,32 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkTable" id="table1">
+                  <object class="GtkTable" id="table1">
                     <property name="visible">True</property>
                     <property name="n_rows">6</property>
                     <property name="n_columns">3</property>
                     <property name="column_spacing">8</property>
                     <property name="row_spacing">7</property>
                     <child>
-                      <widget class="GtkLabel" id="lblMachineName">
+                      <object class="GtkLabel" id="lblMachineName">
                         <property name="visible">True</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">_Machine name:</property>
                         <property name="use_underline">True</property>
-                      </widget>
+                        <property name="mnemonic_widget">txtMachineName</property>
+                      </object>
                       <packing>
                         <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkLabel" id="lblMACAddress">
+                      <object class="GtkLabel" id="lblMACAddress">
                         <property name="visible">True</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">MAC _Address:</property>
                         <property name="use_underline">True</property>
-                      </widget>
+                        <property name="mnemonic_widget">txtMACAddress</property>
+                      </object>
                       <packing>
                         <property name="top_attach">1</property>
                         <property name="bottom_attach">2</property>
@@ -209,24 +309,24 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkEntry" id="txtMachineName">
+                      <object class="GtkEntry" id="txtMachineName">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="max_length">30</property>
                         <property name="invisible_char">&#x25CF;</property>
-                      </widget>
+                      </object>
                       <packing>
                         <property name="left_attach">1</property>
                         <property name="right_attach">3</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkEntry" id="txtMACAddress">
+                      <object class="GtkEntry" id="txtMACAddress">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="max_length">17</property>
                         <property name="invisible_char">&#x25CF;</property>
-                      </widget>
+                      </object>
                       <packing>
                         <property name="left_attach">1</property>
                         <property name="right_attach">3</property>
@@ -235,11 +335,11 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkLabel" id="lblRequestType">
+                      <object class="GtkLabel" id="lblRequestType">
                         <property name="visible">True</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">Request type:</property>
-                      </widget>
+                      </object>
                       <packing>
                         <property name="top_attach">3</property>
                         <property name="bottom_attach">4</property>
@@ -247,13 +347,13 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkEntry" id="txtHostAddress">
+                      <object class="GtkEntry" id="txtHostAddress">
                         <property name="visible">True</property>
                         <property name="sensitive">False</property>
                         <property name="can_focus">True</property>
                         <property name="max_length">128</property>
                         <property name="invisible_char">&#x25CF;</property>
-                      </widget>
+                      </object>
                       <packing>
                         <property name="left_attach">1</property>
                         <property name="right_attach">3</property>
@@ -262,13 +362,14 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkLabel" id="lblHostAddress">
+                      <object class="GtkLabel" id="lblHostAddress">
                         <property name="visible">True</property>
                         <property name="sensitive">False</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">_Destination host:</property>
                         <property name="use_underline">True</property>
-                      </widget>
+                        <property name="mnemonic_widget">txtHostAddress</property>
+                      </object>
                       <packing>
                         <property name="top_attach">4</property>
                         <property name="bottom_attach">5</property>
@@ -276,12 +377,13 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkLabel" id="lblPortNumber">
+                      <object class="GtkLabel" id="lblPortNumber">
                         <property name="visible">True</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">_UDP port number:</property>
                         <property name="use_underline">True</property>
-                      </widget>
+                        <property name="mnemonic_widget">spinPortNumber</property>
+                      </object>
                       <packing>
                         <property name="top_attach">2</property>
                         <property name="bottom_attach">3</property>
@@ -289,14 +391,14 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkSpinButton" id="spinPortNumber">
+                      <object class="GtkSpinButton" id="spinPortNumber">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="max_length">5</property>
                         <property name="invisible_char">&#x25CF;</property>
-                        <property name="adjustment">90 1 65535 1 10 0</property>
+                        <property name="adjustment">adjustment1</property>
                         <property name="numeric">True</property>
-                      </widget>
+                      </object>
                       <packing>
                         <property name="left_attach">1</property>
                         <property name="right_attach">3</property>
@@ -305,7 +407,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkRadioButton" id="radioRequestLocal">
+                      <object class="GtkRadioButton" id="radioRequestLocal">
                         <property name="label" translatable="yes">_Local (broadcast)</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -314,7 +416,7 @@
                         <property name="active">True</property>
                         <property name="draw_indicator">True</property>
                         <signal name="toggled" handler="on_radioRequest_toggled"/>
-                      </widget>
+                      </object>
                       <packing>
                         <property name="left_attach">1</property>
                         <property name="right_attach">2</property>
@@ -323,7 +425,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkRadioButton" id="radioRequestInternet">
+                      <object class="GtkRadioButton" id="radioRequestInternet">
                         <property name="label" translatable="yes">_Internet</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -332,7 +434,7 @@
                         <property name="draw_indicator">True</property>
                         <property name="group">radioRequestLocal</property>
                         <signal name="toggled" handler="on_radioRequest_toggled"/>
-                      </widget>
+                      </object>
                       <packing>
                         <property name="left_attach">2</property>
                         <property name="right_attach">3</property>
@@ -341,45 +443,44 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkLabel" id="lblError">
+                      <object class="GtkLabel" id="lblError">
                         <property name="visible">True</property>
                         <property name="label">&lt;b&gt;&lt;span foreground="red"&gt;ERROR&lt;/span&gt;&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
-                      </widget>
+                      </object>
                       <packing>
                         <property name="right_attach">3</property>
                         <property name="top_attach">5</property>
                         <property name="bottom_attach">6</property>
                       </packing>
                     </child>
-                  </widget>
+                  </object>
                   <packing>
                     <property name="position">1</property>
                   </packing>
                 </child>
-              </widget>
+              </object>
               <packing>
                 <property name="position">1</property>
               </packing>
             </child>
-          </widget>
+          </object>
           <packing>
             <property name="position">1</property>
           </packing>
         </child>
         <child internal-child="action_area">
-          <widget class="GtkHButtonBox" id="dialog-action_area1">
+          <object class="GtkHButtonBox" id="dialog-action_area1">
             <property name="visible">True</property>
             <property name="layout_style">end</property>
             <child>
-              <widget class="GtkButton" id="btnCancel">
+              <object class="GtkButton" id="btnCancel">
                 <property name="label">gtk-cancel</property>
-                <property name="response_id">-6</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">False</property>
@@ -387,30 +488,40 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkButton" id="btnOk">
+              <object class="GtkButton" id="btnOk">
                 <property name="label">gtk-ok</property>
-                <property name="response_id">-5</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="has_default">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
-              </widget>
+              </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
-          </widget>
+          </object>
           <packing>
             <property name="expand">False</property>
             <property name="pack_type">end</property>
             <property name="position">0</property>
           </packing>
         </child>
-      </widget>
+      </object>
     </child>
-  </widget>
-</glade-interface>
+    <action-widgets>
+      <action-widget response="-6">btnCancel</action-widget>
+      <action-widget response="-5">btnOk</action-widget>
+    </action-widgets>
+  </object>
+  <object class="GtkAdjustment" id="adjustment1">
+    <property name="value">90</property>
+    <property name="lower">1</property>
+    <property name="upper">65535</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+</interface>

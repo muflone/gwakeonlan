@@ -20,7 +20,6 @@
 # can be found in the file /usr/share/common-licenses/GPL-2.
 
 import gtk
-import gtk.glade
 import pygtk
 import ConfigParser
 import os.path
@@ -29,6 +28,7 @@ import time
 import struct
 import socket
 import gettext
+import locale
 from optparse import OptionParser
 from gettext import gettext as _
 
@@ -86,7 +86,7 @@ def readTextFile(filename):
 
 def showMachineDialog(action_add, machine, mac, destination, portnr):
   "Show the machine dialog with the indicated values, run, then hide"
-  dlgMachine.set_title(action_add and _('Add a new machine') or _('Edit machine'))
+  dlgMachine.set_title(action_add and _('Add machine') or _('Edit machine'))
   txtMachineName.set_text(machine)
   txtMACAddress.set_text(mac)
   txtHostAddress.set_text(destination)
@@ -301,7 +301,7 @@ def on_btnAbout_clicked(widget, data=None):
   about.run()
   about.destroy()
 
-def on_selected_toggle(renderer, path, data=None):
+def on_cellSelected_toggled(renderer, path, data=None):
   "Select or deselect an item"
   modelMachines[path][COL_SELECTED] = not modelMachines[path][COL_SELECTED]
 
@@ -364,46 +364,40 @@ def on_menuitemMachineDetected_activate(widget, data=None):
   mac_address = detected_addresses[ip_address][1].upper()
   addMachine(ip_address, mac_address, '255.255.255.255', 9)
 
-def createColumns(treeview):
-  # Column for selected
-  newCell = gtk.CellRendererToggle()
-  newColumn = gtk.TreeViewColumn('', newCell, active=COL_SELECTED)
-  newColumn.set_resizable(False)
-  newColumn.set_sort_column_id(COL_SELECTED)
-  newCell.set_property('activatable', True)
-  newCell.connect('toggled', on_selected_toggle)
-  treeview.append_column(newColumn)
-  # Column for machine name
-  newCell = gtk.CellRendererText()
-  newColumn = gtk.TreeViewColumn(_('Machine name'), newCell, text=COL_MACHINE)
-  newColumn.set_resizable(True)
-  newColumn.set_sort_column_id(COL_MACHINE)
-  newColumn.set_expand(True)
-  treeview.append_column(newColumn)
-  # Column for MAC address
-  newCell = gtk.CellRendererText()
-  newCell.set_property('xpad', 3)
-  newColumn = gtk.TreeViewColumn(_('MAC address'), newCell, text=COL_ADDRESS)
-  newColumn.set_sort_column_id(COL_ADDRESS)
-  treeview.append_column(newColumn)
-  # Column for request type
-  newCell = gtk.CellRendererText()
-  newColumn = gtk.TreeViewColumn(_('Request type'), newCell, text=COL_REQTYPE)
-  newColumn.set_sort_column_id(COL_REQTYPE)
-  treeview.append_column(newColumn)
-  # Column for destination
-  newCell = gtk.CellRendererText()
-  newColumn = gtk.TreeViewColumn(_('Destination'), newCell, text=COL_DESTINATION)
-  newColumn.set_resizable(True)
-  newColumn.set_sort_column_id(COL_DESTINATION)
-  newColumn.set_expand(True)
-  treeview.append_column(newColumn)
-  # Column for destination
-  newCell = gtk.CellRendererText()
-  newCell.set_property('xalign', 0.50)
-  newColumn = gtk.TreeViewColumn(_('Port NR'), newCell, text=COL_PORTNR)
-  newColumn.set_sort_column_id(COL_PORTNR)
-  treeview.append_column(newColumn)
+def fixColumns():
+  "Fix column properties not supported by Glade 3.6.3"
+  # Column titles were not marked as translatable so they got excluded from
+  # intltool-extract
+  # Moreover glade 3.6.3 has no support for sort_column_id
+  column = gw('columnSelected')
+  column.set_title('')
+  column.set_sort_column_id(COL_SELECTED)
+
+  column = gw('columnMachine')
+  column.set_title(_('Machine name'))
+  column.set_sort_column_id(COL_MACHINE)
+
+  column = gw('columnMacAddress')
+  column.set_title(_('MAC address'))
+  column.set_sort_column_id(COL_ADDRESS)
+
+  column = gw('columnRequestType')
+  column.set_title(_('Request type'))
+  column.set_sort_column_id(COL_REQTYPE)
+
+  column = gw('columnDestination')
+  column.set_title(_('Destination'))
+  column.set_sort_column_id(COL_DESTINATION)
+
+  column = gw('columnPortNr')
+  column.set_title(_('Port NR'))
+  column.set_sort_column_id(COL_PORTNR)
+  # Doesn't work at all, neither in glade interface, maybe a bug?
+  # cell = gw('columnPortNr').get_cell_renderers()[0]
+  # cell.set_property('xalign', 0.50)
+  # print gw('columnPortNr').get_cell_renderers()[0].get_property('xalign')
+  #
+  
 
 # Command line options and arguments
 parser = OptionParser(usage='usage: %prog [options]')
@@ -426,32 +420,32 @@ signals = {
   'on_btnAdd_show_menu': on_btnAdd_show_menu,
   'on_menuitemMachineDetected_activate': on_menuitemMachineDetected_activate,
   'on_btnAbout_clicked': on_btnAbout_clicked,
-  'on_radioRequest_toggled': on_radioRequest_toggled
+  'on_radioRequest_toggled': on_radioRequest_toggled,
+  'on_cellSelected_toggled': on_cellSelected_toggled
 }
 
 # Load domain for translation
-for module in (gettext, gtk.glade):
+for module in (gettext, locale):
   module.bindtextdomain(APP_NAME, __searchPath('locale'))
   module.textdomain(APP_NAME)
 
 # Load interfaces
-gladeFile = gtk.glade.XML(fname=__searchPath('ui', '%s.glade' % APP_NAME),
-  domain=APP_NAME)
-gladeFile.signal_autoconnect(signals)
-gw = gladeFile.get_widget
+builder = gtk.Builder()
+builder.set_translation_domain(APP_NAME)
+builder.add_from_file(__searchPath('ui', '%s.glade' % APP_NAME))
+builder.connect_signals(signals)
+gw = builder.get_object
+
 # Main window
 winMain = gw('winMain')
 winMain.set_icon_from_file(APP_LOGO)
 tvwMachines = gw('tvwMachines')
 btnAdd = gw('btnAdd')
-#menuDetected = gw('menuitemMachineDetected').get_submenu()
 menuDetected = gtk.Menu()
-#menuDetected.connect('
 btnAdd.set_menu(menuDetected)
 
 detected_addresses = {}
-# Model for selection, machine name, mac address, request type, destination, port number
-modelMachines = gtk.ListStore(bool, str, str, str, str, int)
+modelMachines = gw('modelMachines')
 
 # Machine dialog
 dlgMachine = gw('dlgMachine')
@@ -466,19 +460,19 @@ radioRequestLocal = gw('radioRequestLocal')
 radioRequestInternet = gw('radioRequestInternet')
 lblError = gw('lblError')
 
+dlgMachine.set_default_response(-5)
 txtMachineName.set_activates_default(True)
 txtMACAddress.set_activates_default(True)
 spinPortNumber.set_activates_default(True)
 txtHostAddress.set_activates_default(True)
 
 # Load configuration
-createColumns(tvwMachines)
+fixColumns()
 loadConfig()
 tvwMachines.set_model(modelMachines)
 # Auto-resize columns to the content
 tvwMachines.realize()
 tvwMachines.columns_autosize()
 modelMachines.set_sort_column_id(COL_MACHINE, gtk.SORT_ASCENDING)
-
 winMain.show()
 gtk.main()

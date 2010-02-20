@@ -9,8 +9,11 @@ gwakeonlan (0.5) all; urgency=low
   * Added columns sorting on the treeview.
   * Added default sort order for machine names.
   * Added reading of ARP cache table for last used devices.
+  * Moved from libglade to gtkbuilder.
+  * Added verbose and client command line options.
+  * Various code cleanup.
 
- -- Muflone <muflone@vbsimple.net>  Sat, 19 Feb 2010 10:32:21 +0100
+ -- Muflone <muflone@vbsimple.net>  Sat, 20 Feb 2010 14:15:21 +0100
 
 gwakeonlan (0.4.1) all; urgency=low
 

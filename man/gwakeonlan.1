@@ -9,7 +9,8 @@
 \- Wake up your machines using Wake on LAN.
 
 .SH SYNOPSIS
-gwakeonlan
+.B gwakeonlan
+[options]
 
 .SH DESCRIPTION
 .PP
@@ -22,6 +23,20 @@ enabled. Linux environments can enable this using:
 
 .PP
 ethtool \-s <nic device> wol g
+
+.SH OPTIONS
+This program follow the usual GNU command line syntax, with long
+options starting with two dashes (`\-').
+A summary of options is included below.
+.TP 
+.B \-h, \-\-help
+Show summary of options
+.TP 
+.B \-v, \-\-verbose
+Show all error and information messages
+.TP 
+.B \-q, \-\-quiet
+Hide all error and information messages
 
 .SH FILES
 Hosts list will be kept under ~/.gwakeonlan

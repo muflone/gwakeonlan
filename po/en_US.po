@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gwakeonlan 0.5\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
-"POT-Creation-Date: 2010-02-18 23:46+0100\n"
-"PO-Revision-Date: 2010-02-19 15:11+0100\n"
+"POT-Creation-Date: 2010-02-20 13:27+0100\n"
+"PO-Revision-Date: 2010-02-20 13:27+0100\n"
 "Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -25,17 +25,17 @@ msgstr "<big><b>Insert the machine name and its MAC address</b></big>"
 msgid "About"
 msgstr "About"
 
-#: ../data/gwakeonlan.glade.h:3
+#: ../data/gwakeonlan.glade.h:3 ../gwakeonlan:90
 msgid "Add machine"
 msgstr "Add machine"
 
-#: ../data/gwakeonlan.glade.h:4
-msgid "Delete Machine"
-msgstr "Delete Machine"
+#: ../data/gwakeonlan.glade.h:4 ../gwakeonlan:277
+msgid "Delete machine"
+msgstr "Delete machine"
 
-#: ../data/gwakeonlan.glade.h:5
-msgid "Edit Machine"
-msgstr "Edit Machine"
+#: ../data/gwakeonlan.glade.h:5 ../gwakeonlan:90
+msgid "Edit machine"
+msgstr "Edit machine"
 
 #: ../data/gwakeonlan.glade.h:6
 msgid "MAC _Address:"
@@ -69,67 +69,56 @@ msgstr "_Machine name:"
 msgid "_UDP port number:"
 msgstr "_UDP port number:"
 
-#: ../gwakeonlan:81
-msgid "Add a new machine"
-msgstr "Add a new machine"
-
-#: ../gwakeonlan:81
-msgid "Edit machine"
-msgstr "Edit machine"
-
-#: ../gwakeonlan:106
+#: ../gwakeonlan:115
 msgid "Missing machine name"
 msgstr "Missing machine name"
 
-#: ../gwakeonlan:108
+#: ../gwakeonlan:117
 msgid "Invalid MAC address"
 msgstr "Invalid MAC address"
 
-#: ../gwakeonlan:110
+#: ../gwakeonlan:119
 msgid "Invalid destination host"
 msgstr "Invalid destination host"
 
-#: ../gwakeonlan:131
+#: ../gwakeonlan:140
 msgid "Local"
 msgstr "Local"
 
-#: ../gwakeonlan:131
+#: ../gwakeonlan:140
 msgid "Internet"
 msgstr "Internet"
 
-#: ../gwakeonlan:265
+#: ../gwakeonlan:275
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Are you sure you want to remove the selected machine?"
 
-#: ../gwakeonlan:267
-msgid "Delete machine"
-msgstr "Delete machine"
+#: ../gwakeonlan:290
+msgid ""
+"A GTK+ utility to awake turned off computers through the Wake on LAN feature."
+msgstr ""
+"A GTK+ utility to awake turned off computers through the Wake on LAN feature."
 
-#: ../gwakeonlan:280
-msgid "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
-msgstr "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
-
-#: ../gwakeonlan:342
+#: ../gwakeonlan:357
 msgid "No machines detected"
 msgstr "No machines detected"
 
-#: ../gwakeonlan:364
+#: ../gwakeonlan:378
 msgid "Machine name"
 msgstr "Machine name"
 
-#: ../gwakeonlan:372
+#: ../gwakeonlan:382
 msgid "MAC address"
 msgstr "MAC address"
 
-#: ../gwakeonlan:377
+#: ../gwakeonlan:386
 msgid "Request type"
 msgstr "Request type"
 
-#: ../gwakeonlan:382
+#: ../gwakeonlan:390
 msgid "Destination"
 msgstr "Destination"
 
-#: ../gwakeonlan:390
+#: ../gwakeonlan:394
 msgid "Port NR"
 msgstr "Port NR"
-

@@ -6,6 +6,9 @@ Description:
   gWakeOnLan is a GTK+ utility to awake turned off machines usign the Wake on
   LAN feature.
 
+  It allows to turn on machines in the local network or throught Internet using
+  a destination host and a specified UDP port number.
+
   The machines to turn on need to be shut off with the Wake on LAN magic packet
   enabled.
 
@@ -16,7 +19,7 @@ Requirements:
   rsvg library
 
 Personal configuration
-  User's hosts list will be kept under ~/.gwakeonlan
+  User's hosts list and window configuration will be kept under ~/.gwakeonlan
 
 Please report any bugs in gWakeOnLan to the author:
   Fabio Castelli <muflone@vbsimple.net>
