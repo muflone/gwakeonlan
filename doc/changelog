@@ -1,8 +1,9 @@
 gwakeonlan (0.5.1) all; urgency=low
 
-  * Added german translation by Martin Riemenschneider <admin@martinum4.de>.
+  * Added german translation by Martin Riemenschneider
+  * Fixed spanish translation by Luca Della Ghezza
 
- -- Fabio Castelli <muflone@vbsimple.net>  Sat, 17 Apr 2010 17:26:44 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Tue, 20 Apr 2010 22:03:44 +0100
 
 gwakeonlan (0.5) all; urgency=low
 
@@ -19,14 +20,14 @@ gwakeonlan (0.5) all; urgency=low
   * Added verbose and client command line options.
   * Various code cleanup.
 
- -- Muflone <muflone@vbsimple.net>  Sat, 20 Feb 2010 14:15:21 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Sat, 20 Feb 2010 14:15:21 +0100
 
 gwakeonlan (0.4.1) all; urgency=low
 
   * Added russian translation by Сергей Богатов <hsh@runtu.org>.
   * Fixed typo in manpage.
 
- -- Muflone <muflone@vbsimple.net>  Sat, 13 Feb 2010 19:39:24 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Sat, 13 Feb 2010 19:39:24 +0100
 
 gwakeonlan (0.4) all; urgency=low
 
@@ -35,7 +36,7 @@ gwakeonlan (0.4) all; urgency=low
   * Modified the manpage for further info about bugs reporting and copyright.
   * Bump copyright year
 
- -- Muflone <muflone@vbsimple.net>  Sat, 16 Jan 2010 17:00:40 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Sat, 16 Jan 2010 17:00:40 +0100
 
 gwakeonlan (0.3) all; urgency=low
 
@@ -43,17 +44,17 @@ gwakeonlan (0.3) all; urgency=low
   * Added french translation by Emmanuel <info@simple-linux.com>.
   * Added setup.py for distutils support.
 
- -- Muflone <muflone@vbsimple.net>  Sun, 13 Dic 2009 21:38:10 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Sun, 13 Dic 2009 21:38:10 +0100
 
 gwakeonlan (0.2) all; urgency=low
 
   * Fixed wake_on_lan function which missed the magic packet creation code.
 
- -- Muflone <muflone@vbsimple.net>  Fri, 12 Sep 2009 23:40:00 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Fri, 12 Sep 2009 23:40:00 +0100
 
 gwakeonlan (0.1) all; urgency=low
 
   * Initial release
 
- -- Muflone <muflone@vbsimple.net>  Fri, 6 Sep 2009 00:19:00 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Fri, 6 Sep 2009 00:19:00 +0100
 

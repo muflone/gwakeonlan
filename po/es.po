@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gwakeonlan 0.5\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-02-20 13:27+0100\n"
-"PO-Revision-Date: 2010-02-20 13:27+0100\n"
-"Last-Translator: Matias Bellone <matiasbellone+debian@gmail.com>\n"
+"PO-Revision-Date: 2010-04-20 21:59+0100\n"
+"Last-Translator: Luca Della Ghezza <luca_dgh@hotmail.it\n"
 "Language-Team: Spanish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +43,7 @@ msgstr "Dirección M_AC:"
 
 #: ../data/gwakeonlan.glade.h:7
 msgid "Request type:"
-msgstr ""
+msgstr "Tipo de solicitud:"
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
@@ -51,15 +51,15 @@ msgstr "Encender"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"
-msgstr ""
+msgstr "Host _destinatario:"
 
 #: ../data/gwakeonlan.glade.h:10
 msgid "_Internet"
-msgstr ""
+msgstr "_Internet"
 
 #: ../data/gwakeonlan.glade.h:11
 msgid "_Local (broadcast)"
-msgstr ""
+msgstr "_Local (Broadcast)"
 
 #: ../data/gwakeonlan.glade.h:12
 msgid "_Machine name:"
@@ -67,27 +67,27 @@ msgstr "_Nombre del equipo:"
 
 #: ../data/gwakeonlan.glade.h:13
 msgid "_UDP port number:"
-msgstr ""
+msgstr "Puerto _UDP:"
 
 #: ../gwakeonlan:115
 msgid "Missing machine name"
-msgstr ""
+msgstr "Falta el nombre de la máquina"
 
 #: ../gwakeonlan:117
 msgid "Invalid MAC address"
-msgstr ""
+msgstr "Direccion MAC no valida"
 
 #: ../gwakeonlan:119
 msgid "Invalid destination host"
-msgstr ""
+msgstr "Host destinatario no valido"
 
 #: ../gwakeonlan:140
 msgid "Local"
-msgstr ""
+msgstr "Local"
 
 #: ../gwakeonlan:140
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../gwakeonlan:275
 msgid "Are you sure you want to remove the selected machine?"
@@ -97,11 +97,11 @@ msgstr "¿Está seguro que desea eliminar el equipo seleccionado?"
 msgid ""
 "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
 msgstr ""
-"Una aplicación GTK+ para encender equipos apagados a través de Wake on LAN"
+"Una aplicación GTK+ para encender equipos apagados a través de Wake on LAN."
 
 #: ../gwakeonlan:357
 msgid "No machines detected"
-msgstr ""
+msgstr "Ninguna máquina detectada"
 
 #: ../gwakeonlan:378
 msgid "Machine name"
@@ -113,12 +113,12 @@ msgstr "Dirección MAC"
 
 #: ../gwakeonlan:386
 msgid "Request type"
-msgstr ""
+msgstr "Tipo de solicitud"
 
 #: ../gwakeonlan:390
 msgid "Destination"
-msgstr ""
+msgstr "Destino"
 
 #: ../gwakeonlan:394
 msgid "Port NR"
-msgstr ""
+msgstr "Puerto (número)"
