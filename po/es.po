@@ -51,7 +51,7 @@ msgstr "Encender"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"
-msgstr "Host _destinatario:"
+msgstr "Equipo _destinatario:"
 
 #: ../data/gwakeonlan.glade.h:10
 msgid "_Internet"
@@ -67,7 +67,7 @@ msgstr "_Nombre del equipo:"
 
 #: ../data/gwakeonlan.glade.h:13
 msgid "_UDP port number:"
-msgstr "Puerto _UDP:"
+msgstr "Número de puerto _UDP:"
 
 #: ../gwakeonlan:115
 msgid "Missing machine name"
@@ -79,7 +79,7 @@ msgstr "Direccion MAC no valida"
 
 #: ../gwakeonlan:119
 msgid "Invalid destination host"
-msgstr "Host destinatario no valido"
+msgstr "Equipo destinatario invalido"
 
 #: ../gwakeonlan:140
 msgid "Local"
@@ -121,4 +121,4 @@ msgstr "Destino"
 
 #: ../gwakeonlan:394
 msgid "Port NR"
-msgstr "Puerto (número)"
+msgstr "Puerto numero"
