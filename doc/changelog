@@ -1,3 +1,9 @@
+gwakeonlan (0.5.2) all; urgency=low
+
+  * Added slovak translation by Jozef Riha
+
+ -- Fabio Castelli <muflone@vbsimple.net>  Sat, 29 May 2010 20:37:14 +0100
+
 gwakeonlan (0.5.1) all; urgency=low
 
   * Added german translation by Martin Riemenschneider

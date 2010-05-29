@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-02-20 13:27+0100\n"
 "PO-Revision-Date: 2010-02-20 13:27+0100\n"
-"Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
+"Last-Translator: Jozef Riha <jose1711@gmail.com>\n"
 "Language-Team: Slovak\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,105 +19,106 @@ msgstr ""
 
 #: ../data/gwakeonlan.glade.h:1
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr ""
+msgstr "<big><b>Zadajte názov stroja a jeho MAC adresu</b></big>"
 
 #: ../data/gwakeonlan.glade.h:2
 msgid "About"
-msgstr ""
+msgstr "O programe"
 
 #: ../data/gwakeonlan.glade.h:3 ../gwakeonlan:90
 msgid "Add machine"
-msgstr ""
+msgstr "Pridať stroj"
 
 #: ../data/gwakeonlan.glade.h:4 ../gwakeonlan:277
 msgid "Delete machine"
-msgstr ""
+msgstr "Vymazať stroj"
 
 #: ../data/gwakeonlan.glade.h:5 ../gwakeonlan:90
 msgid "Edit machine"
-msgstr ""
+msgstr "Upraviť stroj"
 
 #: ../data/gwakeonlan.glade.h:6
 msgid "MAC _Address:"
-msgstr ""
+msgstr "MAC _adresa:"
 
 #: ../data/gwakeonlan.glade.h:7
 msgid "Request type:"
-msgstr ""
+msgstr "Typ požiadavky:"
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
-msgstr ""
+msgstr "Zapnúť"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"
-msgstr ""
+msgstr "_Cieľový hostiteľ:"
 
 #: ../data/gwakeonlan.glade.h:10
 msgid "_Internet"
-msgstr ""
+msgstr "_Internet"
 
 #: ../data/gwakeonlan.glade.h:11
 msgid "_Local (broadcast)"
-msgstr ""
+msgstr "_Miestna (broadcast)"
 
 #: ../data/gwakeonlan.glade.h:12
 msgid "_Machine name:"
-msgstr ""
+msgstr "_Názov stroja:"
 
 #: ../data/gwakeonlan.glade.h:13
 msgid "_UDP port number:"
-msgstr ""
+msgstr "Číslo _UDP portu:"
 
 #: ../gwakeonlan:115
 msgid "Missing machine name"
-msgstr ""
+msgstr "Chýba názov stroja"
 
 #: ../gwakeonlan:117
 msgid "Invalid MAC address"
-msgstr ""
+msgstr "Neplatná MAC adresa"
 
 #: ../gwakeonlan:119
 msgid "Invalid destination host"
-msgstr ""
+msgstr "Neplatný cieľový hostiteľ"
 
 #: ../gwakeonlan:140
 msgid "Local"
-msgstr ""
+msgstr "Miestna"
 
 #: ../gwakeonlan:140
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../gwakeonlan:275
 msgid "Are you sure you want to remove the selected machine?"
-msgstr ""
+msgstr "Naozaj chcete odstrániť vybraný stroj?"
 
 #: ../gwakeonlan:290
 msgid ""
 "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
 msgstr ""
+"GTK+ utilita na prebudenie vypnutých počítačov pomocou Wake on LAN."
 
 #: ../gwakeonlan:357
 msgid "No machines detected"
-msgstr ""
+msgstr "Neboli zistené žiadne stroje"
 
 #: ../gwakeonlan:378
 msgid "Machine name"
-msgstr ""
+msgstr "Názov stroja"
 
 #: ../gwakeonlan:382
 msgid "MAC address"
-msgstr ""
+msgstr "MAC adresa"
 
 #: ../gwakeonlan:386
 msgid "Request type"
-msgstr ""
+msgstr "Typ požiadavky"
 
 #: ../gwakeonlan:390
 msgid "Destination"
-msgstr ""
+msgstr "Cieľ"
 
 #: ../gwakeonlan:394
 msgid "Port NR"
-msgstr ""
+msgstr "Port NR"
