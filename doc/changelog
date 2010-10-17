@@ -1,23 +1,19 @@
-gwakeonlan (0.5.3) all; urgency=low
+gwakeonlan 0.5.1
 
   * Added dutch translation by Thomas De Rocker
 
  -- Fabio Castelli <muflone@vbsimple.net>  Sun, 17 Oct 2010 12:24:25 +0200
 
-gwakeonlan (0.5.2) all; urgency=low
-
   * Added slovak translation by Jozef Riha
 
  -- Fabio Castelli <muflone@vbsimple.net>  Sat, 29 May 2010 20:37:14 +0100
-
-gwakeonlan (0.5.1) all; urgency=low
 
   * Added german translation by Martin Riemenschneider
   * Fixed spanish translation by Luca Della Ghezza
 
  -- Fabio Castelli <muflone@vbsimple.net>  Tue, 20 Apr 2010 22:03:44 +0100
 
-gwakeonlan (0.5) all; urgency=low
+gwakeonlan 0.5
 
   * Added support for internet wake up.
   * Added UDP port number specification.
@@ -34,14 +30,14 @@ gwakeonlan (0.5) all; urgency=low
 
  -- Fabio Castelli <muflone@vbsimple.net>  Sat, 20 Feb 2010 14:15:21 +0100
 
-gwakeonlan (0.4.1) all; urgency=low
+gwakeonlan 0.4.1
 
   * Added russian translation by Сергей Богатов <hsh@runtu.org>.
   * Fixed typo in manpage.
 
  -- Fabio Castelli <muflone@vbsimple.net>  Sat, 13 Feb 2010 19:39:24 +0100
 
-gwakeonlan (0.4) all; urgency=low
+gwakeonlan 0.4
 
   * Added spanish translation by Matias Bellone <matiasbellone+debian@gmail.com>.
   * Added doc/translators for translators notice on about dialog.
@@ -50,7 +46,7 @@ gwakeonlan (0.4) all; urgency=low
 
  -- Fabio Castelli <muflone@vbsimple.net>  Sat, 16 Jan 2010 17:00:40 +0100
 
-gwakeonlan (0.3) all; urgency=low
+gwakeonlan 0.3
 
   * Added confirmation before delete an existing host.
   * Added french translation by Emmanuel <info@simple-linux.com>.
@@ -58,13 +54,13 @@ gwakeonlan (0.3) all; urgency=low
 
  -- Fabio Castelli <muflone@vbsimple.net>  Sun, 13 Dic 2009 21:38:10 +0100
 
-gwakeonlan (0.2) all; urgency=low
+gwakeonlan 0.2
 
   * Fixed wake_on_lan function which missed the magic packet creation code.
 
  -- Fabio Castelli <muflone@vbsimple.net>  Fri, 12 Sep 2009 23:40:00 +0100
 
-gwakeonlan (0.1) all; urgency=low
+gwakeonlan 0.1
 
   * Initial release
 
