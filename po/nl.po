@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gwakeonlan 0.5\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-02-20 13:27+0100\n"
-"PO-Revision-Date: 2010-02-20 13:27+0100\n"
-"Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
+"PO-Revision-Date: 2010-10-17 12:09+0200\n"
+"Last-Translator: Thomas De Rocker <thomasderocker.at.h0tmail.d0t.c0m>\n"
 "Language-Team: Dutch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,105 +19,107 @@ msgstr ""
 
 #: ../data/gwakeonlan.glade.h:1
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr ""
+msgstr "<big><b>Voeg de computernaam en zijn MAC-adres in</b></big>"
 
 #: ../data/gwakeonlan.glade.h:2
 msgid "About"
-msgstr ""
+msgstr "Over"
 
 #: ../data/gwakeonlan.glade.h:3 ../gwakeonlan:90
 msgid "Add machine"
-msgstr ""
+msgstr "Toevoegen"
 
 #: ../data/gwakeonlan.glade.h:4 ../gwakeonlan:277
 msgid "Delete machine"
-msgstr ""
+msgstr "Wissen"
 
 #: ../data/gwakeonlan.glade.h:5 ../gwakeonlan:90
 msgid "Edit machine"
-msgstr ""
+msgstr "Bewerken"
 
 #: ../data/gwakeonlan.glade.h:6
 msgid "MAC _Address:"
-msgstr ""
+msgstr "MAC-_adres:"
 
 #: ../data/gwakeonlan.glade.h:7
 msgid "Request type:"
-msgstr ""
+msgstr "Type aanvraag:"
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
-msgstr ""
+msgstr "Aanzetten"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"
-msgstr ""
+msgstr "_Doelcomputer:"
 
 #: ../data/gwakeonlan.glade.h:10
 msgid "_Internet"
-msgstr ""
+msgstr "_Internet"
 
 #: ../data/gwakeonlan.glade.h:11
 msgid "_Local (broadcast)"
-msgstr ""
+msgstr "_Lokaal (uitzenden)"
 
 #: ../data/gwakeonlan.glade.h:12
 msgid "_Machine name:"
-msgstr ""
+msgstr "_Computernaamnaam:"
 
 #: ../data/gwakeonlan.glade.h:13
 msgid "_UDP port number:"
-msgstr ""
+msgstr "_UDP-poortnummer:"
 
 #: ../gwakeonlan:115
 msgid "Missing machine name"
-msgstr ""
+msgstr "Ontbrekende computernaam"
 
 #: ../gwakeonlan:117
 msgid "Invalid MAC address"
-msgstr ""
+msgstr "Ongeldig MAC-adres"
 
 #: ../gwakeonlan:119
 msgid "Invalid destination host"
-msgstr ""
+msgstr "Ongeldige doelcomputer"
 
 #: ../gwakeonlan:140
 msgid "Local"
-msgstr ""
+msgstr "Lokaal"
 
 #: ../gwakeonlan:140
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../gwakeonlan:275
 msgid "Are you sure you want to remove the selected machine?"
-msgstr ""
+msgstr "Bent u zeker dat u de geselecteerde computer wilt verwijderen?"
 
 #: ../gwakeonlan:290
 msgid ""
 "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
 msgstr ""
+"Een GTK+ toepassing om uitgeschakelde computers aan te zetten door middel van "
+"de Wake on LAN functie"
 
 #: ../gwakeonlan:357
 msgid "No machines detected"
-msgstr ""
+msgstr "Geen computers gedetecteerd"
 
 #: ../gwakeonlan:378
 msgid "Machine name"
-msgstr ""
+msgstr "Computernaam"
 
 #: ../gwakeonlan:382
 msgid "MAC address"
-msgstr ""
+msgstr "MAC-adre"
 
 #: ../gwakeonlan:386
 msgid "Request type"
-msgstr ""
+msgstr "Type aanvraag"
 
 #: ../gwakeonlan:390
 msgid "Destination"
-msgstr ""
+msgstr "Bestemming"
 
 #: ../gwakeonlan:394
 msgid "Port NR"
-msgstr ""
+msgstr "Poortnummer"

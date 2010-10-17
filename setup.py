@@ -63,7 +63,7 @@ class InstallData(install_data):
 
 
 setup(name='gWakeOnLan',
-      version='0.5',
+      version='0.5.3',
       description='Wake up your machines using Wake on LAN.',
       author='Fabio Castelli',
       author_email='muflone@vbsimple.net',
