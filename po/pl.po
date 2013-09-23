@@ -1,124 +1,126 @@
 # gWakeOnLan - Wake up your machines using Wake on LAN.
-# Copyright (C) 2009-2010 Fabio Castelli
+# Copyright (C) 2009-2013 Fabio Castelli <webreg@vbsimple.net>
 # This file is distributed under the GPL v2 license (see copyright file).
-# Fabio Castelli <muflone@vbsimple.net>, 2009-2010.
-# Polish translation for gwakeonlan package.
-#
+# Polish translation for gWakeOnLan.
+# 
+# Translators:
+# bjfs <bjfs84@gmail.com>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: gwakeonlan 0.5\n"
-"Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
+"Project-Id-Version: gWakeOnLan\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/gwakeonlan/issues/list\n"
 "POT-Creation-Date: 2010-02-20 13:27+0100\n"
-"PO-Revision-Date: 2010-02-20 13:27+0100\n"
-"Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
+"PO-Revision-Date: 2011-03-22 15:29+0000\n"
+"Last-Translator: bjfs <bjfs84@gmail.com>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../data/gwakeonlan.glade.h:1
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr ""
+msgstr "<big><b>Wpisz nazwę komputera i jego adres MAC</b></big>"
 
 #: ../data/gwakeonlan.glade.h:2
 msgid "About"
-msgstr ""
+msgstr "O programie"
 
 #: ../data/gwakeonlan.glade.h:3 ../gwakeonlan:90
 msgid "Add machine"
-msgstr ""
+msgstr "Dodaj komputer"
 
 #: ../data/gwakeonlan.glade.h:4 ../gwakeonlan:277
 msgid "Delete machine"
-msgstr ""
+msgstr "Usuń komputer"
 
 #: ../data/gwakeonlan.glade.h:5 ../gwakeonlan:90
 msgid "Edit machine"
-msgstr ""
+msgstr "Edytuj komputer"
 
 #: ../data/gwakeonlan.glade.h:6
 msgid "MAC _Address:"
-msgstr ""
+msgstr "_Adres MAC:"
 
 #: ../data/gwakeonlan.glade.h:7
 msgid "Request type:"
-msgstr ""
+msgstr "Typ żądania:"
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
-msgstr ""
+msgstr "Włącz"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"
-msgstr ""
+msgstr "_Docelowy host:"
 
 #: ../data/gwakeonlan.glade.h:10
 msgid "_Internet"
-msgstr ""
+msgstr "_Internet"
 
 #: ../data/gwakeonlan.glade.h:11
 msgid "_Local (broadcast)"
-msgstr ""
+msgstr "_Lokalny (broadcast)"
 
 #: ../data/gwakeonlan.glade.h:12
 msgid "_Machine name:"
-msgstr ""
+msgstr "Nazwa _komputera:"
 
 #: ../data/gwakeonlan.glade.h:13
 msgid "_UDP port number:"
-msgstr ""
+msgstr "Numer portu _UDP:"
 
 #: ../gwakeonlan:115
 msgid "Missing machine name"
-msgstr ""
+msgstr "Brak nazwy komputera"
 
 #: ../gwakeonlan:117
 msgid "Invalid MAC address"
-msgstr ""
+msgstr "Nieprawidłowy adres MAC"
 
 #: ../gwakeonlan:119
 msgid "Invalid destination host"
-msgstr ""
+msgstr "Nieprawidłowy host docelowy"
 
 #: ../gwakeonlan:140
 msgid "Local"
-msgstr ""
+msgstr "Lokalny"
 
 #: ../gwakeonlan:140
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../gwakeonlan:275
 msgid "Are you sure you want to remove the selected machine?"
-msgstr ""
+msgstr "Czy na pewno usunąć zaznaczony komputer?"
 
 #: ../gwakeonlan:290
 msgid ""
-"A GTK+ utility to awake turned off computers through the Wake on LAN feature."
-msgstr ""
+"A GTK+ utility to awake turned off computers through the Wake on LAN "
+"feature."
+msgstr "Narzędzie GTK+ do budzenia wyłączonych komputerów techniką Wake on LAN."
 
 #: ../gwakeonlan:357
 msgid "No machines detected"
-msgstr ""
+msgstr "Nie wykryto komputerów"
 
 #: ../gwakeonlan:378
 msgid "Machine name"
-msgstr ""
+msgstr "Nazwa komputera"
 
 #: ../gwakeonlan:382
 msgid "MAC address"
-msgstr ""
+msgstr "Adres MAC"
 
 #: ../gwakeonlan:386
 msgid "Request type"
-msgstr ""
+msgstr "Typ żądania"
 
 #: ../gwakeonlan:390
 msgid "Destination"
-msgstr ""
+msgstr "Cel"
 
 #: ../gwakeonlan:394
 msgid "Port NR"
-msgstr ""
+msgstr "Port NR"

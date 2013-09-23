@@ -1,12 +1,13 @@
 # gWakeOnLan - Wake up your machines using Wake on LAN.
-# Copyright (C) 2009-2010 Fabio Castelli
+# Copyright (C) 2009-2013 Fabio Castelli <webreg@vbsimple.net>
 # This file is distributed under the GPL v2 license (see copyright file).
-# Fabio Castelli <muflone@vbsimple.net>, 2009-2010.
-# German translation for gwakeonlan package.
+# German translation for gWakeOnLan.
 #
+# Translators:
+# Martin Riemenschneider <admin@martinum4.de>
 msgid ""
 msgstr ""
-"Project-Id-Version: gwakeonlan 0.5\n"
+"Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-02-20 13:27+0100\n"
 "PO-Revision-Date: 2010-04-04 04:47+0200\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../data/gwakeonlan.glade.h:1
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr "<big><b>Rechnername und die MAC-Adresse eingeben<big><b>"
+msgstr "<big><b>Rechnername und die MAC-Adresse eingeben</b></big>"
 
 #: ../data/gwakeonlan.glade.h:2
 msgid "About"

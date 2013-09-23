@@ -1,58 +1,59 @@
 # gWakeOnLan - Wake up your machines using Wake on LAN.
 # Copyright (C) 2009-2013 Fabio Castelli <webreg@vbsimple.net>
 # This file is distributed under the GPL v2 license (see copyright file).
-# English translation for gWakeOnLan.
-#
+# Slovenian translation for gWakeOnLan.
+# 
 # Translators:
-# Fabio Castelli <webreg@vbsimple.net>, 2009
+# R33D3M33R <andrejm@ubuntu.si>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
-"Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/gwakeonlan/issues/list\n"
 "POT-Creation-Date: 2010-02-20 13:27+0100\n"
-"PO-Revision-Date: 2010-02-20 13:27+0100\n"
-"Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
-"Language-Team: English\n"
+"PO-Revision-Date: 2012-07-12 13:57+0000\n"
+"Last-Translator: R33D3M33R <andrejm@ubuntu.si>\n"
+"Language-Team: Slovenian (Slovenia)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: sl_SI\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: ../data/gwakeonlan.glade.h:1
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr "<big><b>Insert the machine name and its MAC address</b></big>"
+msgstr "<big><b>Vnesite naslov računalnika in njegov strojni naslov</b></big>"
 
 #: ../data/gwakeonlan.glade.h:2
 msgid "About"
-msgstr "About"
+msgstr "O"
 
 #: ../data/gwakeonlan.glade.h:3 ../gwakeonlan:90
 msgid "Add machine"
-msgstr "Add machine"
+msgstr "Dodaj računalnik"
 
 #: ../data/gwakeonlan.glade.h:4 ../gwakeonlan:277
 msgid "Delete machine"
-msgstr "Delete machine"
+msgstr "Izbriši računalnik"
 
 #: ../data/gwakeonlan.glade.h:5 ../gwakeonlan:90
 msgid "Edit machine"
-msgstr "Edit machine"
+msgstr "Uredi računalnik"
 
 #: ../data/gwakeonlan.glade.h:6
 msgid "MAC _Address:"
-msgstr "MAC _Address:"
+msgstr "Strojni n_aslov:"
 
 #: ../data/gwakeonlan.glade.h:7
 msgid "Request type:"
-msgstr "Request type:"
+msgstr "Vrsta zahtevka:"
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
-msgstr "Turn On"
+msgstr "Vklopi"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"
-msgstr "_Destination host:"
+msgstr "_Ciljni gostitelj:"
 
 #: ../data/gwakeonlan.glade.h:10
 msgid "_Internet"
@@ -60,31 +61,31 @@ msgstr "_Internet"
 
 #: ../data/gwakeonlan.glade.h:11
 msgid "_Local (broadcast)"
-msgstr "_Local (broadcast)"
+msgstr "_Krajevno (vsesmerno oddajanje)"
 
 #: ../data/gwakeonlan.glade.h:12
 msgid "_Machine name:"
-msgstr "_Machine name:"
+msgstr "I_me računalnika:"
 
 #: ../data/gwakeonlan.glade.h:13
 msgid "_UDP port number:"
-msgstr "_UDP port number:"
+msgstr "Številka vrat _UDP:"
 
 #: ../gwakeonlan:115
 msgid "Missing machine name"
-msgstr "Missing machine name"
+msgstr "Manjkajoče ime računalnika"
 
 #: ../gwakeonlan:117
 msgid "Invalid MAC address"
-msgstr "Invalid MAC address"
+msgstr "Neveljaven strojni naslov"
 
 #: ../gwakeonlan:119
 msgid "Invalid destination host"
-msgstr "Invalid destination host"
+msgstr "Neveljaven ciljni gostitelj"
 
 #: ../gwakeonlan:140
 msgid "Local"
-msgstr "Local"
+msgstr "Krajevno"
 
 #: ../gwakeonlan:140
 msgid "Internet"
@@ -92,34 +93,34 @@ msgstr "Internet"
 
 #: ../gwakeonlan:275
 msgid "Are you sure you want to remove the selected machine?"
-msgstr "Are you sure you want to remove the selected machine?"
+msgstr "Ali ste prepričani, da želite odstraniti izbran računalnik?"
 
 #: ../gwakeonlan:290
 msgid ""
-"A GTK+ utility to awake turned off computers through the Wake on LAN feature."
-msgstr ""
-"A GTK+ utility to awake turned off computers through the Wake on LAN feature."
+"A GTK+ utility to awake turned off computers through the Wake on LAN "
+"feature."
+msgstr "Pripomoček za GTK+ za zbujanje izklopljenih računalnikov s pomočjo zmožnosti Wake on LAN"
 
 #: ../gwakeonlan:357
 msgid "No machines detected"
-msgstr "No machines detected"
+msgstr "Ni zaznanih računalnikov"
 
 #: ../gwakeonlan:378
 msgid "Machine name"
-msgstr "Machine name"
+msgstr "Ime računalnika"
 
 #: ../gwakeonlan:382
 msgid "MAC address"
-msgstr "MAC address"
+msgstr "Strojni naslov"
 
 #: ../gwakeonlan:386
 msgid "Request type"
-msgstr "Request type"
+msgstr "Vrsta zahtevka"
 
 #: ../gwakeonlan:390
 msgid "Destination"
-msgstr "Destination"
+msgstr "Cilj"
 
 #: ../gwakeonlan:394
 msgid "Port NR"
-msgstr "Port NR"
+msgstr "Št. vrat"

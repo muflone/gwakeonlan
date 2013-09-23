@@ -1,58 +1,59 @@
 # gWakeOnLan - Wake up your machines using Wake on LAN.
 # Copyright (C) 2009-2013 Fabio Castelli <webreg@vbsimple.net>
 # This file is distributed under the GPL v2 license (see copyright file).
-# English translation for gWakeOnLan.
-#
+# Basque translation for gWakeOnLan.
+# 
 # Translators:
-# Fabio Castelli <webreg@vbsimple.net>, 2009
+# Asier Iturralde Sarasola <asier.iturralde@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-02-20 13:27+0100\n"
-"PO-Revision-Date: 2010-02-20 13:27+0100\n"
-"Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
-"Language-Team: English\n"
+"PO-Revision-Date: 2011-09-22 16:07+0000\n"
+"Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>\n"
+"Language-Team: Basque\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/gwakeonlan.glade.h:1
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr "<big><b>Insert the machine name and its MAC address</b></big>"
+msgstr "<big><b>Idatzi gailuaren izena eta MAC helbidea</b></big>"
 
 #: ../data/gwakeonlan.glade.h:2
 msgid "About"
-msgstr "About"
+msgstr "Honi buruz"
 
 #: ../data/gwakeonlan.glade.h:3 ../gwakeonlan:90
 msgid "Add machine"
-msgstr "Add machine"
+msgstr "Gehitu gailua"
 
 #: ../data/gwakeonlan.glade.h:4 ../gwakeonlan:277
 msgid "Delete machine"
-msgstr "Delete machine"
+msgstr "Ezabatu gailua"
 
 #: ../data/gwakeonlan.glade.h:5 ../gwakeonlan:90
 msgid "Edit machine"
-msgstr "Edit machine"
+msgstr "Editatu gailua"
 
 #: ../data/gwakeonlan.glade.h:6
 msgid "MAC _Address:"
-msgstr "MAC _Address:"
+msgstr "_MAC Helbidea:"
 
 #: ../data/gwakeonlan.glade.h:7
 msgid "Request type:"
-msgstr "Request type:"
+msgstr "Eskaera mota:"
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
-msgstr "Turn On"
+msgstr "Piztu"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"
-msgstr "_Destination host:"
+msgstr "_Helburuko ostalaria:"
 
 #: ../data/gwakeonlan.glade.h:10
 msgid "_Internet"
@@ -60,31 +61,31 @@ msgstr "_Internet"
 
 #: ../data/gwakeonlan.glade.h:11
 msgid "_Local (broadcast)"
-msgstr "_Local (broadcast)"
+msgstr "_Lokala (difusioa)"
 
 #: ../data/gwakeonlan.glade.h:12
 msgid "_Machine name:"
-msgstr "_Machine name:"
+msgstr "_Gailuaren izena:"
 
 #: ../data/gwakeonlan.glade.h:13
 msgid "_UDP port number:"
-msgstr "_UDP port number:"
+msgstr "_UDP ataka zenbakia:"
 
 #: ../gwakeonlan:115
 msgid "Missing machine name"
-msgstr "Missing machine name"
+msgstr "Gailuaren izena falta da"
 
 #: ../gwakeonlan:117
 msgid "Invalid MAC address"
-msgstr "Invalid MAC address"
+msgstr "MAC helbide baliogabea"
 
 #: ../gwakeonlan:119
 msgid "Invalid destination host"
-msgstr "Invalid destination host"
+msgstr "Helburuko ostalari baliogabea"
 
 #: ../gwakeonlan:140
 msgid "Local"
-msgstr "Local"
+msgstr "Lokala"
 
 #: ../gwakeonlan:140
 msgid "Internet"
@@ -92,34 +93,34 @@ msgstr "Internet"
 
 #: ../gwakeonlan:275
 msgid "Are you sure you want to remove the selected machine?"
-msgstr "Are you sure you want to remove the selected machine?"
+msgstr "Ziur zaude hautatutako gailua ezabatu nahi duzula?"
 
 #: ../gwakeonlan:290
 msgid ""
-"A GTK+ utility to awake turned off computers through the Wake on LAN feature."
-msgstr ""
-"A GTK+ utility to awake turned off computers through the Wake on LAN feature."
+"A GTK+ utility to awake turned off computers through the Wake on LAN "
+"feature."
+msgstr "Itzalitako ordenagailuak Wake on LAN bidez pizteko GTK+ tresna."
 
 #: ../gwakeonlan:357
 msgid "No machines detected"
-msgstr "No machines detected"
+msgstr "Ez da gailurik detektatu"
 
 #: ../gwakeonlan:378
 msgid "Machine name"
-msgstr "Machine name"
+msgstr "Gailuaren izena"
 
 #: ../gwakeonlan:382
 msgid "MAC address"
-msgstr "MAC address"
+msgstr "MAC helbidea"
 
 #: ../gwakeonlan:386
 msgid "Request type"
-msgstr "Request type"
+msgstr "Eskaera mota"
 
 #: ../gwakeonlan:390
 msgid "Destination"
-msgstr "Destination"
+msgstr "Helburua"
 
 #: ../gwakeonlan:394
 msgid "Port NR"
-msgstr "Port NR"
+msgstr "Ataka zenbakia"

@@ -1,123 +1,126 @@
 # gWakeOnLan - Wake up your machines using Wake on LAN.
-# Copyright (C) 2009-2010 Fabio Castelli
+# Copyright (C) 2009-2013 Fabio Castelli <webreg@vbsimple.net>
 # This file is distributed under the GPL v2 license (see copyright file).
-# Fabio Castelli <muflone@vbsimple.net>, 2009-2010.
-# Turkish translation for gwakeonlan package.
-#
+# Turkish translation for gWakeOnLan.
+# 
+# Translators:
+# Necdet Yücel <necdetyucel@gmail.com>, 2012
 msgid ""
 msgstr ""
-"Project-Id-Version: gwakeonlan 0.5\n"
-"Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
+"Project-Id-Version: gWakeOnLan\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/gwakeonlan/issues/list\n"
 "POT-Creation-Date: 2010-02-20 13:27+0100\n"
-"PO-Revision-Date: 2010-02-20 13:27+0100\n"
-"Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
+"PO-Revision-Date: 2012-05-09 19:34+0000\n"
+"Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
 "Language-Team: Turkish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../data/gwakeonlan.glade.h:1
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr ""
+msgstr "<big><b>Makine adını ve MAC adresini girin</b></big>"
 
 #: ../data/gwakeonlan.glade.h:2
 msgid "About"
-msgstr ""
+msgstr "Hakkında"
 
 #: ../data/gwakeonlan.glade.h:3 ../gwakeonlan:90
 msgid "Add machine"
-msgstr ""
+msgstr "Makine ekle"
 
 #: ../data/gwakeonlan.glade.h:4 ../gwakeonlan:277
 msgid "Delete machine"
-msgstr ""
+msgstr "Makine sil"
 
 #: ../data/gwakeonlan.glade.h:5 ../gwakeonlan:90
 msgid "Edit machine"
-msgstr ""
+msgstr "Makine düzenle"
 
 #: ../data/gwakeonlan.glade.h:6
 msgid "MAC _Address:"
-msgstr ""
+msgstr "MAC _Adresi"
 
 #: ../data/gwakeonlan.glade.h:7
 msgid "Request type:"
-msgstr ""
+msgstr "İstek tipi:"
 
 #: ../data/gwakeonlan.glade.h:8
 msgid "Turn On"
-msgstr ""
+msgstr "Aç"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"
-msgstr ""
+msgstr "_Hedef istemci:"
 
 #: ../data/gwakeonlan.glade.h:10
 msgid "_Internet"
-msgstr ""
+msgstr "_Internet"
 
 #: ../data/gwakeonlan.glade.h:11
 msgid "_Local (broadcast)"
-msgstr ""
+msgstr "_Yerel (broadcast)"
 
 #: ../data/gwakeonlan.glade.h:12
 msgid "_Machine name:"
-msgstr ""
+msgstr "_Makine adı:"
 
 #: ../data/gwakeonlan.glade.h:13
 msgid "_UDP port number:"
-msgstr ""
+msgstr "_UDP port numarası:"
 
 #: ../gwakeonlan:115
 msgid "Missing machine name"
-msgstr ""
+msgstr "Eksik makine adı"
 
 #: ../gwakeonlan:117
 msgid "Invalid MAC address"
-msgstr ""
+msgstr "Geçersiz MAC adresi"
 
 #: ../gwakeonlan:119
 msgid "Invalid destination host"
-msgstr ""
+msgstr "Geçersiz hedef istemci"
 
 #: ../gwakeonlan:140
 msgid "Local"
-msgstr ""
+msgstr "Yerel"
 
 #: ../gwakeonlan:140
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../gwakeonlan:275
 msgid "Are you sure you want to remove the selected machine?"
-msgstr ""
+msgstr "Seçtiğiniz makineyi silmek istediğinizden emin misiniz?"
 
 #: ../gwakeonlan:290
 msgid ""
-"A GTK+ utility to awake turned off computers through the Wake on LAN feature."
-msgstr ""
+"A GTK+ utility to awake turned off computers through the Wake on LAN "
+"feature."
+msgstr "Wake on LAN özelliğini kullanılarak bilgisayarları açmak için bir GTK+ uygulaması."
 
 #: ../gwakeonlan:357
 msgid "No machines detected"
-msgstr ""
+msgstr "Hiç makine bulunamadı"
 
 #: ../gwakeonlan:378
 msgid "Machine name"
-msgstr ""
+msgstr "Makine adı"
 
 #: ../gwakeonlan:382
 msgid "MAC address"
-msgstr ""
+msgstr "MAC adresi"
 
 #: ../gwakeonlan:386
 msgid "Request type"
-msgstr ""
+msgstr "İstek tipi"
 
 #: ../gwakeonlan:390
 msgid "Destination"
-msgstr ""
+msgstr "Hedef"
 
 #: ../gwakeonlan:394
 msgid "Port NR"
-msgstr ""
+msgstr "Port No"
