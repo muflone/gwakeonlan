@@ -73,7 +73,7 @@ setup(name='gWakeOnLan',
       data_files=[
                   ('share/applications', ['data/gwakeonlan.desktop']),
                   ('share/man/man1', ['man/gwakeonlan.1']),
-                  ('share/doc/gwakeonlan', ['doc/README', 'doc/changelog', 'doc/translators']),
+                  ('share/doc/gwakeonlan', ['doc/README', 'doc/changelog', 'doc/translators', 'doc/copyright']),
                   ('share/gwakeonlan', ['data/gwakeonlan.glade', 'data/gwakeonlan.svg']),
                  ],
       cmdclass={'install_data': InstallData}
