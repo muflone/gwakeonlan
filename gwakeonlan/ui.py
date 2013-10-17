@@ -29,11 +29,11 @@ from gwakeonlan.arpcache import ARPCacheWindow
 from gwakeonlan.about import AboutWindow
 
 class MainWindow(object):
-  def __init__(self, application):
+  def __init__(self, application, settings):
     self.application = application
     self.loadUI()
-    self.settings = Settings(self.model)
-    self.settings.load()
+    self.settings = settings
+    self.settings.load_hosts(self.model)
     # Restore the saved size and position
     if self.settings.get_value('width', 0) and self.settings.get_value('height', 0):
       self.winMain.set_default_size(
@@ -121,7 +121,7 @@ class MainWindow(object):
 
   def on_menuitemARPCache_activate(self, widget):
     "Show the ARP cache picker dialog"
-    dialog = ARPCacheWindow(self.winMain, False)
+    dialog = ARPCacheWindow(self.settings, self.winMain, False)
     # Check if the OK button in the dialog was pressed
     if dialog.show() == Gtk.ResponseType.OK:
       # Check if a valid machine with MAC Address was selected
@@ -162,5 +162,6 @@ class MainWindow(object):
         wake_on_lan(
           self.model.get_mac_address(machine),
           self.model.get_portnr(machine),
-          self.model.get_destination(machine)
+          self.model.get_destination(machine),
+          self.settings
         )

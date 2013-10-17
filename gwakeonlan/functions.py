@@ -22,6 +22,7 @@ import struct
 import socket
 from gettext import gettext as _
 from gi.repository import Gtk
+from gwakeonlan.constants import *
 
 def formatMAC(mac):
   "Return the mac address formatted with colon"
@@ -44,8 +45,11 @@ def show_message_dialog_yesno(winParent, message, title, default_response):
   dialog.destroy()
   return response
 
-def wake_on_lan(mac_address, portnr, destination):
+def wake_on_lan(mac_address, portnr, destination, settings):
   "Turn on remote machine using Wake On LAN."
+  settings.logText(
+    'turning on: %s through %s using port number %d' % (
+    mac_address, destination, portnr))
   # Magic packet (6 times FF + 16 times MAC address)
   packet = 'FF' * 6 + mac_address.replace(':', '') * 16
   data = []
@@ -53,6 +57,8 @@ def wake_on_lan(mac_address, portnr, destination):
     data.append(struct.pack('B', int(packet[i:i+2], 16)))
 
   # Send magic packet to the destination
+  settings.logText('sending packet %s [%d/%d]\n' % (
+    packet, len(packet), len(data)), VERBOSE_LEVEL_MAX)
   sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
   sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
   if destination == '255.255.255.255':

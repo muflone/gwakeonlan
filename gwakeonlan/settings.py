@@ -20,8 +20,11 @@
 
 import os
 import os.path
+import optparse
+import time
 import ConfigParser
 from gwakeonlan.functions import *
+from gwakeonlan.constants import *
 
 SECTION_MAINWIN = 'main window'
 SECTION_HOSTS = 'hosts'
@@ -29,10 +32,22 @@ OLD_SETTINGS = os.path.expanduser('~/.gwakeonlan')
 NEW_SETTINGS = os.path.expanduser('~/.config/gwakeonlan.conf')
 
 class Settings(object):
-  def __init__(self, model):
-    self.config = ConfigParser.RawConfigParser()
+  def __init__(self):
     self.settings = {}
-    self.model = model
+    self.model = None
+
+    # Command line options and arguments
+    parser = optparse.OptionParser(usage='usage: %prog [options]')
+    parser.set_defaults(verbose_level=VERBOSE_LEVEL_NORMAL)
+    parser.add_option('-v', '--verbose', dest='verbose_level',
+                      action='store_const', const=VERBOSE_LEVEL_MAX,
+                      help='show error and information messages')
+    parser.add_option('-q', '--quiet', dest='verbose_level',
+                      action='store_const', const=VERBOSE_LEVEL_QUIET,
+                      help='hide error and information messages')
+    (self.options, self.arguments) = parser.parse_args()
+    # Parse settings from the configuration file
+    self.config = ConfigParser.RawConfigParser()
     # Allow saving in case sensitive (useful for machine names)
     self.config.optionxform = str
     # Determine which filename to use for settings
@@ -41,7 +56,7 @@ class Settings(object):
       self.config.read(self.filename)
 
   def load(self):
-    # Main window settings
+    "Load window settings"
     if self.config.has_section(SECTION_MAINWIN):
       # Retrieve window position and size
       if self.config.has_option(SECTION_MAINWIN, 'left'):
@@ -53,7 +68,9 @@ class Settings(object):
       if self.config.has_option(SECTION_MAINWIN, 'height'):
         self.settings['height'] = self.config.getint(SECTION_MAINWIN, 'height')
 
-    # Hosts settings
+  def load_hosts(self, model):
+    "Load hosts settings"
+    self.model = model
     if self.config.has_section(SECTION_HOSTS):
       for machine in self.config.items(SECTION_HOSTS):
         machine = ('%s\\%s\\255.255.255.255\\9' % machine).split('\\', 4)
@@ -99,3 +116,9 @@ class Settings(object):
     if self.filename == OLD_SETTINGS:
       os.remove(OLD_SETTINGS)
       self.filename = NEW_SETTINGS
+
+  def logText(self, text, verbose_level=VERBOSE_LEVEL_NORMAL):
+    "Print a text with current date and time based on verbose level"
+    if verbose_level <= self.options.verbose_level:
+      print '[%s] %s' % (time.strftime('%Y/%m/%d %H:%M:%S'), text)
+

@@ -21,6 +21,7 @@
 
 import gettext
 import locale
+from gwakeonlan.settings import Settings
 from gwakeonlan.app import Application
 from gwakeonlan.constants import *
 
@@ -30,6 +31,10 @@ if __name__ == '__main__':
     module.bindtextdomain(DOMAIN_NAME, DIR_LOCALE)
     module.textdomain(DOMAIN_NAME)
 
+  # Load the settings from the configuration file
+  settings = Settings()
+  settings.load()
+
   # Start the application
-  app = Application()
+  app = Application(settings)
   app.run(None)

@@ -26,8 +26,9 @@ class ModelARPCache(object):
   COL_IPADDRESS = 0
   COL_MACADDRESS = 1
   COL_HOSTNAME = 2
-  def __init__(self, model):
+  def __init__(self, model, settings):
     self.model = model
+    self.settings = settings
 
   def clear(self):
     "Clear the model"
@@ -38,22 +39,28 @@ class ModelARPCache(object):
     self.clear()
     # Read ARP cache file
     if os.path.isfile(ARP_CACHE_FILENAME):
-      arpf = open(ARP_CACHE_FILENAME, 'r')
-      # Skip first and last line
-      for line in arpf.readlines()[1:]:
-        if line:
-          # Add IP Address and MAC address to the model
-          arp_ip = line[:17].rstrip()
-          arp_mac = line[41:58].upper()
-          # Skip incomplete MAC addresses
-          if arp_mac != '00:00:00:00:00:00':
-            detected_hostname = socket.getfqdn(arp_ip)
-            # I will not trust of getfqdn if the returned hostname
-            # is the same of the source IP address
-            if detected_hostname == arp_ip:
-              detected_hostname = ''
-            self.model.append([arp_ip, arp_mac, detected_hostname])
-      arpf.close()
+      try:
+        arpf = open(ARP_CACHE_FILENAME, 'r')
+        # Skip first and last line
+        for line in arpf.readlines()[1:]:
+          if line:
+            # Add IP Address and MAC address to the model
+            self.settings.logText('arp line:\n%s' % line, VERBOSE_LEVEL_MAX)
+            arp_ip = line[:17].rstrip()
+            arp_mac = line[41:58].upper()
+            # Skip incomplete MAC addresses
+            if arp_mac != '00:00:00:00:00:00':
+              detected_hostname = socket.getfqdn(arp_ip)
+              # I will not trust of getfqdn if the returned hostname
+              # is the same of the source IP address
+              if detected_hostname == arp_ip:
+                detected_hostname = ''
+              self.settings.logText('discovered %s with address %s' % (
+                arp_ip, arp_mac))
+              self.model.append([arp_ip, arp_mac, detected_hostname])
+        arpf.close()
+      except:
+        self.settings.logText('unable to read from %s' % ARP_CACHE_FILENAME)
 
   def get_ip_address(self, treeiter):
     "Returns the IP address for the selected TreeIter"

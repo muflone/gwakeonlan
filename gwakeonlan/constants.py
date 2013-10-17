@@ -53,3 +53,7 @@ UI_ABOUT = os.path.join(DIR_UI, 'about.glade')
 UI_APPMENU = os.path.join(DIR_UI, 'appmenu.ui')
 # Set the paths for the data files
 DATA_ICON = os.path.join(DIR_DATA, 'gwakeonlan.png')
+# Verbose level
+VERBOSE_LEVEL_QUIET = 0
+VERBOSE_LEVEL_NORMAL = 1
+VERBOSE_LEVEL_MAX = 2
