@@ -80,8 +80,9 @@ class Settings(object):
   def save(self):
     "Save the whole configuration"
     # Hosts section
-    if not self.config.has_section(SECTION_HOSTS):
-      self.config.add_section(SECTION_HOSTS)
+    if self.config.has_section(SECTION_HOSTS):
+      self.config.remove_section(SECTION_HOSTS)
+    self.config.add_section(SECTION_HOSTS)
     for machine in self.model:
       self.config.set(SECTION_HOSTS,
         self.model.get_machine_name(machine), '%s\\%s\\%d' % (
