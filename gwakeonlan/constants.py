@@ -21,15 +21,16 @@
 import sys
 import os.path
 
+# Application constants
 APP_NAME = 'gWakeOnLAN'
 APP_VERSION = '0.6'
 APP_DESCRIPTION = 'Wake up your machines using Wake on LAN.'
 APP_ID = 'gwakeonlan.muflone.com'
-APP_URL = 'https://github.com/muflone/gwakeonlan'
+APP_URL = 'http://gwakeonlan.muflone.com/'
 APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'webreg@vbsimple.net'
 APP_COPYRIGHT = 'Copyright 2009-2013 %s' % APP_AUTHOR
-
+# Other files
 ARP_CACHE_FILENAME = '/proc/net/arp'
 BROADCAST_ADDRESS = '255.255.255.255'
 DOMAIN_NAME = 'gwakeonlan'
@@ -40,15 +41,15 @@ if os.path.isfile(os.path.join('data', 'gwakeonlan.png')):
   DIR_PREFIX = '.'
 else:
   DIR_PREFIX = os.path.join(sys.prefix, 'share', 'gwakeonlan')
-
+# Set the paths for the folders
 DIR_DATA = os.path.join(DIR_PREFIX, 'data')
 DIR_UI = os.path.join(DIR_PREFIX, 'ui')
 DIR_LOCALE = os.path.join(DIR_PREFIX, 'locale')
-
+# Set the paths for the UI files
 UI_MAIN = os.path.join(DIR_UI, 'main.glade')
 UI_DETAIL = os.path.join(DIR_UI, 'detail.glade')
 UI_ARPCACHE = os.path.join(DIR_UI, 'arpcache.glade')
 UI_ABOUT = os.path.join(DIR_UI, 'about.glade')
 UI_APPMENU = os.path.join(DIR_UI, 'appmenu.ui')
-
+# Set the paths for the data files
 DATA_ICON = os.path.join(DIR_DATA, 'gwakeonlan.png')
