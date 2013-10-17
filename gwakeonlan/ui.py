@@ -33,7 +33,7 @@ class MainWindow(Gtk.Application):
   def __init__(self):
     super(self.__class__, self).__init__(application_id=APP_ID,
       flags=Gio.ApplicationFlags.FLAGS_NONE)
-    self.loadUI(os.path.join(DIR_UI, 'main.glade'))
+    self.loadUI()
     self.settings = Settings(self.model)
     self.settings.load()
     # Restore the saved size and position
@@ -54,10 +54,10 @@ class MainWindow(Gtk.Application):
     self.winMain.show_all()
     Gtk.main()
 
-  def loadUI(self, sFilename):
+  def loadUI(self):
     "Load the interface UI"
     builder = Gtk.Builder()
-    builder.add_from_file(sFilename)
+    builder.add_from_file(os.path.join(DIR_UI, 'main.glade'))
     # Obtain widget references
     self.winMain = builder.get_object("winMain")
     self.model = gWakeOnLAN_Model(builder.get_object('storeMachines'))
