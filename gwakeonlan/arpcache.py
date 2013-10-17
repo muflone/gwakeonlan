@@ -20,7 +20,7 @@
 
 import os.path
 from gi.repository import Gtk
-from gwakeonlan.model_arpcache import ARPCacheModel
+from gwakeonlan.model_arpcache import ModelARPCache
 from gwakeonlan.constants import *
 from gwakeonlan.functions import *
 
@@ -32,7 +32,7 @@ class ARPCacheWindow(object):
     # Obtain widget references
     self.dialog = builder.get_object('dlgARPCache')
     self.tvwHosts = builder.get_object('tvwHosts')
-    self.model = ARPCacheModel(builder.get_object('modelARPCache'))
+    self.model = ModelARPCache(builder.get_object('modelARPCache'))
     self.model.refresh()
     self.dialog.set_title(_('Pick a host from the ARP cache'))
     self.dialog.set_icon_from_file(os.path.join(DIR_DATA, 'gwakeonlan.png'))

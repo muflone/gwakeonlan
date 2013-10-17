@@ -22,7 +22,7 @@ import os.path
 import socket
 from gwakeonlan.constants import *
 
-class ARPCacheModel(object):
+class ModelARPCache(object):
   COL_IPADDRESS = 0
   COL_MACADDRESS = 1
   COL_HOSTNAME = 2
