@@ -20,6 +20,7 @@
 
 import struct
 import socket
+from gettext import gettext as _
 from gi.repository import Gtk
 
 def formatMAC(mac):
@@ -57,8 +58,6 @@ def wake_on_lan(mac_address, portnr, destination):
   if destination == '255.255.255.255':
     destination = '<broadcast>'
   sock.sendto(''.join(data), (destination, portnr))
-
-_ = lambda x: x
 
 __all__ = [
   'formatMAC',

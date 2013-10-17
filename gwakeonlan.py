@@ -19,9 +19,17 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
+import gettext
+import locale
 from gwakeonlan.app import Application
+from gwakeonlan.constants import *
 
 if __name__ == '__main__':
+  # Load domain for translation
+  for module in (gettext, locale):
+    module.bindtextdomain(DOMAIN_NAME, DIR_LOCALE)
+    module.textdomain(DOMAIN_NAME)
+
   # Start the application
   app = Application()
   app.run(None)

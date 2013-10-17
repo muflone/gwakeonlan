@@ -32,6 +32,7 @@ APP_COPYRIGHT = 'Copyright 2009-2013 %s' % APP_AUTHOR
 
 ARP_CACHE_FILENAME = '/proc/net/arp'
 BROADCAST_ADDRESS = '255.255.255.255'
+DOMAIN_NAME = 'gwakeonlan'
 
 # If there's a file data/gwakeonlan.png then the shared data are searched in
 # relative paths, else the standard paths are used
@@ -42,6 +43,7 @@ else:
 
 DIR_DATA = os.path.join(DIR_PREFIX, 'data')
 DIR_UI = os.path.join(DIR_PREFIX, 'ui')
+DIR_LOCALE = os.path.join(DIR_PREFIX, 'locale')
 
 UI_MAIN = os.path.join(DIR_UI, 'main.glade')
 UI_DETAIL = os.path.join(DIR_UI, 'detail.glade')
