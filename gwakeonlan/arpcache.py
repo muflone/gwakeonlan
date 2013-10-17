@@ -34,7 +34,7 @@ class ARPCacheWindow(object):
     self.tvwHosts = builder.get_object('tvwHosts')
     self.model = ARPCacheModel(builder.get_object('modelARPCache'))
     self.model.refresh()
-    self.dialog.set_title(_('Pick a host from the ARP Cache'))
+    self.dialog.set_title(_('Pick a host from the ARP cache'))
     self.dialog.set_icon_from_file(os.path.join(DIR_DATA, 'gwakeonlan.png'))
     self.dialog.set_transient_for(winParent)
     self.dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
@@ -47,7 +47,7 @@ class ARPCacheWindow(object):
       self.show()
 
   def destroy(self):
-    "Hide and destroy the ARP Cache picker dialog"
+    "Hide and destroy the ARP cache picker dialog"
     self.dialog.destroy()
     self.dialog = None
 

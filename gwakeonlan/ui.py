@@ -120,13 +120,13 @@ class MainWindow(object):
         self.model.set_destination(selected, self.detail.get_destination())
 
   def on_menuitemARPCache_activate(self, widget):
-    "Show the ARP Cache picker dialog"
+    "Show the ARP cache picker dialog"
     dialog = ARPCacheWindow(self.winMain, False)
     # Check if the OK button in the dialog was pressed
     if dialog.show() == Gtk.ResponseType.OK:
       # Check if a valid machine with MAC Address was selected
       if dialog.get_mac_address():
-        # Add the machine to the model from the ARP Cache
+        # Add the machine to the model from the ARP cache
         self.model.add_machine(False, dialog.get_ip_address(),
           dialog.get_mac_address(), 9, BROADCAST_ADDRESS)
         # Select the last machine and edit its details
