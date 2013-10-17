@@ -1,13 +1,13 @@
 [Desktop Entry]
 Version=1.0
-Name=gWakeOnLan
-Comment=A GTK+ utility to awake turned off machine using the Wake On LAN feature.
+Encoding=UTF-8
 Type=Application
-Comment[it_IT]=Un'utilità GTK+ per risvegliare macchine spente usando il Wake On LAN.
-Comment[fr_FR]=Un outil GTK+ pour réveiller les ordinateurs éteints grâce à le Wake On LAN.
-Exec=/usr/bin/gwakeonlan
-Icon=/usr/share/gwakeonlan/gwakeonlan.svg
+Name=gWakeOnLAN
+GenericName=gWakeOnLAN
+Comment=Wake up your machines using Wake on LAN
+Comment[it]=Accendi le tue macchine usando il Wake On LAN
 Terminal=false
 Categories=Network;GTK;
-Name[it_IT]=gWakeOnLan
-Name[ft_FR]=gWakeOnLan
+Icon=gwakeonlan
+TryExec=gwakeonlan
+Exec=gwakeonlan
