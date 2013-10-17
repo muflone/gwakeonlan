@@ -48,7 +48,7 @@ msgid "Request type:"
 msgstr "Typ požiadavky:"
 
 #: ../data/gwakeonlan.glade.h:8
-msgid "Turn On"
+msgid "Turn on"
 msgstr "Zapnúť"
 
 #: ../data/gwakeonlan.glade.h:9

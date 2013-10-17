@@ -48,8 +48,8 @@ msgid "Request type:"
 msgstr "Request type:"
 
 #: ../data/gwakeonlan.glade.h:8
-msgid "Turn On"
-msgstr "Turn On"
+msgid "Turn on"
+msgstr "Turn on"
 
 #: ../data/gwakeonlan.glade.h:9
 msgid "_Destination host:"

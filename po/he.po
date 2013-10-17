@@ -49,7 +49,7 @@ msgid "Request type:"
 msgstr "טיפוס בקשה:"
 
 #: ../data/gwakeonlan.glade.h:8
-msgid "Turn On"
+msgid "Turn on"
 msgstr "הדלק"
 
 #: ../data/gwakeonlan.glade.h:9

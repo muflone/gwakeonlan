@@ -49,7 +49,7 @@ msgid "Request type:"
 msgstr "Vrsta zahtevka:"
 
 #: ../data/gwakeonlan.glade.h:8
-msgid "Turn On"
+msgid "Turn on"
 msgstr "Vklopi"
 
 #: ../data/gwakeonlan.glade.h:9
