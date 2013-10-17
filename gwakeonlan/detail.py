@@ -18,7 +18,6 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
-import os.path
 from gi.repository import Gtk
 from gi.repository import Gdk
 from gi.repository import GObject
@@ -29,7 +28,7 @@ class DetailWindow(object):
   def __init__(self, winParent, show = False):
     # Load interface UI
     builder = Gtk.Builder()
-    builder.add_from_file(os.path.join(DIR_UI, 'detail.glade'))
+    builder.add_from_file(UI_DETAIL)
     # Obtain widget references
     self.dialog = builder.get_object('dlgDetail')
     self.cboMachineName = builder.get_object('cboMachineName')
@@ -42,7 +41,7 @@ class DetailWindow(object):
     self.txtDestinationHost = builder.get_object('txtDestinationHost')
     self.lblError = builder.get_object('lblError')
     # Set various properties
-    self.dialog.set_icon_from_file(os.path.join(DIR_DATA, 'gwakeonlan.png'))
+    self.dialog.set_icon_from_file(DATA_ICON)
     self.dialog.set_transient_for(winParent)
     self.dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
     self.dialog.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK)

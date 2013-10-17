@@ -21,14 +21,14 @@
 import sys
 import os.path
 
-APP_NAME='gWakeOnLAN'
-APP_VERSION='0.6'
-APP_DESCRIPTION='Wake up your machines using Wake on LAN.'
-APP_ID='gwakeonlan.muflone.com'
-APP_URL='https://github.com/muflone/gwakeonlan'
-APP_AUTHOR='Fabio Castelli'
-APP_AUTHOR_EMAIL='webreg@vbsimple.net'
-APP_COPYRIGHT='Copyright 2009-2013 %s' % APP_AUTHOR
+APP_NAME = 'gWakeOnLAN'
+APP_VERSION = '0.6'
+APP_DESCRIPTION = 'Wake up your machines using Wake on LAN.'
+APP_ID = 'gwakeonlan.muflone.com'
+APP_URL = 'https://github.com/muflone/gwakeonlan'
+APP_AUTHOR = 'Fabio Castelli'
+APP_AUTHOR_EMAIL = 'webreg@vbsimple.net'
+APP_COPYRIGHT = 'Copyright 2009-2013 %s' % APP_AUTHOR
 
 ARP_CACHE_FILENAME = '/proc/net/arp'
 BROADCAST_ADDRESS = '255.255.255.255'
@@ -36,9 +36,17 @@ BROADCAST_ADDRESS = '255.255.255.255'
 # If there's a file data/gwakeonlan.png then the shared data are searched in
 # relative paths, else the standard paths are used
 if os.path.isfile(os.path.join('data', 'gwakeonlan.png')):
-  DIR_PREFIX='.'
+  DIR_PREFIX = '.'
 else:
-  DIR_PREFIX=os.path.join(sys.prefix, 'share', 'gwakeonlan')
+  DIR_PREFIX = os.path.join(sys.prefix, 'share', 'gwakeonlan')
 
-DIR_DATA=os.path.join(DIR_PREFIX, 'data')
-DIR_UI=os.path.join(DIR_PREFIX, 'ui')
+DIR_DATA = os.path.join(DIR_PREFIX, 'data')
+DIR_UI = os.path.join(DIR_PREFIX, 'ui')
+
+UI_MAIN = os.path.join(DIR_UI, 'main.glade')
+UI_DETAIL = os.path.join(DIR_UI, 'detail.glade')
+UI_ARPCACHE = os.path.join(DIR_UI, 'arpcache.glade')
+UI_ABOUT = os.path.join(DIR_UI, 'about.glade')
+UI_APPMENU = os.path.join(DIR_UI, 'appmenu.ui')
+
+DATA_ICON = os.path.join(DIR_DATA, 'gwakeonlan.png')

@@ -18,7 +18,6 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
-import os.path
 from gi.repository import Gtk
 from gwakeonlan.model_arpcache import ModelARPCache
 from gwakeonlan.constants import *
@@ -28,14 +27,14 @@ class ARPCacheWindow(object):
   def __init__(self, winParent, show = False):
     # Load interface UI
     builder = Gtk.Builder()
-    builder.add_from_file(os.path.join(DIR_UI, 'arpcache.glade'))
+    builder.add_from_file(UI_ARPCACHE)
     # Obtain widget references
     self.dialog = builder.get_object('dlgARPCache')
     self.tvwHosts = builder.get_object('tvwHosts')
     self.model = ModelARPCache(builder.get_object('modelARPCache'))
     self.model.refresh()
     self.dialog.set_title(_('Pick a host from the ARP cache'))
-    self.dialog.set_icon_from_file(os.path.join(DIR_DATA, 'gwakeonlan.png'))
+    self.dialog.set_icon_from_file(DATA_ICON)
     self.dialog.set_transient_for(winParent)
     self.dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
     self.dialog.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK)

@@ -18,7 +18,6 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
-import os.path
 from gi.repository import Gtk
 from gi.repository import Gio
 from gwakeonlan.ui import MainWindow
@@ -43,7 +42,7 @@ class Application(Gtk.Application):
     self.add_action(action)
     # Add the app menu
     builder = Gtk.Builder()
-    builder.add_from_file(os.path.join(DIR_UI, 'appmenu.ui'))
+    builder.add_from_file(UI_APPMENU)
     menubar = builder.get_object('app-menu')
     self.set_app_menu(menubar)
 
