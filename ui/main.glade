@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.0 on Wed Oct 16 19:13:39 2013 -->
+<!-- Generated with glade 3.16.0 on Thu Oct 17 17:01:31 2013 -->
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkAccelGroup" id="accelgroup1"/>
   <object class="GtkListStore" id="storeMachines">
     <columns>
       <!-- column-name colSelected -->
@@ -21,11 +20,8 @@
   </object>
   <object class="GtkWindow" id="winMain">
     <property name="can_focus">False</property>
-    <property name="default_width">500</property>
-    <property name="default_height">250</property>
-    <accel-groups>
-      <group name="accelgroup1"/>
-    </accel-groups>
+    <property name="default_width">620</property>
+    <property name="default_height">240</property>
     <signal name="delete-event" handler="on_winMain_delete_event" swapped="no"/>
     <child>
       <object class="GtkBox" id="box1">
@@ -77,8 +73,7 @@
                       <object class="GtkMenuItem" id="menuitemARPCache">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">Detect from ARP Cache</property>
-                        <property name="use_underline">True</property>
+                        <property name="label" translatable="yes">Detect from ARP cache</property>
                         <signal name="activate" handler="on_menuitemARPCache_activate" swapped="no"/>
                       </object>
                     </child>
