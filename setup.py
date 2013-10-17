@@ -1,80 +1,78 @@
-#!/usr/bin/env python
-
+#!/usr/bin/env python2
 ##
-#   Project: gWakeOnLan - Wake up your machines using Wake on LAN.
-#    Author: Fabio Castelli <muflone@vbsimple.net>
-# Copyright: 2009-2010 Fabio Castelli
-#   License: GPL-2+
+#     Project: gWakeOnLAN
+# Description: Wake up your machines using Wake on LAN
+#      Author: Fabio Castelli (Muflone) <webreg@vbsimple.net>
+#   Copyright: 2009-2013 Fabio Castelli
+#     License: GPL-2+
 #  This program is free software; you can redistribute it and/or modify it
 #  under the terms of the GNU General Public License as published by the Free
 #  Software Foundation; either version 2 of the License, or (at your option)
 #  any later version.
-# 
+#
 #  This program is distributed in the hope that it will be useful, but WITHOUT
 #  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
 #  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
 #  more details.
-# 
-# On Debian GNU/Linux systems, the full text of the GNU General Public License
-# can be found in the file /usr/share/common-licenses/GPL-2.
+#  You should have received a copy of the GNU General Public License along
+#  with this program; if not, write to the Free Software Foundation, Inc.,
+#  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
 from distutils.core import setup
+from distutils.command.install_scripts import install_scripts
 from distutils.command.install_data import install_data
-from distutils.dep_util import newer
-from distutils.log import info
-import glob
+
 import os
-import sys
+import os.path
+import shutil
+from glob import glob
+from gwakeonlan.constants import *
 
-class InstallData(install_data):
+class rename_python_scripts(install_scripts):
+  "Rename main executable python script without .py extension"
+  def run(self):
+    install_scripts.run(self)
+    for script in self.get_outputs():
+      if script.endswith(".py"):
+        shutil.move(script, script[:-3])
+
+class install_icons(install_data):
+  "Install icons in the hicolor theme directory"
   def run (self):
-    self.data_files.extend (self._compile_po_files())
-    install_data.run (self)
+    DIR_ICONS = 'icons'
+    for icon_format in os.listdir(DIR_ICONS):
+      icon_dir = os.path.join(DIR_ICONS, icon_format)
+      self.data_files.append((
+        os.path.join('share', 'icons', 'hicolor', icon_format, 'apps'),
+        glob(os.path.join(icon_dir, '*'))))
+    install_data.run(self)
 
-  def _compile_po_files (self):
-    data_files = []
-
-    # Don't install language files on win32
-    if sys.platform == 'win32':
-      return data_files
-
-    PO_DIR = 'po'
-    for po in glob.glob (os.path.join (PO_DIR,'*.po')):
-      lang = os.path.basename(po[:-3])
-      mo = os.path.join('build', 'mo', lang, 'gwakeonlan.mo')
-
-      directory = os.path.dirname(mo)
-      if not os.path.exists(directory):
-        info('creating %s' % directory)
-        os.makedirs(directory)
-
-      if newer(po, mo):
-        # True if mo doesn't exist
-        cmd = 'msgfmt -o %s %s' % (mo, po)
-        info('compiling %s -> %s' % (po, mo))
-        if os.system(cmd) != 0:
-          raise SystemExit('Error while running msgfmt')
-
-        dest = os.path.dirname(os.path.join('share', 'locale', lang, 'LC_MESSAGES', 'gwakeonlan.mo'))
-        data_files.append((dest, [mo]))
-
-    return data_files
-
-
-setup(name='gWakeOnLan',
-      version='0.5.2',
-      description='Wake up your machines using Wake on LAN.',
-      author='Fabio Castelli',
-      author_email='muflone@vbsimple.net',
-      url='http://code.google.com/p/gwakeonlan/',
-      license='GPL v2',
-      scripts=['gwakeonlan'],
-      data_files=[
-                  ('share/applications', ['data/gwakeonlan.desktop']),
-                  ('share/man/man1', ['man/gwakeonlan.1']),
-                  ('share/doc/gwakeonlan', ['doc/README', 'doc/changelog', 'doc/translators', 'doc/copyright']),
-                  ('share/gwakeonlan', ['data/gwakeonlan.glade', 'data/gwakeonlan.svg']),
-                 ],
-      cmdclass={'install_data': InstallData}
-     )
+setup(
+  name=APP_NAME,
+  version=APP_VERSION,
+  description=APP_DESCRIPTION,
+  author=APP_AUTHOR,
+  author_email=APP_AUTHOR_EMAIL,
+  maintainer=APP_AUTHOR,
+  maintainer_email=APP_AUTHOR_EMAIL,
+  url=APP_URL,
+  license='GPL v2',
+  scripts=['gwakeonlan.py'],
+  packages=['gwakeonlan'],
+  data_files=[
+    ('share/gwakeonlan/data', (
+      'data/gwakeonlan.png'
+    )),
+    ('share/gwakeonlan/ui',
+      glob('ui/*.glade')
+    ),
+    ('share/applications', (
+      'data/gwakeonlan.desktop',
+    ))
+  ],
+  cmdclass = {
+    'install_scripts': rename_python_scripts,
+    'install_data': install_icons
+  }
+)
