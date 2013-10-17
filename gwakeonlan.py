@@ -19,8 +19,8 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
-from gwakeonlan.ui import MainWindow
+from gwakeonlan.app import Application
 
 if __name__ == '__main__':
-  gui = MainWindow()
-  gui.run()
+  app = Application()
+  app.run(None)

@@ -29,10 +29,9 @@ from gwakeonlan.detail import DetailWindow
 from gwakeonlan.arpcache import ARPCacheWindow
 from gwakeonlan.about import AboutWindow
 
-class MainWindow(Gtk.Application):
-  def __init__(self):
-    super(self.__class__, self).__init__(application_id=APP_ID,
-      flags=Gio.ApplicationFlags.FLAGS_NONE)
+class MainWindow(object):
+  def __init__(self, application):
+    self.application = application
     self.loadUI()
     self.settings = Settings(self.model)
     self.settings.load()
@@ -52,7 +51,6 @@ class MainWindow(Gtk.Application):
 
   def run(self):
     self.winMain.show_all()
-    Gtk.main()
 
   def loadUI(self):
     "Load the interface UI"
@@ -68,6 +66,7 @@ class MainWindow(Gtk.Application):
     # Set various properties
     self.winMain.set_title(APP_NAME)
     self.winMain.set_icon_from_file(os.path.join(DIR_DATA, 'gwakeonlan.png'))
+    self.winMain.set_application(self.application)
     # Connect signals from the glade file to the functions with the same name
     builder.connect_signals(self)
 
@@ -78,7 +77,7 @@ class MainWindow(Gtk.Application):
     self.settings.set_sizes(self.winMain)
     self.settings.save()
     self.winMain.destroy()
-    Gtk.main_quit()
+    self.application.quit()
 
   def on_btnAbout_clicked(self, widget):
     "Show the about dialog"
