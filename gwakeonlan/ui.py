@@ -71,18 +71,14 @@ class MainWindow(Gtk.Application):
     # Connect signals from the glade file to the functions with the same name
     builder.connect_signals(self)
 
-  def destroy(self):
-    "Hide and destroy the main window"
+  def on_winMain_delete_event(self, widget, event):
+    "Close the application"
     self.about.destroy()
     self.detail.destroy()
     self.settings.set_sizes(self.winMain)
     self.settings.save()
     self.winMain.destroy()
     Gtk.main_quit()
-
-  def on_winMain_delete_event(self, widget, event):
-    "Close the application"
-    self.destroy()
 
   def on_btnAbout_clicked(self, widget):
     "Show the about dialog"
