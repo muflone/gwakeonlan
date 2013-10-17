@@ -1,17 +1,18 @@
-# gWakeOnLan - Wake up your machines using Wake on LAN.
-# Copyright (C) 2009-2013 Fabio Castelli <webreg@vbsimple.net>
+# gWakeOnLan
+# Wake up your machines using Wake on LAN.
+# Copyright (C) 2009-2013 Fabio Castelli (Muflone) <webreg(at)vbsimple.net>
 # This file is distributed under the GPL v2 license (see copyright file).
-# X translation for gWakeOnLan.
+# X translation for gWakeOnLan
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gwakeonlan 0.5\n"
-"Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
+"Project-Id-Version: gWakeOnLan \n"
+"Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues \n"
 "POT-Creation-Date: 2010-02-20 13:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: https://www.transifex.com/projects/p/gextractwinicons/ \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
