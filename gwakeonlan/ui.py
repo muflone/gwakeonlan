@@ -50,6 +50,7 @@ class MainWindow(object):
     self.detected_addresses = {}
 
   def run(self):
+    "Show the UI"
     self.winMain.show_all()
 
   def loadUI(self):

@@ -49,5 +49,6 @@ class AboutWindow(object):
     self.dialog.hide()
 
   def destroy(self):
+    "Destroy the About dialog"
     self.dialog.destroy()
     self.dialog = None

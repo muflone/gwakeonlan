@@ -30,12 +30,11 @@ class ARPCacheModel(object):
     self.model = model
 
   def clear(self):
+    "Clear the model"
     return self.model.clear()
 
-  def get_model(self):
-    return self.model
-
   def refresh(self):
+    "Clear the model and reload all the hosts from the ARP cache file"
     self.clear()
     # Read ARP cache file
     if os.path.isfile(ARP_CACHE_FILENAME):
@@ -57,10 +56,13 @@ class ARPCacheModel(object):
       arpf.close()
 
   def get_ip_address(self, treeiter):
+    "Returns the IP address for the selected TreeIter"
     return self.model[treeiter][self.__class__.COL_IPADDRESS]
 
   def get_mac_address(self, treeiter):
+    "Returns the MAC address for the selected TreeIter"
     return self.model[treeiter][self.__class__.COL_MACADDRESS]
 
   def get_hostname(self, treeiter):
+    "Returns the hostname for the selected TreeIter"
     return self.model[treeiter][self.__class__.COL_HOSTNAME]

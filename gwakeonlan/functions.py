@@ -28,6 +28,7 @@ def formatMAC(mac):
   return ':'.join([mac[i:i+2] for i in xrange(0, len(mac), 2)]).upper()
 
 def show_message_dialog_yesno(winParent, message, title, default_response):
+  "Show a GtkMessageDialog with yes and no buttons"
   dialog = Gtk.MessageDialog(
     parent=winParent,
     flags=Gtk.DialogFlags.MODAL,
