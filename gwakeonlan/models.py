@@ -22,7 +22,7 @@ import os.path
 from gi.repository import Gtk
 from gwakeonlan.constants import *
 
-class gWakeOnLAN_Model(object):
+class ModelMachines(object):
   COL_SELECTED = 0
   COL_MACHINE = 1
   COL_MACADDRESS = 2

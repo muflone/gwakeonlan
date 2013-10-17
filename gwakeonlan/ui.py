@@ -24,7 +24,7 @@ from gi.repository import Gio
 from gwakeonlan.constants import *
 from gwakeonlan.functions import *
 from gwakeonlan.settings import Settings
-from gwakeonlan.models import gWakeOnLAN_Model
+from gwakeonlan.models import ModelMachines
 from gwakeonlan.detail import DetailWindow
 from gwakeonlan.arpcache import ARPCacheWindow
 from gwakeonlan.about import AboutWindow
@@ -58,7 +58,7 @@ class MainWindow(object):
     builder.add_from_file(os.path.join(DIR_UI, 'main.glade'))
     # Obtain widget references
     self.winMain = builder.get_object("winMain")
-    self.model = gWakeOnLAN_Model(builder.get_object('storeMachines'))
+    self.model = ModelMachines(builder.get_object('storeMachines'))
     self.btnAdd = builder.get_object('btnAdd')
     self.btnEdit = builder.get_object('btnEdit')
     self.btnDelete = builder.get_object('btnDelete')
