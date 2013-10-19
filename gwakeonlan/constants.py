@@ -60,5 +60,6 @@ FILE_UI_APPMENU = os.path.join(DIR_UI, 'appmenu.ui')
 # Set the paths for the data files
 FILE_ICON = os.path.join(DIR_DATA, 'gwakeonlan.png')
 FILE_TRANSLATORS = os.path.join(DIR_DOCS, 'translators')
+FILE_LICENSE = os.path.join(DIR_DOCS, 'license')
 # Set the paths for others files
 FILE_ARP_CACHE = '/proc/net/arp'

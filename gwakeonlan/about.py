@@ -45,6 +45,8 @@ class AboutWindow(object):
     self.dialog.set_website(APP_URL)
     self.dialog.set_copyright(APP_COPYRIGHT)
     self.dialog.set_authors(['%s <%s>' % (APP_AUTHOR, APP_AUTHOR_EMAIL)])
+    #self.dialog.set_license_type(Gtk.License.GPL_2_0)
+    self.dialog.set_license('\n'.join(readlines(FILE_LICENSE, True)))
     self.dialog.set_translator_credits('\n'.join(translators))
     icon_logo = Pixbuf.new_from_file(FILE_ICON)
     self.dialog.set_logo(icon_logo)
