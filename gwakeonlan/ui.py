@@ -23,7 +23,7 @@ from gi.repository import Gio
 from gwakeonlan.constants import *
 from gwakeonlan.functions import *
 from gwakeonlan.settings import Settings
-from gwakeonlan.models import ModelMachines
+from gwakeonlan.model_machines import ModelMachines
 from gwakeonlan.detail import DetailWindow
 from gwakeonlan.arpcache import ARPCacheWindow
 from gwakeonlan.about import AboutWindow
