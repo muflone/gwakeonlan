@@ -21,9 +21,19 @@
 from gi.repository import Gtk
 from gi.repository.GdkPixbuf import Pixbuf
 from gwakeonlan.constants import *
+from gwakeonlan.functions import *
 
 class AboutWindow(object):
   def __init__(self, winParent, show = False):
+    # Retrieve the translators list
+    translators = []
+    for line in readlines(FILE_TRANSLATORS, False):
+      if ':' in line:
+        line = line.split(':', 1)[1]
+      line = line.replace('(at)', '@').strip()
+      if line not in translators:
+        translators.append(line)
+    # Load the user interface
     builder = Gtk.Builder()
     builder.add_from_file(FILE_UI_ABOUT)
     # Obtain widget references
@@ -35,6 +45,7 @@ class AboutWindow(object):
     self.dialog.set_website(APP_URL)
     self.dialog.set_copyright(APP_COPYRIGHT)
     self.dialog.set_authors(['%s <%s>' % (APP_AUTHOR, APP_AUTHOR_EMAIL)])
+    self.dialog.set_translator_credits('\n'.join(translators))
     icon_logo = Pixbuf.new_from_file(FILE_ICON)
     self.dialog.set_logo(icon_logo)
     self.dialog.set_transient_for(winParent)

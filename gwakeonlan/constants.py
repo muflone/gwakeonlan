@@ -43,9 +43,11 @@ VERBOSE_LEVEL_MAX = 2
 if os.path.isfile(os.path.join('data', 'gwakeonlan.png')):
   DIR_PREFIX = '.'
   DIR_LOCALE = os.path.join(DIR_PREFIX, 'locale')
+  DIR_DOCS = os.path.join(DIR_PREFIX, 'doc')
 else:
   DIR_PREFIX = os.path.join(sys.prefix, 'share', 'gwakeonlan')
   DIR_LOCALE = os.path.join(sys.prefix, 'share', 'locale')
+  DIR_DOCS = os.path.join(sys.prefix, 'share', 'doc', 'gwakeonlan')
 # Set the paths for the folders
 DIR_DATA = os.path.join(DIR_PREFIX, 'data')
 DIR_UI = os.path.join(DIR_PREFIX, 'ui')
@@ -57,5 +59,6 @@ FILE_UI_ABOUT = os.path.join(DIR_UI, 'about.glade')
 FILE_UI_APPMENU = os.path.join(DIR_UI, 'appmenu.ui')
 # Set the paths for the data files
 FILE_ICON = os.path.join(DIR_DATA, 'gwakeonlan.png')
+FILE_TRANSLATORS = os.path.join(DIR_DOCS, 'translators')
 # Set the paths for others files
 FILE_ARP_CACHE = '/proc/net/arp'
