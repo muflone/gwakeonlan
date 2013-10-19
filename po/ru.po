@@ -5,7 +5,7 @@
 # Russian translation for gWakeOnLan.
 #
 # Translators:
-# Сергей Богатов <hsh(at)runtu.org>
+# Сергей Богатов <hsh(at)runtu.org>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"

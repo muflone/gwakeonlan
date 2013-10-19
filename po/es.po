@@ -5,8 +5,8 @@
 # Spanish translation for gWakeOnLan.
 #
 # Translators:
-# Matias Bellone <matiasbellone+debian(at)gmail.com>
-# Luca Della Ghezza <luca_dgh(at)hotmail.it>
+# Matias Bellone <matiasbellone+debian(at)gmail.com>, 2010
+# Luca Della Ghezza <luca_dgh(at)hotmail.it>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"

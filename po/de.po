@@ -5,7 +5,7 @@
 # German translation for gWakeOnLan.
 #
 # Translators:
-# Martin Riemenschneider <admin(at)martinum4.de>
+# Martin Riemenschneider <admin(at)martinum4.de>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"

@@ -5,7 +5,7 @@
 # Dutch translation for gWakeOnLan.
 #
 # Translators:
-# Thomas De Rocker <thomasderocker.at.h0tmail.d0t.c0m>
+# Thomas De Rocker <thomasderocker(at)hotmail.com>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
