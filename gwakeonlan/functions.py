@@ -65,9 +65,20 @@ def wake_on_lan(mac_address, portnr, destination, settings):
     destination = '<broadcast>'
   sock.sendto(''.join(data), (destination, portnr))
 
+def readlines(filename, empty_lines = False):
+  result = []
+  with open(filename) as f:
+    for line in f.readlines():
+      line = line.strip()
+      if line or empty_lines:
+        result.append(line)
+    f.close()
+  return result
+
 __all__ = [
   'formatMAC',
   'show_message_dialog_yesno',
   'wake_on_lan',
+  'readlines',
   '_'
 ]
