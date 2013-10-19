@@ -28,8 +28,6 @@ from gwakeonlan.constants import *
 
 SECTION_MAINWIN = 'main window'
 SECTION_HOSTS = 'hosts'
-OLD_SETTINGS = os.path.expanduser('~/.gwakeonlan')
-NEW_SETTINGS = os.path.expanduser('~/.config/gwakeonlan.conf')
 
 class Settings(object):
   def __init__(self):
@@ -51,7 +49,7 @@ class Settings(object):
     # Allow saving in case sensitive (useful for machine names)
     self.config.optionxform = str
     # Determine which filename to use for settings
-    self.filename = os.path.exists(OLD_SETTINGS) and OLD_SETTINGS or NEW_SETTINGS
+    self.filename = os.path.exists(FILE_SETTINGS_OLD) and FILE_SETTINGS_OLD or FILE_SETTINGS_NEW
     if self.filename:
       self.config.read(self.filename)
 
@@ -108,17 +106,16 @@ class Settings(object):
         self.model.get_portnr(machine))
       )
     # Always save the settings in the new configuration file
-    file_settings = open(NEW_SETTINGS, mode='w')
+    file_settings = open(FILE_SETTINGS_NEW, mode='w')
     self.config.write(file_settings)
     file_settings.close()
     # If the read configuration at starup is the old configuration file
     # the old configuration file will be deleted and the new file will be used
-    if self.filename == OLD_SETTINGS:
-      os.remove(OLD_SETTINGS)
-      self.filename = NEW_SETTINGS
+    if self.filename == FILE_SETTINGS_OLD:
+      os.remove(FILE_SETTINGS_OLD)
+      self.filename = FILE_SETTINGS_NEW
 
   def logText(self, text, verbose_level=VERBOSE_LEVEL_NORMAL):
     "Print a text with current date and time based on verbose level"
     if verbose_level <= self.options.verbose_level:
       print '[%s] %s' % (time.strftime('%Y/%m/%d %H:%M:%S'), text)
-

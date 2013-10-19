@@ -20,6 +20,7 @@
 
 import sys
 import os.path
+from xdg import BaseDirectory
 
 # Application constants
 APP_NAME = 'gWakeOnLAN'
@@ -51,6 +52,7 @@ else:
 # Set the paths for the folders
 DIR_DATA = os.path.join(DIR_PREFIX, 'data')
 DIR_UI = os.path.join(DIR_PREFIX, 'ui')
+DIR_SETTINGS = BaseDirectory.save_config_path(DOMAIN_NAME)
 # Set the paths for the UI files
 FILE_UI_MAIN = os.path.join(DIR_UI, 'main.glade')
 FILE_UI_DETAIL = os.path.join(DIR_UI, 'detail.glade')
@@ -62,5 +64,8 @@ FILE_ICON = os.path.join(DIR_DATA, 'gwakeonlan.png')
 FILE_TRANSLATORS = os.path.join(DIR_DOCS, 'translators')
 FILE_LICENSE = os.path.join(DIR_DOCS, 'license')
 FILE_RESOURCES = os.path.join(DIR_DOCS, 'resources')
+# Set the paths for configuration files
+FILE_SETTINGS_OLD = os.path.expanduser('~/.gwakeonlan')
+FILE_SETTINGS_NEW = os.path.join(DIR_SETTINGS, 'settings.conf')
 # Set the paths for others files
 FILE_ARP_CACHE = '/proc/net/arp'

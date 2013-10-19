@@ -1,3 +1,20 @@
+gwakeonlan 0.6.0
+
+  * Rewrote the whole project from scratch!
+  * Moved the project from Google Code to GitHub:
+    https://github.com/muflone/gwakeonlan
+  * Now there's also a website for the project:
+    http://gwakeonlan.muflone.com/
+  * The whole user interface now uses GTK+ 3.0 and GtkBuilder
+  * The main window is now a GtkApplicationWindow
+  * Added a GMenu to application
+  * Moved the configuration file from ~/.gwakeonlan to the folder
+    $XDG_CONFIG_HOME/gwakeonlan/ using XDG BaseDirectory specifications
+  * Updated translations and new languages
+  * New dialog for ARP cache searching
+  
+ -- Fabio Castelli <webreg@vbsimple.net>  Sub, 20 Oct 2013 01:39:29 +0200
+  
 gwakeonlan 0.5.1
 
   * Added dutch translation by Thomas De Rocker

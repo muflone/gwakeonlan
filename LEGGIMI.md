@@ -14,6 +14,7 @@ Requisiti di sistema
 --------------------
 
 * Python 2.x (sviluppato e testato per Python 2.7.5)
+* Libreria XDG per Python 2
 * Libreria GTK+3.0 per Python 2
 * Libreria GObject per Python 2
 * Libreria Distutils per Python 2 (generalmente fornita col pacchetto Python)
