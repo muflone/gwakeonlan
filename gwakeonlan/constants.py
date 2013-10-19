@@ -39,12 +39,13 @@ DOMAIN_NAME = 'gwakeonlan'
 # relative paths, else the standard paths are used
 if os.path.isfile(os.path.join('data', 'gwakeonlan.png')):
   DIR_PREFIX = '.'
+  DIR_LOCALE = os.path.join(DIR_PREFIX, 'locale')
 else:
   DIR_PREFIX = os.path.join(sys.prefix, 'share', 'gwakeonlan')
+  DIR_LOCALE = os.path.join(sys.prefix, 'share', 'locale')
 # Set the paths for the folders
 DIR_DATA = os.path.join(DIR_PREFIX, 'data')
 DIR_UI = os.path.join(DIR_PREFIX, 'ui')
-DIR_LOCALE = os.path.join(DIR_PREFIX, 'locale')
 # Set the paths for the UI files
 UI_MAIN = os.path.join(DIR_UI, 'main.glade')
 UI_DETAIL = os.path.join(DIR_UI, 'detail.glade')
