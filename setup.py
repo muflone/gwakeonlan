@@ -65,7 +65,10 @@ setup(
       'data/gwakeonlan.png',
     )),
     ('share/gwakeonlan/ui',
-      glob('ui/*.glade')
+      glob('ui/*')
+    ),
+    ('share/doc/gwakeonlan',
+      glob('doc/*')
     ),
     ('share/applications', (
       'data/gwakeonlan.desktop',
