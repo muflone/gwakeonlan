@@ -62,7 +62,7 @@ setup(
   packages=['gwakeonlan'],
   data_files=[
     ('share/gwakeonlan/data', (
-      'data/gwakeonlan.png'
+      'data/gwakeonlan.png',
     )),
     ('share/gwakeonlan/ui',
       glob('ui/*.glade')
