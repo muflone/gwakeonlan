@@ -30,11 +30,14 @@ APP_URL = 'http://gwakeonlan.muflone.com/'
 APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'webreg@vbsimple.net'
 APP_COPYRIGHT = 'Copyright 2009-2013 %s' % APP_AUTHOR
-# Other files
-ARP_CACHE_FILENAME = '/proc/net/arp'
+# Other constants
 BROADCAST_ADDRESS = '255.255.255.255'
 DOMAIN_NAME = 'gwakeonlan'
+VERBOSE_LEVEL_QUIET = 0
+VERBOSE_LEVEL_NORMAL = 1
+VERBOSE_LEVEL_MAX = 2
 
+# Paths constants
 # If there's a file data/gwakeonlan.png then the shared data are searched in
 # relative paths, else the standard paths are used
 if os.path.isfile(os.path.join('data', 'gwakeonlan.png')):
@@ -47,14 +50,12 @@ else:
 DIR_DATA = os.path.join(DIR_PREFIX, 'data')
 DIR_UI = os.path.join(DIR_PREFIX, 'ui')
 # Set the paths for the UI files
-UI_MAIN = os.path.join(DIR_UI, 'main.glade')
-UI_DETAIL = os.path.join(DIR_UI, 'detail.glade')
-UI_ARPCACHE = os.path.join(DIR_UI, 'arpcache.glade')
-UI_ABOUT = os.path.join(DIR_UI, 'about.glade')
-UI_APPMENU = os.path.join(DIR_UI, 'appmenu.ui')
+FILE_UI_MAIN = os.path.join(DIR_UI, 'main.glade')
+FILE_UI_DETAIL = os.path.join(DIR_UI, 'detail.glade')
+FILE_UI_ARPCACHE = os.path.join(DIR_UI, 'arpcache.glade')
+FILE_UI_ABOUT = os.path.join(DIR_UI, 'about.glade')
+FILE_UI_APPMENU = os.path.join(DIR_UI, 'appmenu.ui')
 # Set the paths for the data files
-DATA_ICON = os.path.join(DIR_DATA, 'gwakeonlan.png')
-# Verbose level
-VERBOSE_LEVEL_QUIET = 0
-VERBOSE_LEVEL_NORMAL = 1
-VERBOSE_LEVEL_MAX = 2
+FILE_ICON = os.path.join(DIR_DATA, 'gwakeonlan.png')
+# Set the paths for others files
+FILE_ARP_CACHE = '/proc/net/arp'

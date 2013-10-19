@@ -38,9 +38,9 @@ class ModelARPCache(object):
     "Clear the model and reload all the hosts from the ARP cache file"
     self.clear()
     # Read ARP cache file
-    if os.path.isfile(ARP_CACHE_FILENAME):
+    if os.path.isfile(FILE_ARP_CACHE):
       try:
-        arpf = open(ARP_CACHE_FILENAME, 'r')
+        arpf = open(FILE_ARP_CACHE, 'r')
         # Skip first and last line
         for line in arpf.readlines()[1:]:
           if line:
@@ -60,7 +60,7 @@ class ModelARPCache(object):
               self.model.append([arp_ip, arp_mac, detected_hostname])
         arpf.close()
       except:
-        self.settings.logText('unable to read from %s' % ARP_CACHE_FILENAME)
+        self.settings.logText('unable to read from %s' % FILE_ARP_CACHE)
 
   def get_ip_address(self, treeiter):
     "Returns the IP address for the selected TreeIter"

@@ -55,7 +55,7 @@ class MainWindow(object):
   def loadUI(self):
     "Load the interface UI"
     builder = Gtk.Builder()
-    builder.add_from_file(UI_MAIN)
+    builder.add_from_file(FILE_UI_MAIN)
     # Obtain widget references
     self.winMain = builder.get_object("winMain")
     self.model = ModelMachines(builder.get_object('storeMachines'))
@@ -65,7 +65,7 @@ class MainWindow(object):
     self.tvwMachines = builder.get_object('tvwMachines')
     # Set various properties
     self.winMain.set_title(APP_NAME)
-    self.winMain.set_icon_from_file(DATA_ICON)
+    self.winMain.set_icon_from_file(FILE_ICON)
     self.winMain.set_application(self.application)
     # Connect signals from the glade file to the functions with the same name
     builder.connect_signals(self)

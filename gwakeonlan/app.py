@@ -43,7 +43,7 @@ class Application(Gtk.Application):
     self.add_action(action)
     # Add the app menu
     builder = Gtk.Builder()
-    builder.add_from_file(UI_APPMENU)
+    builder.add_from_file(FILE_UI_APPMENU)
     menubar = builder.get_object('app-menu')
     self.set_app_menu(menubar)
 

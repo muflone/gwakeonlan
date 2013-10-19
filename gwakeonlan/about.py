@@ -25,7 +25,7 @@ from gwakeonlan.constants import *
 class AboutWindow(object):
   def __init__(self, winParent, show = False):
     builder = Gtk.Builder()
-    builder.add_from_file(UI_ABOUT)
+    builder.add_from_file(FILE_UI_ABOUT)
     # Obtain widget references
     self.dialog = builder.get_object("dialogAbout")
     # Set various properties
@@ -34,8 +34,8 @@ class AboutWindow(object):
     self.dialog.set_comments(APP_DESCRIPTION)
     self.dialog.set_website(APP_URL)
     self.dialog.set_copyright(APP_COPYRIGHT)
-    self.dialog.set_authors(['%s <%s>' % (APP_AUTHOR, APP_AUTHOR_EMAIL)]),
-    icon_logo = Pixbuf.new_from_file(DATA_ICON)
+    self.dialog.set_authors(['%s <%s>' % (APP_AUTHOR, APP_AUTHOR_EMAIL)])
+    icon_logo = Pixbuf.new_from_file(FILE_ICON)
     self.dialog.set_logo(icon_logo)
     self.dialog.set_transient_for(winParent)
     # Optionally show the dialog
