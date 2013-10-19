@@ -1,3 +1,5 @@
 /locale/
 *.pyc
 *.glade~
+/build/
+/root/
