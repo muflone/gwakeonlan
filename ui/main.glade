@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.16.0 on Thu Oct 17 18:25:42 2013 -->
+<interface>
+  <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkListStore" id="storeMachines">
+    <columns>
+      <!-- column-name colSelected -->
+      <column type="gboolean"/>
+      <!-- column-name colMachine -->
+      <column type="gchararray"/>
+      <!-- column-name colMACAddress -->
+      <column type="gchararray"/>
+      <!-- column-name colRequestType -->
+      <column type="gchararray"/>
+      <!-- column-name colDestination -->
+      <column type="gchararray"/>
+      <!-- column-name colPortNR -->
+      <column type="gint"/>
+    </columns>
+  </object>
+  <object class="GtkApplicationWindow" id="winMain">
+    <property name="can_focus">False</property>
+    <property name="default_width">620</property>
+    <property name="default_height">240</property>
+    <property name="show_menubar">False</property>
+    <signal name="delete-event" handler="on_winMain_delete_event" swapped="no"/>
+    <child>
+      <object class="GtkBox" id="box1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkToolbar" id="toolbar1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkToolButton" id="btnWake">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Turn on</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Turn on</property>
+                <property name="stock_id">gtk-execute</property>
+                <signal name="clicked" handler="on_btnWake_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSeparatorToolItem" id="separator1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkMenuToolButton" id="btnAdd">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Add machine</property>
+                <property name="label" translatable="yes">Add machine</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">gtk-add</property>
+                <accelerator key="Insert" signal="clicked"/>
+                <signal name="clicked" handler="on_btnAdd_clicked" swapped="no"/>
+                <child type="menu">
+                  <object class="GtkMenu" id="menuAdd">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitemARPCache">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">Detect from ARP cache</property>
+                        <property name="label" translatable="yes">Detect from ARP cache</property>
+                        <signal name="activate" handler="on_menuitemARPCache_activate" swapped="no"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="btnEdit">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Edit machine</property>
+                <property name="label" translatable="yes">Edit machine</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">gtk-edit</property>
+                <signal name="clicked" handler="on_btnEdit_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="btnDelete">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Delete machine</property>
+                <property name="label" translatable="yes">Delete machine</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">gtk-remove</property>
+                <accelerator key="Delete" signal="clicked"/>
+                <signal name="clicked" handler="on_btnDelete_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSeparatorToolItem" id="separator2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="btnAbout">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">About</property>
+                <property name="label" translatable="yes">About</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">gtk-about</property>
+                <signal name="clicked" handler="on_btnAbout_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">False</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scrollMachines">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkTreeView" id="tvwMachines">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="model">storeMachines</property>
+                <signal name="row-activated" handler="on_tvwMachines_row_activated" swapped="no"/>
+                <child internal-child="selection">
+                  <object class="GtkTreeSelection" id="treeview-selection1"/>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colMachinesSelected">
+                    <property name="sort_column_id">0</property>
+                    <child>
+                      <object class="GtkCellRendererToggle" id="cellMachinesSelected">
+                        <signal name="toggled" handler="on_cellMachinesSelected_toggled" swapped="no"/>
+                      </object>
+                      <attributes>
+                        <attribute name="active">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colMachinesMachine">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Machine name</property>
+                    <property name="sort_column_id">1</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellMachinesMachine"/>
+                      <attributes>
+                        <attribute name="text">1</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colMachinesMACAddress">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">MAC Address</property>
+                    <property name="sort_column_id">2</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellMachinesMACAddress"/>
+                      <attributes>
+                        <attribute name="text">2</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colMachinesRequestType">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Request type</property>
+                    <property name="sort_column_id">3</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellMachinesRequestType"/>
+                      <attributes>
+                        <attribute name="text">3</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colMachinesDestination">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Destination</property>
+                    <property name="sort_column_id">4</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellMachinesDestination"/>
+                      <attributes>
+                        <attribute name="text">4</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colMachinesPortNR">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Port NR</property>
+                    <property name="sort_column_id">5</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellMachinesPortNR"/>
+                      <attributes>
+                        <attribute name="text">5</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

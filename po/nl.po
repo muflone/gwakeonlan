@@ -1,5 +1,6 @@
-# gWakeOnLan - Wake up your machines using Wake on LAN.
-# Copyright (C) 2009-2013 Fabio Castelli <webreg@vbsimple.net>
+# gWakeOnLan
+# Wake up your machines using Wake on LAN.
+# Copyright (C) 2009-2013 Fabio Castelli (Muflone) <webreg(at)vbsimple(dot)net>
 # This file is distributed under the GPL v2 license (see copyright file).
 # Dutch translation for gWakeOnLan.
 #
@@ -8,10 +9,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
-"Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
+"Report-Msgid-Bugs-To: Fabio Castelli <webreg(at)vbsimple.net>\n"
 "POT-Creation-Date: 2010-02-20 13:27+0100\n"
 "PO-Revision-Date: 2010-10-17 12:09+0200\n"
-"Last-Translator: Thomas De Rocker <thomasderocker.at.h0tmail.d0t.c0m>\n"
+"Last-Translator: Thomas De Rocker <thomasderocker(at)hotmail(dot)com>\n"
 "Language-Team: Dutch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,7 +48,7 @@ msgid "Request type:"
 msgstr "Type aanvraag:"
 
 #: ../data/gwakeonlan.glade.h:8
-msgid "Turn On"
+msgid "Turn on"
 msgstr "Aanzetten"
 
 #: ../data/gwakeonlan.glade.h:9

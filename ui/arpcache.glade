@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.16.0 on Wed Oct 16 16:58:46 2013 -->
+<interface>
+  <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkListStore" id="modelARPCache">
+    <columns>
+      <!-- column-name colARPCacheIP -->
+      <column type="gchararray"/>
+      <!-- column-name colARPCacheMAC -->
+      <column type="gchararray"/>
+      <!-- column-name colARPCacheHost -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkDialog" id="dlgARPCache">
+    <property name="can_focus">False</property>
+    <property name="default_width">450</property>
+    <property name="default_height">260</property>
+    <property name="type_hint">dialog</property>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="dialog-vbox1">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="dialog-action_area1">
+            <property name="can_focus">False</property>
+            <property name="vexpand">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btnRefresh">
+                <property name="label">gtk-refresh</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <property name="yalign">0.55000001192092896</property>
+                <signal name="clicked" handler="on_btnRefresh_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+                <property name="secondary">True</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scrollHosts">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkTreeView" id="tvwHosts">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="model">modelARPCache</property>
+                <signal name="row-activated" handler="on_tvwHosts_row_activated" swapped="no"/>
+                <child internal-child="selection">
+                  <object class="GtkTreeSelection" id="treeview-selection1"/>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colIPAddress">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">IP Address</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellIPAddress"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colHostName">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Host Name</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellHostName"/>
+                      <attributes>
+                        <attribute name="text">2</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colMACAddress">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">MAC Address</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellMACAddress"/>
+                      <attributes>
+                        <attribute name="text">1</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
