@@ -92,7 +92,7 @@ setup(
   data_files=[
     ('share/gwakeonlan/data', ['data/gwakeonlan.png']),
     ('share/applications', ['data/gwakeonlan.desktop']),
-    ('share/doc/gwakeonlan', glob('doc/*')),
+    ('share/doc/gwakeonlan', list(chain(glob('doc/*'),  glob('*.md')))),
     ('share/man/man1', ['man/gwakeonlan.1']),
     ('share/gwakeonlan/ui', glob('ui/*')),
   ],

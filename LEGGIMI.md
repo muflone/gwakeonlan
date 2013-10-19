@@ -1,14 +1,14 @@
 gWakeOnLAN
 ==========
-Descrizione: Accendi le tue macchine usando il Wake On LAN.
+**Descrizione:** Accendi le tue macchine usando il Wake On LAN.
 
-Copyright: 2009-2013 Fabio Castelli (Muflone) <webreg(at)vbsimple.net>
+**Copyright:** 2009-2013 Fabio Castelli (Muflone) <webreg(at)vbsimple.net>
 
-Licenza: GPL-2+
+**Licenza:** GPL-2+
 
-Codice sorgente: https://github.com/muflone/gwakeonlan
+**Codice sorgente:** https://github.com/muflone/gwakeonlan
 
-Documentazione: http://gwakeonlan.muflone.com/
+**Documentazione:** http://gwakeonlan.muflone.com/
 
 Requisiti di sistema
 --------------------
