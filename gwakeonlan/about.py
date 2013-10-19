@@ -48,6 +48,10 @@ class AboutWindow(object):
     #self.dialog.set_license_type(Gtk.License.GPL_2_0)
     self.dialog.set_license('\n'.join(readlines(FILE_LICENSE, True)))
     self.dialog.set_translator_credits('\n'.join(translators))
+    # Retrieve the external resources links
+    for line in readlines(FILE_RESOURCES, False):
+      resource_type, resource_url = line.split(':', 1)
+      self.dialog.add_credit_section(resource_type, (resource_url,))
     icon_logo = Pixbuf.new_from_file(FILE_ICON)
     self.dialog.set_logo(icon_logo)
     self.dialog.set_transient_for(winParent)
