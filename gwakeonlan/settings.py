@@ -51,11 +51,13 @@ class Settings(object):
     # Determine which filename to use for settings
     self.filename = os.path.exists(FILE_SETTINGS_OLD) and FILE_SETTINGS_OLD or FILE_SETTINGS_NEW
     if self.filename:
+      self.logText('Loading settings from %s' % self.filename, VERBOSE_LEVEL_MAX)
       self.config.read(self.filename)
 
   def load(self):
     "Load window settings"
     if self.config.has_section(SECTION_MAINWIN):
+      self.logText('Retrieving window settings', VERBOSE_LEVEL_MAX)
       # Retrieve window position and size
       if self.config.has_option(SECTION_MAINWIN, 'left'):
         self.settings['left'] = self.config.getint(SECTION_MAINWIN, 'left')
@@ -71,6 +73,7 @@ class Settings(object):
     self.model = model
     if self.config.has_section(SECTION_HOSTS):
       for machine in self.config.items(SECTION_HOSTS):
+        self.logText('Loading machine: %s' % machine[0], VERBOSE_LEVEL_MAX)
         machine = ('%s\\%s\\255.255.255.255\\9' % machine).split('\\', 4)
         self.model.add_machine(False, machine[0],
           formatMAC(machine[1]), int(machine[3]), machine[2])
@@ -81,6 +84,7 @@ class Settings(object):
   def set_sizes(self, winParent):
     "Save configuration for main window"
     # Main window settings section
+    self.logText('Saving window settings', VERBOSE_LEVEL_MAX)
     if not self.config.has_section(SECTION_MAINWIN):
       self.config.add_section(SECTION_MAINWIN)
     # Window position
@@ -99,6 +103,8 @@ class Settings(object):
       self.config.remove_section(SECTION_HOSTS)
     self.config.add_section(SECTION_HOSTS)
     for machine in self.model:
+      self.logText('Saving machine: %s' % self.model.get_machine_name(machine), 
+      VERBOSE_LEVEL_MAX)
       self.config.set(SECTION_HOSTS,
         self.model.get_machine_name(machine), '%s\\%s\\%d' % (
         self.model.get_mac_address(machine),
@@ -107,11 +113,13 @@ class Settings(object):
       )
     # Always save the settings in the new configuration file
     file_settings = open(FILE_SETTINGS_NEW, mode='w')
+    self.logText('Saving settings to %s' % FILE_SETTINGS_NEW, VERBOSE_LEVEL_MAX)
     self.config.write(file_settings)
     file_settings.close()
     # If the read configuration at starup is the old configuration file
     # the old configuration file will be deleted and the new file will be used
     if self.filename == FILE_SETTINGS_OLD:
+      self.logText('Removing old settings from %s' % FILE_SETTINGS_OLD, VERBOSE_LEVEL_MAX)
       os.remove(FILE_SETTINGS_OLD)
       self.filename = FILE_SETTINGS_NEW
 
