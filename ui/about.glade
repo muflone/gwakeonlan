@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.0 on Sat Oct 19 21:53:28 2013 -->
+<!-- Generated with glade 3.16.0 on Sun Oct 27 13:33:48 2013 -->
 <interface>
-  <!-- interface-requires gtk+ 3.6 -->
+  <!-- interface-requires gtk+ 3.0 -->
   <object class="GtkAboutDialog" id="dialogAbout">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
