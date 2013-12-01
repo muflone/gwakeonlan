@@ -24,10 +24,10 @@ from xdg import BaseDirectory
 
 # Application constants
 APP_NAME = 'gWakeOnLAN'
-APP_VERSION = '0.6'
+APP_VERSION = '0.6.1'
 APP_DESCRIPTION = 'Wake up your machines using Wake on LAN.'
 APP_ID = 'gwakeonlan.muflone.com'
-APP_URL = 'http://gwakeonlan.muflone.com/'
+APP_URL = 'http://url.muflone.com/gwakeonlan'
 APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'webreg@vbsimple.net'
 APP_COPYRIGHT = 'Copyright 2009-2013 %s' % APP_AUTHOR
