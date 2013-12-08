@@ -1,3 +1,10 @@
+gwakeonlan 0.6.1
+  * Changed project URL to http://url.muflone.com/gwakeonlan
+  * Fixed license URL in the documentation
+  * Fixed the minimum GTK+ version to 3.0
+  
+ -- Fabio Castelli <webreg@vbsimple.net>  Sun, 8 Dic 2013 17:25:29 +0100
+
 gwakeonlan 0.6.0
 
   * Rewrote the whole project from scratch!
@@ -13,7 +20,7 @@ gwakeonlan 0.6.0
   * Updated translations and new languages
   * New dialog for ARP cache searching
   
- -- Fabio Castelli <webreg@vbsimple.net>  Sub, 20 Oct 2013 01:39:29 +0200
+ -- Fabio Castelli <webreg@vbsimple.net>  Sun, 20 Oct 2013 01:39:29 +0200
   
 gwakeonlan 0.5.1
 
