@@ -99,7 +99,7 @@ msgstr "Bent u zeker dat u de geselecteerde computer wilt verwijderen?"
 
 #: ../gwakeonlan:290
 msgid "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
-msgstr "Een GTK+ toepassing om uitgeschakelde computers aan te zetten door middel van de Wake on LAN functie"
+msgstr "Een GTK+ toepassing om uitgeschakelde computers aan te zetten door middel van de Wake on LAN functie."
 
 #: ../gwakeonlan:357
 msgid "No machines detected"
