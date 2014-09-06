@@ -1,0 +1,126 @@
+# gWakeOnLan
+# Wake up your machines using Wake on LAN.
+# Copyright (C) 2009-2014 Fabio Castelli (Muflone) <muflone(at)vbsimple.net>
+# Website: http://www.muflone.com/gwakeonlan/
+# This file is distributed under the same license of gWakeOnLan.
+# Bulgarian translation for gWakeOnLan
+# 
+# Translators:
+# sahwar <ve4ernik(at)gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: gWakeOnLan\n"
+"Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
+"POT-Creation-Date: 2010-02-20 13:27+0100\n"
+"PO-Revision-Date: 2014-08-31 00:21+0000\n"
+"Last-Translator: sahwar <ve4ernik(at)gmail.com>\n"
+"Language-Team: Bulgarian (http://www.transifex.com/projects/p/gwakeonlan/language/bg/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/gwakeonlan.glade.h:1
+msgid "<big><b>Insert the machine name and its MAC address</b></big>"
+msgstr "<big><b>Вмъкнете името на машината и нейния MAC адрес</b></big>"
+
+#: ../data/gwakeonlan.glade.h:2
+msgid "About"
+msgstr "За програмата..."
+
+#: ../data/gwakeonlan.glade.h:3 ../gwakeonlan:90
+msgid "Add machine"
+msgstr "Добавяне на машина"
+
+#: ../data/gwakeonlan.glade.h:4 ../gwakeonlan:277
+msgid "Delete machine"
+msgstr "Изтриване на машина"
+
+#: ../data/gwakeonlan.glade.h:5 ../gwakeonlan:90
+msgid "Edit machine"
+msgstr "Редактиране на машина"
+
+#: ../data/gwakeonlan.glade.h:6
+msgid "MAC _Address:"
+msgstr "MAC _адрес:"
+
+#: ../data/gwakeonlan.glade.h:7
+msgid "Request type:"
+msgstr "Тип на заявката"
+
+#: ../data/gwakeonlan.glade.h:8
+msgid "Turn on"
+msgstr "Включване"
+
+#: ../data/gwakeonlan.glade.h:9
+msgid "_Destination host:"
+msgstr "_Предназначен хост:"
+
+#: ../data/gwakeonlan.glade.h:10
+msgid "_Internet"
+msgstr "_Интернет"
+
+#: ../data/gwakeonlan.glade.h:11
+msgid "_Local (broadcast)"
+msgstr "_местен (broadcast)"
+
+#: ../data/gwakeonlan.glade.h:12
+msgid "_Machine name:"
+msgstr "Име на _машината:"
+
+#: ../data/gwakeonlan.glade.h:13
+msgid "_UDP port number:"
+msgstr "_UDP число на порта:"
+
+#: ../gwakeonlan:115
+msgid "Missing machine name"
+msgstr "Липсващо име на машина"
+
+#: ../gwakeonlan:117
+msgid "Invalid MAC address"
+msgstr "Невалиден MAC адрес"
+
+#: ../gwakeonlan:119
+msgid "Invalid destination host"
+msgstr "Невалиден предназначен хост"
+
+#: ../gwakeonlan:140
+msgid "Local"
+msgstr "Местен"
+
+#: ../gwakeonlan:140
+msgid "Internet"
+msgstr "Интернет"
+
+#: ../gwakeonlan:275
+msgid "Are you sure you want to remove the selected machine?"
+msgstr "Сигурни ли сте, че искате да премахнете избраната машина?"
+
+#: ../gwakeonlan:290
+msgid "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
+msgstr "GTK+ приложение за събуждане на изключени компютри чрез функцията „Wake on LAN“."
+
+#: ../gwakeonlan:357
+msgid "No machines detected"
+msgstr "Не са засечени никакви машини."
+
+#: ../gwakeonlan:378
+msgid "Machine name"
+msgstr "Име на машината"
+
+#: ../gwakeonlan:382
+msgid "MAC address"
+msgstr "MAC адрес"
+
+#: ../gwakeonlan:386
+msgid "Request type"
+msgstr "Тип на заявката"
+
+#: ../gwakeonlan:390
+msgid "Destination"
+msgstr "Цел/предназначение"
+
+#: ../gwakeonlan:394
+msgid "Port NR"
+msgstr "Порт NR"
