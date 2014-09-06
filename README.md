@@ -8,7 +8,7 @@ gWakeOnLAN
 
 **Source code:** https://github.com/muflone/gwakeonlan
 
-**Documentation:** http://url.muflone.com/gwakeonlan
+**Documentation:** http://www.muflone.com/gwakeonlan
 
 System Requirements
 -------------------
