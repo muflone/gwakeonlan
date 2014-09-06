@@ -1,9 +1,11 @@
 # gWakeOnLan
 # Wake up your machines using Wake on LAN.
-# Copyright (C) 2009-2013 Fabio Castelli (Muflone) <webreg(at)vbsimple.net>
-# This file is distributed under the GPL v2 license (see copyright file).
+# Copyright (C) 2009-2014 Fabio Castelli (Muflone) <muflone(at)vbsimple.net>
+# Website: http://www.muflone.com/gwakeonlan/
+# This file is distributed under the same license of gWakeOnLan.
 # X translation for gWakeOnLan
-#
+# 
+# Translators:
 #, fuzzy
 msgid ""
 msgstr ""
