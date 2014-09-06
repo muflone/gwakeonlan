@@ -3,7 +3,7 @@ gwakeonlan 0.6.1
   * Fixed license URL in the documentation
   * Fixed the minimum GTK+ version to 3.0
   
- -- Fabio Castelli <webreg@vbsimple.net>  Sun, 8 Dic 2013 17:25:29 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Sun, 8 Dic 2013 17:25:29 +0100
 
 gwakeonlan 0.6.0
 
@@ -20,22 +20,22 @@ gwakeonlan 0.6.0
   * Updated translations and new languages
   * New dialog for ARP cache searching
   
- -- Fabio Castelli <webreg@vbsimple.net>  Sun, 20 Oct 2013 01:39:29 +0200
+ -- Fabio Castelli <muflone@vbsimple.net>  Sun, 20 Oct 2013 01:39:29 +0200
   
 gwakeonlan 0.5.1
 
   * Added dutch translation by Thomas De Rocker
 
- -- Fabio Castelli <webreg@vbsimple.net>  Sun, 17 Oct 2010 12:24:25 +0200
+ -- Fabio Castelli <muflone@vbsimple.net>  Sun, 17 Oct 2010 12:24:25 +0200
 
   * Added slovak translation by Jozef Riha
 
- -- Fabio Castelli <webreg@vbsimple.net>  Sat, 29 May 2010 20:37:14 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Sat, 29 May 2010 20:37:14 +0100
 
   * Added german translation by Martin Riemenschneider
   * Fixed spanish translation by Luca Della Ghezza
 
- -- Fabio Castelli <webreg@vbsimple.net>  Tue, 20 Apr 2010 22:03:44 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Tue, 20 Apr 2010 22:03:44 +0100
 
 gwakeonlan 0.5
 
@@ -52,14 +52,14 @@ gwakeonlan 0.5
   * Added verbose and client command line options.
   * Various code cleanup.
 
- -- Fabio Castelli <webreg@vbsimple.net>  Sat, 20 Feb 2010 14:15:21 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Sat, 20 Feb 2010 14:15:21 +0100
 
 gwakeonlan 0.4.1
 
   * Added russian translation by Сергей Богатов <hsh@runtu.org>.
   * Fixed typo in manpage.
 
- -- Fabio Castelli <webreg@vbsimple.net>  Sat, 13 Feb 2010 19:39:24 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Sat, 13 Feb 2010 19:39:24 +0100
 
 gwakeonlan 0.4
 
@@ -68,7 +68,7 @@ gwakeonlan 0.4
   * Modified the manpage for further info about bugs reporting and copyright.
   * Bump copyright year
 
- -- Fabio Castelli <webreg@vbsimple.net>  Sat, 16 Jan 2010 17:00:40 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Sat, 16 Jan 2010 17:00:40 +0100
 
 gwakeonlan 0.3
 
@@ -76,17 +76,17 @@ gwakeonlan 0.3
   * Added french translation by Emmanuel <info@simple-linux.com>.
   * Added setup.py for distutils support.
 
- -- Fabio Castelli <webreg@vbsimple.net>  Sun, 13 Dic 2009 21:38:10 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Sun, 13 Dic 2009 21:38:10 +0100
 
 gwakeonlan 0.2
 
   * Fixed wake_on_lan function which missed the magic packet creation code.
 
- -- Fabio Castelli <webreg@vbsimple.net>  Fri, 12 Sep 2009 23:40:00 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Fri, 12 Sep 2009 23:40:00 +0100
 
 gwakeonlan 0.1
 
   * Initial release
 
- -- Fabio Castelli <webreg@vbsimple.net>  Fri, 6 Sep 2009 00:19:00 +0100
+ -- Fabio Castelli <muflone@vbsimple.net>  Fri, 6 Sep 2009 00:19:00 +0100
 

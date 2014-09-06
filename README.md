@@ -2,7 +2,7 @@ gWakeOnLAN
 ==========
 **Description:** Wake up your machines using Wake on LAN.
 
-**Copyright:** 2009-2014 Fabio Castelli (Muflone) <webreg(at)vbsimple.net>
+**Copyright:** 2009-2014 Fabio Castelli (Muflone) <muflone(at)vbsimple.net>
 
 **License:** GPL-2+
 
