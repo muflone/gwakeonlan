@@ -1,3 +1,9 @@
+gwakeonlan 0.6.2
+  * Changed project URL to http://www.muflone.com/gwakeonlan
+  * New Bulgarian translation by sahwar
+  
+ -- Fabio Castelli <muflone@vbsimple.net>  Sat, 6 Sep 2014 19:16:13 +0200
+
 gwakeonlan 0.6.1
   * Changed project URL to http://url.muflone.com/gwakeonlan
   * Fixed license URL in the documentation
@@ -24,16 +30,16 @@ gwakeonlan 0.6.0
   
 gwakeonlan 0.5.1
 
-  * Added dutch translation by Thomas De Rocker
+  * Added Dutch translation by Thomas De Rocker
 
  -- Fabio Castelli <muflone@vbsimple.net>  Sun, 17 Oct 2010 12:24:25 +0200
 
-  * Added slovak translation by Jozef Riha
+  * Added Slovak translation by Jozef Riha
 
  -- Fabio Castelli <muflone@vbsimple.net>  Sat, 29 May 2010 20:37:14 +0100
 
-  * Added german translation by Martin Riemenschneider
-  * Fixed spanish translation by Luca Della Ghezza
+  * Added German translation by Martin Riemenschneider
+  * Fixed Spanish translation by Luca Della Ghezza
 
  -- Fabio Castelli <muflone@vbsimple.net>  Tue, 20 Apr 2010 22:03:44 +0100
 
@@ -56,14 +62,14 @@ gwakeonlan 0.5
 
 gwakeonlan 0.4.1
 
-  * Added russian translation by Сергей Богатов <hsh@runtu.org>.
+  * Added Russian translation by Сергей Богатов <hsh@runtu.org>.
   * Fixed typo in manpage.
 
  -- Fabio Castelli <muflone@vbsimple.net>  Sat, 13 Feb 2010 19:39:24 +0100
 
 gwakeonlan 0.4
 
-  * Added spanish translation by Matias Bellone <matiasbellone+debian@gmail.com>.
+  * Added Spanish translation by Matias Bellone <matiasbellone+debian@gmail.com>.
   * Added doc/translators for translators notice on about dialog.
   * Modified the manpage for further info about bugs reporting and copyright.
   * Bump copyright year
@@ -73,7 +79,7 @@ gwakeonlan 0.4
 gwakeonlan 0.3
 
   * Added confirmation before delete an existing host.
-  * Added french translation by Emmanuel <info@simple-linux.com>.
+  * Added French translation by Emmanuel <info@simple-linux.com>.
   * Added setup.py for distutils support.
 
  -- Fabio Castelli <muflone@vbsimple.net>  Sun, 13 Dic 2009 21:38:10 +0100
