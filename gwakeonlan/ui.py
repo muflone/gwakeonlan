@@ -27,6 +27,7 @@ from gwakeonlan.model_machines import ModelMachines
 from gwakeonlan.detail import DetailWindow
 from gwakeonlan.arpcache import ARPCacheWindow
 from gwakeonlan.about import AboutWindow
+from gwakeonlan.import_ethers import ImportEthers
 
 class MainWindow(object):
   def __init__(self, application, settings):
@@ -34,6 +35,7 @@ class MainWindow(object):
     self.loadUI()
     self.settings = settings
     self.settings.load_hosts(self.model)
+
     # Restore the saved size and position
     if self.settings.get_value('width', 0) and self.settings.get_value('height', 0):
       self.winMain.set_default_size(
@@ -51,6 +53,13 @@ class MainWindow(object):
   def run(self):
     "Show the UI"
     self.winMain.show_all()
+
+    if self.settings.options.ethers_file:
+      importer = ImportEthers(self.settings.options.import_l3_dest)
+      importer.import_file(
+        self.settings.options.ethers_file,
+        self.model.add_machine,
+      )
 
   def loadUI(self):
     "Load the interface UI"
@@ -90,7 +99,7 @@ class MainWindow(object):
 
   def on_btnAdd_clicked(self, widget):
     "Add a new empty machine"
-    self.detail.load_data('', '', 9, BROADCAST_ADDRESS)
+    self.detail.load_data('', '', DEFAULT_UDP_PORT, BROADCAST_ADDRESS)
     # Check if the OK button in the dialog was pressed
     if self.detail.show() == Gtk.ResponseType.OK:
       self.model.add_machine(
@@ -128,7 +137,7 @@ class MainWindow(object):
       if dialog.get_mac_address():
         # Add the machine to the model from the ARP cache
         self.model.add_machine(False, dialog.get_ip_address(),
-          dialog.get_mac_address(), 9, BROADCAST_ADDRESS)
+          dialog.get_mac_address(), DEFAULT_UDP_PORT, BROADCAST_ADDRESS)
         # Select the last machine and edit its details
         self.tvwMachines.set_cursor(self.model.count() - 1)
         self.btnEdit.emit('clicked')

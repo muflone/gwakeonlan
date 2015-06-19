@@ -32,6 +32,7 @@ APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'muflone@vbsimple.net'
 APP_COPYRIGHT = 'Copyright 2009-2014 %s' % APP_AUTHOR
 # Other constants
+DEFAULT_UDP_PORT = 9
 BROADCAST_ADDRESS = '255.255.255.255'
 DOMAIN_NAME = 'gwakeonlan'
 VERBOSE_LEVEL_QUIET = 0
@@ -61,6 +62,7 @@ FILE_UI_ABOUT = os.path.join(DIR_UI, 'about.glade')
 FILE_UI_APPMENU = os.path.join(DIR_UI, 'appmenu.ui')
 # Set the paths for the data files
 FILE_ICON = os.path.join(DIR_DATA, 'gwakeonlan.png')
+FILE_CONTRIBUTORS = os.path.join(DIR_DOCS, 'contributors')
 FILE_TRANSLATORS = os.path.join(DIR_DOCS, 'translators')
 FILE_LICENSE = os.path.join(DIR_DOCS, 'license')
 FILE_RESOURCES = os.path.join(DIR_DOCS, 'resources')

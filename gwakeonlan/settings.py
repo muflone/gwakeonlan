@@ -29,6 +29,7 @@ from gwakeonlan.constants import *
 SECTION_MAINWIN = 'main window'
 SECTION_HOSTS = 'hosts'
 
+
 class Settings(object):
   def __init__(self):
     self.settings = {}
@@ -43,6 +44,12 @@ class Settings(object):
     parser.add_option('-q', '--quiet', dest='verbose_level',
                       action='store_const', const=VERBOSE_LEVEL_QUIET,
                       help='hide error and information messages')
+    parser.add_option('-i', '--import-ethers-file', dest='ethers_file',
+                      help='Include the given ethers file')
+    parser.add_option('-d', '--include-dest', dest='import_l3_dest',
+                      default=BROADCAST_ADDRESS,
+                      help='Network layer (L3) destination'
+                      'for included hosts from the ethers file (default is broadcast)')
     (self.options, self.arguments) = parser.parse_args()
     # Parse settings from the configuration file
     self.config = ConfigParser.RawConfigParser()
@@ -103,7 +110,7 @@ class Settings(object):
       self.config.remove_section(SECTION_HOSTS)
     self.config.add_section(SECTION_HOSTS)
     for machine in self.model:
-      self.logText('Saving machine: %s' % self.model.get_machine_name(machine), 
+      self.logText('Saving machine: %s' % self.model.get_machine_name(machine),
       VERBOSE_LEVEL_MAX)
       self.config.set(SECTION_HOSTS,
         self.model.get_machine_name(machine), '%s\\%s\\%d' % (
@@ -116,13 +123,14 @@ class Settings(object):
     self.logText('Saving settings to %s' % FILE_SETTINGS_NEW, VERBOSE_LEVEL_MAX)
     self.config.write(file_settings)
     file_settings.close()
-    # If the read configuration at starup is the old configuration file
+    # If the read configuration at startup is the old configuration file
     # the old configuration file will be deleted and the new file will be used
     if self.filename == FILE_SETTINGS_OLD:
       self.logText('Removing old settings from %s' % FILE_SETTINGS_OLD, VERBOSE_LEVEL_MAX)
       os.remove(FILE_SETTINGS_OLD)
       self.filename = FILE_SETTINGS_NEW
 
+  ## FIXME: use logging module.
   def logText(self, text, verbose_level=VERBOSE_LEVEL_NORMAL):
     "Print a text with current date and time based on verbose level"
     if verbose_level <= self.options.verbose_level:

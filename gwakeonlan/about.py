@@ -44,7 +44,11 @@ class AboutWindow(object):
     self.dialog.set_comments(APP_DESCRIPTION)
     self.dialog.set_website(APP_URL)
     self.dialog.set_copyright(APP_COPYRIGHT)
-    self.dialog.set_authors(['%s <%s>' % (APP_AUTHOR, APP_AUTHOR_EMAIL)])
+    authors = ['%s <%s>' % (APP_AUTHOR, APP_AUTHOR_EMAIL)]
+    for line in readlines(FILE_CONTRIBUTORS, False):
+      person, contributions = line.split(':', 1)
+      authors.append(person)
+    self.dialog.set_authors(authors)
     #self.dialog.set_license_type(Gtk.License.GPL_2_0)
     self.dialog.set_license('\n'.join(readlines(FILE_LICENSE, True)))
     self.dialog.set_translator_credits('\n'.join(translators))
