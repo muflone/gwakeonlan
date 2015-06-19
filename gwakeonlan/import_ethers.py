@@ -14,18 +14,14 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import sys
 import re
 
-from gi.repository import Gtk
-from gi.repository import Gio
 from gwakeonlan.constants import DEFAULT_UDP_PORT, BROADCAST_ADDRESS
-from gwakeonlan.model_machines import ModelMachines
 
 
 class ImportEthers(object):
-    def __init__(self, import_l3_dest=BROADCAST_ADDRESS):
 
+    def __init__(self, import_l3_dest=BROADCAST_ADDRESS):
         self.import_l3_dest = import_l3_dest
 
     def import_file(self, filepath, add_function):
