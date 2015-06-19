@@ -145,6 +145,25 @@ class MainWindow(object):
     # Destroy the dialog
     dialog.destroy()
 
+  def on_menuitemImportEthers_activate(self, widget):
+    "Show the Ethers file importer"
+    dialog = Gtk.FileChooserDialog(
+      "Please choose a file",
+      None,
+      Gtk.FileChooserAction.OPEN,
+      (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+       Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
+
+    response = dialog.run()
+    if response == Gtk.ResponseType.OK:
+      importer = ImportEthers(self.settings.options.import_l3_dest)
+      importer.import_file(
+        dialog.get_filename(),
+        self.model.add_machine,
+      )
+
+    dialog.destroy()
+
   def on_tvwMachines_row_activated(self, widget, path, column):
     "The double click on a row acts as the Edit machine button"
     self.btnEdit.emit('clicked')

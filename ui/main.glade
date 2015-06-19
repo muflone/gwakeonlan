@@ -81,6 +81,15 @@
                         <signal name="activate" handler="on_menuitemARPCache_activate" swapped="no"/>
                       </object>
                     </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitemImportEthers">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">Import machines from ethers file</property>
+                        <property name="label" translatable="yes">Import from ethers file</property>
+                        <signal name="activate" handler="on_menuitemImportEthers_activate" swapped="no"/>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>

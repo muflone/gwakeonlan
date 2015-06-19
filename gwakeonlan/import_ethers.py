@@ -34,8 +34,6 @@ class ImportEthers(object):
                 if re.match(r'(?:#|\s*$)', line):
                     continue
                 mac_address, machine_name = line.split()
-                print mac_address
-                print self.import_l3_dest
 
                 add_function(
                     False,

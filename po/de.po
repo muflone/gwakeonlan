@@ -125,3 +125,9 @@ msgstr "Ziel"
 #: ../gwakeonlan:394
 msgid "Port NR"
 msgstr "Portnummer"
+
+msgid "Import machines from ethers file"
+msgstr "Rechner aus einer Ethers-Datei importieren"
+
+msgid "Import from ethers file"
+msgstr "Aus Ethers-Datei importieren"
