@@ -48,7 +48,6 @@ class DetailWindow(object):
         self.dialog.set_transient_for(winParent)
         self.btnOK.set_label(gtk30_('_OK'))
         self.btnCancel.set_label(gtk30_('_Cancel'))
-        self.dialog.set_default_response(Gtk.ResponseType.OK)
         # Connect signals from the glade file to the functions
         # with the same name
         builder.connect_signals(self)
