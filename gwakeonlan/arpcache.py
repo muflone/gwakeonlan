@@ -32,15 +32,16 @@ class ARPCacheWindow(object):
         # Obtain widget references
         self.dialog = builder.get_object('dlgARPCache')
         self.tvwHosts = builder.get_object('tvwHosts')
+        self.btnOK = builder.get_object('btnOK')
+        self.btnCancel = builder.get_object('btnCancel')
         self.model = ModelARPCache(
             builder.get_object('modelARPCache'), settings)
         self.model.refresh()
         self.dialog.set_title(_('Pick a host from the ARP cache'))
         self.dialog.set_icon_from_file(FILE_ICON)
         self.dialog.set_transient_for(winParent)
-        self.dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
-        self.dialog.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK)
-        self.dialog.set_default_response(Gtk.ResponseType.OK)
+        self.btnOK.set_label(gtk30_('_OK'))
+        self.btnCancel.set_label(gtk30_('_Cancel'))
         # Connect signals from the glade file to the functions
         # with the same name
         builder.connect_signals(self)
