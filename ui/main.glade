@@ -40,7 +40,7 @@
                 <property name="tooltip_text" translatable="yes">Turn on</property>
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Turn on</property>
-                <property name="stock_id">gtk-execute</property>
+                <property name="icon_name">system-run</property>
                 <signal name="clicked" handler="on_btnWake_clicked" swapped="no"/>
               </object>
               <packing>
@@ -65,7 +65,7 @@
                 <property name="tooltip_text" translatable="yes">Add machine</property>
                 <property name="label" translatable="yes">Add machine</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">gtk-add</property>
+                <property name="icon_name">list-add</property>
                 <signal name="clicked" handler="on_btnAdd_clicked" swapped="no"/>
                 <child type="menu">
                   <object class="GtkMenu" id="menuAdd">
@@ -96,7 +96,7 @@
                 <property name="tooltip_text" translatable="yes">Edit machine</property>
                 <property name="label" translatable="yes">Edit machine</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">gtk-edit</property>
+                <property name="icon_name">document-properties</property>
                 <signal name="clicked" handler="on_btnEdit_clicked" swapped="no"/>
               </object>
               <packing>
@@ -111,7 +111,7 @@
                 <property name="tooltip_text" translatable="yes">Delete machine</property>
                 <property name="label" translatable="yes">Delete machine</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">gtk-remove</property>
+                <property name="icon_name">list-remove</property>
                 <signal name="clicked" handler="on_btnDelete_clicked" swapped="no"/>
                 <accelerator key="Delete" signal="clicked"/>
               </object>
@@ -137,7 +137,7 @@
                 <property name="tooltip_text" translatable="yes">About</property>
                 <property name="label" translatable="yes">About</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">gtk-about</property>
+                <property name="icon_name">help-about</property>
                 <signal name="clicked" handler="on_btnAbout_clicked" swapped="no"/>
               </object>
               <packing>

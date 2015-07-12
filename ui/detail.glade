@@ -99,8 +99,7 @@
               <object class="GtkImage" id="imgComputer">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="yalign">0</property>
-                <property name="ypad">7</property>
+                <property name="valign">start</property>
                 <property name="pixel_size">72</property>
                 <property name="icon_name">computer</property>
               </object>
@@ -114,10 +113,10 @@
               <object class="GtkLabel" id="lblMachineName">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="hexpand">False</property>
                 <property name="label" translatable="yes">_Machine name:</property>
                 <property name="use_underline">True</property>
-                <property name="xalign">0</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -142,11 +141,10 @@
               <object class="GtkLabel" id="lblMACAddress">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="hexpand">False</property>
-                <property name="vexpand">True</property>
                 <property name="label" translatable="yes">MAC _Address:</property>
                 <property name="use_underline">True</property>
-                <property name="xalign">0</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -157,10 +155,10 @@
               <object class="GtkLabel" id="lblPortNumber">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="hexpand">False</property>
                 <property name="label" translatable="yes">_UDP port number:</property>
                 <property name="use_underline">True</property>
-                <property name="xalign">0</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -186,11 +184,10 @@
               <object class="GtkLabel" id="lblRequestType">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="hexpand">False</property>
-                <property name="vexpand">True</property>
                 <property name="label" translatable="yes">Request type:</property>
                 <property name="use_underline">True</property>
-                <property name="xalign">0</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -203,8 +200,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="halign">start</property>
                 <property name="use_underline">True</property>
-                <property name="xalign">0</property>
                 <property name="active">True</property>
                 <property name="draw_indicator">True</property>
                 <signal name="toggled" handler="on_radioRequestType_toggled" swapped="no"/>
@@ -220,8 +217,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="halign">start</property>
                 <property name="use_underline">True</property>
-                <property name="xalign">0</property>
                 <property name="active">True</property>
                 <property name="draw_indicator">True</property>
                 <property name="group">radioRequestLocal</property>
@@ -236,10 +233,10 @@
               <object class="GtkLabel" id="lblDestinationHost">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="hexpand">False</property>
                 <property name="label" translatable="yes">_Destination host:</property>
                 <property name="use_underline">True</property>
-                <property name="xalign">0</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
