@@ -25,66 +25,72 @@ from gettext import dgettext
 from gi.repository import Gtk
 from gwakeonlan.constants import *
 
+
 def formatMAC(mac):
-  "Return the mac address formatted with colon"
-  mac = mac.replace(':', '').replace('.', '')
-  return ':'.join([mac[i:i+2] for i in xrange(0, len(mac), 2)]).upper()
+    "Return the mac address formatted with colon"
+    mac = mac.replace(':', '').replace('.', '')
+    return ':'.join([mac[i:i+2] for i in xrange(0, len(mac), 2)]).upper()
+
 
 def show_message_dialog_yesno(winParent, message, title, default_response):
-  "Show a GtkMessageDialog with yes and no buttons"
-  dialog = Gtk.MessageDialog(
-    parent=winParent,
-    flags=Gtk.DialogFlags.MODAL,
-    type=Gtk.MessageType.QUESTION,
-    buttons=Gtk.ButtonsType.YES_NO,
-    message_format=message
-  )
-  dialog.set_title(title)
-  if default_response:
-    dialog.set_default_response(default_response)
-  response = dialog.run()
-  dialog.destroy()
-  return response
+    "Show a GtkMessageDialog with yes and no buttons"
+    dialog = Gtk.MessageDialog(
+        parent=winParent,
+        flags=Gtk.DialogFlags.MODAL,
+        type=Gtk.MessageType.QUESTION,
+        buttons=Gtk.ButtonsType.YES_NO,
+        message_format=message
+    )
+    dialog.set_title(title)
+    if default_response:
+        dialog.set_default_response(default_response)
+    response = dialog.run()
+    dialog.destroy()
+    return response
+
 
 def wake_on_lan(mac_address, portnr, destination, settings):
-  "Turn on remote machine using Wake On LAN."
-  settings.logText(
-    'turning on: %s through %s using port number %d' % (
-    mac_address, destination, portnr))
-  # Magic packet (6 times FF + 16 times MAC address)
-  packet = 'FF' * 6 + mac_address.replace(':', '') * 16
-  data = []
-  for i in xrange(0, len(packet), 2):
-    data.append(struct.pack('B', int(packet[i:i+2], 16)))
+    "Turn on remote machine using Wake On LAN."
+    settings.logText(
+        'turning on: %s through %s using port number %d' % (
+            mac_address, destination, portnr))
+    # Magic packet (6 times FF + 16 times MAC address)
+    packet = 'FF' * 6 + mac_address.replace(':', '') * 16
+    data = []
+    for i in xrange(0, len(packet), 2):
+        data.append(struct.pack('B', int(packet[i:i+2], 16)))
 
-  # Send magic packet to the destination
-  settings.logText('sending packet %s [%d/%d]\n' % (
-    packet, len(packet), len(data)), VERBOSE_LEVEL_MAX)
-  sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-  sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-  if destination == '255.255.255.255':
-    destination = '<broadcast>'
-  sock.sendto(''.join(data), (destination, portnr))
+    # Send magic packet to the destination
+    settings.logText('sending packet %s [%d/%d]\n' % (
+        packet, len(packet), len(data)), VERBOSE_LEVEL_MAX)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    if destination == '255.255.255.255':
+        destination = '<broadcast>'
+    sock.sendto(''.join(data), (destination, portnr))
 
-def readlines(filename, empty_lines = False):
-  result = []
-  with open(filename) as f:
-    for line in f.readlines():
-      line = line.strip()
-      if line or empty_lines:
-        result.append(line)
-    f.close()
-  return result
+
+def readlines(filename, empty_lines=False):
+    result = []
+    with open(filename) as f:
+        for line in f.readlines():
+            line = line.strip()
+            if line or empty_lines:
+                result.append(line)
+        f.close()
+    return result
+
 
 def gtk30_(message):
-  "Return a message translated from GTK+ 3 domain"
-  return dgettext('gtk30', message)
+    "Return a message translated from GTK+ 3 domain"
+    return dgettext('gtk30', message)
+
 
 __all__ = [
-  'formatMAC',
-  'show_message_dialog_yesno',
-  'wake_on_lan',
-  'readlines',
-  '_',
-  'gtk30_'
+    'formatMAC',
+    'show_message_dialog_yesno',
+    'wake_on_lan',
+    'readlines',
+    '_',
+    'gtk30_'
 ]

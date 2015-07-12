@@ -21,79 +21,83 @@
 from gi.repository import Gtk
 from gwakeonlan.constants import *
 
+
 class ModelMachines(object):
-  COL_SELECTED = 0
-  COL_MACHINE = 1
-  COL_MACADDRESS = 2
-  COL_REQUESTTYPE = 3
-  COL_DESTINATION = 4
-  COL_PORTNR = 5
-  def __init__(self, model):
-    self.model = model
-    self.index = 0
+    COL_SELECTED = 0
+    COL_MACHINE = 1
+    COL_MACADDRESS = 2
+    COL_REQUESTTYPE = 3
+    COL_DESTINATION = 4
+    COL_PORTNR = 5
 
-  def path_from_iter(self, treeiter):
-    return type(treeiter) is Gtk.TreeModelRow and treeiter.path or treeiter
+    def __init__(self, model):
+        self.model = model
+        self.index = 0
 
-  def get_model_data(self, treeiter, column):
-    return self.model[self.path_from_iter(treeiter)][column]
+    def path_from_iter(self, treeiter):
+        return type(treeiter) is Gtk.TreeModelRow and treeiter.path or treeiter
 
-  def set_model_data(self, treeiter, column, value):
-    self.model[self.path_from_iter(treeiter)][column] = value
+    def get_model_data(self, treeiter, column):
+        return self.model[self.path_from_iter(treeiter)][column]
 
-  def get_selected(self, treeiter):
-    return self.get_model_data(treeiter, self.__class__.COL_SELECTED)
+    def set_model_data(self, treeiter, column, value):
+        self.model[self.path_from_iter(treeiter)][column] = value
 
-  def set_selected(self, treeiter, value):
-    self.set_model_data(treeiter, self.__class__.COL_SELECTED, value)
+    def get_selected(self, treeiter):
+        return self.get_model_data(treeiter, self.__class__.COL_SELECTED)
 
-  def get_machine_name(self, treeiter):
-    return self.get_model_data(treeiter, self.__class__.COL_MACHINE)
+    def set_selected(self, treeiter, value):
+        self.set_model_data(treeiter, self.__class__.COL_SELECTED, value)
 
-  def set_machine_name(self, treeiter, value):
-    self.set_model_data(treeiter, self.__class__.COL_MACHINE, value)
+    def get_machine_name(self, treeiter):
+        return self.get_model_data(treeiter, self.__class__.COL_MACHINE)
 
-  def get_mac_address(self, treeiter):
-    return self.get_model_data(treeiter, self.__class__.COL_MACADDRESS)
+    def set_machine_name(self, treeiter, value):
+        self.set_model_data(treeiter, self.__class__.COL_MACHINE, value)
 
-  def set_mac_address(self, treeiter, value):
-    self.set_model_data(treeiter, self.__class__.COL_MACADDRESS, value)
+    def get_mac_address(self, treeiter):
+        return self.get_model_data(treeiter, self.__class__.COL_MACADDRESS)
 
-  def get_request_type(self, treeiter):
-    return self.get_model_data(treeiter, self.__class__.COL_REQUESTTYPE)
+    def set_mac_address(self, treeiter, value):
+        self.set_model_data(treeiter, self.__class__.COL_MACADDRESS, value)
 
-  def get_destination(self, treeiter):
-    return self.get_model_data(treeiter, self.__class__.COL_DESTINATION)
+    def get_request_type(self, treeiter):
+        return self.get_model_data(treeiter, self.__class__.COL_REQUESTTYPE)
 
-  def set_destination(self, treeiter, value):
-    self.set_model_data(treeiter, self.__class__.COL_DESTINATION, value)
-    self.set_model_data(treeiter, self.__class__.COL_REQUESTTYPE,
-      value == BROADCAST_ADDRESS and 'Local' or 'Internet')
+    def get_destination(self, treeiter):
+        return self.get_model_data(treeiter, self.__class__.COL_DESTINATION)
 
-  def get_portnr(self, treeiter):
-    return self.get_model_data(treeiter, self.__class__.COL_PORTNR)
+    def set_destination(self, treeiter, value):
+        self.set_model_data(treeiter, self.__class__.COL_DESTINATION, value)
+        self.set_model_data(treeiter, self.__class__.COL_REQUESTTYPE,
+                            value == BROADCAST_ADDRESS and 'Local' or
+                            'Internet')
 
-  def set_portnr(self, treeiter, value):
-    self.set_model_data(treeiter, self.__class__.COL_PORTNR, value)
+    def get_portnr(self, treeiter):
+        return self.get_model_data(treeiter, self.__class__.COL_PORTNR)
 
-  def add_machine(self, selected, machine_name, mac_address, portnr, destination):
-    return self.model.append((
-      selected,
-      machine_name,
-      mac_address,
-      destination == BROADCAST_ADDRESS and 'Local' or 'Internet',
-      destination,
-      portnr
-    ))
+    def set_portnr(self, treeiter, value):
+        self.set_model_data(treeiter, self.__class__.COL_PORTNR, value)
 
-  def remove(self, treeiter):
-    self.model.remove(treeiter)
+    def add_machine(self, selected, machine_name, mac_address, portnr,
+                    destination):
+        return self.model.append((
+            selected,
+            machine_name,
+            mac_address,
+            destination == BROADCAST_ADDRESS and 'Local' or 'Internet',
+            destination,
+            portnr
+        ))
 
-  def clear(self):
-    return self.model.clear()
+    def remove(self, treeiter):
+        self.model.remove(treeiter)
 
-  def count(self):
-    return len(self.model)
+    def clear(self):
+        return self.model.clear()
 
-  def __iter__(self):
-    return iter(self.model)
+    def count(self):
+        return len(self.model)
+
+    def __iter__(self):
+        return iter(self.model)

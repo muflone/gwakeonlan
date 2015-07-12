@@ -23,61 +23,64 @@ from gwakeonlan.model_arpcache import ModelARPCache
 from gwakeonlan.constants import *
 from gwakeonlan.functions import *
 
+
 class ARPCacheWindow(object):
-  def __init__(self, settings, winParent, show = False):
-    # Load interface UI
-    builder = Gtk.Builder()
-    builder.add_from_file(FILE_UI_ARPCACHE)
-    # Obtain widget references
-    self.dialog = builder.get_object('dlgARPCache')
-    self.tvwHosts = builder.get_object('tvwHosts')
-    self.model = ModelARPCache(builder.get_object('modelARPCache'), settings)
-    self.model.refresh()
-    self.dialog.set_title(_('Pick a host from the ARP cache'))
-    self.dialog.set_icon_from_file(FILE_ICON)
-    self.dialog.set_transient_for(winParent)
-    self.dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
-    self.dialog.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK)
-    self.dialog.set_default_response(Gtk.ResponseType.OK)
-    # Connect signals from the glade file to the functions with the same name
-    builder.connect_signals(self)
-    # Optionally show the dialog
-    if show:
-      self.show()
+    def __init__(self, settings, winParent, show=False):
+        # Load interface UI
+        builder = Gtk.Builder()
+        builder.add_from_file(FILE_UI_ARPCACHE)
+        # Obtain widget references
+        self.dialog = builder.get_object('dlgARPCache')
+        self.tvwHosts = builder.get_object('tvwHosts')
+        self.model = ModelARPCache(
+            builder.get_object('modelARPCache'), settings)
+        self.model.refresh()
+        self.dialog.set_title(_('Pick a host from the ARP cache'))
+        self.dialog.set_icon_from_file(FILE_ICON)
+        self.dialog.set_transient_for(winParent)
+        self.dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
+        self.dialog.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK)
+        self.dialog.set_default_response(Gtk.ResponseType.OK)
+        # Connect signals from the glade file to the functions
+        # with the same name
+        builder.connect_signals(self)
+        # Optionally show the dialog
+        if show:
+            self.show()
 
-  def destroy(self):
-    "Hide and destroy the ARP cache picker dialog"
-    self.dialog.destroy()
-    self.dialog = None
+    def destroy(self):
+        "Hide and destroy the ARP cache picker dialog"
+        self.dialog.destroy()
+        self.dialog = None
 
-  def show(self):
-    "Show the ARP Cache picker dialog"
-    response = self.dialog.run()
-    self.dialog.hide()
-    return response
+    def show(self):
+        "Show the ARP Cache picker dialog"
+        response = self.dialog.run()
+        self.dialog.hide()
+        return response
 
-  def on_btnRefresh_clicked(self, widget):
-    "Reload the ARP cache list"
-    self.model.refresh()
+    def on_btnRefresh_clicked(self, widget):
+        "Reload the ARP cache list"
+        self.model.refresh()
 
-  def on_tvwHosts_row_activated(self, widget, path, column):
-    "Treats the double click as the OK button was pressed"
-    self.dialog.response(Gtk.ResponseType.OK)
+    def on_tvwHosts_row_activated(self, widget, path, column):
+        "Treats the double click as the OK button was pressed"
+        self.dialog.response(Gtk.ResponseType.OK)
 
-  def get_ip_address(self):
-    "Returns the IP address of the selected row"
-    (model, treeiter) = self.tvwHosts.get_selection().get_selected()
-    if treeiter:
-      return self.model.get_ip_address(treeiter)
+    def get_ip_address(self):
+        "Returns the IP address of the selected row"
+        (model, treeiter) = self.tvwHosts.get_selection().get_selected()
+        if treeiter:
+            return self.model.get_ip_address(treeiter)
 
-  def get_hostname(self):
-    "Returns the hostname of the selected row"
-    (model, treeiter) = self.tvwHosts.get_selection().get_selected()
-    if treeiter:
-      return self.model.get_hostname(treeiter)
+    def get_hostname(self):
+        "Returns the hostname of the selected row"
+        (model, treeiter) = self.tvwHosts.get_selection().get_selected()
+        if treeiter:
+            return self.model.get_hostname(treeiter)
 
-  def get_mac_address(self):
-    "Returns the MAC address of the selected row"
-    (model, treeiter) = self.tvwHosts.get_selection().get_selected()
-    if treeiter:
-      return self.model.get_mac_address(treeiter)
+    def get_mac_address(self):
+        "Returns the MAC address of the selected row"
+        (model, treeiter) = self.tvwHosts.get_selection().get_selected()
+        if treeiter:
+            return self.model.get_mac_address(treeiter)

@@ -4,8 +4,8 @@ LOCALEDIR="locale"
 mkdir "$LOCALEDIR"
 for FILEPO in po/*.po;
 do (
-  FILEMO=$(basename "$FILEPO" .po)
-  mkdir -p "$LOCALEDIR/$FILEMO/LC_MESSAGES"
-  msgfmt --output-file="$LOCALEDIR/$FILEMO/LC_MESSAGES/gwakeonlan.mo" "$FILEPO"
+    FILEMO=$(basename "$FILEPO" .po)
+    mkdir -p "$LOCALEDIR/$FILEMO/LC_MESSAGES"
+    msgfmt --output-file="$LOCALEDIR/$FILEMO/LC_MESSAGES/gwakeonlan.mo" "$FILEPO"
 )
 done

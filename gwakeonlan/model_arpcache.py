@@ -22,54 +22,59 @@ import os.path
 import socket
 from gwakeonlan.constants import *
 
+
 class ModelARPCache(object):
-  COL_IPADDRESS = 0
-  COL_MACADDRESS = 1
-  COL_HOSTNAME = 2
-  def __init__(self, model, settings):
-    self.model = model
-    self.settings = settings
+    COL_IPADDRESS = 0
+    COL_MACADDRESS = 1
+    COL_HOSTNAME = 2
 
-  def clear(self):
-    "Clear the model"
-    return self.model.clear()
+    def __init__(self, model, settings):
+        self.model = model
+        self.settings = settings
 
-  def refresh(self):
-    "Clear the model and reload all the hosts from the ARP cache file"
-    self.clear()
-    # Read ARP cache file
-    if os.path.isfile(FILE_ARP_CACHE):
-      try:
-        arpf = open(FILE_ARP_CACHE, 'r')
-        # Skip first and last line
-        for line in arpf.readlines()[1:]:
-          if line:
-            # Add IP Address and MAC address to the model
-            self.settings.logText('arp line:\n%s' % line, VERBOSE_LEVEL_MAX)
-            arp_ip = line[:17].rstrip()
-            arp_mac = line[41:58].upper()
-            # Skip incomplete MAC addresses
-            if arp_mac != '00:00:00:00:00:00':
-              detected_hostname = socket.getfqdn(arp_ip)
-              # I will not trust of getfqdn if the returned hostname
-              # is the same of the source IP address
-              if detected_hostname == arp_ip:
-                detected_hostname = ''
-              self.settings.logText('discovered %s with address %s' % (
-                arp_ip, arp_mac))
-              self.model.append([arp_ip, arp_mac, detected_hostname])
-        arpf.close()
-      except:
-        self.settings.logText('unable to read from %s' % FILE_ARP_CACHE)
+    def clear(self):
+        "Clear the model"
+        return self.model.clear()
 
-  def get_ip_address(self, treeiter):
-    "Returns the IP address for the selected TreeIter"
-    return self.model[treeiter][self.__class__.COL_IPADDRESS]
+    def refresh(self):
+        "Clear the model and reload all the hosts from the ARP cache file"
+        self.clear()
+        # Read ARP cache file
+        if os.path.isfile(FILE_ARP_CACHE):
+            try:
+                arpf = open(FILE_ARP_CACHE, 'r')
+                # Skip first and last line
+                for line in arpf.readlines()[1:]:
+                    if line:
+                        # Add IP Address and MAC address to the model
+                        self.settings.logText('arp line:\n%s' % line,
+                                              VERBOSE_LEVEL_MAX)
+                        arp_ip = line[:17].rstrip()
+                        arp_mac = line[41:58].upper()
+                        # Skip incomplete MAC addresses
+                        if arp_mac != '00:00:00:00:00:00':
+                            detected_hostname = socket.getfqdn(arp_ip)
+                            # I will not trust of getfqdn if the returned
+                            # hostname is the same of the source IP address
+                            if detected_hostname == arp_ip:
+                                detected_hostname = ''
+                            self.settings.logText(
+                                'discovered %s with address %s' % (
+                                    arp_ip, arp_mac))
+                            self.model.append(
+                                [arp_ip, arp_mac, detected_hostname])
+                arpf.close()
+            except:
+                self.settings.logText('unable to read %s' % FILE_ARP_CACHE)
 
-  def get_mac_address(self, treeiter):
-    "Returns the MAC address for the selected TreeIter"
-    return self.model[treeiter][self.__class__.COL_MACADDRESS]
+    def get_ip_address(self, treeiter):
+        "Returns the IP address for the selected TreeIter"
+        return self.model[treeiter][self.__class__.COL_IPADDRESS]
 
-  def get_hostname(self, treeiter):
-    "Returns the hostname for the selected TreeIter"
-    return self.model[treeiter][self.__class__.COL_HOSTNAME]
+    def get_mac_address(self, treeiter):
+        "Returns the MAC address for the selected TreeIter"
+        return self.model[treeiter][self.__class__.COL_MACADDRESS]
+
+    def get_hostname(self, treeiter):
+        "Returns the hostname for the selected TreeIter"
+        return self.model[treeiter][self.__class__.COL_HOSTNAME]

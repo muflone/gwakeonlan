@@ -23,38 +23,39 @@ from gi.repository import Gio
 from gwakeonlan.ui import MainWindow
 from gwakeonlan.constants import *
 
+
 class Application(Gtk.Application):
-  def __init__(self, settings):
-    super(self.__class__, self).__init__(application_id=APP_ID)
-    self.settings = settings
-    self.connect("activate", self.activate)
-    self.connect('startup', self.startup)
+    def __init__(self, settings):
+        super(self.__class__, self).__init__(application_id=APP_ID)
+        self.settings = settings
+        self.connect("activate", self.activate)
+        self.connect('startup', self.startup)
 
-  def startup(self, application):
-    "Configure the application during the startup"
-    self.ui = MainWindow(self, self.settings)
-    # Add the actions related to the app menu
-    action = Gio.SimpleAction(name="about")
-    action.connect("activate", self.on_app_about_activate)
-    self.add_action(action)
+    def startup(self, application):
+        "Configure the application during the startup"
+        self.ui = MainWindow(self, self.settings)
+        # Add the actions related to the app menu
+        action = Gio.SimpleAction(name="about")
+        action.connect("activate", self.on_app_about_activate)
+        self.add_action(action)
 
-    action = Gio.SimpleAction(name="quit")
-    action.connect("activate", self.on_app_quit_activate)
-    self.add_action(action)
-    # Add the app menu
-    builder = Gtk.Builder()
-    builder.add_from_file(FILE_UI_APPMENU)
-    menubar = builder.get_object('app-menu')
-    self.set_app_menu(menubar)
+        action = Gio.SimpleAction(name="quit")
+        action.connect("activate", self.on_app_quit_activate)
+        self.add_action(action)
+        # Add the app menu
+        builder = Gtk.Builder()
+        builder.add_from_file(FILE_UI_APPMENU)
+        menubar = builder.get_object('app-menu')
+        self.set_app_menu(menubar)
 
-  def activate(self, application):
-    "Execute the application"
-    self.ui.run()
+    def activate(self, application):
+        "Execute the application"
+        self.ui.run()
 
-  def on_app_about_activate(self, action, data):
-    "Show the about dialog from the app menu"
-    self.ui.on_btnAbout_clicked(self)
+    def on_app_about_activate(self, action, data):
+        "Show the about dialog from the app menu"
+        self.ui.on_btnAbout_clicked(self)
 
-  def on_app_quit_activate(self, action, data):
-    "Quit the application from the app menu"
-    self.ui.on_winMain_delete_event(self, None)
+    def on_app_quit_activate(self, action, data):
+        "Quit the application from the app menu"
+        self.ui.on_winMain_delete_event(self, None)

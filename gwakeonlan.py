@@ -26,15 +26,15 @@ from gwakeonlan.app import Application
 from gwakeonlan.constants import *
 
 if __name__ == '__main__':
-  # Load domain for translation
-  for module in (gettext, locale):
-    module.bindtextdomain(DOMAIN_NAME, DIR_LOCALE)
-    module.textdomain(DOMAIN_NAME)
+    # Load domain for translation
+    for module in (gettext, locale):
+        module.bindtextdomain(DOMAIN_NAME, DIR_LOCALE)
+        module.textdomain(DOMAIN_NAME)
 
-  # Load the settings from the configuration file
-  settings = Settings()
-  settings.load()
+    # Load the settings from the configuration file
+    settings = Settings()
+    settings.load()
 
-  # Start the application
-  app = Application(settings)
-  app.run(None)
+    # Start the application
+    app = Application(settings)
+    app.run(None)
