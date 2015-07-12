@@ -26,6 +26,7 @@ from gwakeonlan.functions import *
 
 class AboutWindow(object):
     def __init__(self, winParent, show=False):
+        """Prepare the about dialog and optionally show it immediately"""
         # Retrieve the translators list
         translators = []
         for line in readlines(FILE_TRANSLATORS, False):
@@ -68,11 +69,11 @@ class AboutWindow(object):
             self.show()
 
     def show(self):
-        "Show the About dialog"
+        """Show the About dialog"""
         self.dialog.run()
         self.dialog.hide()
 
     def destroy(self):
-        "Destroy the About dialog"
+        """Destroy the About dialog"""
         self.dialog.destroy()
         self.dialog = None

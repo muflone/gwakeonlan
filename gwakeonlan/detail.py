@@ -27,6 +27,7 @@ from gwakeonlan.functions import *
 
 class DetailWindow(object):
     def __init__(self, winParent, show=False):
+        """Prepare the detail dialog and optionally show it immediately"""
         # Load interface UI
         builder = Gtk.Builder()
         builder.add_from_file(FILE_UI_DETAIL)
@@ -56,12 +57,12 @@ class DetailWindow(object):
             self.show()
 
     def destroy(self):
-        "Hide and destroy the Add/Delete machine dialog"
+        """Hide and destroy the Add/Delete machine dialog"""
         self.dialog.destroy()
         self.dialog = None
 
     def show(self):
-        "Show the Add/Edit machine dialog"
+        """Show the Add/Edit machine dialog"""
         response = 0
         self.lblError.set_property('visible', False)
         self.dialog.set_title(self.get_mac_address() and _('Edit machine') or
@@ -94,27 +95,27 @@ class DetailWindow(object):
         return response
 
     def get_machine_name(self):
-        "Return the machine name"
+        """Return the machine name"""
         return self.txtMachineName.get_text()
 
     def get_mac_address(self):
-        "Return the MAC address"
+        """Return the MAC address"""
         return formatMAC(self.txtMACAddress.get_text())
 
     def get_portnr(self):
-        "Return the port number"
+        """Return the port number"""
         return self.spinPortNumber.get_value_as_int()
 
     def get_destination(self):
-        "Return the destination host"
+        """Return the destination host"""
         return self.txtDestinationHost.get_text()
 
     def get_request_type_internet(self):
-        "Return if the request type is Internet"
+        """Return if the request type is Internet"""
         return self.radioRequestInternet.get_active()
 
     def on_radioRequestType_toggled(self, widget):
-        "A Radio button was pressed"
+        """A Radio button was pressed"""
         request_type_internet = self.radioRequestInternet.get_active()
         # Check the request type
         if request_type_internet:
@@ -131,7 +132,7 @@ class DetailWindow(object):
         self.lblError.set_visible(False)
 
     def load_data(self, machine_name, mac_address, portnr, destination):
-        "Load the fields with the specified values"
+        """Load the fields with the specified values"""
         self.txtMachineName.set_text(machine_name)
         self.txtMACAddress.set_text(mac_address)
         self.spinPortNumber.set_value(portnr)

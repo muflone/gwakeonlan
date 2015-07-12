@@ -26,6 +26,7 @@ from gwakeonlan.functions import *
 
 class ARPCacheWindow(object):
     def __init__(self, settings, winParent, show=False):
+        """Prepare the ARP Cache dialog and optionally show it immediately"""
         # Load interface UI
         builder = Gtk.Builder()
         builder.add_from_file(FILE_UI_ARPCACHE)
@@ -50,38 +51,38 @@ class ARPCacheWindow(object):
             self.show()
 
     def destroy(self):
-        "Hide and destroy the ARP cache picker dialog"
+        """Hide and destroy the ARP cache picker dialog"""
         self.dialog.destroy()
         self.dialog = None
 
     def show(self):
-        "Show the ARP Cache picker dialog"
+        """Show the ARP Cache picker dialog"""
         response = self.dialog.run()
         self.dialog.hide()
         return response
 
     def on_btnRefresh_clicked(self, widget):
-        "Reload the ARP cache list"
+        """Reload the ARP cache list"""
         self.model.refresh()
 
     def on_tvwHosts_row_activated(self, widget, path, column):
-        "Treats the double click as the OK button was pressed"
+        """Treats the double click as the OK button was pressed"""
         self.dialog.response(Gtk.ResponseType.OK)
 
     def get_ip_address(self):
-        "Returns the IP address of the selected row"
+        """Returns the IP address of the selected row"""
         (model, treeiter) = self.tvwHosts.get_selection().get_selected()
         if treeiter:
             return self.model.get_ip_address(treeiter)
 
     def get_hostname(self):
-        "Returns the hostname of the selected row"
+        """Returns the hostname of the selected row"""
         (model, treeiter) = self.tvwHosts.get_selection().get_selected()
         if treeiter:
             return self.model.get_hostname(treeiter)
 
     def get_mac_address(self):
-        "Returns the MAC address of the selected row"
+        """Returns the MAC address of the selected row"""
         (model, treeiter) = self.tvwHosts.get_selection().get_selected()
         if treeiter:
             return self.model.get_mac_address(treeiter)

@@ -32,6 +32,7 @@ SECTION_HOSTS = 'hosts'
 
 class Settings(object):
     def __init__(self):
+        """Initialize settings and parse command line arguments"""
         self.settings = {}
         self.model = None
 
@@ -58,7 +59,7 @@ class Settings(object):
             self.config.read(self.filename)
 
     def load(self):
-        "Load window settings"
+        """Load window settings"""
         if self.config.has_section(SECTION_MAINWIN):
             self.logText('Retrieving window settings', VERBOSE_LEVEL_MAX)
             # Retrieve window position and size
@@ -76,7 +77,7 @@ class Settings(object):
                     SECTION_MAINWIN, 'height')
 
     def load_hosts(self, model):
-        "Load hosts settings"
+        """Load hosts settings"""
         self.model = model
         if self.config.has_section(SECTION_HOSTS):
             for machine in self.config.items(SECTION_HOSTS):
@@ -96,10 +97,11 @@ class Settings(object):
                                        machine[2])
 
     def get_value(self, name, default=None):
+        """Return the value for a setting"""
         return self.settings.get(name, default)
 
     def set_sizes(self, winParent):
-        "Save configuration for main window"
+        """Save configuration for main window"""
         # Main window settings section
         self.logText('Saving window settings', VERBOSE_LEVEL_MAX)
         if not self.config.has_section(SECTION_MAINWIN):
@@ -114,7 +116,7 @@ class Settings(object):
         self.config.set(SECTION_MAINWIN, 'height', size[1])
 
     def save(self):
-        "Save the whole configuration"
+        """Save the whole configuration"""
         # Hosts section
         if self.config.has_section(SECTION_HOSTS):
             self.config.remove_section(SECTION_HOSTS)
@@ -148,6 +150,6 @@ class Settings(object):
 
     # FIXME: use logging module.
     def logText(self, text, verbose_level=VERBOSE_LEVEL_NORMAL):
-        "Print a text with current date and time based on verbose level"
+        """Print a text with current date and time based on verbose level"""
         if verbose_level <= self.options.verbose_level:
             print '[%s] %s' % (time.strftime('%Y/%m/%d %H:%M:%S'), text)

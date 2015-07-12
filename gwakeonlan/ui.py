@@ -31,6 +31,7 @@ from gwakeonlan.about import AboutWindow
 
 class MainWindow(object):
     def __init__(self, application, settings):
+        """Prepare the main window"""
         self.application = application
         self.loadUI()
         self.settings = settings
@@ -52,11 +53,11 @@ class MainWindow(object):
         self.detected_addresses = {}
 
     def run(self):
-        "Show the UI"
+        """Show the main window"""
         self.winMain.show_all()
 
     def loadUI(self):
-        "Load the interface UI"
+        """Load the UI for the main window"""
         builder = Gtk.Builder()
         builder.add_from_file(FILE_UI_MAIN)
         # Obtain widget references
@@ -75,7 +76,7 @@ class MainWindow(object):
         builder.connect_signals(self)
 
     def on_winMain_delete_event(self, widget, event):
-        "Close the application"
+        """Close the application by closing the main window"""
         self.about.destroy()
         self.detail.destroy()
         self.settings.set_sizes(self.winMain)
@@ -84,17 +85,17 @@ class MainWindow(object):
         self.application.quit()
 
     def on_btnAbout_clicked(self, widget):
-        "Show the about dialog"
+        """Show the about dialog"""
         self.about.show()
 
     def on_cellMachinesSelected_toggled(self, renderer, treeIter, data=None):
-        "Select or deselect an item"
+        """Select or deselect an item"""
         self.model.set_selected(
             treeIter,
             not self.model.get_selected(treeIter))
 
     def on_btnAdd_clicked(self, widget):
-        "Add a new empty machine"
+        """Add a new empty machine"""
         self.detail.load_data('', '', DEFAULT_UDP_PORT, BROADCAST_ADDRESS)
         # Check if the OK button in the dialog was pressed
         if self.detail.show() == Gtk.ResponseType.OK:
@@ -109,7 +110,7 @@ class MainWindow(object):
             self.tvwMachines.set_cursor(self.model.count() - 1)
 
     def on_btnEdit_clicked(self, widget):
-        "Edit the selected machine"
+        """Edit the selected machine"""
         selected = self.tvwMachines.get_selection().get_selected()[1]
         if selected:
             self.detail.load_data(
@@ -129,7 +130,7 @@ class MainWindow(object):
                                            self.detail.get_destination())
 
     def on_menuitemARPCache_activate(self, widget):
-        "Show the ARP cache picker dialog"
+        """Show the ARP cache picker dialog"""
         dialog = ARPCacheWindow(self.settings, self.winMain, False)
         # Check if the OK button in the dialog was pressed
         if dialog.show() == Gtk.ResponseType.OK:
@@ -150,11 +151,11 @@ class MainWindow(object):
         dialog.destroy()
 
     def on_tvwMachines_row_activated(self, widget, path, column):
-        "The double click on a row acts as the Edit machine button"
+        """The double click on a row acts as the Edit machine button"""
         self.btnEdit.emit('clicked')
 
     def on_btnDelete_clicked(self, widget):
-        "Delete the selected machine"
+        """Delete the selected machine"""
         selected_iter = self.tvwMachines.get_selection().get_selected()[1]
         if selected_iter:
             # Ask confirmation to delete the selected machine
@@ -168,7 +169,7 @@ class MainWindow(object):
                 self.model.remove(selected_iter)
 
     def on_btnWake_clicked(self, widget):
-        "Launch the Wake On LAN for all the selected machines"
+        """Launch the Wake On LAN for all the selected machines"""
         for machine in self.model:
             if self.model.get_selected(machine):
                 # If a machine was selected then it will turned on

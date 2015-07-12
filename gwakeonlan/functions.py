@@ -27,13 +27,13 @@ from gwakeonlan.constants import *
 
 
 def formatMAC(mac):
-    "Return the mac address formatted with colon"
+    """Return the mac address formatted with colon"""
     mac = mac.replace(':', '').replace('.', '')
     return ':'.join([mac[i:i+2] for i in xrange(0, len(mac), 2)]).upper()
 
 
 def show_message_dialog_yesno(winParent, message, title, default_response):
-    "Show a GtkMessageDialog with yes and no buttons"
+    """Show a GtkMessageDialog with yes and no buttons"""
     dialog = Gtk.MessageDialog(
         parent=winParent,
         flags=Gtk.DialogFlags.MODAL,
@@ -50,7 +50,7 @@ def show_message_dialog_yesno(winParent, message, title, default_response):
 
 
 def wake_on_lan(mac_address, portnr, destination, settings):
-    "Turn on remote machine using Wake On LAN."
+    """Turn on remote machine using Wake On LAN."""
     settings.logText(
         'turning on: %s through %s using port number %d' % (
             mac_address, destination, portnr))
@@ -71,6 +71,7 @@ def wake_on_lan(mac_address, portnr, destination, settings):
 
 
 def readlines(filename, empty_lines=False):
+    """Read all the lines of a filename, optionally skipping empty lines"""
     result = []
     with open(filename) as f:
         for line in f.readlines():
@@ -82,7 +83,7 @@ def readlines(filename, empty_lines=False):
 
 
 def gtk30_(message):
-    "Return a message translated from GTK+ 3 domain"
+    """Return a message translated from GTK+ 3 domain"""
     return dgettext('gtk30', message)
 
 

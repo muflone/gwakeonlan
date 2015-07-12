@@ -29,15 +29,16 @@ class ModelARPCache(object):
     COL_HOSTNAME = 2
 
     def __init__(self, model, settings):
+        """Initialize the model"""
         self.model = model
         self.settings = settings
 
     def clear(self):
-        "Clear the model"
+        """Clear the model"""
         return self.model.clear()
 
     def refresh(self):
-        "Clear the model and reload all the hosts from the ARP cache file"
+        """Clear the model and reload all the hosts from the ARP cache file"""
         self.clear()
         # Read ARP cache file
         if os.path.isfile(FILE_ARP_CACHE):
@@ -68,13 +69,13 @@ class ModelARPCache(object):
                 self.settings.logText('unable to read %s' % FILE_ARP_CACHE)
 
     def get_ip_address(self, treeiter):
-        "Returns the IP address for the selected TreeIter"
+        """Returns the IP address for the selected TreeIter"""
         return self.model[treeiter][self.__class__.COL_IPADDRESS]
 
     def get_mac_address(self, treeiter):
-        "Returns the MAC address for the selected TreeIter"
+        """Returns the MAC address for the selected TreeIter"""
         return self.model[treeiter][self.__class__.COL_MACADDRESS]
 
     def get_hostname(self, treeiter):
-        "Returns the hostname for the selected TreeIter"
+        """Returns the hostname for the selected TreeIter"""
         return self.model[treeiter][self.__class__.COL_HOSTNAME]
