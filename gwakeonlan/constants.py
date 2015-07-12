@@ -32,6 +32,7 @@ APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'muflone@vbsimple.net'
 APP_COPYRIGHT = 'Copyright 2009-2015 %s' % APP_AUTHOR
 # Other constants
+DEFAULT_UDP_PORT = 9
 BROADCAST_ADDRESS = '255.255.255.255'
 DOMAIN_NAME = 'gwakeonlan'
 VERBOSE_LEVEL_QUIET = 0

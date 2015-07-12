@@ -90,7 +90,7 @@ class MainWindow(object):
 
   def on_btnAdd_clicked(self, widget):
     "Add a new empty machine"
-    self.detail.load_data('', '', 9, BROADCAST_ADDRESS)
+    self.detail.load_data('', '', DEFAULT_UDP_PORT, BROADCAST_ADDRESS)
     # Check if the OK button in the dialog was pressed
     if self.detail.show() == Gtk.ResponseType.OK:
       self.model.add_machine(
@@ -128,7 +128,7 @@ class MainWindow(object):
       if dialog.get_mac_address():
         # Add the machine to the model from the ARP cache
         self.model.add_machine(False, dialog.get_ip_address(),
-          dialog.get_mac_address(), 9, BROADCAST_ADDRESS)
+          dialog.get_mac_address(), DEFAULT_UDP_PORT, BROADCAST_ADDRESS)
         # Select the last machine and edit its details
         self.tvwMachines.set_cursor(self.model.count() - 1)
         self.btnEdit.emit('clicked')

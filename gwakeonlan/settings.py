@@ -74,7 +74,13 @@ class Settings(object):
     if self.config.has_section(SECTION_HOSTS):
       for machine in self.config.items(SECTION_HOSTS):
         self.logText('Loading machine: %s' % machine[0], VERBOSE_LEVEL_MAX)
-        machine = ('%s\\%s\\255.255.255.255\\9' % machine).split('\\', 4)
+        # Fix machine configuration from older gWakeOnLAN versions
+        machine = [machine[0], ] + machine[1].split('\\', 4)
+        if len(machine) == 2:
+          machine.append(BROADCAST_ADDRESS)
+        if len(machine) == 3:
+          machine.append(DEFAULT_UDP_PORT)
+        # Add the machine to the model
         self.model.add_machine(False, machine[0],
           formatMAC(machine[1]), int(machine[3]), machine[2])
 
