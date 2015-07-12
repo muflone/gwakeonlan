@@ -39,12 +39,14 @@ class DetailWindow(object):
     self.radioRequestInternet = builder.get_object('radioRequestInternet')
     self.lblDestinationHost = builder.get_object('lblDestinationHost')
     self.txtDestinationHost = builder.get_object('txtDestinationHost')
+    self.btnOK = builder.get_object('btnOK')
+    self.btnCancel = builder.get_object('btnCancel')
     self.lblError = builder.get_object('lblError')
     # Set various properties
     self.dialog.set_icon_from_file(FILE_ICON)
     self.dialog.set_transient_for(winParent)
-    self.dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
-    self.dialog.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK)
+    self.btnOK.set_label(gtk30_('_OK'))
+    self.btnCancel.set_label(gtk30_('_Cancel'))
     self.dialog.set_default_response(Gtk.ResponseType.OK)
     # Connect signals from the glade file to the functions with the same name
     builder.connect_signals(self)
