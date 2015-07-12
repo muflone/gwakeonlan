@@ -44,8 +44,15 @@ class AboutWindow(object):
     self.dialog.set_comments(APP_DESCRIPTION)
     self.dialog.set_website(APP_URL)
     self.dialog.set_copyright(APP_COPYRIGHT)
-    self.dialog.set_authors(['%s <%s>' % (APP_AUTHOR, APP_AUTHOR_EMAIL)])
-    #self.dialog.set_license_type(Gtk.License.GPL_2_0)
+    # Prepare lists for authors and contributors
+    authors = ['%s <%s>' % (APP_AUTHOR, APP_AUTHOR_EMAIL)]
+    contributors = []
+    for line in readlines(FILE_CONTRIBUTORS, False):
+      contributors.append(line)
+    if len(contributors) > 0:
+      contributors.insert(0, _('Contributors:'))
+      authors.extend(contributors)
+    self.dialog.set_authors(authors)
     self.dialog.set_license('\n'.join(readlines(FILE_LICENSE, True)))
     self.dialog.set_translator_credits('\n'.join(translators))
     # Retrieve the external resources links
