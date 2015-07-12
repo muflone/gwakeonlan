@@ -21,6 +21,7 @@
 import struct
 import socket
 from gettext import gettext as _
+from gettext import dgettext
 from gi.repository import Gtk
 from gwakeonlan.constants import *
 
@@ -75,10 +76,15 @@ def readlines(filename, empty_lines = False):
     f.close()
   return result
 
+def gtk30_(message):
+  "Return a message translated from GTK+ 3 domain"
+  return dgettext('gtk30', message)
+
 __all__ = [
   'formatMAC',
   'show_message_dialog_yesno',
   'wake_on_lan',
   'readlines',
-  '_'
+  '_',
+  'gtk30_'
 ]
