@@ -36,6 +36,7 @@ class ARPCacheWindow(object):
         self.tvwHosts = builder.get_object('tvwHosts')
         self.btnOK = builder.get_object('btnOK')
         self.btnCancel = builder.get_object('btnCancel')
+        self.btnRefresh = builder.get_object('btnRefresh')
         self.model = ModelARPCache(
             builder.get_object('modelARPCache'), settings)
         self.model.refresh()
@@ -44,6 +45,7 @@ class ARPCacheWindow(object):
         self.dialog.set_transient_for(winParent)
         self.btnOK.set_label(gtk30_('_OK'))
         self.btnCancel.set_label(gtk30_('_Cancel'))
+        self.btnRefresh.set_label(gtk30_('_Refresh', 'Stock label'))
         # Connect signals from the glade file to the functions
         # with the same name
         builder.connect_signals(self)
