@@ -3,3 +3,4 @@
 *.glade~
 /build/
 /root/
+po/gwakeonlan.pot.new
