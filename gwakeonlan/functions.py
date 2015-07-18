@@ -83,9 +83,10 @@ def readlines(filename, empty_lines=False):
     return result
 
 
-def gtk30_(message):
+def gtk30_(message, context=None):
     """Return a message translated from GTK+ 3 domain"""
-    return dgettext('gtk30', message)
+    return dgettext('gtk30', message if not context else '%s\04%s' % (
+        context, message))
 
 
 __all__ = [
