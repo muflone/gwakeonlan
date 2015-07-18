@@ -171,7 +171,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="activates_default">True</property>
-                <property name="text" translatable="yes">90</property>
+                <property name="text">90</property>
                 <property name="adjustment">adjPortNumber</property>
                 <property name="value">9</property>
               </object>
