@@ -156,23 +156,19 @@ class MainWindow(object):
         self.btnEdit.emit('clicked')
 
     def on_menuitemImportEthers_activate(self, widget):
-      "Show the Ethers file importer"
-      dialog = Gtk.FileChooserDialog(
-        "Please choose a file",
-        None,
-        Gtk.FileChooserAction.OPEN,
-        (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-         Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
-
-      response = dialog.run()
-      if response == Gtk.ResponseType.OK:
-        importer = ImportEthers(self.settings.options.import_l3_dest)
-        importer.import_file(
-          dialog.get_filename(),
-          self.model.add_machine,
-        )
-
-      dialog.destroy()
+        """Show the Ethers file importer"""
+        dialog = Gtk.FileChooserDialog(
+            gtk30_("Select a File"),
+            None,
+            Gtk.FileChooserAction.OPEN,
+            (gtk30_("_Cancel"), Gtk.ResponseType.CANCEL,
+                gtk30_("_Open"), Gtk.ResponseType.OK))
+        dialog.set_transient_for(self.winMain)
+        response = dialog.run()
+        if response == Gtk.ResponseType.OK:
+            importer = ImportEthers(BROADCAST_ADDRESS)
+            importer.import_file(dialog.get_filename(), self.model.add_machine)
+        dialog.destroy()
 
     def on_btnDelete_clicked(self, widget):
         """Delete the selected machine"""
