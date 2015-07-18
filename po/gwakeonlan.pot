@@ -5,7 +5,6 @@
 # This file is distributed under the same license of gWakeOnLan.
 # X translation for gWakeOnLan
 # 
-# Translators:
 #, fuzzy
 msgid ""
 msgstr ""
@@ -52,22 +51,18 @@ msgid "_UDP port number:"
 msgstr ""
 
 #: ui/detail.glade.h:6
-msgid "90"
-msgstr ""
-
-#: ui/detail.glade.h:7
 msgid "Request type:"
 msgstr ""
 
-#: ui/detail.glade.h:8
+#: ui/detail.glade.h:7
 msgid "_Local (broadcast)"
 msgstr ""
 
-#: ui/detail.glade.h:9
+#: ui/detail.glade.h:8
 msgid "_Internet"
 msgstr ""
 
-#: ui/detail.glade.h:10
+#: ui/detail.glade.h:9
 msgid "_Destination host:"
 msgstr ""
 

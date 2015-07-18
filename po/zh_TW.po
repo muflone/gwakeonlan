@@ -11,118 +11,136 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2010-02-20 13:27+0100\n"
-"PO-Revision-Date: 2015-01-26 00:09+0000\n"
+"POT-Creation-Date: 2015-07-18 17:54+0200\n"
+"PO-Revision-Date: 2015-07-18 16:35+0000\n"
 "Last-Translator: Cosmo Chene <cosmolax(at)gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/gwakeonlan/language/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/p/gwakeonlan/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gwakeonlan.glade.h:1
+#: ui/arpcache.glade.h:1
+msgid "IP Address"
+msgstr ""
+
+#: ui/arpcache.glade.h:2
+msgid "Host Name"
+msgstr ""
+
+#: ui/arpcache.glade.h:3
+msgid "MAC Address"
+msgstr ""
+
+#: ui/detail.glade.h:1
+msgid "<b><span foreground=\"red\">ERROR</span></b>"
+msgstr ""
+
+#: ui/detail.glade.h:2
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
 msgstr "<big><b>輸入主機名稱及 MAC 位址</b></big>"
 
-#: ../data/gwakeonlan.glade.h:2
-msgid "About"
-msgstr "關於"
-
-#: ../data/gwakeonlan.glade.h:3 ../gwakeonlan:90
-msgid "Add machine"
-msgstr "加入主機"
-
-#: ../data/gwakeonlan.glade.h:4 ../gwakeonlan:277
-msgid "Delete machine"
-msgstr "刪除主機"
-
-#: ../data/gwakeonlan.glade.h:5 ../gwakeonlan:90
-msgid "Edit machine"
-msgstr "編輯主機"
-
-#: ../data/gwakeonlan.glade.h:6
-msgid "MAC _Address:"
-msgstr "MAC _位址:"
-
-#: ../data/gwakeonlan.glade.h:7
-msgid "Request type:"
-msgstr "請求類型:"
-
-#: ../data/gwakeonlan.glade.h:8
-msgid "Turn on"
-msgstr "開機"
-
-#: ../data/gwakeonlan.glade.h:9
-msgid "_Destination host:"
-msgstr "目標主機_D:"
-
-#: ../data/gwakeonlan.glade.h:10
-msgid "_Internet"
-msgstr "網際網路_I"
-
-#: ../data/gwakeonlan.glade.h:11
-msgid "_Local (broadcast)"
-msgstr "本地端_L (broadcast)"
-
-#: ../data/gwakeonlan.glade.h:12
+#: ui/detail.glade.h:3
 msgid "_Machine name:"
 msgstr "主機名稱_M:"
 
-#: ../data/gwakeonlan.glade.h:13
+#: ui/detail.glade.h:4
+msgid "MAC _Address:"
+msgstr "MAC _位址:"
+
+#: ui/detail.glade.h:5
 msgid "_UDP port number:"
 msgstr "_UDP 埠號:"
 
-#: ../gwakeonlan:115
-msgid "Missing machine name"
-msgstr "失聯主機名稱"
+#: ui/detail.glade.h:6
+msgid "Request type:"
+msgstr "請求類型:"
 
-#: ../gwakeonlan:117
-msgid "Invalid MAC address"
-msgstr "無效的 MAC 位址"
+#: ui/detail.glade.h:7
+msgid "_Local (broadcast)"
+msgstr "本地端_L (broadcast)"
 
-#: ../gwakeonlan:119
-msgid "Invalid destination host"
-msgstr "無效的目標主機"
+#: ui/detail.glade.h:8
+msgid "_Internet"
+msgstr "網際網路_I"
 
-#: ../gwakeonlan:140
-msgid "Local"
-msgstr "本地端"
+#: ui/detail.glade.h:9
+msgid "_Destination host:"
+msgstr "目標主機_D:"
 
-#: ../gwakeonlan:140
-msgid "Internet"
-msgstr "網際網路"
+#: ui/main.glade.h:1
+msgid "Turn on"
+msgstr "開機"
 
-#: ../gwakeonlan:275
-msgid "Are you sure you want to remove the selected machine?"
-msgstr "您確定要移除選取的主機嗎?"
+#: ui/main.glade.h:2 gwakeonlan/detail.py:70
+msgid "Add machine"
+msgstr "加入主機"
 
-#: ../gwakeonlan:290
-msgid ""
-"A GTK+ utility to awake turned off computers through the Wake on LAN "
-"feature."
-msgstr "一個小型 GTK+ 工具讓您可以在區網內透過網路喚醒網域內的主機。"
+#: ui/main.glade.h:3
+msgid "Detect from ARP cache"
+msgstr ""
 
-#: ../gwakeonlan:357
-msgid "No machines detected"
-msgstr "沒有偵測到任何主機"
+#: ui/main.glade.h:4
+msgid "Import machines from ethers file"
+msgstr ""
 
-#: ../gwakeonlan:378
+#: ui/main.glade.h:5
+msgid "Import from ethers file"
+msgstr ""
+
+#: ui/main.glade.h:6 gwakeonlan/detail.py:69
+msgid "Edit machine"
+msgstr "編輯主機"
+
+#: ui/main.glade.h:7 gwakeonlan/ui.py:182
+msgid "Delete machine"
+msgstr "刪除主機"
+
+#: ui/main.glade.h:8
+msgid "About"
+msgstr "關於"
+
+#: ui/main.glade.h:9
 msgid "Machine name"
 msgstr "主機名稱"
 
-#: ../gwakeonlan:382
+#: ui/main.glade.h:10
 msgid "MAC address"
 msgstr "主機名稱"
 
-#: ../gwakeonlan:386
+#: ui/main.glade.h:11
 msgid "Request type"
 msgstr "請求類型"
 
-#: ../gwakeonlan:390
+#: ui/main.glade.h:12
 msgid "Destination"
 msgstr "目標"
 
-#: ../gwakeonlan:394
+#: ui/main.glade.h:13
 msgid "Port NR"
 msgstr "埠號"
+
+#: gwakeonlan/about.py:56
+msgid "Contributors:"
+msgstr ""
+
+#: gwakeonlan/arpcache.py:42
+msgid "Pick a host from the ARP cache"
+msgstr ""
+
+#: gwakeonlan/detail.py:78
+msgid "Missing machine name"
+msgstr "失聯主機名稱"
+
+#: gwakeonlan/detail.py:82
+msgid "Invalid MAC address"
+msgstr "無效的 MAC 位址"
+
+#: gwakeonlan/detail.py:86
+msgid "Invalid destination host"
+msgstr "無效的目標主機"
+
+#: gwakeonlan/ui.py:181
+msgid "Are you sure you want to remove the selected machine?"
+msgstr "您確定要移除選取的主機嗎?"

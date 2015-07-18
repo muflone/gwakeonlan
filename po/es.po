@@ -13,116 +13,136 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2010-02-20 13:27+0100\n"
-"PO-Revision-Date: 2013-11-20 10:36+0000\n"
+"POT-Creation-Date: 2015-07-18 17:54+0200\n"
+"PO-Revision-Date: 2015-07-18 16:35+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitoschido(at)ubuntu.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/gwakeonlan/language/es/)\n"
+"Language-Team: Spanish (http://www.transifex.com/p/gwakeonlan/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/gwakeonlan.glade.h:1
+#: ui/arpcache.glade.h:1
+msgid "IP Address"
+msgstr ""
+
+#: ui/arpcache.glade.h:2
+msgid "Host Name"
+msgstr ""
+
+#: ui/arpcache.glade.h:3
+msgid "MAC Address"
+msgstr ""
+
+#: ui/detail.glade.h:1
+msgid "<b><span foreground=\"red\">ERROR</span></b>"
+msgstr ""
+
+#: ui/detail.glade.h:2
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
 msgstr "<big><b>Introduzca el nombre del equipo y su dirección MAC</b></big>"
 
-#: ../data/gwakeonlan.glade.h:2
-msgid "About"
-msgstr "Acerca de"
-
-#: ../data/gwakeonlan.glade.h:3 ../gwakeonlan:90
-msgid "Add machine"
-msgstr "Añadir equipo"
-
-#: ../data/gwakeonlan.glade.h:4 ../gwakeonlan:277
-msgid "Delete machine"
-msgstr "Eliminar equipo"
-
-#: ../data/gwakeonlan.glade.h:5 ../gwakeonlan:90
-msgid "Edit machine"
-msgstr "Editar equipo"
-
-#: ../data/gwakeonlan.glade.h:6
-msgid "MAC _Address:"
-msgstr "Dirección M_AC:"
-
-#: ../data/gwakeonlan.glade.h:7
-msgid "Request type:"
-msgstr "Tipo de solicitud:"
-
-#: ../data/gwakeonlan.glade.h:8
-msgid "Turn on"
-msgstr ""
-
-#: ../data/gwakeonlan.glade.h:9
-msgid "_Destination host:"
-msgstr "Equipo _destinatario:"
-
-#: ../data/gwakeonlan.glade.h:10
-msgid "_Internet"
-msgstr "_Internet"
-
-#: ../data/gwakeonlan.glade.h:11
-msgid "_Local (broadcast)"
-msgstr "_Local (Broadcast)"
-
-#: ../data/gwakeonlan.glade.h:12
+#: ui/detail.glade.h:3
 msgid "_Machine name:"
 msgstr "_Nombre del equipo:"
 
-#: ../data/gwakeonlan.glade.h:13
+#: ui/detail.glade.h:4
+msgid "MAC _Address:"
+msgstr "Dirección M_AC:"
+
+#: ui/detail.glade.h:5
 msgid "_UDP port number:"
 msgstr "Número de puerto _UDP:"
 
-#: ../gwakeonlan:115
-msgid "Missing machine name"
-msgstr "Falta el nombre de la máquina"
+#: ui/detail.glade.h:6
+msgid "Request type:"
+msgstr "Tipo de solicitud:"
 
-#: ../gwakeonlan:117
-msgid "Invalid MAC address"
-msgstr "Direccion MAC no valida"
+#: ui/detail.glade.h:7
+msgid "_Local (broadcast)"
+msgstr "_Local (Broadcast)"
 
-#: ../gwakeonlan:119
-msgid "Invalid destination host"
-msgstr "Equipo destinatario invalido"
+#: ui/detail.glade.h:8
+msgid "_Internet"
+msgstr "_Internet"
 
-#: ../gwakeonlan:140
-msgid "Local"
-msgstr "Local"
+#: ui/detail.glade.h:9
+msgid "_Destination host:"
+msgstr "Equipo _destinatario:"
 
-#: ../gwakeonlan:140
-msgid "Internet"
-msgstr "Internet"
+#: ui/main.glade.h:1
+msgid "Turn on"
+msgstr "Encender"
 
-#: ../gwakeonlan:275
-msgid "Are you sure you want to remove the selected machine?"
-msgstr "¿Está seguro de que quiere eliminar el equipo seleccionado?"
+#: ui/main.glade.h:2 gwakeonlan/detail.py:70
+msgid "Add machine"
+msgstr "Añadir equipo"
 
-#: ../gwakeonlan:290
-msgid "A GTK+ utility to awake turned off computers through the Wake on LAN feature."
-msgstr "Una aplicación GTK+ para encender equipos apagados a través de Wake on LAN."
+#: ui/main.glade.h:3
+msgid "Detect from ARP cache"
+msgstr ""
 
-#: ../gwakeonlan:357
-msgid "No machines detected"
-msgstr "No se detectó ningún equipo"
+#: ui/main.glade.h:4
+msgid "Import machines from ethers file"
+msgstr ""
 
-#: ../gwakeonlan:378
+#: ui/main.glade.h:5
+msgid "Import from ethers file"
+msgstr ""
+
+#: ui/main.glade.h:6 gwakeonlan/detail.py:69
+msgid "Edit machine"
+msgstr "Editar equipo"
+
+#: ui/main.glade.h:7 gwakeonlan/ui.py:182
+msgid "Delete machine"
+msgstr "Eliminar equipo"
+
+#: ui/main.glade.h:8
+msgid "About"
+msgstr "Acerca de"
+
+#: ui/main.glade.h:9
 msgid "Machine name"
 msgstr "Nombre del equipo"
 
-#: ../gwakeonlan:382
+#: ui/main.glade.h:10
 msgid "MAC address"
 msgstr "Dirección MAC"
 
-#: ../gwakeonlan:386
+#: ui/main.glade.h:11
 msgid "Request type"
 msgstr "Tipo de solicitud"
 
-#: ../gwakeonlan:390
+#: ui/main.glade.h:12
 msgid "Destination"
 msgstr "Destino"
 
-#: ../gwakeonlan:394
+#: ui/main.glade.h:13
 msgid "Port NR"
 msgstr "Puerto n.º"
+
+#: gwakeonlan/about.py:56
+msgid "Contributors:"
+msgstr ""
+
+#: gwakeonlan/arpcache.py:42
+msgid "Pick a host from the ARP cache"
+msgstr ""
+
+#: gwakeonlan/detail.py:78
+msgid "Missing machine name"
+msgstr "Falta el nombre de la máquina"
+
+#: gwakeonlan/detail.py:82
+msgid "Invalid MAC address"
+msgstr "Direccion MAC no valida"
+
+#: gwakeonlan/detail.py:86
+msgid "Invalid destination host"
+msgstr "Equipo destinatario invalido"
+
+#: gwakeonlan/ui.py:181
+msgid "Are you sure you want to remove the selected machine?"
+msgstr "¿Está seguro de que quiere eliminar el equipo seleccionado?"
