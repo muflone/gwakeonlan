@@ -1,3 +1,8 @@
 [main]
 host = https://www.transifex.com
 
+[gwakeonlan.gwakeonlanpot]
+source_file = po/gwakeonlan.pot
+source_lang = en
+file_filter = po/<lang>.po
+type = PO
