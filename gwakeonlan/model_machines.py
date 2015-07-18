@@ -19,6 +19,7 @@
 ##
 
 from gi.repository import Gtk
+
 from gwakeonlan.constants import *
 
 

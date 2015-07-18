@@ -21,6 +21,7 @@
 
 import gettext
 import locale
+
 from gwakeonlan.settings import Settings
 from gwakeonlan.app import Application
 from gwakeonlan.constants import *

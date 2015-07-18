@@ -29,6 +29,7 @@ import os.path
 import shutil
 from itertools import chain
 from glob import glob
+
 from gwakeonlan.constants import *
 
 class Install_Scripts(install_scripts):

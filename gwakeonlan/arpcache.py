@@ -19,6 +19,7 @@
 ##
 
 from gi.repository import Gtk
+
 from gwakeonlan.model_arpcache import ModelARPCache
 from gwakeonlan.constants import *
 from gwakeonlan.functions import *

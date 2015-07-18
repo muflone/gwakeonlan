@@ -20,6 +20,7 @@
 
 import os.path
 import socket
+
 from gwakeonlan.constants import *
 
 

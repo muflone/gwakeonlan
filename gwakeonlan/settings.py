@@ -23,6 +23,7 @@ import os.path
 import optparse
 import time
 import ConfigParser
+
 from gwakeonlan.functions import *
 from gwakeonlan.constants import *
 

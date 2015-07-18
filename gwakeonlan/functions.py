@@ -23,6 +23,7 @@ import socket
 from gettext import gettext as _
 from gettext import dgettext
 from gi.repository import Gtk
+
 from gwakeonlan.constants import *
 
 

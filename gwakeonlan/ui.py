@@ -20,6 +20,7 @@
 
 from gi.repository import Gtk
 from gi.repository import Gio
+
 from gwakeonlan.constants import *
 from gwakeonlan.functions import *
 from gwakeonlan.settings import Settings
