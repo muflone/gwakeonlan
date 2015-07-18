@@ -1,7 +1,10 @@
 gwakeonlan 0.6.4
   * New Chinese (Taiwan) translation by Cosmo Chene
+  * Updated Italian and German translations
+  * New feature to import machines from an ethers file (see /etc/ethers)
+  * Source file now PEP-8 compliant
   
- -- Fabio Castelli <muflone@vbsimple.net>  Sun, 12 Jul 2015 17:51:11 +0200
+ -- Fabio Castelli <muflone@vbsimple.net>  Sat, 18 Jul 2015 19:24:03 +0200
 
 gwakeonlan 0.6.3
   * Updated German translation by sahwar
