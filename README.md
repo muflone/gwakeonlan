@@ -10,6 +10,8 @@ gWakeOnLAN
 
 **Documentation:** http://www.muflone.com/gwakeonlan
 
+**Translations:** http://www.transifex.com/projects/p/gwakeonlan/
+
 System Requirements
 -------------------
 
