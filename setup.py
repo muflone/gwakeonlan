@@ -32,6 +32,7 @@ from glob import glob
 
 from gwakeonlan.constants import *
 
+
 class Install_Scripts(install_scripts):
     def run(self):
         install_scripts.run(self)
@@ -41,15 +42,17 @@ class Install_Scripts(install_scripts):
         "Rename main executable python script without .py extension"
         for script in self.get_outputs():
             if script.endswith(".py"):
-                info('renaming the python script %s -> %s' % (script, script[:-3]))
+                info('renaming the python script %s -> %s' % (
+                    script, script[:-3]))
                 shutil.move(script, script[:-3])
 
+
 class Install_Data(install_data):
-    def run (self):
+    def run(self):
         self.install_icons()
         self.install_translations()
         install_data.run(self)
-  
+
     def install_icons(self):
         info('Installing icons...')
         DIR_ICONS = 'icons'
@@ -97,7 +100,7 @@ setup(
         ('share/man/man1', ['man/gwakeonlan.1']),
         ('share/gwakeonlan/ui', glob('ui/*')),
     ],
-    cmdclass = {
+    cmdclass={
         'install_scripts': Install_Scripts,
         'install_data': Install_Data
     }
