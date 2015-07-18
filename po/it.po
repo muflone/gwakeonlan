@@ -23,19 +23,19 @@ msgstr ""
 
 #: ui/arpcache.glade.h:1
 msgid "IP Address"
-msgstr ""
+msgstr "Indirizzo IP"
 
 #: ui/arpcache.glade.h:2
 msgid "Host Name"
-msgstr ""
+msgstr "Nome del sistema"
 
 #: ui/arpcache.glade.h:3
 msgid "MAC Address"
-msgstr ""
+msgstr "Indirizzo MAC"
 
 #: ui/detail.glade.h:1
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
-msgstr ""
+msgstr "<b><span foreground=\"red\">ERRORE</span></b>"
 
 #: ui/detail.glade.h:2
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
@@ -71,7 +71,7 @@ msgstr "Sistema di _destinazione:"
 
 #: ui/main.glade.h:1
 msgid "Turn on"
-msgstr ""
+msgstr "Accendi"
 
 #: ui/main.glade.h:2 gwakeonlan/detail.py:70
 msgid "Add machine"
@@ -79,15 +79,15 @@ msgstr "Aggiungi"
 
 #: ui/main.glade.h:3
 msgid "Detect from ARP cache"
-msgstr ""
+msgstr "Rileva dala cache ARP"
 
 #: ui/main.glade.h:4
 msgid "Import machines from ethers file"
-msgstr ""
+msgstr "Importa macchine dal file ethers"
 
 #: ui/main.glade.h:5
 msgid "Import from ethers file"
-msgstr ""
+msgstr "Importa da file ethers"
 
 #: ui/main.glade.h:6 gwakeonlan/detail.py:69
 msgid "Edit machine"
@@ -123,11 +123,11 @@ msgstr "NR porta"
 
 #: gwakeonlan/about.py:56
 msgid "Contributors:"
-msgstr ""
+msgstr "Contributori"
 
 #: gwakeonlan/arpcache.py:42
 msgid "Pick a host from the ARP cache"
-msgstr ""
+msgstr "Scegli un sistema dalla cache ARP"
 
 #: gwakeonlan/detail.py:78
 msgid "Missing machine name"
