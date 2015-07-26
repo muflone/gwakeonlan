@@ -7,16 +7,16 @@
 # 
 # Translators:
 # Martin Riemenschneider <admin(at)martinum4.de>, 2010
-# Ettore Atalan <atalanttore(at)googlemail.com>, 2014
+# Ettore Atalan <atalanttore(at)googlemail.com>, 2014-2015
 # Robin Schneider <ypid(at)riseup.net>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2015-07-18 17:54+0200\n"
-"PO-Revision-Date: 2015-07-18 16:35+0000\n"
-"Last-Translator: Robin Schneider <ypid(at)riseup.net>\n"
-"Language-Team: German (http://www.transifex.com/p/gwakeonlan/language/de/)\n"
+"PO-Revision-Date: 2015-07-21 22:07+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore(at)googlemail.com>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/gwakeonlan/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,19 +25,19 @@ msgstr ""
 
 #: ui/arpcache.glade.h:1
 msgid "IP Address"
-msgstr ""
+msgstr "IP-Adresse"
 
 #: ui/arpcache.glade.h:2
 msgid "Host Name"
-msgstr ""
+msgstr "Hostname"
 
 #: ui/arpcache.glade.h:3
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC-Adresse"
 
 #: ui/detail.glade.h:1
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
-msgstr ""
+msgstr "<b><span foreground=\"red\">FEHLER</span></b>"
 
 #: ui/detail.glade.h:2
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
@@ -125,7 +125,7 @@ msgstr "Portnummer"
 
 #: gwakeonlan/about.py:56
 msgid "Contributors:"
-msgstr ""
+msgstr "Beitragende:"
 
 #: gwakeonlan/arpcache.py:42
 msgid "Pick a host from the ARP cache"
