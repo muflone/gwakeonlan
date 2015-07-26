@@ -1,4 +1,4 @@
-gWakeOnLAN
+gWakeOnLAN [![Build Status](https://travis-ci.org/muflone/gwakeonlan.svg?branch=master)](https://travis-ci.org/muflone/gwakeonlan)
 ==========
 **Descrizione:** Accendi le tue macchine usando il Wake On LAN.
 
