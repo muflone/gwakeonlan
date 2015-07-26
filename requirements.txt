@@ -1,2 +1,2 @@
--e pyxdg
+pyxdg
 -e .
