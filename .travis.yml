@@ -7,7 +7,9 @@ script:
   - python gwakeonlan.py
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq python-gi gir1.2-gtk-3.0
+  - sudo apt-get install python-gi             # GObject
+  - sudo apt-get install gir1.2-gtk-3.0        # gi.repository.gtk python-xdg
+  - sudo apt-get install python-xdg            # xdg
 install:
   - pip install -r requirements.txt
 branches:
