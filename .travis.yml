@@ -6,3 +6,6 @@ script:
   - python gwakeonlan.py
 install:
   - python setup.py install
+branches:
+  only:
+    - master
