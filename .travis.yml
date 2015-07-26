@@ -11,7 +11,6 @@ addons:
     packages:
     - python-gi                               # GObject
     - gir1.2-gtk-3.0                          # gi.repository.gtk python-xdg
-    - python-xdg                              # xdg
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
