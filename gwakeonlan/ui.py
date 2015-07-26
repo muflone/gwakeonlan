@@ -18,8 +18,11 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
+import time
+
 from gi.repository import Gtk
 from gi.repository import Gio
+from gi.repository import GLib
 
 from gwakeonlan.constants import *
 from gwakeonlan.functions import *
@@ -50,12 +53,14 @@ class MainWindow(object):
                 self.settings.get_value('left', 0),
                 self.settings.get_value('top', 0))
         # Load the others dialogs
-        self.about = AboutWindow(self.winMain, False)
-        self.detail = DetailWindow(self.winMain, False)
+        self.about = AboutWindow(self.winMain, settings, False)
+        self.detail = DetailWindow(self.winMain, settings, False)
         self.detected_addresses = {}
 
     def run(self):
         """Show the main window"""
+        if self.settings.options.autotest:
+            GLib.timeout_add(500, self.do_autotests)
         self.winMain.show_all()
 
     def loadUI(self):
@@ -196,3 +201,28 @@ class MainWindow(object):
                     self.model.get_destination(machine),
                     self.settings
                 )
+
+    def do_autotests(self):
+        """Perform a series of autotests"""
+        # Show the about dialog
+        for i in range(3):
+            self.on_btnAbout_clicked(None)
+            process_events()
+            time.sleep(0.2)
+        # Show the add host dialog
+        for i in range(1, 4):
+            self.detail.load_data('testing %d' % i,
+                                  formatMAC(('%d' % i) * 16),
+                                  i, BROADCAST_ADDRESS)
+            self.detail.show()
+            process_events()
+            time.sleep(0.2)
+        # Show the ARP cache dialog
+        for i in range(3):
+            self.on_menuitemARPCache_activate(None)
+            process_events()
+            time.sleep(0.2)
+        process_events()
+        time.sleep(0.5)
+        # Close the main window
+        self.winMain.destroy()

@@ -19,6 +19,7 @@
 ##
 
 from gi.repository import Gtk
+from gi.repository import GLib
 from gi.repository.GdkPixbuf import Pixbuf
 
 from gwakeonlan.constants import *
@@ -26,8 +27,9 @@ from gwakeonlan.functions import *
 
 
 class AboutWindow(object):
-    def __init__(self, winParent, show=False):
+    def __init__(self, winParent, settings, show=False):
         """Prepare the about dialog and optionally show it immediately"""
+        self.settings = settings
         # Retrieve the translators list
         translators = []
         for line in readlines(FILE_TRANSLATORS, False):
@@ -73,6 +75,8 @@ class AboutWindow(object):
 
     def show(self):
         """Show the About dialog"""
+        if self.settings.options.autotest:
+            GLib.timeout_add(500, self.dialog.hide)
         self.dialog.run()
         self.dialog.hide()
 

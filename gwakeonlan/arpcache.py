@@ -19,6 +19,7 @@
 ##
 
 from gi.repository import Gtk
+from gi.repository import GLib
 
 from gwakeonlan.model_arpcache import ModelARPCache
 from gwakeonlan.constants import *
@@ -28,6 +29,7 @@ from gwakeonlan.functions import *
 class ARPCacheWindow(object):
     def __init__(self, settings, winParent, show=False):
         """Prepare the ARP Cache dialog and optionally show it immediately"""
+        self.settings = settings
         # Load interface UI
         builder = Gtk.Builder()
         builder.add_from_file(FILE_UI_ARPCACHE)
@@ -60,6 +62,8 @@ class ARPCacheWindow(object):
 
     def show(self):
         """Show the ARP Cache picker dialog"""
+        if self.settings.options.autotest:
+            GLib.timeout_add(500, self.dialog.hide)
         response = self.dialog.run()
         self.dialog.hide()
         return response

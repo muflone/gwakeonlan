@@ -46,6 +46,9 @@ class Settings(object):
         parser.add_option('-q', '--quiet', dest='verbose_level',
                           action='store_const', const=VERBOSE_LEVEL_QUIET,
                           help='hide error and information messages')
+        parser.add_option('-T', '--autotest', dest='autotest',
+                          action='store_true',
+                          help='execute automatic test with no interaction')
         (self.options, self.arguments) = parser.parse_args()
         # Parse settings from the configuration file
         self.config = ConfigParser.RawConfigParser()

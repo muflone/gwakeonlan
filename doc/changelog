@@ -1,10 +1,12 @@
 gwakeonlan 0.6.4
   * New Chinese (Taiwan) translation by Cosmo Chene
-  * Updated Italian and German translations
+  * Updated Italian, German and Spanish translations
   * New feature to import machines from an ethers file (see /etc/ethers)
   * Source file now PEP-8 compliant
+  * Added Travis-CI
+  * Added --autotest command line flag to automatically execute some actions
   
- -- Fabio Castelli <muflone@vbsimple.net>  Sat, 18 Jul 2015 19:24:03 +0200
+ -- Fabio Castelli <muflone@vbsimple.net>  Sun, 26 Jul 2015 20:37:08 +0200
 
 gwakeonlan 0.6.3
   * Updated German translation by sahwar

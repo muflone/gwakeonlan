@@ -83,6 +83,12 @@ def readlines(filename, empty_lines=False):
     return result
 
 
+def process_events():
+    """Process every pending GTK+ event"""
+    while Gtk.events_pending():
+        Gtk.main_iteration()
+
+
 def gtk30_(message, context=None):
     """Return a message translated from GTK+ 3 domain"""
     return dgettext('gtk30', message if not context else '%s\04%s' % (
@@ -94,6 +100,7 @@ __all__ = [
     'show_message_dialog_yesno',
     'wake_on_lan',
     'readlines',
+    'process_events',
     '_',
     'gtk30_'
 ]

@@ -21,13 +21,15 @@
 from gi.repository import Gtk
 from gi.repository import Gdk
 from gi.repository import GObject
+from gi.repository import GLib
 
 from gwakeonlan.constants import *
 from gwakeonlan.functions import *
 
 
 class DetailWindow(object):
-    def __init__(self, winParent, show=False):
+    def __init__(self, winParent, settings, show=False):
+        self.settings = settings
         """Prepare the detail dialog and optionally show it immediately"""
         # Load interface UI
         builder = Gtk.Builder()
@@ -64,6 +66,8 @@ class DetailWindow(object):
 
     def show(self):
         """Show the Add/Edit machine dialog"""
+        if self.settings.options.autotest:
+            GLib.timeout_add(500, self.dialog.hide)
         response = 0
         self.lblError.set_property('visible', False)
         self.dialog.set_title(self.get_mac_address() and _('Edit machine') or
