@@ -5,7 +5,7 @@ virtualenv:
   system_site_packages: true
 sudo: false
 script:
-  - python gwakeonlan.py
+  - python gwakeonlan.py --verbose --autotest
 addons:
   apt:
     packages:
