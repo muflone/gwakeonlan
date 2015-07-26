@@ -8,15 +8,15 @@
 # Translators:
 # Matias Bellone <matiasbellone+debian(at)gmail.com>, 2010
 # Luca Della Ghezza <luca_dgh(at)hotmail.it>, 2010
-# Adolfo Jayme Barrientos <fitoschido(at)ubuntu.com>, 2012
+# Adolfo Jayme Barrientos <fitoschido(at)ubuntu.com>, 2012-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2015-07-18 17:54+0200\n"
-"PO-Revision-Date: 2015-07-18 16:35+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitoschido(at)ubuntu.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/p/gwakeonlan/language/es/)\n"
+"PO-Revision-Date: 2015-07-20 00:57+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/gwakeonlan/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,19 +25,19 @@ msgstr ""
 
 #: ui/arpcache.glade.h:1
 msgid "IP Address"
-msgstr ""
+msgstr "Dirección IP"
 
 #: ui/arpcache.glade.h:2
 msgid "Host Name"
-msgstr ""
+msgstr "Nombre del equipo"
 
 #: ui/arpcache.glade.h:3
 msgid "MAC Address"
-msgstr ""
+msgstr "Dirección MAC"
 
 #: ui/detail.glade.h:1
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
-msgstr ""
+msgstr "<b><span foreground=\"red\">ERROR</span></b>"
 
 #: ui/detail.glade.h:2
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
@@ -61,7 +61,7 @@ msgstr "Tipo de solicitud:"
 
 #: ui/detail.glade.h:7
 msgid "_Local (broadcast)"
-msgstr "_Local (Broadcast)"
+msgstr "_Local (transmisión)"
 
 #: ui/detail.glade.h:8
 msgid "_Internet"
@@ -69,7 +69,7 @@ msgstr "_Internet"
 
 #: ui/detail.glade.h:9
 msgid "_Destination host:"
-msgstr "Equipo _destinatario:"
+msgstr "Equipo de _destino:"
 
 #: ui/main.glade.h:1
 msgid "Turn on"
@@ -81,15 +81,15 @@ msgstr "Añadir equipo"
 
 #: ui/main.glade.h:3
 msgid "Detect from ARP cache"
-msgstr ""
+msgstr "Detectar a partir de caché ARP"
 
 #: ui/main.glade.h:4
 msgid "Import machines from ethers file"
-msgstr ""
+msgstr "Importar equipos de archivo ethers"
 
 #: ui/main.glade.h:5
 msgid "Import from ethers file"
-msgstr ""
+msgstr "Importar de archivo ethers"
 
 #: ui/main.glade.h:6 gwakeonlan/detail.py:69
 msgid "Edit machine"
@@ -125,11 +125,11 @@ msgstr "Puerto n.º"
 
 #: gwakeonlan/about.py:56
 msgid "Contributors:"
-msgstr ""
+msgstr "Colaboradores:"
 
 #: gwakeonlan/arpcache.py:42
 msgid "Pick a host from the ARP cache"
-msgstr ""
+msgstr "Elija un equipo de la caché ARP"
 
 #: gwakeonlan/detail.py:78
 msgid "Missing machine name"
@@ -137,12 +137,12 @@ msgstr "Falta el nombre de la máquina"
 
 #: gwakeonlan/detail.py:82
 msgid "Invalid MAC address"
-msgstr "Direccion MAC no valida"
+msgstr "La dirección MAC no es válida"
 
 #: gwakeonlan/detail.py:86
 msgid "Invalid destination host"
-msgstr "Equipo destinatario invalido"
+msgstr "El equipo de destino no es válido"
 
 #: gwakeonlan/ui.py:181
 msgid "Are you sure you want to remove the selected machine?"
-msgstr "¿Está seguro de que quiere eliminar el equipo seleccionado?"
+msgstr "¿Confirma que quiere eliminar el equipo seleccionado?"
