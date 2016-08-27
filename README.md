@@ -1,5 +1,7 @@
 gWakeOnLAN [![Build Status](https://travis-ci.org/muflone/gwakeonlan.svg?branch=master)](https://travis-ci.org/muflone/gwakeonlan)
 ==========
+
+[![Join the chat at https://gitter.im/gwakeonlan/Lobby](https://badges.gitter.im/gwakeonlan/Lobby.svg)](https://gitter.im/gwakeonlan/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 **Description:** Wake up your machines using Wake on LAN.
 
 **Copyright:** 2009-2015 Fabio Castelli (Muflone) <muflone(at)vbsimple.net>
