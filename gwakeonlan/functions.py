@@ -22,6 +22,9 @@ import struct
 import socket
 from gettext import gettext as _
 from gettext import dgettext
+
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
 from gwakeonlan.constants import *
@@ -30,7 +33,7 @@ from gwakeonlan.constants import *
 def formatMAC(mac):
     """Return the mac address formatted with colon"""
     mac = mac.replace(':', '').replace('.', '')
-    return ':'.join([mac[i:i+2] for i in xrange(0, len(mac), 2)]).upper()
+    return ':'.join([mac[i:i+2] for i in range(0, len(mac), 2)]).upper()
 
 
 def show_message_dialog_yesno(winParent, message, title, default_response):

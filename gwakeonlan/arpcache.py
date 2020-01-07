@@ -47,7 +47,7 @@ class ARPCacheWindow(object):
         self.dialog.set_transient_for(winParent)
         self.btnOK.set_label(gtk30_('_OK'))
         self.btnCancel.set_label(gtk30_('_Cancel'))
-        self.btnRefresh.set_label(gtk30_('_Refresh', 'Stock label'))
+        self.btnRefresh.set_label(gtk30_('_Refresh'))
         # Connect signals from the glade file to the functions
         # with the same name
         builder.connect_signals(self)
