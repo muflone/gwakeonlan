@@ -1,7 +1,7 @@
 os: linux
 language: python
 python:
-  - "2.7"
+  - "3.5"
 virtualenv:
   system_site_packages: true
 script:
@@ -9,7 +9,7 @@ script:
 addons:
   apt:
     packages:
-    - python-gi                               # GObject
+    - python3-gi                              # GObject
     - gir1.2-gtk-3.0                          # gi.repository.gtk python-xdg
 before_install:
   - "export DISPLAY=:99.0"
