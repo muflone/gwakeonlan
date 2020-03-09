@@ -30,7 +30,7 @@ from gwakeonlan.constants import *
 def formatMAC(mac):
     """Return the mac address formatted with colon"""
     mac = mac.replace(':', '').replace('.', '')
-    return ':'.join([mac[i:i+2] for i in xrange(0, len(mac), 2)]).upper()
+    return ':'.join([mac[i:i+2] for i in range(0, len(mac), 2)]).upper()
 
 
 def show_message_dialog_yesno(winParent, message, title, default_response):
@@ -58,7 +58,7 @@ def wake_on_lan(mac_address, portnr, destination, settings):
     # Magic packet (6 times FF + 16 times MAC address)
     packet = 'FF' * 6 + mac_address.replace(':', '') * 16
     data = []
-    for i in xrange(0, len(packet), 2):
+    for i in range(0, len(packet), 2):
         data.append(struct.pack('B', int(packet[i:i+2], 16)))
 
     # Send magic packet to the destination

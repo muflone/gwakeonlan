@@ -22,7 +22,7 @@ import os
 import os.path
 import optparse
 import time
-import ConfigParser
+import configparser
 
 from gwakeonlan.functions import *
 from gwakeonlan.constants import *
@@ -51,7 +51,7 @@ class Settings(object):
                           help='execute automatic test with no interaction')
         (self.options, self.arguments) = parser.parse_args()
         # Parse settings from the configuration file
-        self.config = ConfigParser.RawConfigParser()
+        self.config = configparser.RawConfigParser()
         # Allow saving in case sensitive (useful for machine names)
         self.config.optionxform = str
         # Determine which filename to use for settings
@@ -156,4 +156,4 @@ class Settings(object):
     def logText(self, text, verbose_level=VERBOSE_LEVEL_NORMAL):
         """Print a text with current date and time based on verbose level"""
         if verbose_level <= self.options.verbose_level:
-            print '[%s] %s' % (time.strftime('%Y/%m/%d %H:%M:%S'), text)
+            print('[%s] %s' % (time.strftime('%Y/%m/%d %H:%M:%S'), text))
