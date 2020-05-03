@@ -1,1 +1,2 @@
-pyxdg
+pyxdg==0.26
+PyGObject==3.36.0
