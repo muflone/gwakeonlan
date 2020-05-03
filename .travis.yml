@@ -1,16 +1,16 @@
 os: linux
 language: python
+python:
+  - "3.5"
 virtualenv:
   system_site_packages: true
 script:
-  - python gwakeonlan.py --verbose --autotest
+  - python3 gwakeonlan.py --verbose --autotest
 addons:
   apt:
     packages:
     - python3-gi                              # GObject
     - gir1.2-gtk-3.0                          # gi.repository.gtk python-xdg
-before_install:
-  - "export DISPLAY=:99.0"
 install:
   - pip install -r requirements.txt
 services:
