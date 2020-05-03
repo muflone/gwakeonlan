@@ -12,6 +12,6 @@ addons:
     - python3-gi                              # GObject
     - gir1.2-gtk-3.0                          # gi.repository.gtk python-xdg
 install:
-  - pip install -r requirements.txt
+  - pip install -r requirements_travis.txt
 services:
   - xvfb
