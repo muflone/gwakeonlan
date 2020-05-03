@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 ##
 #     Project: gWakeOnLAN
 # Description: Wake up your machines using Wake on LAN
