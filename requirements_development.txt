@@ -1,0 +1,3 @@
+-r requirements.txt
+
+PyGObject-stubs==0.0.2
