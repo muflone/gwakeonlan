@@ -4,7 +4,7 @@ gWakeOnLAN [![Build Status](https://travis-ci.org/muflone/gwakeonlan.svg?branch=
 
 **Copyright:** 2009-2020 Fabio Castelli (Muflone) <muflone(at)vbsimple.net>
 
-**License:** GPL-2+
+**License:** GPL-3+
 
 **Source code:** https://github.com/muflone/gwakeonlan
 

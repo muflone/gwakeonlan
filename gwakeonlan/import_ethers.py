@@ -3,7 +3,7 @@
 # Description: Wake up your machines using Wake on LAN
 #      Author: Robin Schneider <ypid@riseup.net>
 #   Copyright: 2015 Robin Schneider <ypid@riseup.net>
-#     License: GPL-2+
+#     License: GPL-3+
 #
 #  This program is free software; you can redistribute it and/or modify it
 #  under the terms of the GNU General Public License as published by the Free
