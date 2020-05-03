@@ -15,7 +15,7 @@ gWakeOnLAN [![Build Status](https://travis-ci.org/muflone/gwakeonlan.svg?branch=
 Requisiti di sistema
 --------------------
 
-* Python 3.x (sviluppato e testato per Python 3.5.2)
+* Python 3.x (sviluppato e testato per Python 3.8.2)
 * Libreria XDG per Python 3
 * Libreria GTK+3.0 per Python 3
 * Libreria GObject per Python 3
