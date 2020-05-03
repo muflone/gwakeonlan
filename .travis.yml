@@ -1,18 +1,19 @@
+os: linux
 language: python
 python:
-  - "2.7"
+  - "3.5"
 virtualenv:
   system_site_packages: true
-sudo: false
 script:
   - python gwakeonlan.py --verbose --autotest
 addons:
   apt:
     packages:
-    - python-gi                               # GObject
+    - python3-gi                              # GObject
     - gir1.2-gtk-3.0                          # gi.repository.gtk python-xdg
 before_install:
   - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
 install:
   - pip install -r requirements.txt
+services:
+  - xvfb
