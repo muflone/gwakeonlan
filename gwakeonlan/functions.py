@@ -22,6 +22,9 @@ import struct
 import socket
 from gettext import gettext as _
 from gettext import dgettext
+
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
 from gwakeonlan.constants import *
