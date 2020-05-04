@@ -1,0 +1,146 @@
+# gWakeOnLan
+# Wake up your machines using Wake on LAN.
+# Copyright (C) 2009-2020 Fabio Castelli (Muflone) <muflone(at)muflone.com>
+# Website: https://www.muflone.com/gwakeonlan/
+# This file is distributed under the same license of gWakeOnLan.
+# Korean translation for gWakeOnLan
+# 
+# Translators:
+# Ian Snyder <guswogjs499@outlook.kr>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: gWakeOnLan\n"
+"Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
+"POT-Creation-Date: 2015-07-18 17:54+0200\n"
+"PO-Revision-Date: 2017-10-06 14:56+0000\n"
+"Last-Translator: Ian Snyder <guswogjs499@outlook.kr>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/muflone/gwakeonlan/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ui/arpcache.glade.h:1
+msgid "IP Address"
+msgstr "IP 주소"
+
+#: ui/arpcache.glade.h:2
+msgid "Host Name"
+msgstr "호스트네임"
+
+#: ui/arpcache.glade.h:3
+msgid "MAC Address"
+msgstr "MAC 주소"
+
+#: ui/detail.glade.h:1
+msgid "<b><span foreground=\"red\">ERROR</span></b>"
+msgstr "<b><span foreground=\"red\">오류</span></b>"
+
+#: ui/detail.glade.h:2
+msgid "<big><b>Insert the machine name and its MAC address</b></big>"
+msgstr "<big><b>장치 이름과 장치의 MAC 주소를 입력하세요</b></big>"
+
+#: ui/detail.glade.h:3
+msgid "_Machine name:"
+msgstr "_장치 이름:"
+
+#: ui/detail.glade.h:4
+msgid "MAC _Address:"
+msgstr "MAC _주소:"
+
+#: ui/detail.glade.h:5
+msgid "_UDP port number:"
+msgstr "_UDP 포트 번호:"
+
+#: ui/detail.glade.h:6
+msgid "Request type:"
+msgstr "요청 타입:"
+
+#: ui/detail.glade.h:7
+msgid "_Local (broadcast)"
+msgstr "_로컬 (broadcast)"
+
+#: ui/detail.glade.h:8
+msgid "_Internet"
+msgstr "_인터넷"
+
+#: ui/detail.glade.h:9
+msgid "_Destination host:"
+msgstr "_도착지 호스트:"
+
+#: ui/main.glade.h:1
+msgid "Turn on"
+msgstr "켜기"
+
+#: ui/main.glade.h:2 gwakeonlan/detail.py:70
+msgid "Add machine"
+msgstr "장치 추가"
+
+#: ui/main.glade.h:3
+msgid "Detect from ARP cache"
+msgstr ""
+
+#: ui/main.glade.h:4
+msgid "Import machines from ethers file"
+msgstr "ethers 파일에서 장치 불러오기"
+
+#: ui/main.glade.h:5
+msgid "Import from ethers file"
+msgstr "ethers 파일에서 불러오기"
+
+#: ui/main.glade.h:6 gwakeonlan/detail.py:69
+msgid "Edit machine"
+msgstr "장치 수정"
+
+#: ui/main.glade.h:7 gwakeonlan/ui.py:182
+msgid "Delete machine"
+msgstr "장치 제거"
+
+#: ui/main.glade.h:8
+msgid "About"
+msgstr "자세히"
+
+#: ui/main.glade.h:9
+msgid "Machine name"
+msgstr "장치 이름"
+
+#: ui/main.glade.h:10
+msgid "MAC address"
+msgstr "MAC 주소"
+
+#: ui/main.glade.h:11
+msgid "Request type"
+msgstr "요청 타입"
+
+#: ui/main.glade.h:12
+msgid "Destination"
+msgstr "도착지"
+
+#: ui/main.glade.h:13
+msgid "Port NR"
+msgstr ""
+
+#: gwakeonlan/about.py:56
+msgid "Contributors:"
+msgstr "기여자:"
+
+#: gwakeonlan/arpcache.py:42
+msgid "Pick a host from the ARP cache"
+msgstr ""
+
+#: gwakeonlan/detail.py:78
+msgid "Missing machine name"
+msgstr "실종된 장치 이름"
+
+#: gwakeonlan/detail.py:82
+msgid "Invalid MAC address"
+msgstr "올바르지 않은 MAC 주소"
+
+#: gwakeonlan/detail.py:86
+msgid "Invalid destination host"
+msgstr "올바르지 않은 도착지 호스트"
+
+#: gwakeonlan/ui.py:181
+msgid "Are you sure you want to remove the selected machine?"
+msgstr "정말로 선택된 이 장치를 제거하시겠습니까?"
