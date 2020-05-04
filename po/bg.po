@@ -1,7 +1,7 @@
 # gWakeOnLan
 # Wake up your machines using Wake on LAN.
 # Copyright (C) 2009-2020 Fabio Castelli (Muflone) <muflone(at)muflone.com>
-# Website: http://www.muflone.com/gwakeonlan/
+# Website: https://www.muflone.com/gwakeonlan/
 # This file is distributed under the same license of gWakeOnLan.
 # Bulgarian translation for gWakeOnLan
 # 
@@ -14,7 +14,7 @@ msgstr ""
 "POT-Creation-Date: 2015-07-18 17:54+0200\n"
 "PO-Revision-Date: 2015-07-18 16:35+0000\n"
 "Last-Translator: sahwar <ve4ernik(at)gmail.com>\n"
-"Language-Team: Bulgarian (http://www.transifex.com/p/gwakeonlan/language/bg/)\n"
+"Language-Team: Bulgarian (https://www.transifex.com/p/gwakeonlan/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"

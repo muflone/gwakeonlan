@@ -1,8 +1,10 @@
 gwakeonlan 0.7.0
   * Python 3 port
   * PEP 8 compliance
+  * Replaced http links to https
+  * Changed license to GPL-3+
 
-  -- Fabio Castelli <muflone@muflone.com>  Mon, 4 Maj 2020 02:02:00 +0200
+  -- Fabio Castelli <muflone@muflone.com>  Mon, 4 Maj 2020 02:25:00 +0200
 
 gwakeonlan 0.6.4
   * New Chinese (Taiwan) translation by Cosmo Chene
@@ -20,7 +22,7 @@ gwakeonlan 0.6.3
  -- Fabio Castelli <muflone@muflone.com>  Sat, 4 Oct 2014 16:49:48 +0200
 
 gwakeonlan 0.6.2
-  * Changed project URL to http://www.muflone.com/gwakeonlan
+  * Changed project URL to https://www.muflone.com/gwakeonlan
   * New Bulgarian translation by sahwar
   
  -- Fabio Castelli <muflone@muflone.com>  Sat, 6 Sep 2014 19:16:13 +0200

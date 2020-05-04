@@ -8,9 +8,9 @@ gWakeOnLAN [![Build Status](https://travis-ci.org/muflone/gwakeonlan.svg?branch=
 
 **Codice sorgente:** https://github.com/muflone/gwakeonlan
 
-**Documentazione:** http://www.muflone.com/gwakeonlan
+**Documentazione:** https://www.muflone.com/gwakeonlan
 
-**Traduzioni:** http://www.transifex.com/projects/p/gwakeonlan/
+**Traduzioni:** https://www.transifex.com/projects/p/gwakeonlan/
 
 Requisiti di sistema
 --------------------
