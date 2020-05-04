@@ -18,11 +18,11 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
-from gi.repository import Gtk
 from gi.repository import Gio
+from gi.repository import Gtk
 
+from gwakeonlan.constants import APP_ID, FILE_UI_APPMENU
 from gwakeonlan.ui import MainWindow
-from gwakeonlan.constants import *
 
 
 class Application(Gtk.Application):

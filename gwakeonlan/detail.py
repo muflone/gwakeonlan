@@ -18,13 +18,11 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
-from gi.repository import Gtk
-from gi.repository import Gdk
-from gi.repository import GObject
 from gi.repository import GLib
+from gi.repository import Gtk
 
-from gwakeonlan.constants import *
-from gwakeonlan.functions import *
+from gwakeonlan.constants import BROADCAST_ADDRESS, FILE_UI_DETAIL, FILE_ICON
+from gwakeonlan.functions import _, gtk30_, formatMAC
 
 
 class DetailWindow(object):

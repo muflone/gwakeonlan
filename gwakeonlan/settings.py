@@ -24,8 +24,11 @@ import optparse
 import time
 import configparser
 
-from gwakeonlan.functions import *
-from gwakeonlan.constants import *
+from gwakeonlan.constants import (VERBOSE_LEVEL_QUIET, VERBOSE_LEVEL_NORMAL,
+                                  VERBOSE_LEVEL_MAX,
+                                  FILE_SETTINGS_OLD, FILE_SETTINGS_NEW,
+                                  BROADCAST_ADDRESS, DEFAULT_UDP_PORT)
+from gwakeonlan.functions import formatMAC
 
 SECTION_MAINWIN = 'main window'
 SECTION_HOSTS = 'hosts'

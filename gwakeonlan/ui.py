@@ -20,18 +20,22 @@
 
 import time
 
-from gi.repository import Gtk
-from gi.repository import Gio
 from gi.repository import GLib
+from gi.repository import Gtk
 
-from gwakeonlan.constants import *
-from gwakeonlan.functions import *
-from gwakeonlan.settings import Settings
-from gwakeonlan.model_machines import ModelMachines
-from gwakeonlan.detail import DetailWindow
-from gwakeonlan.arpcache import ARPCacheWindow
 from gwakeonlan.about import AboutWindow
+from gwakeonlan.arpcache import ARPCacheWindow
+from gwakeonlan.detail import DetailWindow
+from gwakeonlan.constants import (FILE_UI_MAIN, FILE_ICON,
+                                  APP_NAME,
+                                  BROADCAST_ADDRESS, DEFAULT_UDP_PORT)
+from gwakeonlan.functions import (_, gtk30_,
+                                  show_message_dialog_yesno,
+                                  formatMAC,
+                                  process_events,
+                                  wake_on_lan)
 from gwakeonlan.import_ethers import ImportEthers
+from gwakeonlan.model_machines import ModelMachines
 
 
 class MainWindow(object):

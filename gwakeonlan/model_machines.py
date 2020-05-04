@@ -20,7 +20,7 @@
 
 from gi.repository import Gtk
 
-from gwakeonlan.constants import *
+from gwakeonlan.constants import BROADCAST_ADDRESS
 
 
 class ModelMachines(object):

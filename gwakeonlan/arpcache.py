@@ -18,12 +18,12 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
-from gi.repository import Gtk
 from gi.repository import GLib
+from gi.repository import Gtk
 
+from gwakeonlan.constants import FILE_UI_ARPCACHE, FILE_ICON
+from gwakeonlan.functions import _, gtk30_
 from gwakeonlan.model_arpcache import ModelARPCache
-from gwakeonlan.constants import *
-from gwakeonlan.functions import *
 
 
 class ARPCacheWindow(object):

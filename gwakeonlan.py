@@ -22,9 +22,13 @@
 import gettext
 import locale
 
-from gwakeonlan.settings import Settings
-from gwakeonlan.app import Application
-from gwakeonlan.constants import *
+import gi
+gi.require_version('Gtk', '3.0')
+
+from gwakeonlan.app import Application                             # noqa: E402
+from gwakeonlan.constants import DIR_LOCALE, DOMAIN_NAME           # noqa: E402
+from gwakeonlan.settings import Settings                           # noqa: E402
+
 
 if __name__ == '__main__':
     # Load domain for translation

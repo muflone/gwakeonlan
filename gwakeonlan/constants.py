@@ -20,7 +20,9 @@
 
 import sys
 import os.path
-from xdg import BaseDirectory
+
+import xdg.BaseDirectory
+
 
 # Application constants
 APP_NAME = 'gWakeOnLAN'
@@ -53,7 +55,7 @@ else:
 # Set the paths for the folders
 DIR_DATA = os.path.join(DIR_PREFIX, 'data')
 DIR_UI = os.path.join(DIR_PREFIX, 'ui')
-DIR_SETTINGS = BaseDirectory.save_config_path(DOMAIN_NAME)
+DIR_SETTINGS = xdg.BaseDirectory.save_config_path(DOMAIN_NAME)
 # Set the paths for the UI files
 FILE_UI_MAIN = os.path.join(DIR_UI, 'main.glade')
 FILE_UI_DETAIL = os.path.join(DIR_UI, 'detail.glade')

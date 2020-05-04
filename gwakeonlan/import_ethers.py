@@ -21,7 +21,7 @@
 
 import re
 
-from gwakeonlan.constants import DEFAULT_UDP_PORT, BROADCAST_ADDRESS
+from gwakeonlan.constants import BROADCAST_ADDRESS, DEFAULT_UDP_PORT
 
 
 class ImportEthers(object):

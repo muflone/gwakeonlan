@@ -21,7 +21,7 @@
 import os.path
 import socket
 
-from gwakeonlan.constants import *
+from gwakeonlan.constants import FILE_ARP_CACHE, VERBOSE_LEVEL_MAX
 
 
 class ModelARPCache(object):

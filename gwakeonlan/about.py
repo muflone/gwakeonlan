@@ -18,12 +18,17 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
-from gi.repository import Gtk
 from gi.repository import GLib
+from gi.repository import Gtk
 from gi.repository.GdkPixbuf import Pixbuf
 
-from gwakeonlan.constants import *
-from gwakeonlan.functions import *
+from gwakeonlan.constants import (APP_NAME, APP_VERSION, APP_COPYRIGHT,
+                                  APP_AUTHOR, APP_AUTHOR_EMAIL,
+                                  APP_DESCRIPTION, APP_URL,
+                                  FILE_TRANSLATORS, FILE_UI_ABOUT,
+                                  FILE_CONTRIBUTORS, FILE_LICENSE,
+                                  FILE_RESOURCES, FILE_ICON)
+from gwakeonlan.functions import _, readlines
 
 
 class AboutWindow(object):

@@ -19,18 +19,21 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
-from distutils.core import setup
 from distutils.command.install_scripts import install_scripts
 from distutils.command.install_data import install_data
+from distutils.core import setup
 from distutils.log import info
 
+import glob
+import itertools
 import os
 import os.path
 import shutil
-from itertools import chain
-from glob import glob
 
-from gwakeonlan.constants import *
+from gwakeonlan.constants import (DOMAIN_NAME,
+                                  APP_NAME, APP_VERSION,
+                                  APP_AUTHOR, APP_AUTHOR_EMAIL,
+                                  APP_URL, APP_DESCRIPTION)
 
 
 class Install_Scripts(install_scripts):
@@ -60,11 +63,11 @@ class Install_Data(install_data):
             icon_dir = os.path.join(DIR_ICONS, icon_format)
             self.data_files.append((
                 os.path.join('share', 'icons', 'hicolor', icon_format, 'apps'),
-                glob(os.path.join(icon_dir, '*'))))
+                glob.glob(os.path.join(icon_dir, '*'))))
 
     def install_translations(self):
         info('Installing translations...')
-        for po in glob(os.path.join('po', '*.po')):
+        for po in glob.glob(os.path.join('po', '*.po')):
             lang = os.path.basename(po[:-3])
             mo = os.path.join('build', 'mo', lang, '%s.mo' % DOMAIN_NAME)
 
@@ -81,6 +84,7 @@ class Install_Data(install_data):
             dest = os.path.join('share', 'locale', lang, 'LC_MESSAGES')
             self.data_files.append((dest, [mo]))
 
+
 setup(
     name=APP_NAME,
     version=APP_VERSION,
@@ -96,9 +100,10 @@ setup(
     data_files=[
         ('share/gwakeonlan/data', ['data/gwakeonlan.png']),
         ('share/applications', ['data/gwakeonlan.desktop']),
-        ('share/doc/gwakeonlan', list(chain(glob('doc/*'),  glob('*.md')))),
+        ('share/doc/gwakeonlan', list(itertools.chain(glob.glob('doc/*'),
+                                                      glob.glob('*.md')))),
         ('share/man/man1', ['man/gwakeonlan.1']),
-        ('share/gwakeonlan/ui', glob('ui/*')),
+        ('share/gwakeonlan/ui', glob.glob('ui/*')),
     ],
     cmdclass={
         'install_scripts': Install_Scripts,

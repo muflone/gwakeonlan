@@ -20,14 +20,12 @@
 
 import struct
 import socket
-from gettext import gettext as _
 from gettext import dgettext
+from gettext import gettext as _
 
-import gi
-gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
-from gwakeonlan.constants import *
+from gwakeonlan.constants import VERBOSE_LEVEL_MAX
 
 
 def formatMAC(mac):
