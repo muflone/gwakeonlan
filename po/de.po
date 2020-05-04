@@ -9,14 +9,15 @@
 # Martin Riemenschneider <admin(at)martinum4.de>, 2010
 # Ettore Atalan <atalanttore(at)googlemail.com>, 2014-2015
 # Robin Schneider <ypid(at)riseup.net>, 2015
+# martinum4 <admin(at)martinum4.de>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2015-07-18 17:54+0200\n"
-"PO-Revision-Date: 2015-07-21 22:07+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore(at)googlemail.com>\n"
-"Language-Team: German (https://www.transifex.com/projects/p/gwakeonlan/)\n"
+"PO-Revision-Date: 2017-09-22 11:55+0000\n"
+"Last-Translator: martinum4 <admin(at)martinum4.de>\n"
+"Language-Team: German (https://www.transifex.com/p/gwakeonlan/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -81,7 +82,7 @@ msgstr "Rechner hinzufügen"
 
 #: ui/main.glade.h:3
 msgid "Detect from ARP cache"
-msgstr ""
+msgstr "Aus ARP-Cache ermitteln"
 
 #: ui/main.glade.h:4
 msgid "Import machines from ethers file"
@@ -129,7 +130,7 @@ msgstr "Beitragende:"
 
 #: gwakeonlan/arpcache.py:42
 msgid "Pick a host from the ARP cache"
-msgstr ""
+msgstr "Host aus ARP-Cache wählen"
 
 #: gwakeonlan/detail.py:78
 msgid "Missing machine name"
