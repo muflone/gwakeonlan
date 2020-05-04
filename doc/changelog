@@ -1,3 +1,9 @@
+gwakeonlan 0.7.0
+  * Python 3 port
+  * PEP 8 compliance
+
+  -- Fabio Castelli <muflone@vbsimple.net>  Mon, 4 Maj 2020 02:02:00 +0200
+
 gwakeonlan 0.6.4
   * New Chinese (Taiwan) translation by Cosmo Chene
   * Updated Italian, German and Spanish translations
