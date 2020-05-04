@@ -2,7 +2,7 @@ gWakeOnLAN [![Build Status](https://travis-ci.org/muflone/gwakeonlan.svg?branch=
 ==========
 **Descrizione:** Accendi le tue macchine usando il Wake On LAN.
 
-**Copyright:** 2009-2020 Fabio Castelli (Muflone) <muflone(at)vbsimple.net>
+**Copyright:** 2009-2020 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 
 **Licenza:** GPL-3+
 

@@ -1,19 +1,19 @@
 # gWakeOnLan
 # Wake up your machines using Wake on LAN.
-# Copyright (C) 2009-2020 Fabio Castelli (Muflone) <muflone(at)vbsimple.net>
+# Copyright (C) 2009-2020 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 # Website: http://www.muflone.com/gwakeonlan/
 # This file is distributed under the same license of gWakeOnLan.
 # Italian translation for gWakeOnLan
 # 
 # Translators:
-# Fabio Castelli (Muflone) <muflone(at)vbsimple.net>, 2009
+# Fabio Castelli (Muflone) <muflone(at)muflone.com>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2015-07-18 17:54+0200\n"
 "PO-Revision-Date: 2015-07-18 16:35+0000\n"
-"Last-Translator: Fabio Castelli (Muflone) <muflone(at)vbsimple.net>\n"
+"Last-Translator: Fabio Castelli (Muflone) <muflone(at)muflone.com>\n"
 "Language-Team: Italian (http://www.transifex.com/p/gwakeonlan/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

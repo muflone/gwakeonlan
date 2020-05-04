@@ -1,7 +1,7 @@
 ##
 #     Project: gWakeOnLAN
 # Description: Wake up your machines using Wake on LAN
-#      Author: Fabio Castelli (Muflone) <muflone@vbsimple.net>
+#      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2020 Fabio Castelli
 #     License: GPL-3+
 #  This program is free software; you can redistribute it and/or modify it
@@ -31,7 +31,7 @@ APP_DESCRIPTION = 'Wake up your machines using Wake on LAN.'
 APP_ID = 'gwakeonlan.muflone.com'
 APP_URL = 'http://www.muflone.com/gwakeonlan'
 APP_AUTHOR = 'Fabio Castelli'
-APP_AUTHOR_EMAIL = 'muflone@vbsimple.net'
+APP_AUTHOR_EMAIL = 'muflone@muflone.com'
 APP_COPYRIGHT = 'Copyright 2009-2020 %s' % APP_AUTHOR
 # Other constants
 DEFAULT_UDP_PORT = 9
