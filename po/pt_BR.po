@@ -7,13 +7,14 @@
 # 
 # Translators:
 # ricardomourabraga <ricardomourabraga(at)gmail.com>, 2011
+# Amilton Pereira Cavalcante <amiltonpc(at)gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2015-07-18 17:54+0200\n"
-"PO-Revision-Date: 2015-07-18 16:35+0000\n"
-"Last-Translator: ricardomourabraga <ricardomourabraga(at)gmail.com>\n"
+"PO-Revision-Date: 2017-09-22 11:55+0000\n"
+"Last-Translator: Amilton Pereira Cavalcante <amiltonpc(at)gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/p/gwakeonlan/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,23 +24,23 @@ msgstr ""
 
 #: ui/arpcache.glade.h:1
 msgid "IP Address"
-msgstr ""
+msgstr "Endereço IP"
 
 #: ui/arpcache.glade.h:2
 msgid "Host Name"
-msgstr ""
+msgstr "Nome do host"
 
 #: ui/arpcache.glade.h:3
 msgid "MAC Address"
-msgstr ""
+msgstr "Endereço MAC"
 
 #: ui/detail.glade.h:1
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
-msgstr ""
+msgstr "<b><span foreground=\"red\">ERRO</span></b>"
 
 #: ui/detail.glade.h:2
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr "<big><b>Insira o nome do PC e seu MAC address</b></big>"
+msgstr "<big><b>Insira o nome do PC e seu endereço MAC</b></big>"
 
 #: ui/detail.glade.h:3
 msgid "_Machine name:"
@@ -51,11 +52,11 @@ msgstr "MAC _Address:"
 
 #: ui/detail.glade.h:5
 msgid "_UDP port number:"
-msgstr "_Número Potra UDP:"
+msgstr "_Número Porta UDP:"
 
 #: ui/detail.glade.h:6
 msgid "Request type:"
-msgstr "Request type:"
+msgstr "Tipo de requisição:"
 
 #: ui/detail.glade.h:7
 msgid "_Local (broadcast)"
@@ -71,15 +72,15 @@ msgstr "_PC Destino:"
 
 #: ui/main.glade.h:1
 msgid "Turn on"
-msgstr ""
+msgstr "Ligar"
 
 #: ui/main.glade.h:2 gwakeonlan/detail.py:70
 msgid "Add machine"
-msgstr "Add PC"
+msgstr "Adicionar PC"
 
 #: ui/main.glade.h:3
 msgid "Detect from ARP cache"
-msgstr ""
+msgstr "Detectar a partir do chache ARP"
 
 #: ui/main.glade.h:4
 msgid "Import machines from ethers file"
@@ -107,11 +108,11 @@ msgstr "Nome PC"
 
 #: ui/main.glade.h:10
 msgid "MAC address"
-msgstr "MAC address"
+msgstr "Endereço MAC"
 
 #: ui/main.glade.h:11
 msgid "Request type"
-msgstr "Request type"
+msgstr "Tipo de requisição"
 
 #: ui/main.glade.h:12
 msgid "Destination"
@@ -123,23 +124,23 @@ msgstr "Porta NR"
 
 #: gwakeonlan/about.py:56
 msgid "Contributors:"
-msgstr ""
+msgstr "Contribuidores:"
 
 #: gwakeonlan/arpcache.py:42
 msgid "Pick a host from the ARP cache"
-msgstr ""
+msgstr "Escolher um PC a pratir do cache ARP"
 
 #: gwakeonlan/detail.py:78
 msgid "Missing machine name"
-msgstr "PC sem Nome"
+msgstr "PC sem nome"
 
 #: gwakeonlan/detail.py:82
 msgid "Invalid MAC address"
-msgstr "Invalido MAC address"
+msgstr "Endereço MAC Inválido"
 
 #: gwakeonlan/detail.py:86
 msgid "Invalid destination host"
-msgstr "nvalido PC destino"
+msgstr "PC de destino inválido "
 
 #: gwakeonlan/ui.py:181
 msgid "Are you sure you want to remove the selected machine?"
