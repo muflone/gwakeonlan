@@ -66,7 +66,7 @@ class ModelARPCache(object):
                             self.model.append(
                                 [arp_ip, arp_mac, detected_hostname])
                 arpf.close()
-            except:
+            except (FileNotFoundError, PermissionError):
                 self.settings.logText('unable to read %s' % FILE_ARP_CACHE)
 
     def get_ip_address(self, treeiter):
