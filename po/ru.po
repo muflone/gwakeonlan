@@ -6,13 +6,13 @@
 # Russian translation for gWakeOnLan
 # 
 # Translators:
-# Сергей Богатов <hsh(at)runtu.org>, 2010
+# Сергей Богатов <hsh(at)runtu.org>, 2010,2015,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2015-07-18 17:54+0200\n"
-"PO-Revision-Date: 2015-07-18 16:35+0000\n"
+"PO-Revision-Date: 2020-02-13 13:31+0000\n"
 "Last-Translator: Сергей Богатов <hsh(at)runtu.org>\n"
 "Language-Team: Russian (https://www.transifex.com/p/gwakeonlan/)\n"
 "MIME-Version: 1.0\n"
@@ -23,19 +23,19 @@ msgstr ""
 
 #: ui/arpcache.glade.h:1
 msgid "IP Address"
-msgstr ""
+msgstr "IP Адрес"
 
 #: ui/arpcache.glade.h:2
 msgid "Host Name"
-msgstr ""
+msgstr "Имя компьютера"
 
 #: ui/arpcache.glade.h:3
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC Адрес"
 
 #: ui/detail.glade.h:1
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
-msgstr ""
+msgstr "<b><span foreground=\"red\">ОШИБКА</span></b>"
 
 #: ui/detail.glade.h:2
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
@@ -71,7 +71,7 @@ msgstr "_Расположение компьютера:"
 
 #: ui/main.glade.h:1
 msgid "Turn on"
-msgstr ""
+msgstr "Включить"
 
 #: ui/main.glade.h:2 gwakeonlan/detail.py:70
 msgid "Add machine"
@@ -79,15 +79,15 @@ msgstr "Добавить"
 
 #: ui/main.glade.h:3
 msgid "Detect from ARP cache"
-msgstr ""
+msgstr "Найти в ARP кэше"
 
 #: ui/main.glade.h:4
 msgid "Import machines from ethers file"
-msgstr ""
+msgstr "Импортировать компьютеры из /etc/ethers"
 
 #: ui/main.glade.h:5
 msgid "Import from ethers file"
-msgstr ""
+msgstr "Импорт из файла /etc/ethers"
 
 #: ui/main.glade.h:6 gwakeonlan/detail.py:69
 msgid "Edit machine"
@@ -123,11 +123,11 @@ msgstr "Порт"
 
 #: gwakeonlan/about.py:56
 msgid "Contributors:"
-msgstr ""
+msgstr "Авторы:"
 
 #: gwakeonlan/arpcache.py:42
 msgid "Pick a host from the ARP cache"
-msgstr ""
+msgstr "Выбор хоста из кэша ARP"
 
 #: gwakeonlan/detail.py:78
 msgid "Missing machine name"
