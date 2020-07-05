@@ -69,7 +69,8 @@ def wake_on_lan(mac_address, portnr, destination, settings):
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     if destination == '255.255.255.255':
         destination = '<broadcast>'
-    sock.sendto(b''.join(data), (destination, portnr))
+    data = b''.join(data)
+    [sock.sendto(data, (destination, portnr)) for _ in range(0, 10)]
 
 
 def readlines(filename, empty_lines=False):
