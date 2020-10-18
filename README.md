@@ -45,9 +45,3 @@ If the application is not installed please use:
     python3 gwakeonlan.py
 
 If the application was installed simply use the gwakeonlan command.
-
-.. |build-status| image:: https://travis-ci.org/samgiles/slumber.svg?branch=master
-   :target: https://travis-ci.org/samgiles/slumber
-   :alt: Build status
-   
-[![Build Status](https://travis-ci.org/muflone/gwakeonlan.svg?branch=master)](https://travis-ci.org/muflone/gwakeonlan)
