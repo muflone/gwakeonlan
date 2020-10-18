@@ -57,12 +57,12 @@ class Install_Data(install_data):
         cmd_translations = Command_Translations(self.distribution)
         cmd_translations.initialize_options()
         cmd_translations.finalize_options()
+        cmd_translations.data_files = self.data_files
         cmd_translations.run()
-        return
-        self.install_translations()
         install_data.run(self)
 
     def install_icons(self):
+        """Add icons to the data files"""
         info('Installing icons...')
         DIR_ICONS = 'icons'
         for icon_format in os.listdir(DIR_ICONS):
@@ -70,25 +70,6 @@ class Install_Data(install_data):
             self.data_files.append((
                 os.path.join('share', 'icons', 'hicolor', icon_format, 'apps'),
                 glob.glob(os.path.join(icon_dir, '*'))))
-
-    def install_translations(self):
-        info('Installing translations...')
-        for po in glob.glob(os.path.join('po', '*.po')):
-            lang = os.path.basename(po[:-3])
-            mo = os.path.join('build', 'mo', lang, '%s.mo' % DOMAIN_NAME)
-
-            directory = os.path.dirname(mo)
-            if not os.path.exists(directory):
-                info('creating %s' % directory)
-                os.makedirs(directory)
-
-            cmd = 'msgfmt -o %s %s' % (mo, po)
-            info('compiling %s -> %s' % (po, mo))
-            if os.system(cmd) != 0:
-                raise SystemExit('Error while running msgfmt')
-
-            dest = os.path.join('share', 'locale', lang, 'LC_MESSAGES')
-            self.data_files.append((dest, [mo]))
 
 
 class Command_Translation(Command):
@@ -108,6 +89,7 @@ class Command_Translation(Command):
         assert (self.output), 'Missing output file'
 
     def run(self):
+        """Compile a single translation using self.input and self.output"""
         lang = os.path.basename(self.input[:-3])
         dir_lang = os.path.dirname(self.output)
         if not os.path.exists(dir_lang):
@@ -133,6 +115,7 @@ class Command_Translations(Command):
         self.dir_mo = os.path.join(self.dir_base, 'locale')
 
     def run(self):
+        """Compile every translation and add it to the data files"""
         for file_po in glob.glob(os.path.join(self.dir_po, '*.po')):
             file_mo = os.path.join(self.dir_mo,
                                    os.path.basename(file_po[:-3]),
@@ -143,6 +126,8 @@ class Command_Translations(Command):
             cmd_translation.input = file_po
             cmd_translation.output = file_mo
             cmd_translation.finalize_options()
+            # Add the translation files to the data files
+            cmd_translation.data_files = self.data_files
             cmd_translation.run()
 
 
