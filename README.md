@@ -17,7 +17,7 @@ System Requirements
 
 * Python 3.x (developed and tested for Python 3.8.2)
 * XDG library for Python 3
-* GTK+3.0 libraries for Python 3
+* GTK+ 3.0 libraries for Python 3
 * GObject libraries for Python 3
 * Distutils library for Python 3 (usually shipped with Python distribution)
 

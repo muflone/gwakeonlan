@@ -17,7 +17,7 @@ Requisiti di sistema
 
 * Python 3.x (sviluppato e testato per Python 3.8.2)
 * Libreria XDG per Python 3
-* Libreria GTK+3.0 per Python 3
+* Libreria GTK+ 3.0 per Python 3
 * Libreria GObject per Python 3
 * Libreria Distutils per Python 3 (generalmente fornita col pacchetto Python)
 
