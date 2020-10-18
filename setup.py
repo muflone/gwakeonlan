@@ -21,7 +21,7 @@
 
 from distutils.command.install_scripts import install_scripts
 from distutils.command.install_data import install_data
-from distutils.core import setup
+from distutils.core import setup, Command
 from distutils.log import info
 
 import glob
@@ -29,6 +29,7 @@ import itertools
 import os
 import os.path
 import shutil
+import subprocess
 
 from gwakeonlan.constants import (DOMAIN_NAME,
                                   APP_NAME, APP_VERSION,
@@ -53,6 +54,11 @@ class Install_Scripts(install_scripts):
 class Install_Data(install_data):
     def run(self):
         self.install_icons()
+        cmd_translations = Command_Translations(self.distribution)
+        cmd_translations.initialize_options()
+        cmd_translations.finalize_options()
+        cmd_translations.run()
+        return
         self.install_translations()
         install_data.run(self)
 
@@ -85,6 +91,61 @@ class Install_Data(install_data):
             self.data_files.append((dest, [mo]))
 
 
+class Command_Translation(Command):
+    description = "compile a translation"
+    user_options = [
+        ('input=', None, 'Define input file'),
+        ('output=', None, 'Define output file'),
+    ]
+
+    def initialize_options(self):
+        self.input = None
+        self.output = None
+        self.data_files = []
+
+    def finalize_options(self):
+        assert (self.input), 'Missing input file'
+        assert (self.output), 'Missing output file'
+
+    def run(self):
+        lang = os.path.basename(self.input[:-3])
+        dir_lang = os.path.dirname(self.output)
+        if not os.path.exists(dir_lang):
+            os.makedirs(dir_lang)
+        subprocess.call(('msgfmt', '--output-file', self.output, self.input))
+        self.data_files.append((os.path.join('share',
+                                             'locale',
+                                             lang,
+                                             'LC_MESSAGES'),
+                                [self.output]))
+
+
+class Command_Translations(Command):
+    description = "build translations"
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        self.dir_base = os.path.dirname(os.path.abspath(__file__))
+        self.dir_po = os.path.join(self.dir_base, 'po')
+        self.dir_mo = os.path.join(self.dir_base, 'locale')
+
+    def run(self):
+        for file_po in glob.glob(os.path.join(self.dir_po, '*.po')):
+            file_mo = os.path.join(self.dir_mo,
+                                   os.path.basename(file_po[:-3]),
+                                   'LC_MESSAGES',
+                                   '%s.mo' % DOMAIN_NAME)
+            cmd_translation = Command_Translation(self.distribution)
+            cmd_translation.initialize_options()
+            cmd_translation.input = file_po
+            cmd_translation.output = file_mo
+            cmd_translation.finalize_options()
+            cmd_translation.run()
+
+
 setup(
     name=APP_NAME,
     version=APP_VERSION,
@@ -107,6 +168,8 @@ setup(
     ],
     cmdclass={
         'install_scripts': Install_Scripts,
-        'install_data': Install_Data
+        'install_data': Install_Data,
+        'translation': Command_Translation,
+        'translations': Command_Translations
     }
 )
