@@ -3,8 +3,10 @@ gwakeonlan 0.7.0
   * PEP 8 compliance
   * Replaced http links to https
   * Changed license to GPL-3+
+  * Import hosts from ethers file
+  * New and updated translations
 
-  -- Fabio Castelli <muflone@muflone.com>  Mon, 4 Maj 2020 02:25:00 +0200
+  -- Fabio Castelli <muflone@muflone.com>  Sun, 18 Oct 2020 21:04:12 +0100
 
 gwakeonlan 0.6.4
   * New Chinese (Taiwan) translation by Cosmo Chene
