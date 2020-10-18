@@ -79,7 +79,7 @@ msgstr "Aggiungi"
 
 #: ui/main.glade.h:3
 msgid "Detect from ARP cache"
-msgstr "Rileva dala cache ARP"
+msgstr "Rileva dalla cache ARP"
 
 #: ui/main.glade.h:4
 msgid "Import machines from ethers file"
