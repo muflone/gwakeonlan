@@ -1,5 +1,6 @@
 /locale/
 /.idea/
+/build/
 *.pyc
 *.glade~
 po/gwakeonlan.pot.new
