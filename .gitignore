@@ -4,3 +4,8 @@
 *.pyc
 *.glade~
 po/gwakeonlan.pot.new
+/appimage-builder-cache
+/AppDir
+.directory
+
+*.AppImage
