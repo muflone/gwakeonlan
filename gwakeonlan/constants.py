@@ -48,6 +48,10 @@ if os.path.isfile(os.path.join('data', 'gwakeonlan.png')):
     DIR_PREFIX = '.'
     DIR_LOCALE = os.path.join(DIR_PREFIX, 'locale')
     DIR_DOCS = os.path.join(DIR_PREFIX, 'doc')
+elif os.path.isfile(os.path.join(os.path.expanduser('~'), '.local', 'share', 'gwakeonlan', 'data', 'gwakeonlan.png')):
+    DIR_PREFIX = os.path.join(os.path.expanduser('~'), '.local', 'share', 'gwakeonlan')
+    DIR_LOCALE = os.path.join(os.path.expanduser('~'), '.local', 'share', 'locale')
+    DIR_DOCS = os.path.join(os.path.expanduser('~'), '.local', 'share', 'doc', 'gwakeonlan')
 else:
     DIR_PREFIX = os.path.join(sys.prefix, 'share', 'gwakeonlan')
     DIR_LOCALE = os.path.join(sys.prefix, 'share', 'locale')
