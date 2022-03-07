@@ -28,8 +28,8 @@ jobs:
           name: check code
           command: |
             . venv/bin/activate
-            python -m compileall gnome_appfolders_manager
-            pycodestyle gnome_appfolders_manager
-            python -m flake8 gnome_appfolders_manager
+            python -m compileall gwakeonlan
+            pycodestyle gwakeonlan
+            python -m flake8 gwakeonlan
             python setup.py install --optimize=1 --root=build
             ls -laR build
