@@ -21,17 +21,18 @@
 from gi.repository import GLib
 from gi.repository import Gtk
 
-from gwakeonlan.constants import BROADCAST_ADDRESS, FILE_UI_DETAIL, FILE_ICON
-from gwakeonlan.functions import _, gtk30_, formatMAC
+from gwakeonlan.constants import BROADCAST_ADDRESS, FILE_ICON
+from gwakeonlan.functions import _, formatMAC, get_ui_file, text
 
 
 class DetailWindow(object):
-    def __init__(self, winParent, settings, show=False):
+    def __init__(self, winParent, settings, options, show=False):
         self.settings = settings
+        self.options = options
         """Prepare the detail dialog and optionally show it immediately"""
         # Load interface UI
         builder = Gtk.Builder()
-        builder.add_from_file(FILE_UI_DETAIL)
+        builder.add_from_file(get_ui_file('detail.glade'))
         # Obtain widget references
         self.dialog = builder.get_object('dlgDetail')
         self.cboMachineName = builder.get_object('cboMachineName')
@@ -46,10 +47,10 @@ class DetailWindow(object):
         self.btnCancel = builder.get_object('btnCancel')
         self.lblError = builder.get_object('lblError')
         # Set various properties
-        self.dialog.set_icon_from_file(FILE_ICON)
+        self.dialog.set_icon_from_file(str(FILE_ICON))
         self.dialog.set_transient_for(winParent)
-        self.btnOK.set_label(gtk30_('_OK'))
-        self.btnCancel.set_label(gtk30_('_Cancel'))
+        self.btnOK.set_label(text('_OK', True))
+        self.btnCancel.set_label(text('_Cancel', True))
         # Connect signals from the glade file to the functions
         # with the same name
         builder.connect_signals(self)
@@ -64,7 +65,7 @@ class DetailWindow(object):
 
     def show(self):
         """Show the Add/Edit machine dialog"""
-        if self.settings.options.autotest:
+        if self.options.autotest:
             GLib.timeout_add(500, self.dialog.hide)
         response = 0
         self.lblError.set_property('visible', False)

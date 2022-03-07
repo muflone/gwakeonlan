@@ -25,16 +25,17 @@ from gi.repository.GdkPixbuf import Pixbuf
 from gwakeonlan.constants import (APP_NAME, APP_VERSION, APP_COPYRIGHT,
                                   APP_AUTHOR, APP_AUTHOR_EMAIL,
                                   APP_DESCRIPTION, APP_URL,
-                                  FILE_TRANSLATORS, FILE_UI_ABOUT,
+                                  FILE_TRANSLATORS,
                                   FILE_CONTRIBUTORS, FILE_LICENSE,
                                   FILE_RESOURCES, FILE_ICON)
-from gwakeonlan.functions import _, readlines
+from gwakeonlan.functions import _, get_ui_file, readlines
 
 
 class AboutWindow(object):
-    def __init__(self, winParent, settings, show=False):
+    def __init__(self, winParent, settings, options, show=False):
         """Prepare the about dialog and optionally show it immediately"""
         self.settings = settings
+        self.options = options
         # Retrieve the translators list
         translators = []
         for line in readlines(FILE_TRANSLATORS, False):
@@ -45,7 +46,7 @@ class AboutWindow(object):
                 translators.append(line)
         # Load the user interface
         builder = Gtk.Builder()
-        builder.add_from_file(FILE_UI_ABOUT)
+        builder.add_from_file(get_ui_file('about.glade'))
         # Obtain widget references
         self.dialog = builder.get_object("dialogAbout")
         # Set various properties
@@ -71,7 +72,7 @@ class AboutWindow(object):
             for line in readlines(FILE_RESOURCES, False):
                 resource_type, resource_url = line.split(':', 1)
                 self.dialog.add_credit_section(resource_type, (resource_url,))
-        icon_logo = Pixbuf.new_from_file(FILE_ICON)
+        icon_logo = Pixbuf.new_from_file(str(FILE_ICON))
         self.dialog.set_logo(icon_logo)
         self.dialog.set_transient_for(winParent)
         # Optionally show the dialog
@@ -80,7 +81,7 @@ class AboutWindow(object):
 
     def show(self):
         """Show the About dialog"""
-        if self.settings.options.autotest:
+        if self.options.autotest:
             GLib.timeout_add(500, self.dialog.hide)
         self.dialog.run()
         self.dialog.hide()

@@ -18,10 +18,11 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+import logging
 import os.path
 import socket
 
-from gwakeonlan.constants import FILE_ARP_CACHE, VERBOSE_LEVEL_MAX
+from gwakeonlan.constants import FILE_ARP_CACHE
 
 
 class ModelARPCache(object):
@@ -49,8 +50,7 @@ class ModelARPCache(object):
                 for line in arpf.readlines()[1:]:
                     if line:
                         # Add IP Address and MAC address to the model
-                        self.settings.logText('arp line:\n%s' % line,
-                                              VERBOSE_LEVEL_MAX)
+                        logging.debug('arp line:\n%s' % line)
                         arp_ip = line[:17].rstrip()
                         arp_mac = line[41:58].upper()
                         # Skip incomplete MAC addresses
@@ -60,14 +60,13 @@ class ModelARPCache(object):
                             # hostname is the same of the source IP address
                             if detected_hostname == arp_ip:
                                 detected_hostname = ''
-                            self.settings.logText(
-                                'discovered %s with address %s' % (
-                                    arp_ip, arp_mac))
+                            logging.info('discovered %s with address %s' % (
+                                arp_ip, arp_mac))
                             self.model.append(
                                 [arp_ip, arp_mac, detected_hostname])
                 arpf.close()
             except (FileNotFoundError, PermissionError):
-                self.settings.logText('unable to read %s' % FILE_ARP_CACHE)
+                logging.error('unable to read %s' % FILE_ARP_CACHE)
 
     def get_ip_address(self, treeiter):
         """Returns the IP address for the selected TreeIter"""

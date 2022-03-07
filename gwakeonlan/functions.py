@@ -18,14 +18,16 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+from gettext import gettext, dgettext
+import logging
 import struct
 import socket
-from gettext import dgettext
-from gettext import gettext as _
 
 from gi.repository import Gtk
 
-from gwakeonlan.constants import VERBOSE_LEVEL_MAX
+from gwakeonlan.constants import DIR_UI
+
+localized_messages = {}
 
 
 def formatMAC(mac):
@@ -53,9 +55,8 @@ def show_message_dialog_yesno(winParent, message, title, default_response):
 
 def wake_on_lan(mac_address, portnr, destination, settings):
     """Turn on remote machine using Wake On LAN."""
-    settings.logText(
-        'turning on: %s through %s using port number %d' % (
-            mac_address, destination, portnr))
+    logging.info('turning on: %s through %s using port number %d' % (
+        mac_address, destination, portnr))
     # Magic packet (6 times FF + 16 times MAC address)
     packet = 'FF' * 6 + mac_address.replace(':', '') * 16
     data = []
@@ -63,8 +64,8 @@ def wake_on_lan(mac_address, portnr, destination, settings):
         data.append(struct.pack('B', int(packet[i:i+2], 16)))
 
     # Send magic packet to the destination
-    settings.logText('sending packet %s [%d/%d]\n' % (
-        packet, len(packet), len(data)), VERBOSE_LEVEL_MAX)
+    logging.info('sending packet %s [%d/%d]\n' % (
+        packet, len(packet), len(data)))
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     if destination == '255.255.255.255':
@@ -91,11 +92,34 @@ def process_events():
         Gtk.main_iteration()
 
 
-def gtk30_(message, context=None):
-    """Return a message translated from GTK+ 3 domain"""
-    return dgettext('gtk30', message if not context else '%s\04%s' % (
-        context, message))
+def text(message, gtk30=False, context=None):
+    """Return a translated message and cache it for reuse"""
+    if message not in localized_messages:
+        if gtk30:
+            # Get a message translated from GTK+ 3 domain
+            full_message = message if not context else f'{context}\04{message}'
+            localized_messages[message] = dgettext('gtk30', full_message)
+            # Fix for untranslated messages with context
+            if context and localized_messages[message] == full_message:
+                localized_messages[message] = dgettext('gtk30', message)
+        else:
+            localized_messages[message] = gettext(message)
+    return localized_messages[message]
 
+
+def store_message(message, translated):
+    """Store a translated message in the localized_messages list"""
+    localized_messages[message] = translated
+
+
+def get_ui_file(filename):
+    """Return the full path of a Glade/UI file"""
+    return str(DIR_UI / filename)
+
+
+# This special alias is used to track localization requests to catch
+# by xgettext. The text() calls aren't tracked by xgettext
+_ = text
 
 __all__ = [
     'formatMAC',
@@ -103,6 +127,9 @@ __all__ = [
     'wake_on_lan',
     'readlines',
     'process_events',
+    'text',
+    'store_message',
+    'get_ui_file',
+    'localized_messages',
     '_',
-    'gtk30_'
 ]

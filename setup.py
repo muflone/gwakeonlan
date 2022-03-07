@@ -19,90 +19,153 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from distutils.command.install_scripts import install_scripts
-from distutils.command.install_data import install_data
-from distutils.core import setup, Command
-from distutils.log import info
-
-import glob
 import itertools
-import os
-import os.path
-import shutil
+import pathlib
+import setuptools
+import setuptools.command.install_scripts
 import subprocess
 
-from gwakeonlan.constants import (DOMAIN_NAME,
-                                  APP_NAME, APP_VERSION,
-                                  APP_AUTHOR, APP_AUTHOR_EMAIL,
-                                  APP_URL, APP_DESCRIPTION)
+# Importing distutils after setuptools uses the setuptools' distutils
+from distutils.command.install_data import install_data
+
+from gwakeonlan.constants import (APP_NAME,
+                                  APP_VERSION,
+                                  APP_AUTHOR,
+                                  APP_AUTHOR_EMAIL,
+                                  APP_URL,
+                                  APP_DESCRIPTION,
+                                  DOMAIN_NAME)
 
 
-class Install_Scripts(install_scripts):
+class Install_Scripts(setuptools.command.install_scripts.install_scripts):
     def run(self):
-        install_scripts.run(self)
+        setuptools.command.install_scripts.install_scripts.run(self)
         self.rename_python_scripts()
 
     def rename_python_scripts(self):
         "Rename main executable python script without .py extension"
         for script in self.get_outputs():
-            if script.endswith(".py"):
-                info('renaming the python script %s -> %s' % (
-                    script, script[:-3]))
-                shutil.move(script, script[:-3])
+            path_file_script = pathlib.Path(script)
+            path_destination = path_file_script.with_suffix(suffix='')
+            if path_file_script.suffix == '.py':
+                setuptools.distutils.log.info(
+                    'renaming the python script '
+                    f'{path_file_script.name} -> '
+                    f'{path_destination.stem}')
+                path_file_script.rename(path_destination)
 
 
 class Install_Data(install_data):
     def run(self):
         self.install_icons()
-        cmd_translations = Command_Translations(self.distribution)
-        cmd_translations.initialize_options()
-        cmd_translations.finalize_options()
-        cmd_translations.data_files = self.data_files
-        cmd_translations.run()
+        self.install_translations()
         install_data.run(self)
 
     def install_icons(self):
-        """Add icons to the data files"""
-        info('Installing icons...')
+        setuptools.distutils.log.info('Installing icons...')
         DIR_ICONS = 'icons'
-        for icon_format in os.listdir(DIR_ICONS):
-            icon_dir = os.path.join(DIR_ICONS, icon_format)
-            self.data_files.append((
-                os.path.join('share', 'icons', 'hicolor', icon_format, 'apps'),
-                glob.glob(os.path.join(icon_dir, '*'))))
+        path_icons = pathlib.Path('share') / 'icons' / 'hicolor'
+        for path_format in pathlib.Path(DIR_ICONS).iterdir():
+            self.data_files.append((path_icons / path_format.name / 'apps',
+                                    list(map(str, path_format.glob('*')))))
+
+    def install_translations(self):
+        setuptools.distutils.log.info('Installing translations...')
+        path_base = pathlib.Path(__file__).parent.absolute()
+        # Find where to save the compiled translations
+        try:
+            # Use the install_data (when using "setup.py install --user")
+            path_install = pathlib.Path(self.install_data)
+        except AttributeError:
+            # Use the install_dir (when using "setup.py install")
+            path_install = pathlib.Path(self.install_dir)
+        path_locale = path_install / 'share' / 'locale'
+        for path_file_po in pathlib.Path('po').glob('*.po'):
+            path_destination = path_locale / path_file_po.stem / 'LC_MESSAGES'
+            path_file_mo = path_destination / f'{DOMAIN_NAME}.mo'
+
+            if not path_destination.exists():
+                setuptools.distutils.log.info(f'creating {path_destination}')
+                path_destination.mkdir(parents=True)
+
+            setuptools.distutils.log.info(f'compiling {path_file_po} -> '
+                                          f'{path_file_mo}')
+            subprocess.call(
+                args=('msgfmt',
+                      f'--output-file={path_file_mo}',
+                      path_file_po),
+                cwd=path_base)
 
 
-class Command_Translation(Command):
-    description = "compile a translation"
-    user_options = [
-        ('input=', None, 'Define input file'),
-        ('output=', None, 'Define output file'),
-    ]
+class Command_CreatePOT(setuptools.Command):
+    description = "create base POT file"
+    user_options = []
 
     def initialize_options(self):
-        self.input = None
-        self.output = None
-        self.data_files = []
+        pass
 
     def finalize_options(self):
-        assert (self.input), 'Missing input file'
+        self.path_base = pathlib.Path(__file__).parent.absolute()
+        self.path_po = self.path_base / 'po'
+
+    def run(self):
+        path_ui = self.path_base / 'ui'
+        path_pot = self.path_po / f'{DOMAIN_NAME}.pot'
+        list_files_process = []
+        # Add *.ui files to list of files to process
+        for filename in path_ui.glob('*.ui'):
+            list_files_process.append(filename.relative_to(self.path_base))
+        # Add *.py files to list of files to process
+        for filename in self.path_base.rglob('*.py'):
+            list_files_process.append(filename.relative_to(self.path_base))
+        # Sort the files to process them always in the same order (hopefully)
+        list_files_process.sort()
+        # Extract messages from the files to process
+        subprocess.call(
+            args=itertools.chain(('xgettext',
+                                  '--keyword=_',
+                                  '--keyword=N_',
+                                  f'--output={path_pot}',
+                                  '--add-location',
+                                  f'--package-name={APP_NAME}',
+                                  f'--package-version={APP_VERSION}',
+                                  f'--copyright-holder={APP_AUTHOR}',
+                                  f'--msgid-bugs-address={APP_AUTHOR_EMAIL}'),
+                                 list_files_process),
+            cwd=self.path_base)
+
+
+class Command_CreatePO(setuptools.Command):
+    description = "create translation PO file"
+    user_options = [
+        ('locale=', None, 'Define locale'),
+        ('output=', None, 'Define output file'),
+        ]
+
+    def initialize_options(self):
+        self.locale = None
+        self.output = None
+
+    def finalize_options(self):
+        self.path_base = pathlib.Path(__file__).parent.absolute()
+        self.path_po = self.path_base / 'po'
+        assert (self.locale), 'Missing locale'
         assert (self.output), 'Missing output file'
 
     def run(self):
-        """Compile a single translation using self.input and self.output"""
-        lang = os.path.basename(self.input[:-3])
-        dir_lang = os.path.dirname(self.output)
-        if not os.path.exists(dir_lang):
-            os.makedirs(dir_lang)
-        subprocess.call(('msgfmt', '--output-file', self.output, self.input))
-        self.data_files.append((os.path.join('share',
-                                             'locale',
-                                             lang,
-                                             'LC_MESSAGES'),
-                                [self.output]))
+        path_file_pot = self.path_po / f'{DOMAIN_NAME}.pot'
+        path_file_po = self.path_po / f'{self.output}.po'
+        # Create PO file
+        subprocess.call(
+            args=('msginit',
+                  f'--input={path_file_pot}',
+                  '--no-translator',
+                  f'--output-file={path_file_po}',
+                  f'--locale={self.locale}'),
+            cwd=self.path_base)
 
 
-class Command_Translations(Command):
+class Command_Translations(setuptools.Command):
     description = "build translations"
     user_options = []
 
@@ -110,28 +173,29 @@ class Command_Translations(Command):
         pass
 
     def finalize_options(self):
-        self.dir_base = os.path.dirname(os.path.abspath(__file__))
-        self.dir_po = os.path.join(self.dir_base, 'po')
-        self.dir_mo = os.path.join(self.dir_base, 'locale')
+        self.path_base = pathlib.Path(__file__).parent.absolute()
+        self.path_po = self.path_base / 'po'
+        self.path_mo = self.path_base / 'locale'
 
     def run(self):
-        """Compile every translation and add it to the data files"""
-        for file_po in glob.glob(os.path.join(self.dir_po, '*.po')):
-            file_mo = os.path.join(self.dir_mo,
-                                   os.path.basename(file_po[:-3]),
-                                   'LC_MESSAGES',
-                                   '%s.mo' % DOMAIN_NAME)
-            cmd_translation = Command_Translation(self.distribution)
-            cmd_translation.initialize_options()
-            cmd_translation.input = file_po
-            cmd_translation.output = file_mo
-            cmd_translation.finalize_options()
-            # Add the translation files to the data files
-            cmd_translation.data_files = self.data_files
-            cmd_translation.run()
+        path_pot = self.path_po / f'{DOMAIN_NAME}.pot'
+        for file_po in self.path_po.glob('*.po'):
+            subprocess.call(('msgmerge',
+                             '--update',
+                             '--backup=off',
+                             file_po,
+                             path_pot))
+            path_directory = self.path_mo / file_po.stem / 'LC_MESSAGES'
+            file_mo = path_directory / f'{DOMAIN_NAME}.mo'
+            if not path_directory.exists():
+                path_directory.mkdir(parents=True)
+            subprocess.call(('msgfmt',
+                             '--output-file',
+                             file_mo,
+                             file_po))
 
 
-setup(
+setuptools.setup(
     name=APP_NAME,
     version=APP_VERSION,
     author=APP_AUTHOR,
@@ -144,17 +208,26 @@ setup(
     scripts=['gwakeonlan.py'],
     packages=['gwakeonlan'],
     data_files=[
-        ('share/gwakeonlan/data', ['data/gwakeonlan.png']),
-        ('share/applications', ['data/gwakeonlan.desktop']),
-        ('share/doc/gwakeonlan', list(itertools.chain(glob.glob('doc/*'),
-                                                      glob.glob('*.md')))),
-        ('share/man/man1', ['man/gwakeonlan.1']),
-        ('share/gwakeonlan/ui', glob.glob('ui/*')),
+        (f'share/{DOMAIN_NAME}/data',
+            ['data/gwakeonlan.png']),
+        ('share/applications',
+            ['data/gwakeonlan.desktop']),
+        (f'share/doc/{DOMAIN_NAME}',
+         list(itertools.chain(
+             list(map(str, pathlib.Path('doc').glob('*'))),
+             list(map(str, pathlib.Path('.').glob('*.md')))))),
+        ('share/man/man1',
+            ['man/gwakeonlan.1']),
+        (f'share/{DOMAIN_NAME}/ui', [str(file)
+                                     for file
+                                     in pathlib.Path('ui').glob('*')
+                                     if not file.name.endswith('~')]),
     ],
     cmdclass={
         'install_scripts': Install_Scripts,
         'install_data': Install_Data,
-        'translation': Command_Translation,
+        'create_pot': Command_CreatePOT,
+        'create_po': Command_CreatePO,
         'translations': Command_Translations
     }
 )

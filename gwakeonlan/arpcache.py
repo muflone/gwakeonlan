@@ -21,18 +21,19 @@
 from gi.repository import GLib
 from gi.repository import Gtk
 
-from gwakeonlan.constants import FILE_UI_ARPCACHE, FILE_ICON
-from gwakeonlan.functions import _, gtk30_
+from gwakeonlan.constants import FILE_ICON
+from gwakeonlan.functions import _, get_ui_file, text
 from gwakeonlan.model_arpcache import ModelARPCache
 
 
 class ARPCacheWindow(object):
-    def __init__(self, settings, winParent, show=False):
+    def __init__(self, winParent, settings, options, show=False):
         """Prepare the ARP Cache dialog and optionally show it immediately"""
         self.settings = settings
+        self.options = options
         # Load interface UI
         builder = Gtk.Builder()
-        builder.add_from_file(FILE_UI_ARPCACHE)
+        builder.add_from_file(get_ui_file('arpcache.glade'))
         # Obtain widget references
         self.dialog = builder.get_object('dlgARPCache')
         self.tvwHosts = builder.get_object('tvwHosts')
@@ -43,11 +44,11 @@ class ARPCacheWindow(object):
             builder.get_object('modelARPCache'), settings)
         self.model.refresh()
         self.dialog.set_title(_('Pick a host from the ARP cache'))
-        self.dialog.set_icon_from_file(FILE_ICON)
+        self.dialog.set_icon_from_file(str(FILE_ICON))
         self.dialog.set_transient_for(winParent)
-        self.btnOK.set_label(gtk30_('_OK'))
-        self.btnCancel.set_label(gtk30_('_Cancel'))
-        self.btnRefresh.set_label(gtk30_('_Refresh', 'Stock label'))
+        self.btnOK.set_label(text('_OK', gtk30=True))
+        self.btnCancel.set_label(text('_Cancel', gtk30=True))
+        self.btnRefresh.set_label(text('_Refresh', True, 'Stock label'))
         # Connect signals from the glade file to the functions
         # with the same name
         builder.connect_signals(self)
@@ -62,7 +63,7 @@ class ARPCacheWindow(object):
 
     def show(self):
         """Show the ARP Cache picker dialog"""
-        if self.settings.options.autotest:
+        if self.options.autotest:
             GLib.timeout_add(500, self.dialog.hide)
         response = self.dialog.run()
         self.dialog.hide()

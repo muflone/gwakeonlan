@@ -26,51 +26,49 @@ from gi.repository import Gtk
 from gwakeonlan.about import AboutWindow
 from gwakeonlan.arpcache import ARPCacheWindow
 from gwakeonlan.detail import DetailWindow
-from gwakeonlan.constants import (FILE_UI_MAIN, FILE_ICON,
+from gwakeonlan.constants import (FILE_ICON,
                                   APP_NAME,
-                                  BROADCAST_ADDRESS, DEFAULT_UDP_PORT)
-from gwakeonlan.functions import (_, gtk30_,
+                                  BROADCAST_ADDRESS, DEFAULT_UDP_PORT,
+                                  FILE_SETTINGS)
+from gwakeonlan.functions import (_,
+                                  text,
                                   show_message_dialog_yesno,
                                   formatMAC,
+                                  get_ui_file,
                                   process_events,
                                   wake_on_lan)
 from gwakeonlan.import_ethers import ImportEthers
 from gwakeonlan.model_machines import ModelMachines
+from gwakeonlan.settings import Settings
+
+SECTION_WINDOW_NAME = 'main window'
 
 
 class MainWindow(object):
-    def __init__(self, application, settings):
+    def __init__(self, application, options):
         """Prepare the main window"""
         self.application = application
         self.loadUI()
-        self.settings = settings
+        self.settings = Settings(FILE_SETTINGS, False)
+        self.options = options
+        self.settings.restore_window_position(self.winMain, SECTION_WINDOW_NAME)
         self.settings.load_hosts(self.model)
-        # Restore the saved size and position
-        if self.settings.get_value('width', 0) and \
-                self.settings.get_value('height', 0):
-            self.winMain.set_default_size(
-                self.settings.get_value('width', -1),
-                self.settings.get_value('height', -1))
-        if self.settings.get_value('left', 0) and \
-                self.settings.get_value('top', 0):
-            self.winMain.move(
-                self.settings.get_value('left', 0),
-                self.settings.get_value('top', 0))
+        self.options = options
         # Load the others dialogs
-        self.about = AboutWindow(self.winMain, settings, False)
-        self.detail = DetailWindow(self.winMain, settings, False)
+        self.about = AboutWindow(self.winMain, self.settings, options, False)
+        self.detail = DetailWindow(self.winMain, self.settings, options, False)
         self.detected_addresses = {}
 
     def run(self):
         """Show the main window"""
-        if self.settings.options.autotest:
+        if self.options.autotest:
             GLib.timeout_add(500, self.do_autotests)
         self.winMain.show_all()
 
     def loadUI(self):
         """Load the UI for the main window"""
         builder = Gtk.Builder()
-        builder.add_from_file(FILE_UI_MAIN)
+        builder.add_from_file(get_ui_file('main.glade'))
         # Obtain widget references
         self.winMain = builder.get_object("winMain")
         self.model = ModelMachines(builder.get_object('storeMachines'))
@@ -80,7 +78,7 @@ class MainWindow(object):
         self.tvwMachines = builder.get_object('tvwMachines')
         # Set various properties
         self.winMain.set_title(APP_NAME)
-        self.winMain.set_icon_from_file(FILE_ICON)
+        self.winMain.set_icon_from_file(str(FILE_ICON))
         self.winMain.set_application(self.application)
         # Connect signals from the glade file to the functions
         # with the same name
@@ -90,7 +88,7 @@ class MainWindow(object):
         """Close the application by closing the main window"""
         self.about.destroy()
         self.detail.destroy()
-        self.settings.set_sizes(self.winMain)
+        self.settings.save_window_position(self.winMain, SECTION_WINDOW_NAME)
         self.settings.save()
         self.winMain.destroy()
         self.application.quit()
@@ -142,7 +140,10 @@ class MainWindow(object):
 
     def on_menuitemARPCache_activate(self, widget):
         """Show the ARP cache picker dialog"""
-        dialog = ARPCacheWindow(self.settings, self.winMain, False)
+        dialog = ARPCacheWindow(self.winMain,
+                                self.settings,
+                                self.options,
+                                False)
         # Check if the OK button in the dialog was pressed
         if dialog.show() == Gtk.ResponseType.OK:
             # Check if a valid machine with MAC Address was selected
@@ -168,11 +169,11 @@ class MainWindow(object):
     def on_menuitemImportEthers_activate(self, widget):
         """Show the Ethers file importer"""
         dialog = Gtk.FileChooserDialog(
-            gtk30_("Select a File"),
+            text("Select a File", gtk30=True),
             None,
             Gtk.FileChooserAction.OPEN,
-            (gtk30_("_Cancel"), Gtk.ResponseType.CANCEL,
-                gtk30_("_Open"), Gtk.ResponseType.OK))
+            (text("_Cancel", gtk30=True), Gtk.ResponseType.CANCEL,
+                text("_Open", gtk30=True), Gtk.ResponseType.OK))
         dialog.set_transient_for(self.winMain)
         response = dialog.run()
         if response == Gtk.ResponseType.OK:
