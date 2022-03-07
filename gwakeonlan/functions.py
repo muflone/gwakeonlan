@@ -107,6 +107,11 @@ def text(message, gtk30=False, context=None):
     return localized_messages[message]
 
 
+def text_gtk30(message, context=None):
+    """Return a translated text from GTK+ 3.0"""
+    return text(message=message, gtk30=True, context=context)
+
+
 def store_message(message, translated):
     """Store a translated message in the localized_messages list"""
     localized_messages[message] = translated
@@ -128,6 +133,7 @@ __all__ = [
     'readlines',
     'process_events',
     'text',
+    'text_gtk30',
     'store_message',
     'get_ui_file',
     'localized_messages',

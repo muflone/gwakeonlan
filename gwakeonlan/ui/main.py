@@ -28,7 +28,7 @@ from gwakeonlan.constants import (FILE_ICON,
                                   BROADCAST_ADDRESS, DEFAULT_UDP_PORT,
                                   FILE_SETTINGS)
 from gwakeonlan.functions import (_,
-                                  text,
+                                  text_gtk30,
                                   show_message_dialog_yesno,
                                   formatMAC,
                                   get_ui_file,
@@ -171,11 +171,11 @@ class MainWindow(object):
     def on_menuitemImportEthers_activate(self, widget):
         """Show the Ethers file importer"""
         dialog = Gtk.FileChooserDialog(
-            text("Select a File", gtk30=True),
+            text_gtk30("Select a File"),
             None,
             Gtk.FileChooserAction.OPEN,
-            (text("_Cancel", gtk30=True), Gtk.ResponseType.CANCEL,
-                text("_Open", gtk30=True), Gtk.ResponseType.OK))
+            (text_gtk30("_Cancel"), Gtk.ResponseType.CANCEL,
+             text_gtk30("_Open"), Gtk.ResponseType.OK))
         dialog.set_transient_for(self.winMain)
         response = dialog.run()
         if response == Gtk.ResponseType.OK:

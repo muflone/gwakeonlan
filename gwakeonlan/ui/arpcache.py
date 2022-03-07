@@ -22,7 +22,7 @@ from gi.repository import GLib
 from gi.repository import Gtk
 
 from gwakeonlan.constants import FILE_ICON
-from gwakeonlan.functions import _, get_ui_file, text
+from gwakeonlan.functions import _, get_ui_file, text_gtk30
 from gwakeonlan.model_arpcache import ModelARPCache
 
 
@@ -46,9 +46,9 @@ class ARPCacheWindow(object):
         self.dialog.set_title(_('Pick a host from the ARP cache'))
         self.dialog.set_icon_from_file(str(FILE_ICON))
         self.dialog.set_transient_for(winParent)
-        self.btnOK.set_label(text('_OK', gtk30=True))
-        self.btnCancel.set_label(text('_Cancel', gtk30=True))
-        self.btnRefresh.set_label(text('_Refresh', True, 'Stock label'))
+        self.btnOK.set_label(text_gtk30('_OK'))
+        self.btnCancel.set_label(text_gtk30('_Cancel'))
+        self.btnRefresh.set_label(text_gtk30('_Refresh', 'Stock label'))
         # Connect signals from the glade file to the functions
         # with the same name
         builder.connect_signals(self)
