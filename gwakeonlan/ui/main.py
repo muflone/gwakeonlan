@@ -38,7 +38,7 @@ from gwakeonlan.import_ethers import ImportEthers
 from gwakeonlan.model_machines import ModelMachines
 from gwakeonlan.settings import Settings
 
-from gwakeonlan.ui.about import AboutWindow
+from gwakeonlan.ui.about import UIAbout
 from gwakeonlan.ui.arpcache import ARPCacheWindow
 from gwakeonlan.ui.detail import DetailWindow
 
@@ -56,7 +56,7 @@ class MainWindow(object):
         self.settings.load_hosts(self.model)
         self.options = options
         # Load the others dialogs
-        self.about = AboutWindow(self.winMain, self.settings, options, False)
+        self.about = UIAbout(self.winMain, self.settings, options)
         self.detail = DetailWindow(self.winMain, self.settings, options, False)
         self.detected_addresses = {}
 
