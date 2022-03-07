@@ -122,6 +122,11 @@ def get_ui_file(filename):
     return str(DIR_UI / filename)
 
 
+def get_treeview_selected_row(widget):
+    """Return the selected row in a GtkTreeView"""
+    return widget.get_selection().get_selected()[1]
+
+
 # This special alias is used to track localization requests to catch
 # by xgettext. The text() calls aren't tracked by xgettext
 _ = text
@@ -137,5 +142,6 @@ __all__ = [
     'store_message',
     'get_ui_file',
     'localized_messages',
+    'get_treeview_selected_row',
     '_',
 ]
