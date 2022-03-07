@@ -1,16 +1,22 @@
-os: linux
+dist: bionic
 language: python
 python:
-  - "3.5"
+  - "3.6"
 virtualenv:
   system_site_packages: true
 script:
+  - python -m compileall .
+  - flake8 .
+  - python setup.py install --optimize=1 --root=build
+  - ls -laR build
   - python3 gwakeonlan.py --verbose --autotest
 addons:
   apt:
     packages:
-    - python3-gi                              # GObject
-    - gir1.2-gtk-3.0                          # gi.repository.gtk python-xdg
+    - gir1.2-gtk-3.0
+    - gobject-introspection
+    - libgirepository1.0-dev
+    - gettext
 install:
   - pip install -r requirements_travis.txt
 services:
