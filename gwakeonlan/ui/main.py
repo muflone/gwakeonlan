@@ -39,7 +39,7 @@ from gwakeonlan.model_machines import ModelMachines
 from gwakeonlan.settings import Settings
 
 from gwakeonlan.ui.about import UIAbout
-from gwakeonlan.ui.arpcache import ARPCacheWindow
+from gwakeonlan.ui.arpcache import UIArpCache
 from gwakeonlan.ui.detail import DetailWindow
 
 SECTION_WINDOW_NAME = 'main window'
@@ -142,10 +142,7 @@ class MainWindow(object):
 
     def on_menuitemARPCache_activate(self, widget):
         """Show the ARP cache picker dialog"""
-        dialog = ARPCacheWindow(self.winMain,
-                                self.settings,
-                                self.options,
-                                False)
+        dialog = UIArpCache(self.winMain, self.settings, self.options)
         # Check if the OK button in the dialog was pressed
         if dialog.show() == Gtk.ResponseType.OK:
             # Check if a valid machine with MAC Address was selected

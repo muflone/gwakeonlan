@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.0"/>
-  <object class="GtkListStore" id="modelARPCache">
+  <object class="GtkListStore" id="model">
     <columns>
       <!-- column-name colARPCacheIP -->
       <column type="gchararray"/>
@@ -12,29 +12,29 @@
       <column type="gchararray"/>
     </columns>
   </object>
-  <object class="GtkDialog" id="dlgARPCache">
-    <property name="can_focus">False</property>
-    <property name="default_width">450</property>
-    <property name="default_height">260</property>
-    <property name="type_hint">dialog</property>
+  <object class="GtkDialog" id="dialog">
+    <property name="can-focus">False</property>
+    <property name="default-width">450</property>
+    <property name="default-height">260</property>
+    <property name="type-hint">dialog</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox" id="dialog-action_area1">
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="vexpand">False</property>
-            <property name="layout_style">end</property>
+            <property name="layout-style">end</property>
             <child>
-              <object class="GtkButton" id="btnRefresh">
+              <object class="GtkButton" id="button_refresh">
                 <property name="label">_Refresh</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_underline">True</property>
-                <signal name="clicked" handler="on_btnRefresh_clicked" swapped="no"/>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="use-underline">True</property>
+                <signal name="clicked" handler="on_button_refresh_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -44,12 +44,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btnCancel">
+              <object class="GtkButton" id="button_cancel">
                 <property name="label">_Cancel</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_underline">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -58,14 +58,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btnOK">
+              <object class="GtkButton" id="button_ok">
                 <property name="label">_OK</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="can_default">True</property>
-                <property name="has_default">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_underline">True</property>
+                <property name="can-focus">True</property>
+                <property name="can-default">True</property>
+                <property name="has-default">True</property>
+                <property name="receives-default">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -77,30 +77,30 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="pack_type">end</property>
+            <property name="pack-type">end</property>
             <property name="position">0</property>
           </packing>
         </child>
         <child>
-          <object class="GtkScrolledWindow" id="scrollHosts">
+          <object class="GtkScrolledWindow" id="scroll_hosts">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="shadow_type">in</property>
+            <property name="can-focus">True</property>
+            <property name="shadow-type">in</property>
             <child>
-              <object class="GtkTreeView" id="tvwHosts">
+              <object class="GtkTreeView" id="treeview_hosts">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="model">modelARPCache</property>
-                <signal name="row-activated" handler="on_tvwHosts_row_activated" swapped="no"/>
+                <property name="can-focus">True</property>
+                <property name="model">model</property>
+                <signal name="row-activated" handler="on_treeview_hosts_row_activated" swapped="no"/>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection" id="treeview-selection1"/>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colIPAddress">
+                  <object class="GtkTreeViewColumn" id="column_ip_address">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">IP Address</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellIPAddress"/>
+                      <object class="GtkCellRendererText" id="cell_ip_address"/>
                       <attributes>
                         <attribute name="text">0</attribute>
                       </attributes>
@@ -108,11 +108,11 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colHostName">
+                  <object class="GtkTreeViewColumn" id="column_host_name">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">Host Name</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellHostName"/>
+                      <object class="GtkCellRendererText" id="cell_host_name"/>
                       <attributes>
                         <attribute name="text">2</attribute>
                       </attributes>
@@ -120,11 +120,11 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colMACAddress">
+                  <object class="GtkTreeViewColumn" id="column_mac_address">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">MAC Address</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellMACAddress"/>
+                      <object class="GtkCellRendererText" id="cell_mac_address"/>
                       <attributes>
                         <attribute name="text">1</attribute>
                       </attributes>
@@ -143,8 +143,8 @@
       </object>
     </child>
     <action-widgets>
-      <action-widget response="-6">btnCancel</action-widget>
-      <action-widget response="-5">btnOK</action-widget>
+      <action-widget response="-6">button_cancel</action-widget>
+      <action-widget response="-5">button_ok</action-widget>
     </action-widgets>
   </object>
 </interface>

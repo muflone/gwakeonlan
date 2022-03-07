@@ -22,75 +22,64 @@ from gi.repository import GLib
 from gi.repository import Gtk
 
 from gwakeonlan.constants import FILE_ICON
-from gwakeonlan.functions import _, get_ui_file, text_gtk30
+from gwakeonlan.functions import (_,
+                                  get_treeview_selected_row,
+                                  get_ui_file,
+                                  text_gtk30)
+from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.model_arpcache import ModelARPCache
 
 
-class ARPCacheWindow(object):
-    def __init__(self, winParent, settings, options, show=False):
-        """Prepare the ARP Cache dialog and optionally show it immediately"""
+class UIArpCache(object):
+    def __init__(self, parent, settings, options):
+        """Prepare the ARP Cache dialog"""
         self.settings = settings
         self.options = options
-        # Load interface UI
-        builder = Gtk.Builder()
-        builder.add_from_file(get_ui_file('arpcache.glade'))
-        # Obtain widget references
-        self.dialog = builder.get_object('dlgARPCache')
-        self.tvwHosts = builder.get_object('tvwHosts')
-        self.btnOK = builder.get_object('btnOK')
-        self.btnCancel = builder.get_object('btnCancel')
-        self.btnRefresh = builder.get_object('btnRefresh')
-        self.model = ModelARPCache(
-            builder.get_object('modelARPCache'), settings)
+        # Load the user interface
+        self.ui = GtkBuilderLoader(get_ui_file('arpcache.ui'))
+        self.model = ModelARPCache(self.ui.model, settings)
         self.model.refresh()
-        self.dialog.set_title(_('Pick a host from the ARP cache'))
-        self.dialog.set_icon_from_file(str(FILE_ICON))
-        self.dialog.set_transient_for(winParent)
-        self.btnOK.set_label(text_gtk30('_OK'))
-        self.btnCancel.set_label(text_gtk30('_Cancel'))
-        self.btnRefresh.set_label(text_gtk30('_Refresh', 'Stock label'))
-        # Connect signals from the glade file to the functions
-        # with the same name
-        builder.connect_signals(self)
-        # Optionally show the dialog
-        if show:
-            self.show()
+        self.ui.dialog.set_title(_('Pick a host from the ARP cache'))
+        self.ui.dialog.set_icon_from_file(str(FILE_ICON))
+        self.ui.dialog.set_transient_for(parent)
+        self.ui.button_ok.set_label(text_gtk30('_OK'))
+        self.ui.button_cancel.set_label(text_gtk30('_Cancel'))
+        self.ui.button_refresh.set_label(text_gtk30('_Refresh', 'Stock label'))
+        # Connect signals from the UI file to the functions with the same name
+        self.ui.connect_signals(self)
 
     def destroy(self):
         """Hide and destroy the ARP cache picker dialog"""
-        self.dialog.destroy()
-        self.dialog = None
+        self.ui.dialog.destroy()
+        self.ui.dialog = None
 
     def show(self):
         """Show the ARP Cache picker dialog"""
         if self.options.autotest:
             GLib.timeout_add(500, self.dialog.hide)
-        response = self.dialog.run()
-        self.dialog.hide()
+        response = self.ui.dialog.run()
+        self.ui.dialog.hide()
         return response
 
-    def on_btnRefresh_clicked(self, widget):
+    def on_button_refresh_clicked(self, widget):
         """Reload the ARP cache list"""
         self.model.refresh()
 
-    def on_tvwHosts_row_activated(self, widget, path, column):
+    def on_treeview_hosts_row_activated(self, widget, path, column):
         """Treats the double click as the OK button was pressed"""
-        self.dialog.response(Gtk.ResponseType.OK)
+        self.ui.dialog.response(Gtk.ResponseType.OK)
 
     def get_ip_address(self):
         """Returns the IP address of the selected row"""
-        (model, treeiter) = self.tvwHosts.get_selection().get_selected()
-        if treeiter:
+        if treeiter := get_treeview_selected_row(self.ui.treeview_hosts):
             return self.model.get_ip_address(treeiter)
 
     def get_hostname(self):
         """Returns the hostname of the selected row"""
-        (model, treeiter) = self.tvwHosts.get_selection().get_selected()
-        if treeiter:
+        if treeiter := get_treeview_selected_row(self.ui.treeview_hosts):
             return self.model.get_hostname(treeiter)
 
     def get_mac_address(self):
         """Returns the MAC address of the selected row"""
-        (model, treeiter) = self.tvwHosts.get_selection().get_selected()
-        if treeiter:
+        if treeiter := get_treeview_selected_row(self.ui.treeview_hosts):
             return self.model.get_mac_address(treeiter)
