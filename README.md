@@ -1,6 +1,7 @@
 # gWakeOnLAN
 
 [![Travis CI Build Status](https://img.shields.io/travis/com/muflone/gwakeonlan/master.svg)](https://www.travis-ci.com/github/muflone/gwakeonlan)
+[![CircleCI Build Status](https://img.shields.io/circleci/project/github/muflone/gwakeonlan/master.svg)](https://circleci.com/gh/muflone/gwakeonlan)
 
 **Description:** Wake up your machines using Wake on LAN.
 
