@@ -169,3 +169,20 @@ class Settings(object):
                                        formatMAC(machine[1]),
                                        int(machine[3]),
                                        machine[2])
+
+    def save_hosts(self, model):
+        """Save hosts settings"""
+        if self.config.has_section(SECTION_HOSTS):
+            self.config.remove_section(SECTION_HOSTS)
+        self.config.add_section(SECTION_HOSTS)
+        for machine in model:
+            logging.debug(
+                'Saving machine: %s' % self.model.get_machine_name(machine))
+            self.config.set(
+                SECTION_HOSTS,
+                self.model.get_machine_name(machine),
+                '%s\\%s\\%d' % (
+                    self.model.get_mac_address(machine),
+                    self.model.get_destination(machine),
+                    self.model.get_portnr(machine))
+            )

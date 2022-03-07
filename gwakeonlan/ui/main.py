@@ -50,7 +50,7 @@ class MainWindow(object):
         """Prepare the main window"""
         self.application = application
         self.loadUI()
-        self.settings = Settings(FILE_SETTINGS, False)
+        self.settings = Settings(FILE_SETTINGS, True)
         self.options = options
         self.settings.restore_window_position(self.winMain, SECTION_WINDOW_NAME)
         self.settings.load_hosts(self.model)
@@ -90,6 +90,7 @@ class MainWindow(object):
         self.about.destroy()
         self.detail.destroy()
         self.settings.save_window_position(self.winMain, SECTION_WINDOW_NAME)
+        self.settings.save_hosts(self.model)
         self.settings.save()
         self.winMain.destroy()
         self.application.quit()
