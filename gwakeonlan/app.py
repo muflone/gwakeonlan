@@ -23,7 +23,8 @@ from gi.repository import Gtk
 
 from gwakeonlan.constants import APP_ID
 from gwakeonlan.functions import get_ui_file
-from gwakeonlan.ui import MainWindow
+
+from gwakeonlan.ui.main import MainWindow
 
 
 class Application(Gtk.Application):

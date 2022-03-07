@@ -23,9 +23,6 @@ import time
 from gi.repository import GLib
 from gi.repository import Gtk
 
-from gwakeonlan.about import AboutWindow
-from gwakeonlan.arpcache import ARPCacheWindow
-from gwakeonlan.detail import DetailWindow
 from gwakeonlan.constants import (FILE_ICON,
                                   APP_NAME,
                                   BROADCAST_ADDRESS, DEFAULT_UDP_PORT,
@@ -40,6 +37,10 @@ from gwakeonlan.functions import (_,
 from gwakeonlan.import_ethers import ImportEthers
 from gwakeonlan.model_machines import ModelMachines
 from gwakeonlan.settings import Settings
+
+from gwakeonlan.ui.about import AboutWindow
+from gwakeonlan.ui.arpcache import ARPCacheWindow
+from gwakeonlan.ui.detail import DetailWindow
 
 SECTION_WINDOW_NAME = 'main window'
 
