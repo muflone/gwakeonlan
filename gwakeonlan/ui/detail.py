@@ -22,7 +22,7 @@ from gi.repository import GLib
 from gi.repository import Gtk
 
 from gwakeonlan.constants import BROADCAST_ADDRESS, FILE_ICON
-from gwakeonlan.functions import _, formatMAC, get_ui_file, text_gtk30
+from gwakeonlan.functions import _, format_mac_address, get_ui_file, text_gtk30
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 
 
@@ -88,7 +88,7 @@ class UIDetail(object):
 
     def get_mac_address(self):
         """Return the MAC address"""
-        return formatMAC(self.ui.text_mac_address.get_text())
+        return format_mac_address(self.ui.text_mac_address.get_text())
 
     def get_port_number(self):
         """Return the port number"""

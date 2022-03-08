@@ -30,7 +30,7 @@ from gwakeonlan.constants import (FILE_ICON,
 from gwakeonlan.functions import (_,
                                   text_gtk30,
                                   show_message_dialog_yesno,
-                                  formatMAC,
+                                  format_mac_address,
                                   get_ui_file,
                                   get_treeview_selected_row,
                                   process_events,
@@ -214,7 +214,7 @@ class MainWindow(object):
         # Show the add host dialog
         for i in range(1, 4):
             self.detail.load_data('testing %d' % i,
-                                  formatMAC(('%d' % i) * 16),
+                                  format_mac_address(('%d' % i) * 16),
                                   i, BROADCAST_ADDRESS)
             self.detail.show()
             process_events()

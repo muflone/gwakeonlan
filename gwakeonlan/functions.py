@@ -30,7 +30,7 @@ from gwakeonlan.constants import DIR_UI
 localized_messages = {}
 
 
-def formatMAC(mac):
+def format_mac_address(mac):
     """Return the mac address formatted with colon"""
     mac = mac.replace(':', '').replace('.', '')
     return ':'.join([mac[i:i+2] for i in range(0, len(mac), 2)]).upper()
@@ -133,7 +133,7 @@ def get_treeview_selected_row(widget):
 _ = text
 
 __all__ = [
-    'formatMAC',
+    'format_mac_address',
     'show_message_dialog_yesno',
     'wake_on_lan',
     'readlines',

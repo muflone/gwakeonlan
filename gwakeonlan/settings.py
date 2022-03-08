@@ -22,7 +22,7 @@ import configparser
 import logging
 
 from gwakeonlan.constants import BROADCAST_ADDRESS, DEFAULT_UDP_PORT
-from gwakeonlan.functions import formatMAC
+from gwakeonlan.functions import format_mac_address
 
 POSITION_LEFT = 'left'
 POSITION_TOP = 'top'
@@ -162,11 +162,12 @@ class Settings(object):
                 if len(machine) == 3:
                     machine.append(DEFAULT_UDP_PORT)
                 # Add the machine to the model
-                self.model.add_machine(selected=False,
-                                       machine_name=machine[0],
-                                       mac_address=formatMAC(machine[1]),
-                                       port_number=int(machine[3]),
-                                       destination=machine[2])
+                self.model.add_machine(
+                    selected=False,
+                    machine_name=machine[0],
+                    mac_address=format_mac_address(machine[1]),
+                    port_number=int(machine[3]),
+                    destination=machine[2])
 
     def save_hosts(self, model):
         """Save hosts settings"""
