@@ -57,7 +57,7 @@ class UIArpCache(object):
     def show(self):
         """Show the ARP Cache picker dialog"""
         if self.options.autotest:
-            GLib.timeout_add(500, self.dialog.hide)
+            GLib.timeout_add(500, self.ui.dialog.hide)
         response = self.ui.dialog.run()
         self.ui.dialog.hide()
         return response

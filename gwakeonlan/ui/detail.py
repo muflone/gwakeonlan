@@ -49,7 +49,7 @@ class UIDetail(object):
     def show(self):
         """Show the Add/Edit machine dialog"""
         if self.options.autotest:
-            GLib.timeout_add(500, self.dialog.hide)
+            GLib.timeout_add(500, self.ui.dialog.hide)
         response = 0
         self.ui.label_error.set_property('visible', False)
         self.ui.dialog.set_title(_('Edit machine')

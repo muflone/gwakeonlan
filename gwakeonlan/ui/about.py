@@ -88,7 +88,7 @@ class UIAbout(object):
     def show(self):
         """Show the About dialog"""
         if self.options.autotest:
-            GLib.timeout_add(500, self.dialog.hide)
+            GLib.timeout_add(500, self.ui.dialog.hide)
         self.ui.dialog.run()
         self.ui.dialog.hide()
 
