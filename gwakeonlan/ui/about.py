@@ -82,6 +82,8 @@ class UIAbout(object):
         icon_logo = Pixbuf.new_from_file(str(FILE_ICON))
         self.ui.dialog.set_logo(icon_logo)
         self.ui.dialog.set_transient_for(parent)
+        # Connect signals from the UI file to the functions with the same name
+        self.ui.connect_signals(self)
 
     def show(self):
         """Show the About dialog"""
