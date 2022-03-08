@@ -27,7 +27,8 @@ from gwakeonlan.functions import (_,
                                   get_ui_file,
                                   text_gtk30)
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
-from gwakeonlan.model_arpcache import ModelARPCache
+
+from gwakeonlan.models.arpcache import ModelArpCache
 
 
 class UIArpCache(object):
@@ -37,7 +38,7 @@ class UIArpCache(object):
         self.options = options
         # Load the user interface
         self.ui = GtkBuilderLoader(get_ui_file('arpcache.ui'))
-        self.model = ModelARPCache(self.ui.model, settings)
+        self.model = ModelArpCache(self.ui.model)
         self.model.refresh()
         self.ui.dialog.set_title(_('Pick a host from the ARP cache'))
         self.ui.dialog.set_icon_from_file(str(FILE_ICON))

@@ -37,8 +37,9 @@ from gwakeonlan.functions import (_,
                                   wake_on_lan)
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.import_ethers import ImportEthers
-from gwakeonlan.model_machines import ModelMachines
 from gwakeonlan.settings import Settings
+
+from gwakeonlan.models.machines import ModelMachines
 
 from gwakeonlan.ui.about import UIAbout
 from gwakeonlan.ui.arpcache import UIArpCache
@@ -134,8 +135,8 @@ class MainWindow(object):
                                             self.detail.get_machine_name())
                 self.model.set_mac_address(treeiter,
                                            self.detail.get_mac_address())
-                self.model.set_portnr(treeiter,
-                                      self.detail.get_port_number())
+                self.model.set_port_number(treeiter,
+                                           self.detail.get_port_number())
                 self.model.set_destination(treeiter,
                                            self.detail.get_destination())
 

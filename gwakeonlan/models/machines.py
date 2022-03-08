@@ -18,37 +18,18 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from gi.repository import Gtk
-
 from gwakeonlan.constants import BROADCAST_ADDRESS
 
+from gwakeonlan.models.abstract import ModelAbstract
 
-class ModelMachines(object):
+
+class ModelMachines(ModelAbstract):
     COL_SELECTED = 0
     COL_MACHINE = 1
     COL_MACADDRESS = 2
     COL_REQUESTTYPE = 3
     COL_DESTINATION = 4
     COL_PORTNR = 5
-
-    def __init__(self, model):
-        """Initialize the model"""
-        self.model = model
-        self.index = 0
-
-    def path_from_iter(self, treeiter):
-        """Return a TreePath from a TreeIter"""
-        return (treeiter.path
-                if type(treeiter) is Gtk.TreeModelRow
-                else treeiter)
-
-    def get_model_data(self, treeiter, column):
-        """Get model data from a TreeIter column"""
-        return self.model[self.path_from_iter(treeiter)][column]
-
-    def set_model_data(self, treeiter, column, value):
-        """Set model data for a TreeIter column"""
-        self.model[self.path_from_iter(treeiter)][column] = value
 
     def get_selected(self, treeiter):
         """Return if the TreeIter is selected"""
@@ -94,7 +75,7 @@ class ModelMachines(object):
         """Return the port number from a TreeIter"""
         return self.get_model_data(treeiter, self.__class__.COL_PORTNR)
 
-    def set_portnr(self, treeiter, value):
+    def set_port_number(self, treeiter, value):
         """Set the port number for a TreeIter"""
         self.set_model_data(treeiter, self.__class__.COL_PORTNR, value)
 
@@ -109,19 +90,3 @@ class ModelMachines(object):
             destination,
             port_number
         ))
-
-    def remove(self, treeiter):
-        """Remove a machine from the model"""
-        self.model.remove(treeiter)
-
-    def clear(self):
-        """Clear the model"""
-        return self.model.clear()
-
-    def count(self):
-        """Return the number of items in the model"""
-        return len(self.model)
-
-    def __iter__(self):
-        """Iter the model"""
-        return iter(self.model)

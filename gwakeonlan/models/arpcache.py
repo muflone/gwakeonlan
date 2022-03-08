@@ -24,20 +24,13 @@ import socket
 
 from gwakeonlan.constants import FILE_ARP_CACHE
 
+from gwakeonlan.models.abstract import ModelAbstract
 
-class ModelARPCache(object):
+
+class ModelArpCache(ModelAbstract):
     COL_IPADDRESS = 0
     COL_MACADDRESS = 1
     COL_HOSTNAME = 2
-
-    def __init__(self, model, settings):
-        """Initialize the model"""
-        self.model = model
-        self.settings = settings
-
-    def clear(self):
-        """Clear the model"""
-        return self.model.clear()
 
     def refresh(self):
         """Clear the model and reload all the hosts from the ARP cache file"""
@@ -70,12 +63,12 @@ class ModelARPCache(object):
 
     def get_ip_address(self, treeiter):
         """Returns the IP address for the selected TreeIter"""
-        return self.model[treeiter][self.__class__.COL_IPADDRESS]
+        return self.get_model_data(treeiter, self.__class__.COL_IPADDRESS)
 
     def get_mac_address(self, treeiter):
         """Returns the MAC address for the selected TreeIter"""
-        return self.model[treeiter][self.__class__.COL_MACADDRESS]
+        return self.get_model_data(treeiter, self.__class__.COL_MACADDRESS)
 
     def get_hostname(self, treeiter):
         """Returns the hostname for the selected TreeIter"""
-        return self.model[treeiter][self.__class__.COL_HOSTNAME]
+        return self.get_model_data(treeiter, self.__class__.COL_HOSTNAME)
