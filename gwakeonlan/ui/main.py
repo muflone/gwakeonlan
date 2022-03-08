@@ -40,7 +40,7 @@ from gwakeonlan.settings import Settings
 
 from gwakeonlan.ui.about import UIAbout
 from gwakeonlan.ui.arpcache import UIArpCache
-from gwakeonlan.ui.detail import DetailWindow
+from gwakeonlan.ui.detail import UIDetail
 
 SECTION_WINDOW_NAME = 'main window'
 
@@ -57,7 +57,7 @@ class MainWindow(object):
         self.options = options
         # Load the others dialogs
         self.about = UIAbout(self.winMain, self.settings, options)
-        self.detail = DetailWindow(self.winMain, self.settings, options, False)
+        self.detail = UIDetail(self.winMain, self.settings, options)
         self.detected_addresses = {}
 
     def run(self):
@@ -114,7 +114,7 @@ class MainWindow(object):
                 False,
                 self.detail.get_machine_name(),
                 self.detail.get_mac_address(),
-                self.detail.get_portnr(),
+                self.detail.get_port_number(),
                 self.detail.get_destination()
             )
             # Automatically select the last inserted item
@@ -136,7 +136,7 @@ class MainWindow(object):
                 self.model.set_mac_address(selected,
                                            self.detail.get_mac_address())
                 self.model.set_portnr(selected,
-                                      self.detail.get_portnr())
+                                      self.detail.get_port_number())
                 self.model.set_destination(selected,
                                            self.detail.get_destination())
 

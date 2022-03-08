@@ -23,128 +23,112 @@ from gi.repository import Gtk
 
 from gwakeonlan.constants import BROADCAST_ADDRESS, FILE_ICON
 from gwakeonlan.functions import _, formatMAC, get_ui_file, text_gtk30
+from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 
 
-class DetailWindow(object):
-    def __init__(self, winParent, settings, options, show=False):
+class UIDetail(object):
+    def __init__(self, parent, settings, options):
+        """Prepare the detail dialog"""
         self.settings = settings
         self.options = options
-        """Prepare the detail dialog and optionally show it immediately"""
-        # Load interface UI
-        builder = Gtk.Builder()
-        builder.add_from_file(get_ui_file('detail.glade'))
-        # Obtain widget references
-        self.dialog = builder.get_object('dlgDetail')
-        self.cboMachineName = builder.get_object('cboMachineName')
-        self.txtMachineName = builder.get_object('txtMachineName')
-        self.txtMACAddress = builder.get_object('txtMACAddress')
-        self.spinPortNumber = builder.get_object('spinPortNumber')
-        self.radioRequestLocal = builder.get_object('radioRequestLocal')
-        self.radioRequestInternet = builder.get_object('radioRequestInternet')
-        self.lblDestinationHost = builder.get_object('lblDestinationHost')
-        self.txtDestinationHost = builder.get_object('txtDestinationHost')
-        self.btnOK = builder.get_object('btnOK')
-        self.btnCancel = builder.get_object('btnCancel')
-        self.lblError = builder.get_object('lblError')
+        # Load the user interface
+        self.ui = GtkBuilderLoader(get_ui_file('detail.ui'))
         # Set various properties
-        self.dialog.set_icon_from_file(str(FILE_ICON))
-        self.dialog.set_transient_for(winParent)
-        self.btnOK.set_label(text_gtk30('_OK'))
-        self.btnCancel.set_label(text_gtk30('_Cancel'))
-        # Connect signals from the glade file to the functions
-        # with the same name
-        builder.connect_signals(self)
-        # Optionally show the dialog
-        if show:
-            self.show()
+        self.ui.dialog.set_icon_from_file(str(FILE_ICON))
+        self.ui.dialog.set_transient_for(parent)
+        self.ui.button_ok.set_label(text_gtk30('_OK'))
+        self.ui.button_cancel.set_label(text_gtk30('_Cancel'))
+        # Connect signals from the UI file to the functions with the same name
+        self.ui.connect_signals(self)
 
     def destroy(self):
         """Hide and destroy the Add/Delete machine dialog"""
-        self.dialog.destroy()
-        self.dialog = None
+        self.ui.dialog.destroy()
+        self.ui.dialog = None
 
     def show(self):
         """Show the Add/Edit machine dialog"""
         if self.options.autotest:
             GLib.timeout_add(500, self.dialog.hide)
         response = 0
-        self.lblError.set_property('visible', False)
-        self.dialog.set_title(self.get_mac_address() and _('Edit machine') or
-                              _('Add machine'))
+        self.ui.label_error.set_property('visible', False)
+        self.ui.dialog.set_title(_('Edit machine')
+                                 if self.get_mac_address()
+                                 else _('Add machine'))
         while not response:
-            response = self.dialog.run()
+            response = self.ui.dialog.run()
             if response == Gtk.ResponseType.OK:
                 # Check values for valid response
                 err_msg = ''
                 mac = self.get_mac_address().replace(':', '').replace('.', '')
                 if not self.get_machine_name():
                     err_msg = _('Missing machine name')
-                    self.txtMachineName.grab_focus()
+                    self.ui.text_machine_name.grab_focus()
                 elif not (len(mac) == 12 and
                           all(c in '1234567890ABCDEF' for c in mac.upper())):
                     err_msg = _('Invalid MAC address')
-                    self.txtMACAddress.grab_focus()
-                elif self.radioRequestInternet.get_active() and \
-                        self.get_destination() in ('', BROADCAST_ADDRESS):
+                    self.ui.text_mac_address.grab_focus()
+                elif (self.ui.radio_request_internet.get_active() and
+                      self.get_destination() in ('', BROADCAST_ADDRESS)):
                     err_msg = _('Invalid destination host')
-                    self.txtDestinationHost.grab_focus()
+                    self.ui.text_destination_host.grab_focus()
                 # There was an error, don't close the dialog
                 if err_msg:
-                    self.lblError.set_property('visible', True)
-                    self.lblError.set_markup(
+                    self.ui.label_error.set_property('visible', True)
+                    self.ui.label_error.set_markup(
                         '<span foreground="red"><b>%s</b></span>' % err_msg)
                     # Don't close the dialog if there's some error
                     response = 0
-        self.dialog.hide()
+        self.ui.dialog.hide()
         return response
 
     def get_machine_name(self):
         """Return the machine name"""
-        return self.txtMachineName.get_text()
+        return self.ui.text_machine_name.get_text()
 
     def get_mac_address(self):
         """Return the MAC address"""
-        return formatMAC(self.txtMACAddress.get_text())
+        return formatMAC(self.ui.text_mac_address.get_text())
 
-    def get_portnr(self):
+    def get_port_number(self):
         """Return the port number"""
-        return self.spinPortNumber.get_value_as_int()
+        return self.ui.spin_port_number.get_value_as_int()
 
     def get_destination(self):
         """Return the destination host"""
-        return self.txtDestinationHost.get_text()
+        return self.ui.text_destination_host.get_text()
 
     def get_request_type_internet(self):
         """Return if the request type is Internet"""
-        return self.radioRequestInternet.get_active()
+        return self.ui.radio_request_internet.get_active()
 
-    def on_radioRequestType_toggled(self, widget):
+    def on_radio_request_type_toggled(self, widget):
         """A Radio button was pressed"""
-        request_type_internet = self.radioRequestInternet.get_active()
+        request_type_internet = self.ui.radio_request_internet.get_active()
         # Check the request type
         if request_type_internet:
             # If there was the broadcast address it will be deleted
             if self.get_destination() == BROADCAST_ADDRESS:
-                self.txtDestinationHost.set_text('')
+                self.ui.text_destination_host.set_text('')
         else:
             # For local request type the broadcast address will be used
-            self.txtDestinationHost.set_text(BROADCAST_ADDRESS)
+            self.ui.text_destination_host.set_text(BROADCAST_ADDRESS)
         # Enable the destination fields accordingly to the request type
-        self.lblDestinationHost.set_sensitive(request_type_internet)
-        self.txtDestinationHost.set_sensitive(request_type_internet)
+        self.ui.label_destination_host.set_sensitive(request_type_internet)
+        self.ui.text_destination_host.set_sensitive(request_type_internet)
         # Hide previous errors
-        self.lblError.set_visible(False)
+        self.ui.label_error.set_visible(False)
 
     def load_data(self, machine_name, mac_address, portnr, destination):
         """Load the fields with the specified values"""
-        self.txtMachineName.set_text(machine_name)
-        self.txtMACAddress.set_text(mac_address)
-        self.spinPortNumber.set_value(portnr)
-        self.txtDestinationHost.set_text(destination)
+        self.ui.text_machine_name.set_text(machine_name)
+        self.ui.text_mac_address.set_text(mac_address)
+        self.ui.spin_port_number.set_value(portnr)
+        self.ui.text_destination_host.set_text(destination)
         if destination in (BROADCAST_ADDRESS, ''):
-            self.radioRequestLocal.set_active(True)
-            self.txtDestinationHost.set_sensitive(False)
+            self.ui.radio_request_local.set_active(True)
+            self.ui.text_destination_host.set_sensitive(False)
         else:
-            self.radioRequestInternet.set_active(True)
-            self.txtDestinationHost.set_sensitive(True)
-        self.txtMachineName.grab_focus()
+            self.ui.radio_request_internet.set_active(True)
+            self.ui.text_destination_host.set_sensitive(True)
+        self.ui.text_machine_name.grab_focus()
