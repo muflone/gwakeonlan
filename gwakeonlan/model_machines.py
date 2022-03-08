@@ -38,7 +38,9 @@ class ModelMachines(object):
 
     def path_from_iter(self, treeiter):
         """Return a TreePath from a TreeIter"""
-        return type(treeiter) is Gtk.TreeModelRow and treeiter.path or treeiter
+        return (treeiter.path
+                if type(treeiter) is Gtk.TreeModelRow
+                else treeiter)
 
     def get_model_data(self, treeiter, column):
         """Get model data from a TreeIter column"""
@@ -84,10 +86,11 @@ class ModelMachines(object):
         """Set the destination for a TreeIter"""
         self.set_model_data(treeiter, self.__class__.COL_DESTINATION, value)
         self.set_model_data(treeiter, self.__class__.COL_REQUESTTYPE,
-                            value == BROADCAST_ADDRESS and 'Local' or
-                            'Internet')
+                            'Local'
+                            if value == BROADCAST_ADDRESS
+                            else 'Internet')
 
-    def get_portnr(self, treeiter):
+    def get_port_number(self, treeiter):
         """Return the port number from a TreeIter"""
         return self.get_model_data(treeiter, self.__class__.COL_PORTNR)
 
@@ -95,16 +98,16 @@ class ModelMachines(object):
         """Set the port number for a TreeIter"""
         self.set_model_data(treeiter, self.__class__.COL_PORTNR, value)
 
-    def add_machine(self, selected, machine_name, mac_address, portnr,
+    def add_machine(self, selected, machine_name, mac_address, port_number,
                     destination):
         """Add a new machine to the model"""
         return self.model.append((
             selected,
             machine_name,
             mac_address,
-            destination == BROADCAST_ADDRESS and 'Local' or 'Internet',
+            'Local' if destination == BROADCAST_ADDRESS else 'Internet',
             destination,
-            portnr
+            port_number
         ))
 
     def remove(self, treeiter):

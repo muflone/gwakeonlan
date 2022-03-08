@@ -83,6 +83,5 @@ FILE_LICENSE = DIR_DOCS / 'license'
 FILE_RESOURCES = DIR_DOCS / 'resources'
 # Set the paths for configuration files
 FILE_SETTINGS = DIR_SETTINGS / 'settings.conf'
-FILE_WINDOWS_POSITION = DIR_SETTINGS / 'windows.conf'
 # Set the paths for others files
 FILE_ARP_CACHE = '/proc/net/arp'

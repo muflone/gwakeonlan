@@ -30,4 +30,3 @@ from gwakeonlan.constants import DOMAIN_NAME, DIR_LOCALE
 for module in (gettext, locale):
     module.bindtextdomain(DOMAIN_NAME, DIR_LOCALE)
     module.textdomain(DOMAIN_NAME)
-
