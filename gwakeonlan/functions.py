@@ -53,10 +53,10 @@ def show_message_dialog_yesno(winParent, message, title, default_response):
     return response
 
 
-def wake_on_lan(mac_address, portnr, destination, settings):
+def wake_on_lan(mac_address, port_number, destination):
     """Turn on remote machine using Wake On LAN."""
     logging.info('turning on: %s through %s using port number %d' % (
-        mac_address, destination, portnr))
+        mac_address, destination, port_number))
     # Magic packet (6 times FF + 16 times MAC address)
     packet = 'FF' * 6 + mac_address.replace(':', '') * 16
     data = []
@@ -71,7 +71,8 @@ def wake_on_lan(mac_address, portnr, destination, settings):
     if destination == '255.255.255.255':
         destination = '<broadcast>'
     data = b''.join(data)
-    [sock.sendto(data, (destination, portnr)) for _ in range(0, 10)]
+    for _ in range(10):
+        sock.sendto(data, (destination, port_number))
 
 
 def readlines(filename, empty_lines=False):
