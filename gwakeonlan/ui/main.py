@@ -32,8 +32,10 @@ from gwakeonlan.functions import (_,
                                   show_message_dialog_yesno,
                                   formatMAC,
                                   get_ui_file,
+                                  get_treeview_selected_row,
                                   process_events,
                                   wake_on_lan)
+from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.import_ethers import ImportEthers
 from gwakeonlan.model_machines import ModelMachines
 from gwakeonlan.settings import Settings
@@ -49,123 +51,121 @@ class MainWindow(object):
     def __init__(self, application, options):
         """Prepare the main window"""
         self.application = application
-        self.loadUI()
+        self.load_ui()
         self.settings = Settings(FILE_SETTINGS, True)
         self.options = options
-        self.settings.restore_window_position(self.winMain, SECTION_WINDOW_NAME)
+        self.settings.restore_window_position(window=self.ui.window,
+                                              section=SECTION_WINDOW_NAME)
         self.settings.load_hosts(self.model)
         self.options = options
         # Load the others dialogs
-        self.about = UIAbout(self.winMain, self.settings, options)
-        self.detail = UIDetail(self.winMain, self.settings, options)
+        self.detail = UIDetail(self.ui.window, self.settings, options)
         self.detected_addresses = {}
 
     def run(self):
         """Show the main window"""
         if self.options.autotest:
             GLib.timeout_add(500, self.do_autotests)
-        self.winMain.show_all()
+        self.ui.window.show_all()
 
-    def loadUI(self):
+    def load_ui(self):
         """Load the UI for the main window"""
-        builder = Gtk.Builder()
-        builder.add_from_file(get_ui_file('main.glade'))
-        # Obtain widget references
-        self.winMain = builder.get_object("winMain")
-        self.model = ModelMachines(builder.get_object('storeMachines'))
-        self.btnAdd = builder.get_object('btnAdd')
-        self.btnEdit = builder.get_object('btnEdit')
-        self.btnDelete = builder.get_object('btnDelete')
-        self.tvwMachines = builder.get_object('tvwMachines')
+        # Load the user interface
+        self.ui = GtkBuilderLoader(get_ui_file('main.ui'))
+        self.model = ModelMachines(self.ui.store_machines)
         # Set various properties
-        self.winMain.set_title(APP_NAME)
-        self.winMain.set_icon_from_file(str(FILE_ICON))
-        self.winMain.set_application(self.application)
-        # Connect signals from the glade file to the functions
-        # with the same name
-        builder.connect_signals(self)
+        self.ui.window.set_title(APP_NAME)
+        self.ui.window.set_icon_from_file(str(FILE_ICON))
+        self.ui.window.set_application(self.application)
+        # Connect signals from the UI file to the functions with the same name
+        self.ui.connect_signals(self)
 
-    def on_winMain_delete_event(self, widget, event):
+    def on_window_delete_event(self, widget, event):
         """Close the application by closing the main window"""
-        self.about.destroy()
         self.detail.destroy()
-        self.settings.save_window_position(self.winMain, SECTION_WINDOW_NAME)
+        self.settings.save_window_position(self.ui.window, SECTION_WINDOW_NAME)
         self.settings.save_hosts(self.model)
         self.settings.save()
-        self.winMain.destroy()
+        self.ui.window.destroy()
         self.application.quit()
 
-    def on_btnAbout_clicked(self, widget):
+    def on_button_about_clicked(self, widget):
         """Show the about dialog"""
-        self.about.show()
+        about = UIAbout(parent=self.ui.window,
+                        settings=self.settings,
+                        options=self.options)
+        about.show()
+        about.destroy()
 
-    def on_cellMachinesSelected_toggled(self, renderer, treeIter, data=None):
+    def on_cell_selected_toggled(self, renderer, treeIter, data=None):
         """Select or deselect an item"""
         self.model.set_selected(
             treeIter,
             not self.model.get_selected(treeIter))
 
-    def on_btnAdd_clicked(self, widget):
+    def on_button_add_clicked(self, widget):
         """Add a new empty machine"""
-        self.detail.load_data('', '', DEFAULT_UDP_PORT, BROADCAST_ADDRESS)
+        self.detail.load_data(machine_name='',
+                              mac_address='',
+                              portnr=DEFAULT_UDP_PORT,
+                              destination=BROADCAST_ADDRESS)
         # Check if the OK button in the dialog was pressed
         if self.detail.show() == Gtk.ResponseType.OK:
             self.model.add_machine(
-                False,
-                self.detail.get_machine_name(),
-                self.detail.get_mac_address(),
-                self.detail.get_port_number(),
-                self.detail.get_destination()
-            )
+                selected=False,
+                machine_name=self.detail.get_machine_name(),
+                mac_address=self.detail.get_mac_address(),
+                port_number=self.detail.get_port_number(),
+                destination=self.detail.get_destination())
             # Automatically select the last inserted item
-            self.tvwMachines.set_cursor(self.model.count() - 1)
+            self.ui.treeview_machines.set_cursor(self.model.count() - 1)
 
-    def on_btnEdit_clicked(self, widget):
+    def on_button_edit_clicked(self, widget):
         """Edit the selected machine"""
-        selected = self.tvwMachines.get_selection().get_selected()[1]
-        if selected:
+        if treeiter := get_treeview_selected_row(self.ui.treeview_machines):
             self.detail.load_data(
-                self.model.get_machine_name(selected),
-                self.model.get_mac_address(selected),
-                self.model.get_portnr(selected),
-                self.model.get_destination(selected)
+                self.model.get_machine_name(treeiter),
+                self.model.get_mac_address(treeiter),
+                self.model.get_port_number(treeiter),
+                self.model.get_destination(treeiter)
             )
             if self.detail.show() == Gtk.ResponseType.OK:
-                self.model.set_machine_name(selected,
+                self.model.set_machine_name(treeiter,
                                             self.detail.get_machine_name())
-                self.model.set_mac_address(selected,
+                self.model.set_mac_address(treeiter,
                                            self.detail.get_mac_address())
-                self.model.set_portnr(selected,
+                self.model.set_portnr(treeiter,
                                       self.detail.get_port_number())
-                self.model.set_destination(selected,
+                self.model.set_destination(treeiter,
                                            self.detail.get_destination())
 
-    def on_menuitemARPCache_activate(self, widget):
+    def on_menuitem_arp_cache_activate(self, widget):
         """Show the ARP cache picker dialog"""
-        dialog = UIArpCache(self.winMain, self.settings, self.options)
+        dialog = UIArpCache(parent=self.ui.window,
+                            settings=self.settings,
+                            options=self.options)
         # Check if the OK button in the dialog was pressed
         if dialog.show() == Gtk.ResponseType.OK:
             # Check if a valid machine with MAC Address was selected
             if dialog.get_mac_address():
                 # Add the machine to the model from the ARP cache
                 self.model.add_machine(
-                    False,
-                    dialog.get_ip_address(),
-                    dialog.get_mac_address(),
-                    DEFAULT_UDP_PORT,
-                    BROADCAST_ADDRESS)
+                    selected=False,
+                    machine_name=dialog.get_ip_address(),
+                    mac_address=dialog.get_mac_address(),
+                    port_number=DEFAULT_UDP_PORT,
+                    destination=BROADCAST_ADDRESS)
                 # Select the last machine and edit its details
-                self.tvwMachines.set_cursor(self.model.count() - 1)
-                self.btnEdit.emit('clicked')
-
+                self.ui.treeview_machines.set_cursor(self.model.count() - 1)
+                self.ui.button_edit.emit('clicked')
         # Destroy the dialog
         dialog.destroy()
 
-    def on_tvwMachines_row_activated(self, widget, path, column):
+    def on_treeview_machines_row_activated(self, widget, path, column):
         """The double click on a row acts as the Edit machine button"""
-        self.btnEdit.emit('clicked')
+        self.ui.button_edit.emit('clicked')
 
-    def on_menuitemImportEthers_activate(self, widget):
+    def on_menuitem_import_ethers_activate(self, widget):
         """Show the Ethers file importer"""
         dialog = Gtk.FileChooserDialog(
             text_gtk30("Select a File"),
@@ -173,44 +173,42 @@ class MainWindow(object):
             Gtk.FileChooserAction.OPEN,
             (text_gtk30("_Cancel"), Gtk.ResponseType.CANCEL,
              text_gtk30("_Open"), Gtk.ResponseType.OK))
-        dialog.set_transient_for(self.winMain)
+        dialog.set_transient_for(self.ui.window)
         response = dialog.run()
         if response == Gtk.ResponseType.OK:
             importer = ImportEthers(BROADCAST_ADDRESS)
-            importer.import_file(dialog.get_filename(), self.model.add_machine)
+            importer.import_file(dialog.get_filename(),
+                                 self.model.add_machine)
         dialog.destroy()
 
-    def on_btnDelete_clicked(self, widget):
+    def on_button_delete_clicked(self, widget):
         """Delete the selected machine"""
-        selected_iter = self.tvwMachines.get_selection().get_selected()[1]
-        if selected_iter:
+        if treeiter := get_treeview_selected_row(self.ui.treeview_machines):
             # Ask confirmation to delete the selected machine
             if show_message_dialog_yesno(
-                self.winMain,
+                self.ui.window,
                 _('Are you sure you want to remove the selected machine?'),
                 _('Delete machine'),
                 Gtk.ResponseType.NO
             ) == Gtk.ResponseType.YES:
                 # Delete the selected machine
-                self.model.remove(selected_iter)
+                self.model.remove(treeiter)
 
-    def on_btnWake_clicked(self, widget):
+    def on_button_wake_clicked(self, widget):
         """Launch the Wake On LAN for all the selected machines"""
         for machine in self.model:
             if self.model.get_selected(machine):
                 # If a machine was selected then it will turned on
                 wake_on_lan(
-                    self.model.get_mac_address(machine),
-                    self.model.get_portnr(machine),
-                    self.model.get_destination(machine),
-                    self.settings
-                )
+                    mac_address=self.model.get_mac_address(machine),
+                    port_number=self.model.get_port_number(machine),
+                    destination=self.model.get_destination(machine))
 
     def do_autotests(self):
         """Perform a series of autotests"""
         # Show the about dialog
         for i in range(3):
-            self.on_btnAbout_clicked(None)
+            self.on_button_about_clicked(None)
             process_events()
             time.sleep(0.2)
         # Show the add host dialog
@@ -223,10 +221,10 @@ class MainWindow(object):
             time.sleep(0.2)
         # Show the ARP cache dialog
         for i in range(3):
-            self.on_menuitemARPCache_activate(None)
+            self.on_menuitem_arp_cache_activate(None)
             process_events()
             time.sleep(0.2)
         process_events()
         time.sleep(0.5)
         # Close the main window
-        self.winMain.destroy()
+        self.ui.window.destroy()

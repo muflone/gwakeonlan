@@ -58,8 +58,8 @@ class Application(Gtk.Application):
 
     def on_app_about_activate(self, action, data):
         """Show the about dialog from the app menu"""
-        self.ui.on_btnAbout_clicked(self)
+        self.ui.on_button_about_clicked(self)
 
     def on_app_quit_activate(self, action, data):
         """Quit the application from the app menu"""
-        self.ui.on_winMain_delete_event(self, None)
+        self.ui.on_window_delete_event(self, None)

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.38.2 -->
 <interface>
-  <requires lib="gtk+" version="3.0"/>
-  <object class="GtkListStore" id="storeMachines">
+  <requires lib="gtk+" version="3.10"/>
+  <object class="GtkListStore" id="store_machines">
     <columns>
       <!-- column-name colSelected -->
       <column type="gboolean"/>
@@ -18,30 +18,30 @@
       <column type="gint"/>
     </columns>
   </object>
-  <object class="GtkApplicationWindow" id="winMain">
-    <property name="can_focus">False</property>
-    <property name="default_width">620</property>
-    <property name="default_height">240</property>
-    <property name="show_menubar">False</property>
-    <signal name="delete-event" handler="on_winMain_delete_event" swapped="no"/>
+  <object class="GtkApplicationWindow" id="window">
+    <property name="can-focus">False</property>
+    <property name="default-width">620</property>
+    <property name="default-height">240</property>
+    <property name="show-menubar">False</property>
+    <signal name="delete-event" handler="on_window_delete_event" swapped="no"/>
     <child>
       <object class="GtkBox" id="box1">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkToolbar" id="toolbar1">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <child>
-              <object class="GtkToolButton" id="btnWake">
+              <object class="GtkToolButton" id="button_wake">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes">Turn on</property>
-                <property name="is_important">True</property>
+                <property name="can-focus">False</property>
+                <property name="tooltip-text" translatable="yes">Turn on</property>
+                <property name="is-important">True</property>
                 <property name="label" translatable="yes">Turn on</property>
-                <property name="icon_name">system-run</property>
-                <signal name="clicked" handler="on_btnWake_clicked" swapped="no"/>
+                <property name="icon-name">system-run</property>
+                <signal name="clicked" handler="on_button_wake_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -51,7 +51,7 @@
             <child>
               <object class="GtkSeparatorToolItem" id="separator1">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -59,34 +59,34 @@
               </packing>
             </child>
             <child>
-              <object class="GtkMenuToolButton" id="btnAdd">
+              <object class="GtkMenuToolButton" id="button_add">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes">Add machine</property>
+                <property name="can-focus">False</property>
+                <property name="tooltip-text" translatable="yes">Add machine</property>
                 <property name="label" translatable="yes">Add machine</property>
-                <property name="use_underline">True</property>
-                <property name="icon_name">list-add</property>
-                <signal name="clicked" handler="on_btnAdd_clicked" swapped="no"/>
+                <property name="use-underline">True</property>
+                <property name="icon-name">list-add</property>
+                <signal name="clicked" handler="on_button_add_clicked" swapped="no"/>
                 <child type="menu">
-                  <object class="GtkMenu" id="menuAdd">
+                  <object class="GtkMenu" id="menu_add">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <child>
-                      <object class="GtkMenuItem" id="menuitemARPCache">
+                      <object class="GtkMenuItem" id="menuitem_arp_cache">
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="tooltip_text" translatable="yes">Detect from ARP cache</property>
+                        <property name="can-focus">False</property>
+                        <property name="tooltip-text" translatable="yes">Detect from ARP cache</property>
                         <property name="label" translatable="yes">Detect from ARP cache</property>
-                        <signal name="activate" handler="on_menuitemARPCache_activate" swapped="no"/>
+                        <signal name="activate" handler="on_menuitem_arp_cache_activate" swapped="no"/>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkMenuItem" id="menuitemImportEthers">
+                      <object class="GtkMenuItem" id="menuitem_import_ethers">
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="tooltip_text" translatable="yes">Import machines from ethers file</property>
+                        <property name="can-focus">False</property>
+                        <property name="tooltip-text" translatable="yes">Import machines from ethers file</property>
                         <property name="label" translatable="yes">Import from ethers file</property>
-                        <signal name="activate" handler="on_menuitemImportEthers_activate" swapped="no"/>
+                        <signal name="activate" handler="on_menuitem_import_ethers_activate" swapped="no"/>
                       </object>
                     </child>
                   </object>
@@ -99,14 +99,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkToolButton" id="btnEdit">
+              <object class="GtkToolButton" id="button_edit">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes">Edit machine</property>
+                <property name="can-focus">False</property>
+                <property name="tooltip-text" translatable="yes">Edit machine</property>
                 <property name="label" translatable="yes">Edit machine</property>
-                <property name="use_underline">True</property>
-                <property name="icon_name">document-properties</property>
-                <signal name="clicked" handler="on_btnEdit_clicked" swapped="no"/>
+                <property name="use-underline">True</property>
+                <property name="icon-name">document-properties</property>
+                <signal name="clicked" handler="on_button_edit_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -114,14 +114,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkToolButton" id="btnDelete">
+              <object class="GtkToolButton" id="button_delete">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes">Delete machine</property>
+                <property name="can-focus">False</property>
+                <property name="tooltip-text" translatable="yes">Delete machine</property>
                 <property name="label" translatable="yes">Delete machine</property>
-                <property name="use_underline">True</property>
-                <property name="icon_name">list-remove</property>
-                <signal name="clicked" handler="on_btnDelete_clicked" swapped="no"/>
+                <property name="use-underline">True</property>
+                <property name="icon-name">list-remove</property>
+                <signal name="clicked" handler="on_button_delete_clicked" swapped="no"/>
                 <accelerator key="Delete" signal="clicked"/>
               </object>
               <packing>
@@ -132,7 +132,7 @@
             <child>
               <object class="GtkSeparatorToolItem" id="separator2">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -140,14 +140,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkToolButton" id="btnAbout">
+              <object class="GtkToolButton" id="button_about">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes">About</property>
+                <property name="can-focus">False</property>
+                <property name="tooltip-text" translatable="yes">About</property>
                 <property name="label" translatable="yes">About</property>
-                <property name="use_underline">True</property>
-                <property name="icon_name">help-about</property>
-                <signal name="clicked" handler="on_btnAbout_clicked" swapped="no"/>
+                <property name="use-underline">True</property>
+                <property name="icon-name">help-about</property>
+                <signal name="clicked" handler="on_button_about_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -162,25 +162,25 @@
           </packing>
         </child>
         <child>
-          <object class="GtkScrolledWindow" id="scrollMachines">
+          <object class="GtkScrolledWindow" id="scroll_machines">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="shadow_type">in</property>
+            <property name="can-focus">True</property>
+            <property name="shadow-type">in</property>
             <child>
-              <object class="GtkTreeView" id="tvwMachines">
+              <object class="GtkTreeView" id="treeview_machines">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="model">storeMachines</property>
-                <signal name="row-activated" handler="on_tvwMachines_row_activated" swapped="no"/>
+                <property name="can-focus">True</property>
+                <property name="model">store_machines</property>
+                <signal name="row-activated" handler="on_treeview_machines_row_activated" swapped="no"/>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection" id="treeview-selection1"/>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colMachinesSelected">
-                    <property name="sort_column_id">0</property>
+                  <object class="GtkTreeViewColumn" id="column_selected">
+                    <property name="sort-column-id">0</property>
                     <child>
-                      <object class="GtkCellRendererToggle" id="cellMachinesSelected">
-                        <signal name="toggled" handler="on_cellMachinesSelected_toggled" swapped="no"/>
+                      <object class="GtkCellRendererToggle" id="cell_selected">
+                        <signal name="toggled" handler="on_cell_selected_toggled" swapped="no"/>
                       </object>
                       <attributes>
                         <attribute name="active">0</attribute>
@@ -189,12 +189,12 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colMachinesMachine">
+                  <object class="GtkTreeViewColumn" id="column_machine">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">Machine name</property>
-                    <property name="sort_column_id">1</property>
+                    <property name="sort-column-id">1</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellMachinesMachine"/>
+                      <object class="GtkCellRendererText" id="cell_machine"/>
                       <attributes>
                         <attribute name="text">1</attribute>
                       </attributes>
@@ -202,12 +202,12 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colMachinesMACAddress">
+                  <object class="GtkTreeViewColumn" id="column_mac_address">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">MAC address</property>
-                    <property name="sort_column_id">2</property>
+                    <property name="sort-column-id">2</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellMachinesMACAddress"/>
+                      <object class="GtkCellRendererText" id="cell_mac_address"/>
                       <attributes>
                         <attribute name="text">2</attribute>
                       </attributes>
@@ -215,12 +215,12 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colMachinesRequestType">
+                  <object class="GtkTreeViewColumn" id="column_request_type">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">Request type</property>
-                    <property name="sort_column_id">3</property>
+                    <property name="sort-column-id">3</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellMachinesRequestType"/>
+                      <object class="GtkCellRendererText" id="cell_request_type"/>
                       <attributes>
                         <attribute name="text">3</attribute>
                       </attributes>
@@ -228,12 +228,12 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colMachinesDestination">
+                  <object class="GtkTreeViewColumn" id="column_destination">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">Destination</property>
-                    <property name="sort_column_id">4</property>
+                    <property name="sort-column-id">4</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellMachinesDestination"/>
+                      <object class="GtkCellRendererText" id="cell_destination"/>
                       <attributes>
                         <attribute name="text">4</attribute>
                       </attributes>
@@ -241,12 +241,12 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colMachinesPortNR">
+                  <object class="GtkTreeViewColumn" id="column_port_number">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">Port NR</property>
-                    <property name="sort_column_id">5</property>
+                    <property name="sort-column-id">5</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellMachinesPortNR"/>
+                      <object class="GtkCellRendererText" id="cell_port_number"/>
                       <attributes>
                         <attribute name="text">5</attribute>
                       </attributes>
