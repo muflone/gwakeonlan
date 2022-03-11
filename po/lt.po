@@ -152,7 +152,7 @@ msgstr "MAC adresas"
 
 #: ui/main.ui:220
 msgid "Request type"
-msgstr ""
+msgstr "Užklausos tipas"
 
 #: ui/main.ui:233
 msgid "Destination"
