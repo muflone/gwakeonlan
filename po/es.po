@@ -8,14 +8,14 @@
 # Translators:
 # Matias Bellone <matiasbellone+debian(at)gmail.com>, 2010
 # Luca Della Ghezza <luca_dgh(at)hotmail.it>, 2010
-# Adolfo Jayme Barrientos <fitoschido(at)ubuntu.com>, 2012-2015
+# Adolfo Jayme-Barrientos <fitoschido(at)ubuntu.com>, 2012-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2022-03-11 01:18+0100\n"
 "PO-Revision-Date: 2015-07-20 00:57+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos\n"
+"Last-Translator: Adolfo Jayme-Barrientos\n"
 "Language-Team: Spanish (https://www.transifex.com/p/gwakeonlan/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"

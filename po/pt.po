@@ -3,19 +3,19 @@
 # Copyright (C) 2009-2022 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 # Website: https://www.muflone.com/gwakeonlan/
 # This file is distributed under the same license of gWakeOnLAN.
-# Catalan translation for gWakeOnLAN
+# Portuguese translation for gWakeOnLAN
 #
 # Translators:
-# Adolfo Jayme-Barrientos <fitoschido(at)ubuntu.com>, 2015
+# Amilton Pereira cavalcante <amiltonpc(at)gmail.com>, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2022-03-11 01:18+0100\n"
-"PO-Revision-Date: 2017-09-22 11:55+0000\n"
-"Last-Translator: Adolfo Jayme-Barrientos\n"
-"Language-Team: Catalan (https://www.transifex.com/p/gwakeonlan/)\n"
-"Language: ca\n"
+"PO-Revision-Date: 2022-03-11 00:11+0000\n"
+"Last-Translator: Amilton Pereira cavalcante <amiltonpc(at)gmail.com>\n"
+"Language-Team: Portuguese (https://www.transifex.com/p/gwakeonlan/)\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,39 +32,39 @@ msgstr ""
 
 #: gwakeonlan/ui/about.py:69
 msgid "Contributors:"
-msgstr ""
+msgstr "Contribuidores:"
 
 #: gwakeonlan/ui/arpcache.py:43
 msgid "Pick a host from the ARP cache"
-msgstr ""
+msgstr "Escolher um PC a pratir do cache ARP"
 
 #: gwakeonlan/ui/detail.py:55 ui/main.ui:105 ui/main.ui:106
 msgid "Edit machine"
-msgstr ""
+msgstr "Edita PC"
 
 #: gwakeonlan/ui/detail.py:57 ui/main.ui:65 ui/main.ui:66
 msgid "Add machine"
-msgstr ""
+msgstr "Adicionar PC"
 
 #: gwakeonlan/ui/detail.py:65
 msgid "Missing machine name"
-msgstr ""
+msgstr "PC sem nome"
 
 #: gwakeonlan/ui/detail.py:69
 msgid "Invalid MAC address"
-msgstr ""
+msgstr "Endereço MAC Inválido"
 
 #: gwakeonlan/ui/detail.py:73
 msgid "Invalid destination host"
-msgstr ""
+msgstr "PC de destino inválido "
 
 #: gwakeonlan/ui/main.py:191
 msgid "Are you sure you want to remove the selected machine?"
-msgstr ""
+msgstr "Tem certeza que deseja remover o PC selecionado?"
 
 #: gwakeonlan/ui/main.py:192 ui/main.ui:120 ui/main.ui:121
 msgid "Delete machine"
-msgstr ""
+msgstr "Deleta PC"
 
 #: ui/appmenu.ui:6
 msgid "_About gWakeOnLAN"
@@ -76,59 +76,59 @@ msgstr ""
 
 #: ui/arpcache.ui:101
 msgid "IP Address"
-msgstr "Adreça IP"
+msgstr "Endereço IP"
 
 #: ui/arpcache.ui:113
 msgid "Host Name"
-msgstr ""
+msgstr "Nome do host"
 
 #: ui/arpcache.ui:125
 msgid "MAC Address"
-msgstr "Adreça MAC"
+msgstr "Endereço MAC"
 
 #: ui/detail.ui:29
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
-msgstr "<b><span foreground=\"red\">ERROR</span></b>"
+msgstr "<b><span foreground=\"red\">ERRO</span></b>"
 
 #: ui/detail.ui:91
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr ""
+msgstr "<big><b>Insira o nome do PC e seu endereço MAC</b></big>"
 
 #: ui/detail.ui:120
 msgid "_Machine name:"
-msgstr ""
+msgstr "_PC nome:"
 
 #: ui/detail.ui:148
 msgid "MAC _Address:"
-msgstr ""
+msgstr "MAC _Address:"
 
 #: ui/detail.ui:162
 msgid "_UDP port number:"
-msgstr ""
+msgstr "_Número Porta UDP:"
 
 #: ui/detail.ui:191
 msgid "Request type:"
-msgstr ""
+msgstr "Tipo de requisição:"
 
 #: ui/detail.ui:201
 msgid "_Local (broadcast)"
-msgstr ""
+msgstr "_Local (broadcast)"
 
 #: ui/detail.ui:218
 msgid "_Internet"
-msgstr ""
+msgstr "_Internet"
 
 #: ui/detail.ui:240
 msgid "_Destination host:"
-msgstr ""
+msgstr "_PC Destino:"
 
 #: ui/main.ui:40 ui/main.ui:42
 msgid "Turn on"
-msgstr ""
+msgstr "Ligar"
 
 #: ui/main.ui:78 ui/main.ui:79
 msgid "Detect from ARP cache"
-msgstr ""
+msgstr "Detectar a partir do chache ARP"
 
 #: ui/main.ui:87
 msgid "Import machines from ethers file"
@@ -140,24 +140,24 @@ msgstr ""
 
 #: ui/main.ui:146 ui/main.ui:147
 msgid "About"
-msgstr "Quant a"
+msgstr "Sobre"
 
 #: ui/main.ui:194
 msgid "Machine name"
-msgstr ""
+msgstr "Nome PC"
 
 #: ui/main.ui:207
 msgid "MAC address"
-msgstr "Adreça MAC"
+msgstr "Endereço MAC"
 
 #: ui/main.ui:220
 msgid "Request type"
-msgstr ""
+msgstr "Tipo de requisição"
 
 #: ui/main.ui:233
 msgid "Destination"
-msgstr "Destinació"
+msgstr "Destino"
 
 #: ui/main.ui:246
 msgid "Port NR"
-msgstr ""
+msgstr "Porta NR"
