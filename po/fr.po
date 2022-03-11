@@ -1,146 +1,163 @@
-# gWakeOnLan
+# gWakeOnLAN
 # Wake up your machines using Wake on LAN.
 # Copyright (C) 2009-2022 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 # Website: https://www.muflone.com/gwakeonlan/
-# This file is distributed under the same license of gWakeOnLan.
-# French translation for gWakeOnLan
-# 
+# This file is distributed under the same license of gWakeOnLAN.
+# French translation for gWakeOnLAN
+#
 # Translators:
 # Emmanuel <emmanuel(at)simple-linux.com>, 2010
 msgid ""
 msgstr ""
-"Project-Id-Version: gWakeOnLan\n"
+"Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2015-07-18 17:54+0200\n"
+"POT-Creation-Date: 2022-03-11 01:18+0100\n"
 "PO-Revision-Date: 2015-07-18 16:35+0000\n"
 "Last-Translator: Emmanuel <emmanuel(at)simple-linux.com>\n"
 "Language-Team: French (https://www.transifex.com/p/gwakeonlan/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ui/arpcache.glade.h:1
-msgid "IP Address"
+#: gwakeonlan/ui/about.py:57
+#, python-brace-format
+msgid "Version {VERSION}"
 msgstr ""
 
-#: ui/arpcache.glade.h:2
-msgid "Host Name"
+#: gwakeonlan/ui/about.py:60
+msgid "Wake up your machines using Wake on LAN."
 msgstr ""
 
-#: ui/arpcache.glade.h:3
-msgid "MAC Address"
-msgstr ""
-
-#: ui/detail.glade.h:1
-msgid "<b><span foreground=\"red\">ERROR</span></b>"
-msgstr ""
-
-#: ui/detail.glade.h:2
-msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr "<big><b>Insérer le nom de la machine et son adresse MAC</b></big>"
-
-#: ui/detail.glade.h:3
-msgid "_Machine name:"
-msgstr "Nom de la _machine:"
-
-#: ui/detail.glade.h:4
-msgid "MAC _Address:"
-msgstr "_Adresse MAC:"
-
-#: ui/detail.glade.h:5
-msgid "_UDP port number:"
-msgstr "Numéro porte _UDP:"
-
-#: ui/detail.glade.h:6
-msgid "Request type:"
-msgstr "Type de requête:"
-
-#: ui/detail.glade.h:7
-msgid "_Local (broadcast)"
-msgstr "_Local (diffusion)"
-
-#: ui/detail.glade.h:8
-msgid "_Internet"
-msgstr "_Internet"
-
-#: ui/detail.glade.h:9
-msgid "_Destination host:"
-msgstr "Hôte de _destination:"
-
-#: ui/main.glade.h:1
-msgid "Turn on"
-msgstr ""
-
-#: ui/main.glade.h:2 gwakeonlan/detail.py:70
-msgid "Add machine"
-msgstr "Ajouter"
-
-#: ui/main.glade.h:3
-msgid "Detect from ARP cache"
-msgstr ""
-
-#: ui/main.glade.h:4
-msgid "Import machines from ethers file"
-msgstr ""
-
-#: ui/main.glade.h:5
-msgid "Import from ethers file"
-msgstr ""
-
-#: ui/main.glade.h:6 gwakeonlan/detail.py:69
-msgid "Edit machine"
-msgstr "Éditer"
-
-#: ui/main.glade.h:7 gwakeonlan/ui.py:182
-msgid "Delete machine"
-msgstr "Effacer"
-
-#: ui/main.glade.h:8
-msgid "About"
-msgstr "À propos"
-
-#: ui/main.glade.h:9
-msgid "Machine name"
-msgstr "Nom de la machine"
-
-#: ui/main.glade.h:10
-msgid "MAC address"
-msgstr "Adresse MAC"
-
-#: ui/main.glade.h:11
-msgid "Request type"
-msgstr "Type de requête"
-
-#: ui/main.glade.h:12
-msgid "Destination"
-msgstr "Destination"
-
-#: ui/main.glade.h:13
-msgid "Port NR"
-msgstr "Porte NR"
-
-#: gwakeonlan/about.py:56
+#: gwakeonlan/ui/about.py:69
 msgid "Contributors:"
 msgstr ""
 
-#: gwakeonlan/arpcache.py:42
+#: gwakeonlan/ui/arpcache.py:43
 msgid "Pick a host from the ARP cache"
 msgstr ""
 
-#: gwakeonlan/detail.py:78
+#: gwakeonlan/ui/detail.py:55 ui/main.ui:105 ui/main.ui:106
+msgid "Edit machine"
+msgstr "Éditer"
+
+#: gwakeonlan/ui/detail.py:57 ui/main.ui:65 ui/main.ui:66
+msgid "Add machine"
+msgstr "Ajouter"
+
+#: gwakeonlan/ui/detail.py:65
 msgid "Missing machine name"
 msgstr "Nom de la machine manquant"
 
-#: gwakeonlan/detail.py:82
+#: gwakeonlan/ui/detail.py:69
 msgid "Invalid MAC address"
 msgstr "Adresse MAC pas valide"
 
-#: gwakeonlan/detail.py:86
+#: gwakeonlan/ui/detail.py:73
 msgid "Invalid destination host"
 msgstr "Hôte de destination pas valide"
 
-#: gwakeonlan/ui.py:181
+#: gwakeonlan/ui/main.py:191
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Êtes-vous sûr de vouloir supprimer la machine sélectionnée?"
+
+#: gwakeonlan/ui/main.py:192 ui/main.ui:120 ui/main.ui:121
+msgid "Delete machine"
+msgstr "Effacer"
+
+#: ui/appmenu.ui:6
+msgid "_About gWakeOnLAN"
+msgstr ""
+
+#: ui/appmenu.ui:13
+msgid "_Quit"
+msgstr ""
+
+#: ui/arpcache.ui:101
+msgid "IP Address"
+msgstr ""
+
+#: ui/arpcache.ui:113
+msgid "Host Name"
+msgstr ""
+
+#: ui/arpcache.ui:125
+msgid "MAC Address"
+msgstr ""
+
+#: ui/detail.ui:29
+msgid "<b><span foreground=\"red\">ERROR</span></b>"
+msgstr ""
+
+#: ui/detail.ui:91
+msgid "<big><b>Insert the machine name and its MAC address</b></big>"
+msgstr "<big><b>Insérer le nom de la machine et son adresse MAC</b></big>"
+
+#: ui/detail.ui:120
+msgid "_Machine name:"
+msgstr "Nom de la _machine:"
+
+#: ui/detail.ui:148
+msgid "MAC _Address:"
+msgstr "_Adresse MAC:"
+
+#: ui/detail.ui:162
+msgid "_UDP port number:"
+msgstr "Numéro porte _UDP:"
+
+#: ui/detail.ui:191
+msgid "Request type:"
+msgstr "Type de requête:"
+
+#: ui/detail.ui:201
+msgid "_Local (broadcast)"
+msgstr "_Local (diffusion)"
+
+#: ui/detail.ui:218
+msgid "_Internet"
+msgstr "_Internet"
+
+#: ui/detail.ui:240
+msgid "_Destination host:"
+msgstr "Hôte de _destination:"
+
+#: ui/main.ui:40 ui/main.ui:42
+msgid "Turn on"
+msgstr ""
+
+#: ui/main.ui:78 ui/main.ui:79
+msgid "Detect from ARP cache"
+msgstr ""
+
+#: ui/main.ui:87
+msgid "Import machines from ethers file"
+msgstr ""
+
+#: ui/main.ui:88
+msgid "Import from ethers file"
+msgstr ""
+
+#: ui/main.ui:146 ui/main.ui:147
+msgid "About"
+msgstr "À propos"
+
+#: ui/main.ui:194
+msgid "Machine name"
+msgstr "Nom de la machine"
+
+#: ui/main.ui:207
+msgid "MAC address"
+msgstr "Adresse MAC"
+
+#: ui/main.ui:220
+msgid "Request type"
+msgstr "Type de requête"
+
+#: ui/main.ui:233
+msgid "Destination"
+msgstr "Destination"
+
+#: ui/main.ui:246
+msgid "Port NR"
+msgstr "Porte NR"

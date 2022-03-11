@@ -34,7 +34,8 @@ from gwakeonlan.constants import (APP_NAME,
                                   APP_AUTHOR_EMAIL,
                                   APP_URL,
                                   APP_DESCRIPTION,
-                                  DOMAIN_NAME)
+                                  DOMAIN_NAME,
+                                  SOURCES_URL)
 
 
 class Install_Scripts(setuptools.command.install_scripts.install_scripts):
@@ -128,9 +129,8 @@ class Command_CreatePOT(setuptools.Command):
                                   f'--output={path_pot}',
                                   '--add-location',
                                   f'--package-name={APP_NAME}',
-                                  f'--package-version={APP_VERSION}',
                                   f'--copyright-holder={APP_AUTHOR}',
-                                  f'--msgid-bugs-address={APP_AUTHOR_EMAIL}'),
+                                  f'--msgid-bugs-address={SOURCES_URL}/issues'),
                                  list_files_process),
             cwd=self.path_base)
 

@@ -1,147 +1,164 @@
-# gWakeOnLan
+# gWakeOnLAN
 # Wake up your machines using Wake on LAN.
 # Copyright (C) 2009-2022 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 # Website: https://www.muflone.com/gwakeonlan/
-# This file is distributed under the same license of gWakeOnLan.
-# Portoguese Brazilian translation for gWakeOnLan
-# 
+# This file is distributed under the same license of gWakeOnLAN.
+# Portoguese Brazilian translation for gWakeOnLAN
+#
 # Translators:
 # ricardomourabraga <ricardomourabraga(at)gmail.com>, 2011
 # Amilton Pereira Cavalcante <amiltonpc(at)gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: gWakeOnLan\n"
+"Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2015-07-18 17:54+0200\n"
+"POT-Creation-Date: 2022-03-11 01:18+0100\n"
 "PO-Revision-Date: 2017-09-22 11:55+0000\n"
 "Last-Translator: Amilton Pereira Cavalcante <amiltonpc(at)gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/p/gwakeonlan/)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ui/arpcache.glade.h:1
-msgid "IP Address"
-msgstr "Endereço IP"
-
-#: ui/arpcache.glade.h:2
-msgid "Host Name"
-msgstr "Nome do host"
-
-#: ui/arpcache.glade.h:3
-msgid "MAC Address"
-msgstr "Endereço MAC"
-
-#: ui/detail.glade.h:1
-msgid "<b><span foreground=\"red\">ERROR</span></b>"
-msgstr "<b><span foreground=\"red\">ERRO</span></b>"
-
-#: ui/detail.glade.h:2
-msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr "<big><b>Insira o nome do PC e seu endereço MAC</b></big>"
-
-#: ui/detail.glade.h:3
-msgid "_Machine name:"
-msgstr "_PC nome:"
-
-#: ui/detail.glade.h:4
-msgid "MAC _Address:"
-msgstr "MAC _Address:"
-
-#: ui/detail.glade.h:5
-msgid "_UDP port number:"
-msgstr "_Número Porta UDP:"
-
-#: ui/detail.glade.h:6
-msgid "Request type:"
-msgstr "Tipo de requisição:"
-
-#: ui/detail.glade.h:7
-msgid "_Local (broadcast)"
-msgstr "_Local (broadcast)"
-
-#: ui/detail.glade.h:8
-msgid "_Internet"
-msgstr "_Internet"
-
-#: ui/detail.glade.h:9
-msgid "_Destination host:"
-msgstr "_PC Destino:"
-
-#: ui/main.glade.h:1
-msgid "Turn on"
-msgstr "Ligar"
-
-#: ui/main.glade.h:2 gwakeonlan/detail.py:70
-msgid "Add machine"
-msgstr "Adicionar PC"
-
-#: ui/main.glade.h:3
-msgid "Detect from ARP cache"
-msgstr "Detectar a partir do chache ARP"
-
-#: ui/main.glade.h:4
-msgid "Import machines from ethers file"
+#: gwakeonlan/ui/about.py:57
+#, python-brace-format
+msgid "Version {VERSION}"
 msgstr ""
 
-#: ui/main.glade.h:5
-msgid "Import from ethers file"
+#: gwakeonlan/ui/about.py:60
+msgid "Wake up your machines using Wake on LAN."
 msgstr ""
 
-#: ui/main.glade.h:6 gwakeonlan/detail.py:69
-msgid "Edit machine"
-msgstr "Edita PC"
-
-#: ui/main.glade.h:7 gwakeonlan/ui.py:182
-msgid "Delete machine"
-msgstr "Deleta PC"
-
-#: ui/main.glade.h:8
-msgid "About"
-msgstr "Sobre"
-
-#: ui/main.glade.h:9
-msgid "Machine name"
-msgstr "Nome PC"
-
-#: ui/main.glade.h:10
-msgid "MAC address"
-msgstr "Endereço MAC"
-
-#: ui/main.glade.h:11
-msgid "Request type"
-msgstr "Tipo de requisição"
-
-#: ui/main.glade.h:12
-msgid "Destination"
-msgstr "Destino"
-
-#: ui/main.glade.h:13
-msgid "Port NR"
-msgstr "Porta NR"
-
-#: gwakeonlan/about.py:56
+#: gwakeonlan/ui/about.py:69
 msgid "Contributors:"
 msgstr "Contribuidores:"
 
-#: gwakeonlan/arpcache.py:42
+#: gwakeonlan/ui/arpcache.py:43
 msgid "Pick a host from the ARP cache"
 msgstr "Escolher um PC a pratir do cache ARP"
 
-#: gwakeonlan/detail.py:78
+#: gwakeonlan/ui/detail.py:55 ui/main.ui:105 ui/main.ui:106
+msgid "Edit machine"
+msgstr "Edita PC"
+
+#: gwakeonlan/ui/detail.py:57 ui/main.ui:65 ui/main.ui:66
+msgid "Add machine"
+msgstr "Adicionar PC"
+
+#: gwakeonlan/ui/detail.py:65
 msgid "Missing machine name"
 msgstr "PC sem nome"
 
-#: gwakeonlan/detail.py:82
+#: gwakeonlan/ui/detail.py:69
 msgid "Invalid MAC address"
 msgstr "Endereço MAC Inválido"
 
-#: gwakeonlan/detail.py:86
+#: gwakeonlan/ui/detail.py:73
 msgid "Invalid destination host"
 msgstr "PC de destino inválido "
 
-#: gwakeonlan/ui.py:181
+#: gwakeonlan/ui/main.py:191
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Tem certeza que deseja remover o PC selecionado?"
+
+#: gwakeonlan/ui/main.py:192 ui/main.ui:120 ui/main.ui:121
+msgid "Delete machine"
+msgstr "Deleta PC"
+
+#: ui/appmenu.ui:6
+msgid "_About gWakeOnLAN"
+msgstr ""
+
+#: ui/appmenu.ui:13
+msgid "_Quit"
+msgstr ""
+
+#: ui/arpcache.ui:101
+msgid "IP Address"
+msgstr "Endereço IP"
+
+#: ui/arpcache.ui:113
+msgid "Host Name"
+msgstr "Nome do host"
+
+#: ui/arpcache.ui:125
+msgid "MAC Address"
+msgstr "Endereço MAC"
+
+#: ui/detail.ui:29
+msgid "<b><span foreground=\"red\">ERROR</span></b>"
+msgstr "<b><span foreground=\"red\">ERRO</span></b>"
+
+#: ui/detail.ui:91
+msgid "<big><b>Insert the machine name and its MAC address</b></big>"
+msgstr "<big><b>Insira o nome do PC e seu endereço MAC</b></big>"
+
+#: ui/detail.ui:120
+msgid "_Machine name:"
+msgstr "_PC nome:"
+
+#: ui/detail.ui:148
+msgid "MAC _Address:"
+msgstr "MAC _Address:"
+
+#: ui/detail.ui:162
+msgid "_UDP port number:"
+msgstr "_Número Porta UDP:"
+
+#: ui/detail.ui:191
+msgid "Request type:"
+msgstr "Tipo de requisição:"
+
+#: ui/detail.ui:201
+msgid "_Local (broadcast)"
+msgstr "_Local (broadcast)"
+
+#: ui/detail.ui:218
+msgid "_Internet"
+msgstr "_Internet"
+
+#: ui/detail.ui:240
+msgid "_Destination host:"
+msgstr "_PC Destino:"
+
+#: ui/main.ui:40 ui/main.ui:42
+msgid "Turn on"
+msgstr "Ligar"
+
+#: ui/main.ui:78 ui/main.ui:79
+msgid "Detect from ARP cache"
+msgstr "Detectar a partir do chache ARP"
+
+#: ui/main.ui:87
+msgid "Import machines from ethers file"
+msgstr ""
+
+#: ui/main.ui:88
+msgid "Import from ethers file"
+msgstr ""
+
+#: ui/main.ui:146 ui/main.ui:147
+msgid "About"
+msgstr "Sobre"
+
+#: ui/main.ui:194
+msgid "Machine name"
+msgstr "Nome PC"
+
+#: ui/main.ui:207
+msgid "MAC address"
+msgstr "Endereço MAC"
+
+#: ui/main.ui:220
+msgid "Request type"
+msgstr "Tipo de requisição"
+
+#: ui/main.ui:233
+msgid "Destination"
+msgstr "Destino"
+
+#: ui/main.ui:246
+msgid "Port NR"
+msgstr "Porta NR"

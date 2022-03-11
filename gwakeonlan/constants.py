@@ -33,6 +33,7 @@ APP_URL = 'https://www.muflone.com/gwakeonlan'
 APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'muflone@muflone.com'
 APP_COPYRIGHT = 'Copyright 2009-2022 %s' % APP_AUTHOR
+SOURCES_URL = 'https://github.com/muflone/gwakeonlan'
 # Other constants
 DEFAULT_UDP_PORT = 9
 BROADCAST_ADDRESS = '255.255.255.255'
