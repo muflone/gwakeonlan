@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-03-11 01:18+0100\n"
+"POT-Creation-Date: 2022-03-12 21:25+0100\n"
 "PO-Revision-Date: 2017-10-06 14:56+0000\n"
 "Last-Translator: Ian Snyder <guswogjs499(at)outlook.kr>\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/p/gwakeonlan/)\n"
@@ -58,11 +58,11 @@ msgstr "올바르지 않은 MAC 주소"
 msgid "Invalid destination host"
 msgstr "올바르지 않은 도착지 호스트"
 
-#: gwakeonlan/ui/main.py:191
+#: gwakeonlan/ui/main.py:193
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "정말로 선택된 이 장치를 제거하시겠습니까?"
 
-#: gwakeonlan/ui/main.py:192 ui/main.ui:120 ui/main.ui:121
+#: gwakeonlan/ui/main.py:194 ui/main.ui:120 ui/main.ui:121
 msgid "Delete machine"
 msgstr "장치 제거"
 

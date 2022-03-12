@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-03-11 01:18+0100\n"
+"POT-Creation-Date: 2022-03-12 21:25+0100\n"
 "PO-Revision-Date: 2020-02-13 13:31+0000\n"
 "Last-Translator: Сергей Богатов <hsh(at)runtu.org>\n"
 "Language-Team: Russian (https://www.transifex.com/p/gwakeonlan/)\n"
@@ -58,11 +58,11 @@ msgstr "Неверный MAC адрес"
 msgid "Invalid destination host"
 msgstr "Неверное расположение"
 
-#: gwakeonlan/ui/main.py:191
+#: gwakeonlan/ui/main.py:193
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Удалить выбранный компьютер из списка?"
 
-#: gwakeonlan/ui/main.py:192 ui/main.ui:120 ui/main.ui:121
+#: gwakeonlan/ui/main.py:194 ui/main.ui:120 ui/main.ui:121
 msgid "Delete machine"
 msgstr "Удалить"
 

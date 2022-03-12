@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-03-11 01:18+0100\n"
+"POT-Creation-Date: 2022-03-12 21:25+0100\n"
 "PO-Revision-Date: 2015-07-20 00:57+0000\n"
 "Last-Translator: Adolfo Jayme-Barrientos\n"
 "Language-Team: Spanish (https://www.transifex.com/p/gwakeonlan/)\n"
@@ -60,11 +60,11 @@ msgstr "La dirección MAC no es válida"
 msgid "Invalid destination host"
 msgstr "El equipo de destino no es válido"
 
-#: gwakeonlan/ui/main.py:191
+#: gwakeonlan/ui/main.py:193
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "¿Confirma que quiere eliminar el equipo seleccionado?"
 
-#: gwakeonlan/ui/main.py:192 ui/main.ui:120 ui/main.ui:121
+#: gwakeonlan/ui/main.py:194 ui/main.ui:120 ui/main.ui:121
 msgid "Delete machine"
 msgstr "Eliminar equipo"
 
