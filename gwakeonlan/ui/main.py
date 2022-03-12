@@ -123,7 +123,8 @@ class MainWindow(object):
 
     def on_button_edit_clicked(self, widget):
         """Edit the selected machine"""
-        if treeiter := get_treeview_selected_row(self.ui.treeview_machines):
+        treeiter = get_treeview_selected_row(self.ui.treeview_machines)
+        if treeiter:
             self.detail.load_data(
                 self.model.get_machine_name(treeiter),
                 self.model.get_mac_address(treeiter),
@@ -184,7 +185,8 @@ class MainWindow(object):
 
     def on_button_delete_clicked(self, widget):
         """Delete the selected machine"""
-        if treeiter := get_treeview_selected_row(self.ui.treeview_machines):
+        treeiter = get_treeview_selected_row(self.ui.treeview_machines)
+        if treeiter:
             # Ask confirmation to delete the selected machine
             if show_message_dialog_yesno(
                 self.ui.window,

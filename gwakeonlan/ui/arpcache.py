@@ -72,15 +72,18 @@ class UIArpCache(object):
 
     def get_ip_address(self):
         """Returns the IP address of the selected row"""
-        if treeiter := get_treeview_selected_row(self.ui.treeview_hosts):
+        treeiter = get_treeview_selected_row(self.ui.treeview_hosts)
+        if treeiter:
             return self.model.get_ip_address(treeiter)
 
     def get_hostname(self):
         """Returns the hostname of the selected row"""
-        if treeiter := get_treeview_selected_row(self.ui.treeview_hosts):
+        treeiter = get_treeview_selected_row(self.ui.treeview_hosts)
+        if treeiter:
             return self.model.get_hostname(treeiter)
 
     def get_mac_address(self):
         """Returns the MAC address of the selected row"""
-        if treeiter := get_treeview_selected_row(self.ui.treeview_hosts):
+        treeiter = get_treeview_selected_row(self.ui.treeview_hosts)
+        if treeiter:
             return self.model.get_mac_address(treeiter)
