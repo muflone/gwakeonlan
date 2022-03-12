@@ -74,7 +74,7 @@ class MainWindow(object):
         """Load the UI for the main window"""
         # Load the user interface
         self.ui = GtkBuilderLoader(get_ui_file('main.ui'))
-        self.model = ModelMachines(self.ui.store_machines)
+        self.model = ModelMachines(self.ui.model)
         # Set various properties
         self.ui.window.set_title(APP_NAME)
         self.ui.window.set_icon_from_file(str(FILE_ICON))
