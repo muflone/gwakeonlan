@@ -39,6 +39,7 @@ from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.import_ethers import ImportEthers
 from gwakeonlan.settings import Settings
 
+from gwakeonlan.models.machine_info import MachineInfo
 from gwakeonlan.models.machines import ModelMachines
 
 from gwakeonlan.ui.about import UIAbout
@@ -112,12 +113,12 @@ class MainWindow(object):
                               destination=BROADCAST_ADDRESS)
         # Check if the OK button in the dialog was pressed
         if self.detail.show() == Gtk.ResponseType.OK:
-            self.model.add_machine(
-                selected=False,
-                machine_name=self.detail.get_machine_name(),
-                mac_address=self.detail.get_mac_address(),
-                port_number=self.detail.get_port_number(),
-                destination=self.detail.get_destination())
+            self.model.add_data(
+                MachineInfo(
+                    name=self.detail.get_machine_name(),
+                    mac_address=self.detail.get_mac_address(),
+                    port_number=self.detail.get_port_number(),
+                    destination=self.detail.get_destination()))
             # Automatically select the last inserted item
             self.ui.treeview_machines.set_cursor(self.model.count() - 1)
 
@@ -151,12 +152,11 @@ class MainWindow(object):
             # Check if a valid machine with MAC Address was selected
             if dialog.get_mac_address():
                 # Add the machine to the model from the ARP cache
-                self.model.add_machine(
-                    selected=False,
-                    machine_name=dialog.get_ip_address(),
-                    mac_address=dialog.get_mac_address(),
-                    port_number=DEFAULT_UDP_PORT,
-                    destination=BROADCAST_ADDRESS)
+                self.model.add_data(
+                    MachineInfo(name=dialog.get_ip_address(),
+                                mac_address=dialog.get_mac_address(),
+                                port_number=DEFAULT_UDP_PORT,
+                                destination=BROADCAST_ADDRESS))
                 # Select the last machine and edit its details
                 self.ui.treeview_machines.set_cursor(self.model.count() - 1)
                 self.ui.button_edit.emit('clicked')
@@ -179,8 +179,8 @@ class MainWindow(object):
         response = dialog.run()
         if response == Gtk.ResponseType.OK:
             importer = ImportEthers(BROADCAST_ADDRESS)
-            importer.import_file(dialog.get_filename(),
-                                 self.model.add_machine)
+            importer.import_file(filepath=dialog.get_filename(),
+                                 model=self.model)
         dialog.destroy()
 
     def on_button_delete_clicked(self, widget):

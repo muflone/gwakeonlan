@@ -23,23 +23,25 @@ import re
 
 from gwakeonlan.constants import BROADCAST_ADDRESS, DEFAULT_UDP_PORT
 
+from gwakeonlan.models.machine_info import MachineInfo
+
 
 class ImportEthers(object):
-
     def __init__(self, import_l3_dest=BROADCAST_ADDRESS):
         self.import_l3_dest = import_l3_dest
 
-    def import_file(self, filepath, add_function):
+    def import_file(self, filepath, model):
         with open(filepath, 'r') as import_fh:
             for line in import_fh:
                 if re.match(r'(?:#|\s*$)', line):
                     continue
                 mac_address, machine_name = line.split()
-
-                add_function(
-                    False,
-                    machine_name,
-                    mac_address,
-                    DEFAULT_UDP_PORT,
-                    self.import_l3_dest,
-                )
+                model.add_data(MachineInfo(
+                    name=machine_name,
+                    mac_address=(mac_address
+                                 .replace('.', ':')
+                                 .replace(' ', ':')
+                                 .replace('-', ':')),
+                    port_number=DEFAULT_UDP_PORT,
+                    destination=self.import_l3_dest
+                ))
