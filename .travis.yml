@@ -7,7 +7,6 @@ virtualenv:
 script:
   - python -m compileall .
   - flake8 .
-  - mkdir build dist
   - python setup.py install --optimize=1 --root=build
   - ls -laR build
   - python3 gwakeonlan.py --verbose --autotest
