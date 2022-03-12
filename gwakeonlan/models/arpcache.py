@@ -25,12 +25,24 @@ import socket
 from gwakeonlan.constants import FILE_ARP_CACHE
 
 from gwakeonlan.models.abstract import ModelAbstract
+from gwakeonlan.models.arpcache_item import ArpCacheItem
 
 
 class ModelArpCache(ModelAbstract):
     COL_IPADDRESS = 0
     COL_MACADDRESS = 1
     COL_HOSTNAME = 2
+
+    def add_data(self, item):
+        """Add a new row to the model if it doesn't exist"""
+        super(self.__class__, self).add_data(item)
+        if item.ip_address not in self.rows:
+            new_row = self.model.append((
+                item.ip_address,
+                item.mac_address.upper(),
+                item.hostname
+            ))
+            self.rows[item.ip_address] = new_row
 
     def refresh(self):
         """Clear the model and reload all the hosts from the ARP cache file"""
@@ -55,8 +67,11 @@ class ModelArpCache(ModelAbstract):
                                 detected_hostname = ''
                             logging.info('discovered %s with address %s' % (
                                 arp_ip, arp_mac))
-                            self.model.append(
-                                [arp_ip, arp_mac, detected_hostname])
+                            self.add_data(ArpCacheItem(
+                                ip_address=arp_ip,
+                                mac_address=arp_mac,
+                                hostname=detected_hostname
+                            ))
                 arpf.close()
             except (FileNotFoundError, PermissionError):
                 logging.error('unable to read %s' % FILE_ARP_CACHE)
