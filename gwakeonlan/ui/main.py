@@ -39,7 +39,7 @@ from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.import_ethers import ImportEthers
 from gwakeonlan.settings import Settings
 
-from gwakeonlan.models.machine_info import MachineInfo
+from gwakeonlan.models.machine_item import MachineItem
 from gwakeonlan.models.machines import ModelMachines
 
 from gwakeonlan.ui.about import UIAbout
@@ -114,7 +114,7 @@ class MainWindow(object):
         # Check if the OK button in the dialog was pressed
         if self.detail.show() == Gtk.ResponseType.OK:
             self.model.add_data(
-                MachineInfo(
+                MachineItem(
                     name=self.detail.get_machine_name(),
                     mac_address=self.detail.get_mac_address(),
                     port_number=self.detail.get_port_number(),
@@ -153,7 +153,7 @@ class MainWindow(object):
             if dialog.get_mac_address():
                 # Add the machine to the model from the ARP cache
                 self.model.add_data(
-                    MachineInfo(name=dialog.get_ip_address(),
+                    MachineItem(name=dialog.get_ip_address(),
                                 mac_address=dialog.get_mac_address(),
                                 port_number=DEFAULT_UDP_PORT,
                                 destination=BROADCAST_ADDRESS))

@@ -24,7 +24,7 @@ import logging
 from gwakeonlan.constants import BROADCAST_ADDRESS, DEFAULT_UDP_PORT
 from gwakeonlan.functions import format_mac_address
 
-from gwakeonlan.models.machine_info import MachineInfo
+from gwakeonlan.models.machine_item import MachineItem
 
 POSITION_LEFT = 'left'
 POSITION_TOP = 'top'
@@ -165,7 +165,7 @@ class Settings(object):
                     machine.append(DEFAULT_UDP_PORT)
                 # Add the machine to the model
                 self.model.add_data(
-                    MachineInfo(name=machine[0],
+                    MachineItem(name=machine[0],
                                 mac_address=format_mac_address(machine[1]),
                                 port_number=int(machine[3]),
                                 destination=machine[2]))

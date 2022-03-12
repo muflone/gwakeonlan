@@ -18,7 +18,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-class MachineInfo(object):
+class MachineItem(object):
     def __init__(self, name, mac_address, port_number, destination):
         self.name = name
         self.mac_address = mac_address

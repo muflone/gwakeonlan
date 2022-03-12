@@ -23,7 +23,7 @@ import re
 
 from gwakeonlan.constants import BROADCAST_ADDRESS, DEFAULT_UDP_PORT
 
-from gwakeonlan.models.machine_info import MachineInfo
+from gwakeonlan.models.machine_item import MachineItem
 
 
 class ImportEthers(object):
@@ -36,7 +36,7 @@ class ImportEthers(object):
                 if re.match(r'(?:#|\s*$)', line):
                     continue
                 mac_address, machine_name = line.split()
-                model.add_data(MachineInfo(
+                model.add_data(MachineItem(
                     name=machine_name,
                     mac_address=(mac_address
                                  .replace('.', ':')
