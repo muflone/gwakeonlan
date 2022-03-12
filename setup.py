@@ -207,7 +207,9 @@ setuptools.setup(
     description=APP_DESCRIPTION,
     license='GPL v3',
     scripts=['gwakeonlan.py'],
-    packages=['gwakeonlan'],
+    packages=['gwakeonlan',
+              'gwakeonlan.models',
+              'gwakeonlan.ui'],
     data_files=[
         (f'share/{DOMAIN_NAME}/data',
             ['data/gwakeonlan.png']),
