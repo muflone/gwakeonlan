@@ -44,7 +44,7 @@ msgstr "Modifica"
 
 #: gwakeonlan/ui/detail.py:57 ui/main.ui:65 ui/main.ui:66
 msgid "Add machine"
-msgstr "Aggiungi"
+msgstr "Aggiungi macchina"
 
 #: gwakeonlan/ui/detail.py:65
 msgid "Missing machine name"
@@ -64,7 +64,7 @@ msgstr "Sicuro di voler eliminare la macchina selezionata?"
 
 #: gwakeonlan/ui/main.py:192 ui/main.ui:120 ui/main.ui:121
 msgid "Delete machine"
-msgstr "Elimina"
+msgstr "Elimina macchina"
 
 #: ui/appmenu.ui:6
 msgid "_About gWakeOnLAN"
