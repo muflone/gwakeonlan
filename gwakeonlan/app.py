@@ -25,7 +25,7 @@ from gwakeonlan.constants import APP_ID
 from gwakeonlan.functions import get_ui_file
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 
-from gwakeonlan.ui.main import MainWindow
+from gwakeonlan.ui.main import UIMain
 
 
 class Application(Gtk.Application):
@@ -38,7 +38,7 @@ class Application(Gtk.Application):
 
     def startup(self, application):
         """Configure the application during the startup"""
-        self.ui = MainWindow(self, self.options)
+        self.ui = UIMain(self, self.options)
         # Add the actions related to the app menu
         action = Gio.SimpleAction(name="about")
         action.connect("activate", self.on_app_about_activate)

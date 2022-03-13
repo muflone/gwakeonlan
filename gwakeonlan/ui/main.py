@@ -50,7 +50,7 @@ from gwakeonlan.ui.shortcuts import UIShortcuts
 SECTION_WINDOW_NAME = 'main window'
 
 
-class MainWindow(object):
+class UIMain(object):
     def __init__(self, application, options):
         """Prepare the main window"""
         self.application = application
