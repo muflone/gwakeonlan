@@ -23,6 +23,7 @@ from gi.repository import Gtk
 
 from gwakeonlan.constants import APP_ID
 from gwakeonlan.functions import get_ui_file
+from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 
 from gwakeonlan.ui.main import MainWindow
 
@@ -42,15 +43,19 @@ class Application(Gtk.Application):
         action = Gio.SimpleAction(name="about")
         action.connect("activate", self.on_app_about_activate)
         self.add_action(action)
-
+        # Add the shortcut action to the app menu
+        # only for GTK+ 3.20.0 and higher
+        if not Gtk.check_version(3, 20, 0):
+            action = Gio.SimpleAction(name="shortcuts")
+            action.connect("activate", self.on_app_shortcuts_activate)
+            self.add_action(action)
+        # Add the quit action to the app menu
         action = Gio.SimpleAction(name="quit")
         action.connect("activate", self.on_app_quit_activate)
         self.add_action(action)
         # Add the app menu
-        builder = Gtk.Builder()
-        builder.add_from_file(get_ui_file('appmenu.ui'))
-        menubar = builder.get_object('app-menu')
-        self.set_app_menu(menubar)
+        builder_appmenu = GtkBuilderLoader(get_ui_file('appmenu.ui'))
+        self.set_app_menu(builder_appmenu.app_menu)
 
     def activate(self, application):
         """Execute the application"""
@@ -59,6 +64,10 @@ class Application(Gtk.Application):
     def on_app_about_activate(self, action, data):
         """Show the about dialog from the app menu"""
         self.ui.on_button_about_clicked(self)
+
+    def on_app_shortcuts_activate(self, action, data):
+        """Show the shortcuts dialog from the app menu"""
+        self.ui.on_button_shortcuts_clicked(action)
 
     def on_app_quit_activate(self, action, data):
         """Quit the application from the app menu"""

@@ -45,6 +45,7 @@ from gwakeonlan.models.machines import ModelMachines
 from gwakeonlan.ui.about import UIAbout
 from gwakeonlan.ui.arpcache import UIArpCache
 from gwakeonlan.ui.detail import UIDetail
+from gwakeonlan.ui.shortcuts import UIShortcuts
 
 SECTION_WINDOW_NAME = 'main window'
 
@@ -98,6 +99,11 @@ class MainWindow(object):
                         options=self.options)
         about.show()
         about.destroy()
+
+    def on_button_shortcuts_clicked(self, action):
+        """Show the shortcuts dialog"""
+        dialog = UIShortcuts(self.ui.window)
+        dialog.show()
 
     def on_cell_selected_toggled(self, renderer, treeIter, data=None):
         """Select or deselect an item"""
