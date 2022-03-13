@@ -42,6 +42,7 @@
                 <property name="label" translatable="yes">Turn on</property>
                 <property name="icon-name">system-run</property>
                 <signal name="clicked" handler="on_button_wake_clicked" swapped="no"/>
+                <accelerator key="Return" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
               </object>
               <packing>
                 <property name="expand">False</property>
