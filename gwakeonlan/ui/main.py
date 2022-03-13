@@ -28,12 +28,12 @@ from gwakeonlan.constants import (FILE_ICON,
                                   BROADCAST_ADDRESS, DEFAULT_UDP_PORT,
                                   FILE_SETTINGS)
 from gwakeonlan.functions import (_,
-                                  text_gtk30,
-                                  show_message_dialog_yesno,
                                   format_mac_address,
-                                  get_ui_file,
                                   get_treeview_selected_row,
+                                  get_ui_file,
                                   process_events,
+                                  show_message_dialog_yesno,
+                                  text_gtk30,
                                   wake_on_lan)
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.import_ethers import ImportEthers
@@ -208,14 +208,14 @@ class UIMain(object):
     def on_button_wake_clicked(self, widget):
         """Launch the Wake On LAN for all the selected machines"""
         selected_count = 0
-        for machine in self.model:
-            if self.model.get_selected(machine):
+        for treeiter in self.model:
+            if self.model.get_selected(treeiter):
                 # If a machine was selected then it will turned on
                 selected_count += 1
                 wake_on_lan(
-                    mac_address=self.model.get_mac_address(machine),
-                    port_number=self.model.get_port_number(machine),
-                    destination=self.model.get_destination(machine))
+                    mac_address=self.model.get_mac_address(treeiter),
+                    port_number=self.model.get_port_number(treeiter),
+                    destination=self.model.get_destination(treeiter))
         if selected_count == 0:
             # When no machines are selected use the currently selected row
             treeiter = get_treeview_selected_row(self.ui.treeview_machines)

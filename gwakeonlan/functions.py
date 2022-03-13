@@ -36,10 +36,38 @@ def format_mac_address(mac):
     return ':'.join([mac[i:i+2] for i in range(0, len(mac), 2)]).upper()
 
 
-def show_message_dialog_yesno(winParent, message, title, default_response):
+def get_treeview_selected_row(widget):
+    """Return the selected row in a GtkTreeView"""
+    return widget.get_selection().get_selected()[1]
+
+
+def get_ui_file(filename):
+    """Return the full path of a Glade/UI file"""
+    return str(DIR_UI / filename)
+
+
+def process_events():
+    """Process every pending GTK+ event"""
+    while Gtk.events_pending():
+        Gtk.main_iteration()
+
+
+def readlines(filename, empty_lines=False):
+    """Read all the lines of a filename, optionally skipping empty lines"""
+    result = []
+    with open(filename) as f:
+        for line in f.readlines():
+            line = line.strip()
+            if line or empty_lines:
+                result.append(line)
+        f.close()
+    return result
+
+
+def show_message_dialog_yesno(parent, message, title, default_response):
     """Show a GtkMessageDialog with yes and no buttons"""
     dialog = Gtk.MessageDialog(
-        parent=winParent,
+        parent=parent,
         flags=Gtk.DialogFlags.MODAL,
         type=Gtk.MessageType.QUESTION,
         buttons=Gtk.ButtonsType.YES_NO,
@@ -51,6 +79,31 @@ def show_message_dialog_yesno(winParent, message, title, default_response):
     response = dialog.run()
     dialog.destroy()
     return response
+
+
+def store_message(message, translated):
+    """Store a translated message in the localized_messages list"""
+    localized_messages[message] = translated
+
+
+def text(message, gtk30=False, context=None):
+    """Return a translated message and cache it for reuse"""
+    if message not in localized_messages:
+        if gtk30:
+            # Get a message translated from GTK+ 3 domain
+            full_message = message if not context else f'{context}\04{message}'
+            localized_messages[message] = dgettext('gtk30', full_message)
+            # Fix for untranslated messages with context
+            if context and localized_messages[message] == full_message:
+                localized_messages[message] = dgettext('gtk30', message)
+        else:
+            localized_messages[message] = gettext(message)
+    return localized_messages[message]
+
+
+def text_gtk30(message, context=None):
+    """Return a translated text from GTK+ 3.0"""
+    return text(message=message, gtk30=True, context=context)
 
 
 def wake_on_lan(mac_address, port_number, destination):
@@ -75,74 +128,6 @@ def wake_on_lan(mac_address, port_number, destination):
         sock.sendto(data, (destination, port_number))
 
 
-def readlines(filename, empty_lines=False):
-    """Read all the lines of a filename, optionally skipping empty lines"""
-    result = []
-    with open(filename) as f:
-        for line in f.readlines():
-            line = line.strip()
-            if line or empty_lines:
-                result.append(line)
-        f.close()
-    return result
-
-
-def process_events():
-    """Process every pending GTK+ event"""
-    while Gtk.events_pending():
-        Gtk.main_iteration()
-
-
-def text(message, gtk30=False, context=None):
-    """Return a translated message and cache it for reuse"""
-    if message not in localized_messages:
-        if gtk30:
-            # Get a message translated from GTK+ 3 domain
-            full_message = message if not context else f'{context}\04{message}'
-            localized_messages[message] = dgettext('gtk30', full_message)
-            # Fix for untranslated messages with context
-            if context and localized_messages[message] == full_message:
-                localized_messages[message] = dgettext('gtk30', message)
-        else:
-            localized_messages[message] = gettext(message)
-    return localized_messages[message]
-
-
-def text_gtk30(message, context=None):
-    """Return a translated text from GTK+ 3.0"""
-    return text(message=message, gtk30=True, context=context)
-
-
-def store_message(message, translated):
-    """Store a translated message in the localized_messages list"""
-    localized_messages[message] = translated
-
-
-def get_ui_file(filename):
-    """Return the full path of a Glade/UI file"""
-    return str(DIR_UI / filename)
-
-
-def get_treeview_selected_row(widget):
-    """Return the selected row in a GtkTreeView"""
-    return widget.get_selection().get_selected()[1]
-
-
 # This special alias is used to track localization requests to catch
 # by xgettext. The text() calls aren't tracked by xgettext
 _ = text
-
-__all__ = [
-    'format_mac_address',
-    'show_message_dialog_yesno',
-    'wake_on_lan',
-    'readlines',
-    'process_events',
-    'text',
-    'text_gtk30',
-    'store_message',
-    'get_ui_file',
-    'localized_messages',
-    'get_treeview_selected_row',
-    '_',
-]

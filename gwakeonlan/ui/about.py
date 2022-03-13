@@ -33,7 +33,9 @@ from gwakeonlan.constants import (APP_AUTHOR,
                                   FILE_LICENSE,
                                   FILE_RESOURCES,
                                   FILE_TRANSLATORS)
-from gwakeonlan.functions import _, get_ui_file, readlines
+from gwakeonlan.functions import (_,
+                                  get_ui_file,
+                                  readlines)
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 
 

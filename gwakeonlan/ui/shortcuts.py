@@ -21,7 +21,8 @@
 from gi.repository import Gtk
 
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
-from gwakeonlan.functions import get_ui_file, text
+from gwakeonlan.functions import (get_ui_file,
+                                  text)
 
 
 class UIShortcuts(object):

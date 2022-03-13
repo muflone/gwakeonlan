@@ -22,7 +22,10 @@ from gi.repository import GLib
 from gi.repository import Gtk
 
 from gwakeonlan.constants import BROADCAST_ADDRESS, FILE_ICON
-from gwakeonlan.functions import _, format_mac_address, get_ui_file, text_gtk30
+from gwakeonlan.functions import (_,
+                                  format_mac_address,
+                                  get_ui_file,
+                                  text_gtk30)
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 
 
