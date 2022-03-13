@@ -80,6 +80,8 @@ class UIMain(object):
         self.ui.window.set_title(APP_NAME)
         self.ui.window.set_icon_from_file(str(FILE_ICON))
         self.ui.window.set_application(self.application)
+        self.ui.button_shortcuts.set_label(text_gtk30('Shortcuts'))
+        self.ui.button_shortcuts.set_tooltip_text(text_gtk30('Shortcuts'))
         # Connect signals from the UI file to the functions with the same name
         self.ui.connect_signals(self)
 
