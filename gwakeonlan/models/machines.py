@@ -29,6 +29,7 @@ class ModelMachines(ModelAbstract):
     COL_REQUESTTYPE = 3
     COL_DESTINATION = 4
     COL_PORTNR = 5
+    COL_ICON = 6
 
     def add_data(self, item):
         """Add a new row to the model if it doesn't exist"""
@@ -42,7 +43,8 @@ class ModelMachines(ModelAbstract):
                 if item.destination == BROADCAST_ADDRESS
                 else 'Internet',
                 item.destination,
-                item.port_number
+                item.port_number,
+                item.icon
             ))
             self.rows[item.name] = new_row
 
@@ -93,3 +95,7 @@ class ModelMachines(ModelAbstract):
     def set_port_number(self, treeiter, value):
         """Set the port number for a TreeIter"""
         self.set_model_data(treeiter, self.__class__.COL_PORTNR, value)
+
+    def set_icon(self, treeiter, value):
+        """Set the background color for a TreeIter"""
+        self.set_model_data(treeiter, self.__class__.COL_ICON, value)

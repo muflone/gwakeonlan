@@ -20,6 +20,7 @@
 
 import time
 
+from gi.repository import GdkPixbuf
 from gi.repository import GLib
 from gi.repository import Gtk
 
@@ -29,6 +30,7 @@ from gwakeonlan.constants import (FILE_ICON,
                                   FILE_SETTINGS)
 from gwakeonlan.functions import (_,
                                   format_mac_address,
+                                  get_pixbuf_from_icon_name,
                                   get_treeview_selected_row,
                                   get_ui_file,
                                   process_events,
@@ -59,8 +61,14 @@ class UIMain(object):
         self.options = options
         self.settings.restore_window_position(window=self.ui.window,
                                               section=SECTION_WINDOW_NAME)
-        self.settings.load_hosts(self.model)
-        self.options = options
+        # Load icons
+        self.icon_empty = GdkPixbuf.Pixbuf.new(GdkPixbuf.Colorspace.RGB,
+                                               True, 8, 24, 24)
+        self.icon_empty.fill(0)
+        self.icon_yes = get_pixbuf_from_icon_name('gtk-yes', 24)
+        # Load hosts
+        self.settings.load_hosts(model=self.model,
+                                 icon=self.icon_empty)
         # Load the others dialogs
         self.detail = UIDetail(self.ui.window, self.settings, options)
         self.detected_addresses = {}
@@ -209,6 +217,8 @@ class UIMain(object):
         """Launch the Wake On LAN for all the selected machines"""
         selected_count = 0
         for treeiter in self.model:
+            self.model.set_icon(treeiter, self.icon_empty)
+        for treeiter in self.model:
             if self.model.get_selected(treeiter):
                 # If a machine was selected then it will turned on
                 selected_count += 1
@@ -216,6 +226,7 @@ class UIMain(object):
                     mac_address=self.model.get_mac_address(treeiter),
                     port_number=self.model.get_port_number(treeiter),
                     destination=self.model.get_destination(treeiter))
+                self.model.set_icon(treeiter, self.icon_yes)
         if selected_count == 0:
             # When no machines are selected use the currently selected row
             treeiter = get_treeview_selected_row(self.ui.treeview_machines)
@@ -224,6 +235,7 @@ class UIMain(object):
                     mac_address=self.model.get_mac_address(treeiter),
                     port_number=self.model.get_port_number(treeiter),
                     destination=self.model.get_destination(treeiter))
+                self.model.set_icon(treeiter, self.icon_yes)
 
     def do_autotests(self):
         """Perform a series of autotests"""

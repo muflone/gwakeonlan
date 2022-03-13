@@ -151,7 +151,7 @@ class Settings(object):
         self.set_int(section, SIZE_WIDTH, size[0])
         self.set_int(section, SIZE_HEIGHT, size[1])
 
-    def load_hosts(self, model):
+    def load_hosts(self, model, icon):
         """Load hosts settings"""
         self.model = model
         if self.config.has_section(SECTION_HOSTS):
@@ -168,7 +168,8 @@ class Settings(object):
                     MachineItem(name=machine[0],
                                 mac_address=format_mac_address(machine[1]),
                                 port_number=int(machine[3]),
-                                destination=machine[2]))
+                                destination=machine[2],
+                                icon=icon))
 
     def save_hosts(self, model):
         """Save hosts settings"""

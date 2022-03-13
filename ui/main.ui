@@ -16,6 +16,8 @@
       <column type="gchararray"/>
       <!-- column-name colPortNR -->
       <column type="gint"/>
+      <!-- column-name colIcon -->
+      <column type="GdkPixbuf"/>
     </columns>
   </object>
   <object class="GtkApplicationWindow" id="window">
@@ -200,6 +202,12 @@
                       </object>
                       <attributes>
                         <attribute name="active">1</attribute>
+                      </attributes>
+                    </child>
+                    <child>
+                      <object class="GtkCellRendererPixbuf" id="cell_icon"/>
+                      <attributes>
+                        <attribute name="pixbuf">6</attribute>
                       </attributes>
                     </child>
                   </object>
