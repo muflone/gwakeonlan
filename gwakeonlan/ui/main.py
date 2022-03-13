@@ -207,13 +207,23 @@ class UIMain(object):
 
     def on_button_wake_clicked(self, widget):
         """Launch the Wake On LAN for all the selected machines"""
+        selected_count = 0
         for machine in self.model:
             if self.model.get_selected(machine):
                 # If a machine was selected then it will turned on
+                selected_count += 1
                 wake_on_lan(
                     mac_address=self.model.get_mac_address(machine),
                     port_number=self.model.get_port_number(machine),
                     destination=self.model.get_destination(machine))
+        if selected_count == 0:
+            # When no machines are selected use the currently selected row
+            treeiter = get_treeview_selected_row(self.ui.treeview_machines)
+            if treeiter:
+                wake_on_lan(
+                    mac_address=self.model.get_mac_address(treeiter),
+                    port_number=self.model.get_port_number(treeiter),
+                    destination=self.model.get_destination(treeiter))
 
     def do_autotests(self):
         """Perform a series of autotests"""
