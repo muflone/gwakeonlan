@@ -20,6 +20,7 @@
 
 import time
 
+from gi.repository import Gdk
 from gi.repository import GdkPixbuf
 from gi.repository import GLib
 from gi.repository import Gtk
@@ -35,6 +36,7 @@ from gwakeonlan.functions import (_,
                                   get_ui_file,
                                   process_events,
                                   show_message_dialog_yesno,
+                                  text,
                                   text_gtk30,
                                   wake_on_lan)
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
@@ -61,6 +63,10 @@ class UIMain(object):
         self.options = options
         self.settings.restore_window_position(window=self.ui.window,
                                               section=SECTION_WINDOW_NAME)
+        # Initialize actions
+        for widget in self.ui.get_objects_by_type(Gtk.Action):
+            # Connect the actions accelerators
+            widget.connect_accelerator()
         # Load icons
         self.icon_empty = GdkPixbuf.Pixbuf.new(GdkPixbuf.Colorspace.RGB,
                                                True, 8, 24, 24)
@@ -84,12 +90,56 @@ class UIMain(object):
         # Load the user interface
         self.ui = GtkBuilderLoader(get_ui_file('main.ui'))
         self.model = ModelMachines(self.ui.model)
+        # Initialize actions
+        for widget in self.ui.get_objects_by_type(Gtk.Action):
+            # Connect the actions accelerators
+            widget.connect_accelerator()
+            # Set labels
+            label = widget.get_label()
+            if not label:
+                label = widget.get_short_label()
+            widget.set_label(text(label))
+            widget.set_short_label(label)
+        # Initialize labels
+        for widget in self.ui.get_objects_by_type(Gtk.Label):
+            widget.set_label(text(widget.get_label()))
+        # Initialize tooltips
+        for widget in self.ui.get_objects_by_type(Gtk.Button):
+            action = widget.get_related_action()
+            if action:
+                widget.set_tooltip_text(action.get_label().replace('_', ''))
+        # Initialize Gtk.HeaderBar
+        self.ui.header_bar.props.title = self.ui.window.get_title()
+        self.ui.window.set_titlebar(self.ui.header_bar)
+        for button in (self.ui.header_button_turnon,
+                       self.ui.header_button_add,
+                       self.ui.header_button_edit,
+                       self.ui.header_button_delete,
+                       self.ui.header_button_shortcuts,
+                       self.ui.header_button_about,
+                       self.ui.header_button_options):
+            action = button.get_related_action()
+            if button in (self.ui.header_button_options, ):
+                icon_size = Gtk.IconSize.BUTTON
+            else:
+                icon_size = Gtk.IconSize.LARGE_TOOLBAR
+            button.set_image(Gtk.Image.new_from_icon_name(
+                icon_name=action.get_icon_name(),
+                size=icon_size))
+            if not action.get_is_important():
+                # Remove the button label
+                button.props.label = None
+            # Set the tooltip from the action label
+            button.set_tooltip_text(action.get_label().replace('_', ''))
+        # Set buttons with always show image
+        for button in (self.ui.header_button_turnon, ):
+            button.set_always_show_image(True)
         # Set various properties
         self.ui.window.set_title(APP_NAME)
         self.ui.window.set_icon_from_file(str(FILE_ICON))
         self.ui.window.set_application(self.application)
-        self.ui.button_shortcuts.set_label(text_gtk30('Shortcuts'))
-        self.ui.button_shortcuts.set_tooltip_text(text_gtk30('Shortcuts'))
+        self.ui.action_shortcuts.set_label(text_gtk30('Shortcuts'))
+        self.ui.action_shortcuts.set_tooltip(text_gtk30('Shortcuts'))
         # Connect signals from the UI file to the functions with the same name
         self.ui.connect_signals(self)
 
@@ -102,7 +152,7 @@ class UIMain(object):
         self.ui.window.destroy()
         self.application.quit()
 
-    def on_button_about_clicked(self, widget):
+    def on_action_about_activate(self, widget):
         """Show the about dialog"""
         about = UIAbout(parent=self.ui.window,
                         settings=self.settings,
@@ -110,7 +160,7 @@ class UIMain(object):
         about.show()
         about.destroy()
 
-    def on_button_shortcuts_clicked(self, action):
+    def on_action_shortcuts_activate(self, action):
         """Show the shortcuts dialog"""
         dialog = UIShortcuts(self.ui.window)
         dialog.show()
@@ -121,7 +171,7 @@ class UIMain(object):
             treeIter,
             not self.model.get_selected(treeIter))
 
-    def on_button_add_clicked(self, widget):
+    def on_action_add_activate(self, widget):
         """Add a new empty machine"""
         self.detail.load_data(machine_name='',
                               mac_address='',
@@ -138,7 +188,7 @@ class UIMain(object):
             # Automatically select the last inserted item
             self.ui.treeview_machines.set_cursor(self.model.count() - 1)
 
-    def on_button_edit_clicked(self, widget):
+    def on_action_edit_activate(self, widget):
         """Edit the selected machine"""
         treeiter = get_treeview_selected_row(self.ui.treeview_machines)
         if treeiter:
@@ -158,7 +208,7 @@ class UIMain(object):
                 self.model.set_destination(treeiter,
                                            self.detail.get_destination())
 
-    def on_menuitem_arp_cache_activate(self, widget):
+    def on_action_import_arp_cache_activate(self, widget):
         """Show the ARP cache picker dialog"""
         dialog = UIArpCache(parent=self.ui.window,
                             settings=self.settings,
@@ -175,15 +225,15 @@ class UIMain(object):
                                 destination=BROADCAST_ADDRESS))
                 # Select the last machine and edit its details
                 self.ui.treeview_machines.set_cursor(self.model.count() - 1)
-                self.ui.button_edit.emit('clicked')
+                self.ui.action_edit.emit('activate')
         # Destroy the dialog
         dialog.destroy()
 
     def on_treeview_machines_row_activated(self, widget, path, column):
         """The double click on a row acts as the Edit machine button"""
-        self.ui.button_edit.emit('clicked')
+        self.ui.action_edit.emit('activate')
 
-    def on_menuitem_import_ethers_activate(self, widget):
+    def on_action_import_ethers_activate(self, widget):
         """Show the Ethers file importer"""
         dialog = Gtk.FileChooserDialog(
             text_gtk30("Select a File"),
@@ -199,7 +249,7 @@ class UIMain(object):
                                  model=self.model)
         dialog.destroy()
 
-    def on_button_delete_clicked(self, widget):
+    def on_action_delete_activate(self, widget):
         """Delete the selected machine"""
         treeiter = get_treeview_selected_row(self.ui.treeview_machines)
         if treeiter:
@@ -213,7 +263,7 @@ class UIMain(object):
                 # Delete the selected machine
                 self.model.remove(treeiter)
 
-    def on_button_wake_clicked(self, widget):
+    def on_action_turnon_activate(self, widget):
         """Launch the Wake On LAN for all the selected machines"""
         selected_count = 0
         for treeiter in self.model:
@@ -241,7 +291,7 @@ class UIMain(object):
         """Perform a series of autotests"""
         # Show the about dialog
         for i in range(3):
-            self.on_button_about_clicked(None)
+            self.ui.action_about.emit('activate')
             process_events()
             time.sleep(0.2)
         # Show the add host dialog
@@ -254,7 +304,7 @@ class UIMain(object):
             time.sleep(0.2)
         # Show the ARP cache dialog
         for i in range(3):
-            self.on_menuitem_arp_cache_activate(None)
+            self.ui.action_import_arp_cache.emit('activate')
             process_events()
             time.sleep(0.2)
         process_events()
