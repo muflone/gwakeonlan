@@ -111,15 +111,15 @@ class UIMain(object):
         # Initialize Gtk.HeaderBar
         self.ui.header_bar.props.title = self.ui.window.get_title()
         self.ui.window.set_titlebar(self.ui.header_bar)
-        for button in (self.ui.header_button_turnon,
-                       self.ui.header_button_add,
-                       self.ui.header_button_edit,
-                       self.ui.header_button_delete,
-                       self.ui.header_button_shortcuts,
-                       self.ui.header_button_about,
-                       self.ui.header_button_options):
+        for button in (self.ui.button_turnon,
+                       self.ui.button_add,
+                       self.ui.button_edit,
+                       self.ui.button_delete,
+                       self.ui.button_shortcuts,
+                       self.ui.button_about,
+                       self.ui.button_options):
             action = button.get_related_action()
-            if button in (self.ui.header_button_options, ):
+            if button in (self.ui.button_options, ):
                 icon_size = Gtk.IconSize.BUTTON
             else:
                 icon_size = Gtk.IconSize.LARGE_TOOLBAR
@@ -132,7 +132,7 @@ class UIMain(object):
             # Set the tooltip from the action label
             button.set_tooltip_text(action.get_label().replace('_', ''))
         # Set buttons with always show image
-        for button in (self.ui.header_button_turnon, ):
+        for button in (self.ui.button_turnon, ):
             button.set_always_show_image(True)
         # Set various properties
         self.ui.window.set_title(APP_NAME)
@@ -142,6 +142,31 @@ class UIMain(object):
         self.ui.action_shortcuts.set_tooltip(text_gtk30('Shortcuts'))
         # Connect signals from the UI file to the functions with the same name
         self.ui.connect_signals(self)
+
+    def do_autotests(self):
+        """Perform a series of autotests"""
+        # Show the about dialog
+        for i in range(3):
+            self.ui.action_about.emit('activate')
+            process_events()
+            time.sleep(0.2)
+        # Show the add host dialog
+        for i in range(1, 4):
+            self.detail.load_data('testing %d' % i,
+                                  format_mac_address(('%d' % i) * 16),
+                                  i, BROADCAST_ADDRESS)
+            self.detail.show()
+            process_events()
+            time.sleep(0.2)
+        # Show the ARP cache dialog
+        for i in range(3):
+            self.ui.action_import_arp_cache.emit('activate')
+            process_events()
+            time.sleep(0.2)
+        process_events()
+        time.sleep(0.5)
+        # Close the main window
+        self.ui.window.destroy()
 
     def on_window_delete_event(self, widget, event):
         """Close the application by closing the main window"""
@@ -164,12 +189,6 @@ class UIMain(object):
         """Show the shortcuts dialog"""
         dialog = UIShortcuts(self.ui.window)
         dialog.show()
-
-    def on_cell_selected_toggled(self, renderer, treeIter, data=None):
-        """Select or deselect an item"""
-        self.model.set_selected(
-            treeIter,
-            not self.model.get_selected(treeIter))
 
     def on_action_add_activate(self, widget):
         """Add a new empty machine"""
@@ -207,47 +226,6 @@ class UIMain(object):
                                            self.detail.get_port_number())
                 self.model.set_destination(treeiter,
                                            self.detail.get_destination())
-
-    def on_action_import_arp_cache_activate(self, widget):
-        """Show the ARP cache picker dialog"""
-        dialog = UIArpCache(parent=self.ui.window,
-                            settings=self.settings,
-                            options=self.options)
-        # Check if the OK button in the dialog was pressed
-        if dialog.show() == Gtk.ResponseType.OK:
-            # Check if a valid machine with MAC Address was selected
-            if dialog.get_mac_address():
-                # Add the machine to the model from the ARP cache
-                self.model.add_data(
-                    MachineItem(name=dialog.get_ip_address(),
-                                mac_address=dialog.get_mac_address(),
-                                port_number=DEFAULT_UDP_PORT,
-                                destination=BROADCAST_ADDRESS))
-                # Select the last machine and edit its details
-                self.ui.treeview_machines.set_cursor(self.model.count() - 1)
-                self.ui.action_edit.emit('activate')
-        # Destroy the dialog
-        dialog.destroy()
-
-    def on_treeview_machines_row_activated(self, widget, path, column):
-        """The double click on a row acts as the Edit machine button"""
-        self.ui.action_edit.emit('activate')
-
-    def on_action_import_ethers_activate(self, widget):
-        """Show the Ethers file importer"""
-        dialog = Gtk.FileChooserDialog(
-            text_gtk30("Select a File"),
-            None,
-            Gtk.FileChooserAction.OPEN,
-            (text_gtk30("_Cancel"), Gtk.ResponseType.CANCEL,
-             text_gtk30("_Open"), Gtk.ResponseType.OK))
-        dialog.set_transient_for(self.ui.window)
-        response = dialog.run()
-        if response == Gtk.ResponseType.OK:
-            importer = ImportEthers(BROADCAST_ADDRESS)
-            importer.import_file(filepath=dialog.get_filename(),
-                                 model=self.model)
-        dialog.destroy()
 
     def on_action_delete_activate(self, widget):
         """Delete the selected machine"""
@@ -287,27 +265,49 @@ class UIMain(object):
                     destination=self.model.get_destination(treeiter))
                 self.model.set_icon(treeiter, self.icon_yes)
 
-    def do_autotests(self):
-        """Perform a series of autotests"""
-        # Show the about dialog
-        for i in range(3):
-            self.ui.action_about.emit('activate')
-            process_events()
-            time.sleep(0.2)
-        # Show the add host dialog
-        for i in range(1, 4):
-            self.detail.load_data('testing %d' % i,
-                                  format_mac_address(('%d' % i) * 16),
-                                  i, BROADCAST_ADDRESS)
-            self.detail.show()
-            process_events()
-            time.sleep(0.2)
-        # Show the ARP cache dialog
-        for i in range(3):
-            self.ui.action_import_arp_cache.emit('activate')
-            process_events()
-            time.sleep(0.2)
-        process_events()
-        time.sleep(0.5)
-        # Close the main window
-        self.ui.window.destroy()
+    def on_action_import_arp_cache_activate(self, widget):
+        """Show the ARP cache picker dialog"""
+        dialog = UIArpCache(parent=self.ui.window,
+                            settings=self.settings,
+                            options=self.options)
+        # Check if the OK button in the dialog was pressed
+        if dialog.show() == Gtk.ResponseType.OK:
+            # Check if a valid machine with MAC Address was selected
+            if dialog.get_mac_address():
+                # Add the machine to the model from the ARP cache
+                self.model.add_data(
+                    MachineItem(name=dialog.get_ip_address(),
+                                mac_address=dialog.get_mac_address(),
+                                port_number=DEFAULT_UDP_PORT,
+                                destination=BROADCAST_ADDRESS))
+                # Select the last machine and edit its details
+                self.ui.treeview_machines.set_cursor(self.model.count() - 1)
+                self.ui.action_edit.emit('activate')
+        # Destroy the dialog
+        dialog.destroy()
+
+    def on_action_import_ethers_activate(self, widget):
+        """Show the Ethers file importer"""
+        dialog = Gtk.FileChooserDialog(
+            text_gtk30("Select a File"),
+            None,
+            Gtk.FileChooserAction.OPEN,
+            (text_gtk30("_Cancel"), Gtk.ResponseType.CANCEL,
+             text_gtk30("_Open"), Gtk.ResponseType.OK))
+        dialog.set_transient_for(self.ui.window)
+        response = dialog.run()
+        if response == Gtk.ResponseType.OK:
+            importer = ImportEthers(BROADCAST_ADDRESS)
+            importer.import_file(filepath=dialog.get_filename(),
+                                 model=self.model)
+        dialog.destroy()
+
+    def on_cell_selected_toggled(self, renderer, treeIter, data=None):
+        """Select or deselect an item"""
+        self.model.set_selected(
+            treeIter,
+            not self.model.get_selected(treeIter))
+
+    def on_treeview_machines_row_activated(self, widget, path, column):
+        """The double click on a row acts as the Edit machine button"""
+        self.ui.action_edit.emit('activate')
