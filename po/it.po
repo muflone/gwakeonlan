@@ -40,7 +40,7 @@ msgstr "Scegli un sistema dalla cache ARP"
 
 #: gwakeonlan/ui/detail.py:55 ui/main.ui:105 ui/main.ui:106
 msgid "Edit machine"
-msgstr "Modifica"
+msgstr "Modifica macchina"
 
 #: gwakeonlan/ui/detail.py:57 ui/main.ui:65 ui/main.ui:66
 msgid "Add machine"
