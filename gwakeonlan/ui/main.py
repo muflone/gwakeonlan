@@ -170,12 +170,7 @@ class UIMain(object):
 
     def on_window_delete_event(self, widget, event):
         """Close the application by closing the main window"""
-        self.detail.destroy()
-        self.settings.save_window_position(self.ui.window, SECTION_WINDOW_NAME)
-        self.settings.save_hosts(self.model)
-        self.settings.save()
-        self.ui.window.destroy()
-        self.application.quit()
+        self.ui.action_quit.emit('activate')
 
     def on_action_about_activate(self, widget):
         """Show the about dialog"""
@@ -189,6 +184,15 @@ class UIMain(object):
         """Show the shortcuts dialog"""
         dialog = UIShortcuts(self.ui.window)
         dialog.show()
+
+    def on_action_quit_activate(self, action):
+        """Quit the application"""
+        self.detail.destroy()
+        self.settings.save_window_position(self.ui.window, SECTION_WINDOW_NAME)
+        self.settings.save_hosts(self.model)
+        self.settings.save()
+        self.ui.window.destroy()
+        self.application.quit()
 
     def on_action_add_activate(self, widget):
         """Add a new empty machine"""

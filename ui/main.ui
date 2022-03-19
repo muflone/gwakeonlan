@@ -6,6 +6,13 @@
   <object class="GtkActionGroup" id="actions_app">
     <property name="accel-group">accelerators</property>
     <child>
+      <object class="GtkAction" id="action_quit">
+        <property name="label" context="gtk30">Quit</property>
+        <signal name="activate" handler="on_action_quit_activate" swapped="no"/>
+      </object>
+      <accelerator key="q" modifiers="GDK_CONTROL_MASK"/>
+    </child>
+    <child>
       <object class="GtkAction" id="action_about">
         <property name="label" context="gtk30">About</property>
         <property name="short-label" translatable="yes">About</property>
