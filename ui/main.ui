@@ -15,7 +15,6 @@
     <child>
       <object class="GtkAction" id="action_about">
         <property name="label" context="gtk30">About</property>
-        <property name="short-label" translatable="yes">About</property>
         <property name="icon-name">help-about</property>
         <signal name="activate" handler="on_action_about_activate" swapped="no"/>
       </object>
@@ -24,7 +23,6 @@
     <child>
       <object class="GtkAction" id="action_shortcuts">
         <property name="label" context="gtk30">Shortcuts</property>
-        <property name="short-label" context="gtk30">Shortcuts</property>
         <property name="icon-name">help-browser</property>
         <signal name="activate" handler="on_action_shortcuts_activate" swapped="no"/>
       </object>
@@ -33,7 +31,6 @@
     <child>
       <object class="GtkAction" id="action_options">
         <property name="label" translatable="yes">Options</property>
-        <property name="short-label" translatable="yes">Options</property>
         <property name="icon-name">applications-system-symbolic</property>
       </object>
     </child>
@@ -43,7 +40,6 @@
     <child>
       <object class="GtkAction" id="action_turnon">
         <property name="label" translatable="yes">Turn on</property>
-        <property name="short-label" translatable="yes">Turn on</property>
         <property name="icon-name">system-run</property>
         <property name="is-important">True</property>
         <signal name="activate" handler="on_action_turnon_activate" swapped="no"/>
@@ -52,8 +48,7 @@
     </child>
     <child>
       <object class="GtkAction" id="action_add">
-        <property name="label" context="gtk30.Stock label">Add machine</property>
-        <property name="short-label" translatable="yes">Add machine</property>
+        <property name="label" translatable="yes">Add machine</property>
         <property name="icon-name">list-add</property>
         <signal name="activate" handler="on_action_add_activate" swapped="no"/>
       </object>
@@ -62,7 +57,6 @@
     <child>
       <object class="GtkAction" id="action_edit">
         <property name="label" translatable="yes">Edit machine</property>
-        <property name="short-label" translatable="yes">Edit machine</property>
         <property name="icon-name">document-properties</property>
         <signal name="activate" handler="on_action_edit_activate" swapped="no"/>
       </object>
@@ -71,7 +65,6 @@
     <child>
       <object class="GtkAction" id="action_delete">
         <property name="label" translatable="yes">Delete machine</property>
-        <property name="short-label" translatable="yes">Delete machine</property>
         <property name="icon-name">list-remove</property>
         <signal name="activate" handler="on_action_delete_activate" swapped="no"/>
       </object>
@@ -80,14 +73,12 @@
     <child>
       <object class="GtkAction" id="action_import_arp_cache">
         <property name="label" translatable="yes">Detect from ARP cache</property>
-        <property name="short-label" translatable="yes">Detect from ARP cache</property>
         <signal name="activate" handler="on_action_import_arp_cache_activate" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkAction" id="action_import_ethers">
         <property name="label" translatable="yes">Import from ethers file</property>
-        <property name="short-label" translatable="yes">Import from ethers file</property>
         <signal name="activate" handler="on_action_import_ethers_activate" swapped="no"/>
       </object>
     </child>
@@ -115,9 +106,9 @@
   <object class="GtkHeaderBar" id="header_bar">
     <property name="visible">True</property>
     <property name="can-focus">False</property>
+    <property name="title">gWakeOnLAN</property>
     <property name="has-subtitle">False</property>
     <property name="show-close-button">True</property>
-    <property name="decoration-layout">menu:close</property>
     <child>
       <object class="GtkMenuButton" id="button_options">
         <property name="related-action">action_options</property>
@@ -137,7 +128,7 @@
     </child>
     <child>
       <object class="GtkButton" id="button_about">
-        <property name="label" translatable="yes">About</property>
+        <property name="label">About</property>
         <property name="related-action">action_about</property>
         <property name="visible">True</property>
         <property name="can-focus">True</property>
@@ -187,7 +178,7 @@
     </child>
     <child>
       <object class="GtkButton" id="button_add">
-        <property name="label" translatable="yes">Add</property>
+        <property name="label">Add</property>
         <property name="related-action">action_add</property>
         <property name="visible">True</property>
         <property name="can-focus">True</property>
@@ -200,7 +191,7 @@
     </child>
     <child>
       <object class="GtkButton" id="button_edit">
-        <property name="label" translatable="yes">Edit</property>
+        <property name="label">Edit</property>
         <property name="related-action">action_edit</property>
         <property name="visible">True</property>
         <property name="can-focus">True</property>
@@ -213,7 +204,7 @@
     </child>
     <child>
       <object class="GtkButton" id="button_delete">
-        <property name="label" translatable="yes">Delete</property>
+        <property name="label">Delete</property>
         <property name="related-action">action_delete</property>
         <property name="visible">True</property>
         <property name="can-focus">True</property>
@@ -263,6 +254,9 @@
             <property name="model">model</property>
             <signal name="button-release-event" handler="on_treeview_machines_button_release_event" swapped="no"/>
             <signal name="row-activated" handler="on_treeview_machines_row_activated" swapped="no"/>
+            <child internal-child="selection">
+              <object class="GtkTreeSelection"/>
+            </child>
             <child>
               <object class="GtkTreeViewColumn" id="column_selected">
                 <property name="sort-column-id">0</property>

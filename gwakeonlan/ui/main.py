@@ -90,6 +90,9 @@ class UIMain(object):
         # Load the user interface
         self.ui = GtkBuilderLoader(get_ui_file('main.ui'))
         self.model = ModelMachines(self.ui.model)
+        # Initialize translations
+        self.ui.action_about.set_label(text_gtk30('About'))
+        self.ui.action_shortcuts.set_label(text_gtk30('Shortcuts'))
         # Initialize actions
         for widget in self.ui.get_objects_by_type(Gtk.Action):
             # Connect the actions accelerators
@@ -138,8 +141,6 @@ class UIMain(object):
         self.ui.window.set_title(APP_NAME)
         self.ui.window.set_icon_from_file(str(FILE_ICON))
         self.ui.window.set_application(self.application)
-        self.ui.action_shortcuts.set_label(text_gtk30('Shortcuts'))
-        self.ui.action_shortcuts.set_tooltip(text_gtk30('Shortcuts'))
         # Connect signals from the UI file to the functions with the same name
         self.ui.connect_signals(self)
 

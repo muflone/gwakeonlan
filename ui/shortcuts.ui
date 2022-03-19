@@ -15,24 +15,24 @@
             <property name="visible">1</property>
             <property name="title">General</property>
             <child>
-              <object class="GtkShortcutsShortcut">
+              <object class="GtkShortcutsShortcut" id="shortcut_about">
                 <property name="visible">1</property>
                 <property name="accelerator">F1</property>
                 <property name="title" translatable="yes">Show the about dialog</property>
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut">
+              <object class="GtkShortcutsShortcut" id="shortcut_shortcuts">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;question</property>
                 <property name="title" translatable="yes">Show the shortcuts dialog</property>
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut">
+              <object class="GtkShortcutsShortcut" id="shortcut_quit">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;Q</property>
-                <property name="title">Quit</property>
+                <property name="title" translatable="yes">Quit</property>
               </object>
             </child>
           </object>
@@ -44,28 +44,28 @@
             <property name="view">machines</property>
             <property name="title" translatable="yes">Machines</property>
             <child>
-              <object class="GtkShortcutsShortcut">
+              <object class="GtkShortcutsShortcut" id="shortcut_add">
                 <property name="visible">1</property>
                 <property name="accelerator">Insert</property>
                 <property name="title" translatable="yes">Add machine</property>
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut">
+              <object class="GtkShortcutsShortcut" id="shortcut_edit">
                 <property name="visible">1</property>
                 <property name="accelerator">Return</property>
                 <property name="title" translatable="yes">Edit machine</property>
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut">
+              <object class="GtkShortcutsShortcut" id="shortcut_delete">
                 <property name="visible">1</property>
                 <property name="accelerator">Delete</property>
                 <property name="title" translatable="yes">Delete machine</property>
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut">
+              <object class="GtkShortcutsShortcut" id="shortcut_turnon">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;Return</property>
                 <property name="title" translatable="yes">Turn on</property>

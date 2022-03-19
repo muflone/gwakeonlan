@@ -130,11 +130,6 @@ def show_message_dialog_yesno(parent, message, title, default_response):
     return response
 
 
-def store_message(message, translated):
-    """Store a translated message in the localized_messages list"""
-    localized_messages[message] = translated
-
-
 def text(message, gtk30=False, context=None):
     """Return a translated message and cache it for reuse"""
     if message not in localized_messages:

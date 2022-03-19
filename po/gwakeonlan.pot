@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-03-12 21:25+0100\n"
+"POT-Creation-Date: 2022-03-19 23:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE (https://www.transifex.com/p/gwakeonlan/)\n"
@@ -19,16 +19,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: gwakeonlan/ui/about.py:57
+#: gwakeonlan/ui/about.py:59
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr ""
 
-#: gwakeonlan/ui/about.py:60
+#: gwakeonlan/ui/about.py:62
 msgid "Wake up your machines using Wake on LAN."
 msgstr ""
 
-#: gwakeonlan/ui/about.py:69
+#: gwakeonlan/ui/about.py:71
 msgid "Contributors:"
 msgstr ""
 
@@ -36,40 +36,32 @@ msgstr ""
 msgid "Pick a host from the ARP cache"
 msgstr ""
 
-#: gwakeonlan/ui/detail.py:55 ui/main.ui:105 ui/main.ui:106
+#: gwakeonlan/ui/detail.py:58 ui/main.ui:59 ui/shortcuts.ui:57
 msgid "Edit machine"
 msgstr ""
 
-#: gwakeonlan/ui/detail.py:57 ui/main.ui:65 ui/main.ui:66
+#: gwakeonlan/ui/detail.py:60 ui/main.ui:51 ui/shortcuts.ui:50
 msgid "Add machine"
 msgstr ""
 
-#: gwakeonlan/ui/detail.py:65
+#: gwakeonlan/ui/detail.py:68
 msgid "Missing machine name"
 msgstr ""
 
-#: gwakeonlan/ui/detail.py:69
+#: gwakeonlan/ui/detail.py:72
 msgid "Invalid MAC address"
 msgstr ""
 
-#: gwakeonlan/ui/detail.py:73
+#: gwakeonlan/ui/detail.py:76
 msgid "Invalid destination host"
 msgstr ""
 
-#: gwakeonlan/ui/main.py:193
+#: gwakeonlan/ui/main.py:241
 msgid "Are you sure you want to remove the selected machine?"
 msgstr ""
 
-#: gwakeonlan/ui/main.py:194 ui/main.ui:120 ui/main.ui:121
+#: gwakeonlan/ui/main.py:242 ui/main.ui:67 ui/shortcuts.ui:64
 msgid "Delete machine"
-msgstr ""
-
-#: ui/appmenu.ui:6
-msgid "_About gWakeOnLAN"
-msgstr ""
-
-#: ui/appmenu.ui:13
-msgid "_Quit"
 msgstr ""
 
 #: ui/arpcache.ui:101
@@ -120,42 +112,62 @@ msgstr ""
 msgid "_Destination host:"
 msgstr ""
 
-#: ui/main.ui:40 ui/main.ui:42
+#: ui/main.ui:33
+msgid "Options"
+msgstr ""
+
+#: ui/main.ui:42 ui/main.ui:210 ui/shortcuts.ui:71
 msgid "Turn on"
 msgstr ""
 
-#: ui/main.ui:78 ui/main.ui:79
+#: ui/main.ui:75 ui/main.ui:111
 msgid "Detect from ARP cache"
 msgstr ""
 
-#: ui/main.ui:87
-msgid "Import machines from ethers file"
-msgstr ""
-
-#: ui/main.ui:88
+#: ui/main.ui:81 ui/main.ui:119
 msgid "Import from ethers file"
 msgstr ""
 
-#: ui/main.ui:146 ui/main.ui:147
-msgid "About"
+#: ui/main.ui:97
+msgid "Deselect All"
 msgstr ""
 
-#: ui/main.ui:194
+#: ui/main.ui:126
+msgid "Select machines"
+msgstr ""
+
+#: ui/main.ui:148
+msgid "_Deselect All"
+msgstr ""
+
+#: ui/main.ui:333
 msgid "Machine name"
 msgstr ""
 
-#: ui/main.ui:207
+#: ui/main.ui:346
 msgid "MAC address"
 msgstr ""
 
-#: ui/main.ui:220
+#: ui/main.ui:359
 msgid "Request type"
 msgstr ""
 
-#: ui/main.ui:233
+#: ui/main.ui:372
 msgid "Destination"
 msgstr ""
 
-#: ui/main.ui:246
+#: ui/main.ui:385
 msgid "Port NR"
+msgstr ""
+
+#: ui/shortcuts.ui:21
+msgid "Show the about dialog"
+msgstr ""
+
+#: ui/shortcuts.ui:28
+msgid "Show the shortcuts dialog"
+msgstr ""
+
+#: ui/shortcuts.ui:45
+msgid "Machines"
 msgstr ""
