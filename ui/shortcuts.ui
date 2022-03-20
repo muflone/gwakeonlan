@@ -18,7 +18,7 @@
               <object class="GtkShortcutsShortcut" id="shortcut_about">
                 <property name="visible">1</property>
                 <property name="accelerator">F1</property>
-                <property name="title" translatable="yes">Show the about dialog</property>
+                <property name="title" translatable="yes">About gWakeOnLAN</property>
               </object>
             </child>
             <child>
@@ -69,6 +69,20 @@
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;Return</property>
                 <property name="title" translatable="yes">Turn on</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="shortcut_select_all">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;A</property>
+                <property name="title">Select All</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="shortcut_deselect_all">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;&lt;shift&gt;A</property>
+                <property name="title" translatable="yes">Deselect All</property>
               </object>
             </child>
           </object>

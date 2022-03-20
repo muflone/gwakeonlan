@@ -145,7 +145,7 @@
                 <property name="related-action">action_deselect_all</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">_Deselect All</property>
+                <property name="label" translatable="yes">Deselect All</property>
                 <property name="use-underline">True</property>
               </object>
             </child>
@@ -179,7 +179,7 @@
     </child>
     <child>
       <object class="GtkButton" id="button_about">
-        <property name="label">About</property>
+        <property name="label" context="gtk30">About</property>
         <property name="related-action">action_about</property>
         <property name="visible">True</property>
         <property name="can-focus">True</property>
