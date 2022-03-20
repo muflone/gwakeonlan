@@ -151,6 +151,21 @@
         </child>
       </object>
     </child>
+    <child>
+      <object class="GtkSeparatorMenuItem">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="menuitem_shortcuts">
+        <property name="related-action">action_shortcuts</property>
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="label" context="gtk30">Shortcuts</property>
+        <property name="use-underline">True</property>
+      </object>
+    </child>
   </object>
   <object class="GtkHeaderBar" id="header_bar">
     <property name="visible">True</property>
@@ -187,20 +202,6 @@
       <packing>
         <property name="pack-type">end</property>
         <property name="position">1</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkButton" id="button_shortcuts">
-        <property name="label">Shortcuts</property>
-        <property name="related-action">action_shortcuts</property>
-        <property name="visible">True</property>
-        <property name="can-focus">True</property>
-        <property name="receives-default">True</property>
-        <property name="relief">none</property>
-      </object>
-      <packing>
-        <property name="pack-type">end</property>
-        <property name="position">2</property>
       </packing>
     </child>
     <child>

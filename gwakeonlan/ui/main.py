@@ -119,7 +119,6 @@ class UIMain(object):
                        self.ui.button_add,
                        self.ui.button_edit,
                        self.ui.button_delete,
-                       self.ui.button_shortcuts,
                        self.ui.button_about,
                        self.ui.button_options):
             action = button.get_related_action()
