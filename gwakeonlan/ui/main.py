@@ -93,6 +93,7 @@ class UIMain(object):
         # Initialize translations
         self.ui.action_about.set_label(text_gtk30('About'))
         self.ui.action_shortcuts.set_label(text_gtk30('Shortcuts'))
+        self.ui.action_select_all.set_label(text_gtk30('Select _All'))
         # Initialize actions
         for widget in self.ui.get_objects_by_type(Gtk.Action):
             # Connect the actions accelerators
@@ -307,11 +308,23 @@ class UIMain(object):
                                  model=self.model)
         dialog.destroy()
 
+    def on_action_select_all_activate(self, widget):
+        for treeiter in self.model:
+            self.model.set_selected(treeiter, True)
+
+    def on_action_deselect_all_activate(self, widget):
+        for treeiter in self.model:
+            self.model.set_selected(treeiter, False)
+
     def on_cell_selected_toggled(self, renderer, treeIter, data=None):
         """Select or deselect an item"""
         self.model.set_selected(
             treeIter,
             not self.model.get_selected(treeIter))
+
+    def on_treeview_machines_button_release_event(self, widget, event):
+        if event.button == Gdk.BUTTON_SECONDARY:
+            self.ui.menu_select_machines.popup_at_pointer(event)
 
     def on_treeview_machines_row_activated(self, widget, path, column):
         """The double click on a row acts as the Edit machine button"""

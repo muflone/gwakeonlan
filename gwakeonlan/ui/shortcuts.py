@@ -22,7 +22,8 @@ from gi.repository import Gtk
 
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.functions import (get_ui_file,
-                                  text)
+                                  text,
+                                  text_gtk30)
 
 
 class UIShortcuts(object):
@@ -31,6 +32,9 @@ class UIShortcuts(object):
         # Load the user interface
         self.ui = GtkBuilderLoader(get_ui_file('shortcuts.ui'))
         self.ui.shortcuts.set_transient_for(parent)
+        # Initialize translations
+        self.ui.shortcut_select_all.props.title = (
+            text_gtk30('Select _All').replace('_', ''))
         # Initialize groups
         for widget in self.ui.get_objects_by_type(Gtk.ShortcutsGroup):
             widget.props.title = text(widget.props.title)
