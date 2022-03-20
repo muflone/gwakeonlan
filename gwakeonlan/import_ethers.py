@@ -30,7 +30,7 @@ class ImportEthers(object):
     def __init__(self, import_l3_dest=BROADCAST_ADDRESS):
         self.import_l3_dest = import_l3_dest
 
-    def import_file(self, filepath, model):
+    def import_file(self, filepath, model, icon):
         with open(filepath, 'r') as import_fh:
             for line in import_fh:
                 if re.match(r'(?:#|\s*$)', line):
@@ -43,5 +43,5 @@ class ImportEthers(object):
                                  .replace(' ', ':')
                                  .replace('-', ':')),
                     port_number=DEFAULT_UDP_PORT,
-                    destination=self.import_l3_dest
-                ))
+                    destination=self.import_l3_dest,
+                    icon=icon))

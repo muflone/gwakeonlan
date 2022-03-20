@@ -209,7 +209,8 @@ class UIMain(object):
                     name=self.detail.get_machine_name(),
                     mac_address=self.detail.get_mac_address(),
                     port_number=self.detail.get_port_number(),
-                    destination=self.detail.get_destination()))
+                    destination=self.detail.get_destination(),
+                    icon=self.icon_empty))
             # Automatically select the last inserted item
             self.ui.treeview_machines.set_cursor(self.model.count() - 1)
 
@@ -285,7 +286,8 @@ class UIMain(object):
                     MachineItem(name=dialog.get_ip_address(),
                                 mac_address=dialog.get_mac_address(),
                                 port_number=DEFAULT_UDP_PORT,
-                                destination=BROADCAST_ADDRESS))
+                                destination=BROADCAST_ADDRESS,
+                                icon=self.icon_empty))
                 # Select the last machine and edit its details
                 self.ui.treeview_machines.set_cursor(self.model.count() - 1)
                 self.ui.action_edit.emit('activate')
@@ -305,7 +307,8 @@ class UIMain(object):
         if response == Gtk.ResponseType.OK:
             importer = ImportEthers(BROADCAST_ADDRESS)
             importer.import_file(filepath=dialog.get_filename(),
-                                 model=self.model)
+                                 model=self.model,
+                                 icon=self.icon_empty)
         dialog.destroy()
 
     def on_action_select_all_activate(self, widget):
