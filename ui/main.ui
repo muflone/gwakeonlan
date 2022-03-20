@@ -166,6 +166,15 @@
         <property name="use-underline">True</property>
       </object>
     </child>
+    <child>
+      <object class="GtkMenuItem" id="menuitem_about">
+        <property name="related-action">action_about</property>
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="label" context="gtk30">About</property>
+        <property name="use-underline">True</property>
+      </object>
+    </child>
   </object>
   <object class="GtkHeaderBar" id="header_bar">
     <property name="visible">True</property>
