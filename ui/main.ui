@@ -131,7 +131,6 @@
             <property name="can-focus">False</property>
             <child>
               <object class="GtkMenuItem" id="menuitem_select_all">
-                <property name="use-action-appearance">True</property>
                 <property name="related-action">action_select_all</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
@@ -141,7 +140,6 @@
             </child>
             <child>
               <object class="GtkMenuItem" id="menuitem_deselect_all">
-                <property name="use-action-appearance">True</property>
                 <property name="related-action">action_deselect_all</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
