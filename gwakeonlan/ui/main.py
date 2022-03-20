@@ -17,7 +17,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
-
+import logging
 import time
 
 from gi.repository import Gdk
@@ -72,6 +72,7 @@ class UIMain(object):
                                                True, 8, 24, 24)
         self.icon_empty.fill(0)
         self.icon_yes = get_pixbuf_from_icon_name('gtk-yes', 24)
+        self.icon_no = get_pixbuf_from_icon_name('gtk-no', 24)
         # Load hosts
         self.settings.load_hosts(model=self.model,
                                  icon=self.icon_empty)
@@ -169,6 +170,23 @@ class UIMain(object):
         # Close the main window
         self.ui.window.destroy()
 
+    def do_turn_on(self, treeiter):
+        """Turn on the machine for the specified TreeIter"""
+        try:
+            mac_address = self.model.get_mac_address(treeiter)
+            port_number = self.model.get_port_number(treeiter)
+            destination = self.model.get_destination(treeiter)
+            wake_on_lan(mac_address=mac_address,
+                        port_number=port_number,
+                        destination=destination)
+            self.model.set_icon(treeiter, self.icon_yes)
+        except OSError as error:
+            logging.error(f'Unable to turn on: {mac_address} '
+                          f'through {destination} '
+                          f'using port number {port_number}')
+            logging.error(error)
+            self.model.set_icon(treeiter, self.icon_no)
+
     def on_window_delete_event(self, widget, event):
         """Close the application by closing the main window"""
         self.ui.action_quit.emit('activate')
@@ -253,23 +271,15 @@ class UIMain(object):
         for treeiter in self.model:
             self.model.set_icon(treeiter, self.icon_empty)
         for treeiter in self.model:
+            # Turn on any selected machine
             if self.model.get_selected(treeiter):
-                # If a machine was selected then it will turned on
                 selected_count += 1
-                wake_on_lan(
-                    mac_address=self.model.get_mac_address(treeiter),
-                    port_number=self.model.get_port_number(treeiter),
-                    destination=self.model.get_destination(treeiter))
-                self.model.set_icon(treeiter, self.icon_yes)
+                self.do_turn_on(treeiter)
         if selected_count == 0:
             # When no machines are selected use the currently selected row
             treeiter = get_treeview_selected_row(self.ui.treeview_machines)
             if treeiter:
-                wake_on_lan(
-                    mac_address=self.model.get_mac_address(treeiter),
-                    port_number=self.model.get_port_number(treeiter),
-                    destination=self.model.get_destination(treeiter))
-                self.model.set_icon(treeiter, self.icon_yes)
+                self.do_turn_on(treeiter)
 
     def on_action_import_arp_cache_activate(self, widget):
         """Show the ARP cache picker dialog"""
