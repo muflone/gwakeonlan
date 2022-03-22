@@ -117,7 +117,7 @@ msgstr "_Bestemming:"
 
 #: ui/main.ui:33
 msgid "Options"
-msgstr ""
+msgstr "Opties"
 
 #: ui/main.ui:42 ui/main.ui:210 ui/shortcuts.ui:71
 msgid "Turn on"
@@ -133,11 +133,11 @@ msgstr "Importeren uit ethers-bestand"
 
 #: ui/main.ui:97 ui/main.ui:148 ui/shortcuts.ui:85
 msgid "Deselect All"
-msgstr ""
+msgstr "Niets selecteren"
 
 #: ui/main.ui:126
 msgid "Select machines"
-msgstr ""
+msgstr "Computers selecteren"
 
 #: ui/main.ui:333
 msgid "Machine name"
@@ -165,7 +165,7 @@ msgstr "Over gWakeOnLAN"
 
 #: ui/shortcuts.ui:28
 msgid "Show the shortcuts dialog"
-msgstr ""
+msgstr "Toon het sneltoetsvenster"
 
 #: ui/shortcuts.ui:35
 msgid "Quit"
@@ -173,4 +173,4 @@ msgstr "Afsluiten"
 
 #: ui/shortcuts.ui:45
 msgid "Machines"
-msgstr ""
+msgstr "Computers"
