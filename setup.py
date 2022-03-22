@@ -225,6 +225,8 @@ setuptools.setup(
                                      for file
                                      in pathlib.Path('ui').glob('*')
                                      if not file.name.endswith('~')]),
+        ('share/metainfo',
+         ['data/com.muflone.gwakeonlan.metainfo.xml']),
     ],
     cmdclass={
         'install_scripts': Install_Scripts,

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.muflone.gwakeonlan</id>
+
+  <name>gWakeOnLAN</name>
+  <summary>Wake up your machines using Wake on LAN</summary>
+  <description>
+    <p>
+      A free GTK+ application to awake your machines using Wake on LAN
+    </p>
+  </description>
+
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <content_rating type="oars-1.0" />
+  <categories>
+    <category>Network</category>
+  </categories>
+  <url type="homepage">https://github.com/muflone/gwakeonlan</url>
+  <url type="help">https://www.muflone.com/gwakeonlan</url>
+  <url type="translate">https://www.transifex.com/projects/p/gwakeonlan/</url>
+  <url type="bugtracker">https://github.com/muflone/gwakeonlan/issues</url>
+  <url type="contact">http://www.muflone.com/contacts/</url>
+
+  <launchable type="desktop-id">gwakeonlan.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>http://www.muflone.com/resources/gwakeonlan/archive/latest/english/main.png</image>
+    </screenshot>
+    <screenshot>
+      <image>http://www.muflone.com/resources/gwakeonlan/archive/latest/english/detail.png</image>
+    </screenshot>
+    <screenshot>
+      <image>http://www.muflone.com/resources/gwakeonlan/archive/latest/english/about.png</image>
+    </screenshot>
+  </screenshots>
+</component>
