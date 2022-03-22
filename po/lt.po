@@ -116,7 +116,7 @@ msgstr "_Paskirties serveris:"
 
 #: ui/main.ui:33
 msgid "Options"
-msgstr ""
+msgstr "Parinktys"
 
 #: ui/main.ui:42 ui/main.ui:210 ui/shortcuts.ui:71
 msgid "Turn on"
@@ -132,11 +132,11 @@ msgstr "Importuoti iš „ethers“ failo"
 
 #: ui/main.ui:97 ui/main.ui:148 ui/shortcuts.ui:85
 msgid "Deselect All"
-msgstr ""
+msgstr "Nuimti žymėjimą nuo visų"
 
 #: ui/main.ui:126
 msgid "Select machines"
-msgstr ""
+msgstr "Žymėti kompiuterius"
 
 #: ui/main.ui:333
 msgid "Machine name"
@@ -164,7 +164,7 @@ msgstr "Apie gWakeOnLAN"
 
 #: ui/shortcuts.ui:28
 msgid "Show the shortcuts dialog"
-msgstr ""
+msgstr "Rodyti sparčiųjų klavišų dialogą"
 
 #: ui/shortcuts.ui:35
 msgid "Quit"
@@ -172,4 +172,4 @@ msgstr "Išeiti"
 
 #: ui/shortcuts.ui:45
 msgid "Machines"
-msgstr ""
+msgstr "Kompiuteriai"
