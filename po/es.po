@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-03-20 01:19+0100\n"
+"POT-Creation-Date: 2022-04-02 23:31+0200\n"
 "PO-Revision-Date: 2015-07-20 00:57+0000\n"
 "Last-Translator: Adolfo Jayme-Barrientos\n"
 "Language-Team: Spanish (https://www.transifex.com/p/gwakeonlan/)\n"
@@ -60,11 +60,11 @@ msgstr "La dirección MAC no es válida"
 msgid "Invalid destination host"
 msgstr "El equipo de destino no es válido"
 
-#: gwakeonlan/ui/main.py:243
+#: gwakeonlan/ui/main.py:261
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "¿Confirma que quiere eliminar el equipo seleccionado?"
 
-#: gwakeonlan/ui/main.py:244 ui/main.ui:67 ui/shortcuts.ui:64
+#: gwakeonlan/ui/main.py:262 ui/main.ui:67 ui/shortcuts.ui:64
 msgid "Delete machine"
 msgstr "Eliminar equipo"
 
@@ -120,7 +120,7 @@ msgstr "Equipo de _destino:"
 msgid "Options"
 msgstr ""
 
-#: ui/main.ui:42 ui/main.ui:210 ui/shortcuts.ui:71
+#: ui/main.ui:42 ui/main.ui:218 ui/shortcuts.ui:71
 msgid "Turn on"
 msgstr "Encender"
 
@@ -132,7 +132,7 @@ msgstr "Detectar a partir de caché ARP"
 msgid "Import from ethers file"
 msgstr "Importar de archivo ethers"
 
-#: ui/main.ui:97 ui/main.ui:148 ui/shortcuts.ui:85
+#: ui/main.ui:97 ui/main.ui:146 ui/shortcuts.ui:85
 msgid "Deselect All"
 msgstr ""
 
@@ -140,23 +140,23 @@ msgstr ""
 msgid "Select machines"
 msgstr ""
 
-#: ui/main.ui:333
+#: ui/main.ui:341
 msgid "Machine name"
 msgstr "Nombre del equipo"
 
-#: ui/main.ui:346
+#: ui/main.ui:354
 msgid "MAC address"
 msgstr "Dirección MAC"
 
-#: ui/main.ui:359
+#: ui/main.ui:367
 msgid "Request type"
 msgstr "Tipo de solicitud"
 
-#: ui/main.ui:372
+#: ui/main.ui:380
 msgid "Destination"
 msgstr "Destino"
 
-#: ui/main.ui:385
+#: ui/main.ui:393
 msgid "Port NR"
 msgstr "Puerto n.º"
 

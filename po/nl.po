@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-03-20 01:19+0100\n"
+"POT-Creation-Date: 2022-04-02 23:31+0200\n"
 "PO-Revision-Date: 2022-03-11 10:42+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss(at)fastmail.com>\n"
 "Language-Team: Dutch (https://www.transifex.com/p/gwakeonlan/)\n"
@@ -59,11 +59,11 @@ msgstr "Ongeldig MAC-adres"
 msgid "Invalid destination host"
 msgstr "Ongeldige bestemming"
 
-#: gwakeonlan/ui/main.py:243
+#: gwakeonlan/ui/main.py:261
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Weet u zeker dat u de gekozen computer wilt verwijderen?"
 
-#: gwakeonlan/ui/main.py:244 ui/main.ui:67 ui/shortcuts.ui:64
+#: gwakeonlan/ui/main.py:262 ui/main.ui:67 ui/shortcuts.ui:64
 msgid "Delete machine"
 msgstr "Computer verwijderen"
 
@@ -119,7 +119,7 @@ msgstr "_Bestemming:"
 msgid "Options"
 msgstr "Opties"
 
-#: ui/main.ui:42 ui/main.ui:210 ui/shortcuts.ui:71
+#: ui/main.ui:42 ui/main.ui:218 ui/shortcuts.ui:71
 msgid "Turn on"
 msgstr "Inschakelen"
 
@@ -131,7 +131,7 @@ msgstr "Detecteren op basis van ARP-cache"
 msgid "Import from ethers file"
 msgstr "Importeren uit ethers-bestand"
 
-#: ui/main.ui:97 ui/main.ui:148 ui/shortcuts.ui:85
+#: ui/main.ui:97 ui/main.ui:146 ui/shortcuts.ui:85
 msgid "Deselect All"
 msgstr "Niets selecteren"
 
@@ -139,23 +139,23 @@ msgstr "Niets selecteren"
 msgid "Select machines"
 msgstr "Computers selecteren"
 
-#: ui/main.ui:333
+#: ui/main.ui:341
 msgid "Machine name"
 msgstr "Computernaam"
 
-#: ui/main.ui:346
+#: ui/main.ui:354
 msgid "MAC address"
 msgstr "MAC-adres"
 
-#: ui/main.ui:359
+#: ui/main.ui:367
 msgid "Request type"
 msgstr "Soort aanvraag"
 
-#: ui/main.ui:372
+#: ui/main.ui:380
 msgid "Destination"
 msgstr "Bestemming"
 
-#: ui/main.ui:385
+#: ui/main.ui:393
 msgid "Port NR"
 msgstr "Poortnummer"
 
