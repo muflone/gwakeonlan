@@ -24,7 +24,7 @@ AppDir:
   path: ./AppDir
 
   app_info:
-    id: org.muflone.gwakeonlan
+    id: com.muflone.gwakeonlan
     name: gwakeonlan
     icon: gwakeonlan
     version: 0.8.2
