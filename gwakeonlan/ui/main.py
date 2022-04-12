@@ -42,10 +42,8 @@ from gwakeonlan.functions import (_,
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.import_ethers import ImportEthers
 from gwakeonlan.settings import Settings
-
 from gwakeonlan.models.machine_item import MachineItem
 from gwakeonlan.models.machines import ModelMachines
-
 from gwakeonlan.ui.about import UIAbout
 from gwakeonlan.ui.arpcache import UIArpCache
 from gwakeonlan.ui.detail import UIDetail

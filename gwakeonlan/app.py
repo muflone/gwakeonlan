@@ -21,7 +21,6 @@
 from gi.repository import Gtk
 
 from gwakeonlan.constants import APP_ID
-
 from gwakeonlan.ui.main import UIMain
 
 

@@ -23,7 +23,6 @@ import os.path
 import socket
 
 from gwakeonlan.constants import FILE_ARP_CACHE
-
 from gwakeonlan.models.abstract import ModelAbstract
 from gwakeonlan.models.arpcache_item import ArpCacheItem
 

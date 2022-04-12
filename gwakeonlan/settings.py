@@ -23,7 +23,6 @@ import logging
 
 from gwakeonlan.constants import BROADCAST_ADDRESS, DEFAULT_UDP_PORT
 from gwakeonlan.functions import format_mac_address
-
 from gwakeonlan.models.machine_item import MachineItem
 
 POSITION_LEFT = 'left'

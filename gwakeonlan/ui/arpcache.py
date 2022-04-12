@@ -27,7 +27,6 @@ from gwakeonlan.functions import (_,
                                   get_ui_file,
                                   text_gtk30)
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
-
 from gwakeonlan.models.arpcache import ModelArpCache
 
 

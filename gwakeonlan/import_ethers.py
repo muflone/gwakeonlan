@@ -22,7 +22,6 @@
 import re
 
 from gwakeonlan.constants import BROADCAST_ADDRESS, DEFAULT_UDP_PORT
-
 from gwakeonlan.models.machine_item import MachineItem
 
 

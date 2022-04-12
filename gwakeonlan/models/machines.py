@@ -19,7 +19,6 @@
 ##
 
 from gwakeonlan.constants import BROADCAST_ADDRESS
-
 from gwakeonlan.models.abstract import ModelAbstract
 
 
