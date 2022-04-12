@@ -43,8 +43,8 @@ AppDir:
       - python3-xdg
       - gir1.2-gtk-3.0
     exclude:
-      - adwaita-icon-theme
       - humanity-icon-theme
+      - ubuntu-mono
 
   files:
     exclude:
