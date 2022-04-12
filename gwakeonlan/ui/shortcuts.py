@@ -20,17 +20,14 @@
 
 from gi.repository import Gtk
 
-from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
-from gwakeonlan.functions import (get_ui_file,
-                                  text,
-                                  text_gtk30)
+from gwakeonlan.functions import text, text_gtk30
+from gwakeonlan.ui.base import UIBase
 
 
-class UIShortcuts(object):
+class UIShortcuts(UIBase):
     def __init__(self, parent):
         """Prepare the shortcuts dialog"""
-        # Load the user interface
-        self.ui = GtkBuilderLoader(get_ui_file('shortcuts.ui'))
+        super().__init__(filename='shortcuts.ui')
         self.ui.shortcuts.set_transient_for(parent)
         # Initialize translations
         self.ui.shortcut_select_all.props.title = (

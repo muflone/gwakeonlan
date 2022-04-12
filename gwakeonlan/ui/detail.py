@@ -24,18 +24,16 @@ from gi.repository import Gtk
 from gwakeonlan.constants import BROADCAST_ADDRESS, FILE_ICON
 from gwakeonlan.functions import (_,
                                   format_mac_address,
-                                  get_ui_file,
                                   text_gtk30)
-from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
+from gwakeonlan.ui.base import UIBase
 
 
-class UIDetail(object):
+class UIDetail(UIBase):
     def __init__(self, parent, settings, options):
         """Prepare the detail dialog"""
+        super().__init__(filename='detail.ui')
         self.settings = settings
         self.options = options
-        # Load the user interface
-        self.ui = GtkBuilderLoader(get_ui_file('detail.ui'))
         # Set various properties
         self.ui.dialog.set_icon_from_file(str(FILE_ICON))
         self.ui.dialog.set_transient_for(parent)

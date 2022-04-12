@@ -24,19 +24,17 @@ from gi.repository import Gtk
 from gwakeonlan.constants import FILE_ICON
 from gwakeonlan.functions import (_,
                                   get_treeview_selected_row,
-                                  get_ui_file,
                                   text_gtk30)
-from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.models.arpcache import ModelArpCache
+from gwakeonlan.ui.base import UIBase
 
 
-class UIArpCache(object):
+class UIArpCache(UIBase):
     def __init__(self, parent, settings, options):
         """Prepare the ARP Cache dialog"""
+        super().__init__(filename='arpcache.ui')
         self.settings = settings
         self.options = options
-        # Load the user interface
-        self.ui = GtkBuilderLoader(get_ui_file('arpcache.ui'))
         self.model = ModelArpCache(self.ui.model)
         self.model.refresh()
         self.ui.dialog.set_title(_('Pick a host from the ARP cache'))

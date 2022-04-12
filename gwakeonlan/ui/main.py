@@ -33,18 +33,16 @@ from gwakeonlan.functions import (_,
                                   format_mac_address,
                                   get_pixbuf_from_icon_name,
                                   get_treeview_selected_row,
-                                  get_ui_file,
                                   process_events,
                                   show_message_dialog_yesno,
-                                  text,
                                   text_gtk30,
                                   wake_on_lan)
-from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.import_ethers import ImportEthers
 from gwakeonlan.settings import Settings
 from gwakeonlan.models.machine_item import MachineItem
 from gwakeonlan.models.machines import ModelMachines
 from gwakeonlan.ui.about import UIAbout
+from gwakeonlan.ui.base import UIBase
 from gwakeonlan.ui.arpcache import UIArpCache
 from gwakeonlan.ui.detail import UIDetail
 from gwakeonlan.ui.shortcuts import UIShortcuts
@@ -52,19 +50,16 @@ from gwakeonlan.ui.shortcuts import UIShortcuts
 SECTION_WINDOW_NAME = 'main window'
 
 
-class UIMain(object):
+class UIMain(UIBase):
     def __init__(self, application, options):
         """Prepare the main window"""
+        super().__init__(filename='main.ui')
         self.application = application
         self.load_ui()
         self.settings = Settings(FILE_SETTINGS, True)
         self.options = options
         self.settings.restore_window_position(window=self.ui.window,
                                               section=SECTION_WINDOW_NAME)
-        # Initialize actions
-        for widget in self.ui.get_objects_by_type(Gtk.Action):
-            # Connect the actions accelerators
-            widget.connect_accelerator()
         # Load icons
         self.icon_empty = GdkPixbuf.Pixbuf.new(GdkPixbuf.Colorspace.RGB,
                                                True, 8, 24, 24)
@@ -87,52 +82,22 @@ class UIMain(object):
     def load_ui(self):
         """Load the UI for the main window"""
         # Load the user interface
-        self.ui = GtkBuilderLoader(get_ui_file('main.ui'))
         self.model = ModelMachines(self.ui.model)
         # Initialize translations
         self.ui.action_about.set_label(text_gtk30('About'))
         self.ui.action_shortcuts.set_label(text_gtk30('Shortcuts'))
         self.ui.action_select_all.set_label(text_gtk30('Select _All'))
-        # Initialize actions
-        for widget in self.ui.get_objects_by_type(Gtk.Action):
-            # Connect the actions accelerators
-            widget.connect_accelerator()
-            # Set labels
-            label = widget.get_label()
-            if not label:
-                label = widget.get_short_label()
-            widget.set_label(text(label))
-            widget.set_short_label(label)
-        # Initialize labels
-        for widget in self.ui.get_objects_by_type(Gtk.Label):
-            widget.set_label(text(widget.get_label()))
-        # Initialize tooltips
-        for widget in self.ui.get_objects_by_type(Gtk.Button):
-            action = widget.get_related_action()
-            if action:
-                widget.set_tooltip_text(action.get_label().replace('_', ''))
+        # Initialize titles and tooltips
+        self.set_titles()
         # Initialize Gtk.HeaderBar
         self.ui.header_bar.props.title = self.ui.window.get_title()
         self.ui.window.set_titlebar(self.ui.header_bar)
-        for button in (self.ui.button_turnon,
-                       self.ui.button_add,
-                       self.ui.button_edit,
-                       self.ui.button_delete,
-                       self.ui.button_about,
-                       self.ui.button_options):
-            action = button.get_related_action()
-            if button in (self.ui.button_options, ):
-                icon_size = Gtk.IconSize.BUTTON
-            else:
-                icon_size = Gtk.IconSize.LARGE_TOOLBAR
-            button.set_image(Gtk.Image.new_from_icon_name(
-                icon_name=action.get_icon_name(),
-                size=icon_size))
-            if not action.get_is_important():
-                # Remove the button label
-                button.props.label = None
-            # Set the tooltip from the action label
-            button.set_tooltip_text(action.get_label().replace('_', ''))
+        self.set_buttons_icons(buttons=[self.ui.button_turnon,
+                                        self.ui.button_add,
+                                        self.ui.button_edit,
+                                        self.ui.button_delete,
+                                        self.ui.button_about,
+                                        self.ui.button_options])
         # Set buttons with always show image
         for button in (self.ui.button_turnon, ):
             button.set_always_show_image(True)

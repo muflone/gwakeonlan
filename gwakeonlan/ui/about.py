@@ -33,15 +33,14 @@ from gwakeonlan.constants import (APP_AUTHOR,
                                   FILE_LICENSE,
                                   FILE_RESOURCES,
                                   FILE_TRANSLATORS)
-from gwakeonlan.functions import (_,
-                                  get_ui_file,
-                                  readlines)
-from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
+from gwakeonlan.functions import readlines, _
+from gwakeonlan.ui.base import UIBase
 
 
-class UIAbout(object):
+class UIAbout(UIBase):
     def __init__(self, parent, settings, options):
         """Prepare the about dialog"""
+        super().__init__(filename='about.ui')
         self.settings = settings
         self.options = options
         # Retrieve the translators list
@@ -52,8 +51,6 @@ class UIAbout(object):
             line = line.replace('(at)', '@').strip()
             if line not in translators:
                 translators.append(line)
-        # Load the user interface
-        self.ui = GtkBuilderLoader(get_ui_file('about.ui'))
         # Set various properties
         self.ui.dialog.set_program_name(APP_NAME)
         self.ui.dialog.set_version(_('Version {VERSION}').format(
