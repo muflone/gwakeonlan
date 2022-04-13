@@ -213,6 +213,8 @@ setuptools.setup(
     data_files=[
         (f'share/{DOMAIN_NAME}/data',
             ['data/gwakeonlan.png']),
+        (f'share/{DOMAIN_NAME}/data/icons',
+            list(map(str, (pathlib.Path('data') / 'icons').glob('*')))),
         ('share/applications',
             ['data/gwakeonlan.desktop']),
         (f'share/doc/{DOMAIN_NAME}',

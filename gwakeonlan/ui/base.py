@@ -18,11 +18,13 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+import pathlib
 from typing import Iterable
 
 from gi.repository import Gtk
 
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
+from gwakeonlan.constants import DIR_ICONS
 from gwakeonlan.functions import get_ui_file, text
 
 
@@ -68,3 +70,13 @@ class UIBase(object):
             action = widget.get_related_action()
             if action:
                 widget.set_tooltip_text(action.get_label().replace('_', ''))
+
+    def load_image_file(self, image: Gtk.Image) -> bool:
+        """
+        Load an icon from filesystem if existing
+        """
+        icon_name, _ = image.get_icon_name()
+        icon_path = pathlib.Path(DIR_ICONS / f'{icon_name}.png')
+        if icon_path.is_file():
+            image.set_from_file(str(icon_path))
+        return icon_path.is_file()

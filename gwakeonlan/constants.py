@@ -68,6 +68,7 @@ else:
     DIR_DOCS = path_prefix / 'share' / 'doc' / DOMAIN_NAME
 # Set the paths for the folders
 DIR_DATA = DIR_PREFIX / 'data'
+DIR_ICONS = DIR_DATA / 'icons'
 DIR_UI = DIR_PREFIX / 'ui'
 try:
     # In read-only environments, the settings folder cannot be created
