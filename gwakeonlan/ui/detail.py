@@ -18,12 +18,10 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-import pathlib
-
 from gi.repository import GLib
 from gi.repository import Gtk
 
-from gwakeonlan.constants import BROADCAST_ADDRESS, DIR_ICONS, FILE_ICON
+from gwakeonlan.constants import BROADCAST_ADDRESS, FILE_ICON
 from gwakeonlan.functions import (_,
                                   format_mac_address,
                                   text_gtk30)
