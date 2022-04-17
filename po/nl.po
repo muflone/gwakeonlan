@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-04-02 23:31+0200\n"
+"POT-Creation-Date: 2022-04-17 04:07+0200\n"
 "PO-Revision-Date: 2022-03-11 10:42+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss(at)fastmail.com>\n"
 "Language-Team: Dutch (https://www.transifex.com/p/gwakeonlan/)\n"
@@ -22,28 +22,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gwakeonlan/ui/about.py:59
+#: gwakeonlan/ui/about.py:56
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "Versie {VERSION}"
 
-#: gwakeonlan/ui/about.py:62
+#: gwakeonlan/ui/about.py:59
 msgid "Wake up your machines using Wake on LAN."
 msgstr "Ontwaak uw computers met Wake-on-LAN."
 
-#: gwakeonlan/ui/about.py:71
+#: gwakeonlan/ui/about.py:68
 msgid "Contributors:"
 msgstr "Bijdragers:"
 
-#: gwakeonlan/ui/arpcache.py:43
+#: gwakeonlan/ui/arpcache.py:40
 msgid "Pick a host from the ARP cache"
 msgstr "Kies een host uit de ARP-cache"
 
-#: gwakeonlan/ui/detail.py:58 ui/main.ui:59 ui/shortcuts.ui:57
+#: gwakeonlan/ui/detail.py:58 ui/main.ui:69 ui/shortcuts.ui:64
 msgid "Edit machine"
 msgstr "Computer bewerken"
 
-#: gwakeonlan/ui/detail.py:60 ui/main.ui:51 ui/shortcuts.ui:50
+#: gwakeonlan/ui/detail.py:60 ui/main.ui:61 ui/shortcuts.ui:57
 msgid "Add machine"
 msgstr "Computer toevoegen"
 
@@ -59,11 +59,11 @@ msgstr "Ongeldig MAC-adres"
 msgid "Invalid destination host"
 msgstr "Ongeldige bestemming"
 
-#: gwakeonlan/ui/main.py:261
+#: gwakeonlan/ui/main.py:228
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Weet u zeker dat u de gekozen computer wilt verwijderen?"
 
-#: gwakeonlan/ui/main.py:262 ui/main.ui:67 ui/shortcuts.ui:64
+#: gwakeonlan/ui/main.py:229 ui/main.ui:77 ui/shortcuts.ui:71
 msgid "Delete machine"
 msgstr "Computer verwijderen"
 
@@ -115,47 +115,47 @@ msgstr "_Internet"
 msgid "_Destination host:"
 msgstr "_Bestemming:"
 
-#: ui/main.ui:33
-msgid "Options"
-msgstr "Opties"
+#: ui/main.ui:36 ui/main.ui:42 ui/shortcuts.ui:28
+msgid "Open the options menu"
+msgstr "Open het optiesmenu"
 
-#: ui/main.ui:42 ui/main.ui:218 ui/shortcuts.ui:71
+#: ui/main.ui:52 ui/main.ui:228 ui/shortcuts.ui:78
 msgid "Turn on"
 msgstr "Inschakelen"
 
-#: ui/main.ui:75 ui/main.ui:111
+#: ui/main.ui:85 ui/main.ui:121
 msgid "Detect from ARP cache"
 msgstr "Detecteren op basis van ARP-cache"
 
-#: ui/main.ui:81 ui/main.ui:119
+#: ui/main.ui:91 ui/main.ui:129
 msgid "Import from ethers file"
 msgstr "Importeren uit ethers-bestand"
 
-#: ui/main.ui:97 ui/main.ui:146 ui/shortcuts.ui:85
+#: ui/main.ui:107 ui/main.ui:156 ui/shortcuts.ui:92
 msgid "Deselect All"
 msgstr "Niets selecteren"
 
-#: ui/main.ui:126
+#: ui/main.ui:136
 msgid "Select machines"
 msgstr "Computers selecteren"
 
-#: ui/main.ui:341
+#: ui/main.ui:351
 msgid "Machine name"
 msgstr "Computernaam"
 
-#: ui/main.ui:354
+#: ui/main.ui:364
 msgid "MAC address"
 msgstr "MAC-adres"
 
-#: ui/main.ui:367
+#: ui/main.ui:377
 msgid "Request type"
 msgstr "Soort aanvraag"
 
-#: ui/main.ui:380
+#: ui/main.ui:390
 msgid "Destination"
 msgstr "Bestemming"
 
-#: ui/main.ui:393
+#: ui/main.ui:403
 msgid "Port NR"
 msgstr "Poortnummer"
 
@@ -163,14 +163,14 @@ msgstr "Poortnummer"
 msgid "About gWakeOnLAN"
 msgstr "Over gWakeOnLAN"
 
-#: ui/shortcuts.ui:28
+#: ui/shortcuts.ui:35
 msgid "Show the shortcuts dialog"
 msgstr "Toon het sneltoetsvenster"
 
-#: ui/shortcuts.ui:35
+#: ui/shortcuts.ui:42
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: ui/shortcuts.ui:45
+#: ui/shortcuts.ui:52
 msgid "Machines"
 msgstr "Computers"

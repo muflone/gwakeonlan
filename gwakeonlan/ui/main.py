@@ -162,6 +162,10 @@ class UIMain(UIBase):
         about.show()
         about.destroy()
 
+    def on_action_options_menu_activate(self, widget):
+        """Open the options menu"""
+        self.ui.button_options.emit('clicked')
+
     def on_action_shortcuts_activate(self, action):
         """Show the shortcuts dialog"""
         dialog = UIShortcuts(self.ui.window)
