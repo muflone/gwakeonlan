@@ -24,7 +24,7 @@ msgstr ""
 #: gwakeonlan/ui/about.py:56
 #, python-brace-format
 msgid "Version {VERSION}"
-msgstr ""
+msgstr "Versió {VERSION}"
 
 #: gwakeonlan/ui/about.py:59
 msgid "Wake up your machines using Wake on LAN."
@@ -132,7 +132,7 @@ msgstr ""
 
 #: ui/main.ui:107 ui/main.ui:156 ui/shortcuts.ui:92
 msgid "Deselect All"
-msgstr ""
+msgstr "Deselecciona Tot"
 
 #: ui/main.ui:136
 msgid "Select machines"
@@ -168,7 +168,7 @@ msgstr ""
 
 #: ui/shortcuts.ui:42
 msgid "Quit"
-msgstr ""
+msgstr "Surt"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2022-04-17 04:07+0200\n"
-"PO-Revision-Date: 2020-02-13 13:31+0000\n"
+"PO-Revision-Date: 2022-04-18 02:43+0200\n"
 "Last-Translator: Сергей Богатов <hsh(at)runtu.org>\n"
 "Language-Team: Russian (https://www.transifex.com/p/gwakeonlan/)\n"
 "Language: ru\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: gwakeonlan/ui/about.py:56
 #, python-brace-format
 msgid "Version {VERSION}"
-msgstr ""
+msgstr "Версия {VERSION}"
 
 #: gwakeonlan/ui/about.py:59
 msgid "Wake up your machines using Wake on LAN."
@@ -32,7 +32,7 @@ msgstr ""
 
 #: gwakeonlan/ui/about.py:68
 msgid "Contributors:"
-msgstr "Авторы:"
+msgstr "Контрибьюторы:"
 
 #: gwakeonlan/ui/arpcache.py:40
 msgid "Pick a host from the ARP cache"
@@ -168,7 +168,7 @@ msgstr ""
 
 #: ui/shortcuts.ui:42
 msgid "Quit"
-msgstr ""
+msgstr "Завершить"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"
