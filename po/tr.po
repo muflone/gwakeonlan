@@ -7,36 +7,39 @@
 #
 # Translators:
 # Necdet Yücel <necdetyucel(at)gmail.com>, 2012
+# Fatih Altun <fatih.altun@pardus.org.tr>, 2022.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2022-04-17 04:07+0200\n"
-"PO-Revision-Date: 2022-04-18 02:50+0200\n"
-"Last-Translator: Necdet Yücel <necdetyucel(at)gmail.com>\n"
+"PO-Revision-Date: 2022-04-17 22:10+0300\n"
+"Last-Translator: Fatih Altun <fatih.altun@pardus.org.tr>\n"
 "Language-Team: Turkish (https://www.transifex.com/p/gwakeonlan/)\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Gtranslator 3.38.0\n"
 
 #: gwakeonlan/ui/about.py:56
 #, python-brace-format
 msgid "Version {VERSION}"
-msgstr "Sürümü {VERSION}"
+msgstr "Versiyon {VERSION}"
 
 #: gwakeonlan/ui/about.py:59
 msgid "Wake up your machines using Wake on LAN."
-msgstr ""
+msgstr "Wake on LAN kullanarak makinelerinizi uyandırın."
 
 #: gwakeonlan/ui/about.py:68
 msgid "Contributors:"
-msgstr ""
+msgstr "Katkıda Bulunanlar:"
 
 #: gwakeonlan/ui/arpcache.py:40
 msgid "Pick a host from the ARP cache"
-msgstr ""
+msgstr "ARP önbelleğinden bir ana bilgisayar seçin"
 
 #: gwakeonlan/ui/detail.py:58 ui/main.ui:69 ui/shortcuts.ui:64
 msgid "Edit machine"
@@ -68,11 +71,11 @@ msgstr "Makine sil"
 
 #: ui/arpcache.ui:101
 msgid "IP Address"
-msgstr ""
+msgstr "IP adresi"
 
 #: ui/arpcache.ui:113
 msgid "Host Name"
-msgstr ""
+msgstr "Ana Bilgisayar Adı"
 
 #: ui/arpcache.ui:125
 msgid "MAC Address"
@@ -80,7 +83,7 @@ msgstr "MAC Adresi"
 
 #: ui/detail.ui:29
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
-msgstr ""
+msgstr "<b><span foreground=\"red\">HATA</span></b>"
 
 #: ui/detail.ui:91
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
@@ -116,27 +119,27 @@ msgstr "_Hedef istemci:"
 
 #: ui/main.ui:36 ui/main.ui:42 ui/shortcuts.ui:28
 msgid "Open the options menu"
-msgstr ""
+msgstr "Seçenekler menüsünü aç"
 
 #: ui/main.ui:52 ui/main.ui:228 ui/shortcuts.ui:78
 msgid "Turn on"
-msgstr ""
+msgstr "Aç"
 
 #: ui/main.ui:85 ui/main.ui:121
 msgid "Detect from ARP cache"
-msgstr ""
+msgstr "ARP önbelleğinden algıla"
 
 #: ui/main.ui:91 ui/main.ui:129
 msgid "Import from ethers file"
-msgstr ""
+msgstr "ethers dosyasından içe aktar"
 
 #: ui/main.ui:107 ui/main.ui:156 ui/shortcuts.ui:92
 msgid "Deselect All"
-msgstr ""
+msgstr "Tüm seçimleri kaldır"
 
 #: ui/main.ui:136
 msgid "Select machines"
-msgstr ""
+msgstr "Makineleri seç"
 
 #: ui/main.ui:351
 msgid "Machine name"
@@ -164,12 +167,12 @@ msgstr "Hakkında gWakeOnLAN"
 
 #: ui/shortcuts.ui:35
 msgid "Show the shortcuts dialog"
-msgstr ""
+msgstr "Kısayollar iletişim kutusunu göster"
 
 #: ui/shortcuts.ui:42
 msgid "Quit"
-msgstr "Çık"
+msgstr "Çıkış"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"
-msgstr ""
+msgstr "Makineler"
