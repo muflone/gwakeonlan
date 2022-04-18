@@ -15,6 +15,20 @@
 
 **Translations:** https://www.transifex.com/projects/p/gwakeonlan/
 
+# Usage
+
+From the *gWakeOnLAN* main window you can define your hosts along with their
+MAC Addresses, select those you want to turn on and just start them with a
+simple click on the button **Turn on**.
+
+![Main window](https://www.muflone.com/resources/gwakeonlan/archive/latest/english/main.png)
+
+For each host you can define its name, the MAC address and you can select if you
+want to turn it on on the local network or via internet through a destination
+host.
+
+![Detail](https://www.muflone.com/resources/gwakeonlan/archive/latest/english/detail.png)
+
 # System Requirements
 
 * Python >= 3.6 (developed and tested for Python 3.9 and 3.10)
