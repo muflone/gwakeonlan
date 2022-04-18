@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-04-17 04:07+0200\n"
+"POT-Creation-Date: 2022-04-18 16:24+0200\n"
 "PO-Revision-Date: 2015-07-18 16:35+0000\n"
 "Last-Translator: sahwar <ve4ernik(at)gmail.com>\n"
 "Language-Team: Bulgarian (https://www.transifex.com/p/gwakeonlan/)\n"
@@ -21,16 +21,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gwakeonlan/ui/about.py:56
+#: gwakeonlan/ui/about.py:55
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "Версия {VERSION}"
 
-#: gwakeonlan/ui/about.py:59
+#: gwakeonlan/ui/about.py:58
 msgid "Wake up your machines using Wake on LAN."
 msgstr ""
 
-#: gwakeonlan/ui/about.py:68
+#: gwakeonlan/ui/about.py:67
 msgid "Contributors:"
 msgstr ""
 
