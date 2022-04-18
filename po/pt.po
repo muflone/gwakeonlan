@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2022-04-17 04:07+0200\n"
-"PO-Revision-Date: 2022-03-11 00:11+0000\n"
+"PO-Revision-Date: 2022-04-18 02:36+0200\n"
 "Last-Translator: Amilton Pereira cavalcante <amiltonpc(at)gmail.com>\n"
 "Language-Team: Portuguese (https://www.transifex.com/p/gwakeonlan/)\n"
 "Language: pt\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: gwakeonlan/ui/about.py:56
 #, python-brace-format
 msgid "Version {VERSION}"
-msgstr ""
+msgstr "Versão {VERSION}"
 
 #: gwakeonlan/ui/about.py:59
 msgid "Wake up your machines using Wake on LAN."
@@ -168,7 +168,7 @@ msgstr ""
 
 #: ui/shortcuts.ui:42
 msgid "Quit"
-msgstr ""
+msgstr "Sair"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"

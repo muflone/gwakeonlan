@@ -16,7 +16,7 @@ msgstr ""
 "POT-Creation-Date: 2022-04-17 04:07+0200\n"
 "PO-Revision-Date: 2022-04-17 22:10+0300\n"
 "Last-Translator: Fatih Altun <fatih.altun@pardus.org.tr>\n"
-"Language-Team: Turkish <dev@pardus.org.tr>\n"
+"Language-Team: Turkish (https://www.transifex.com/p/gwakeonlan/)\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,7 +79,7 @@ msgstr "Ana Bilgisayar Adı"
 
 #: ui/arpcache.ui:125
 msgid "MAC Address"
-msgstr "Mac Adresi"
+msgstr "MAC Adresi"
 
 #: ui/detail.ui:29
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
