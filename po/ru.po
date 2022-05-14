@@ -116,7 +116,7 @@ msgstr "_Расположение компьютера:"
 
 #: ui/main.ui:36 ui/main.ui:42 ui/shortcuts.ui:28
 msgid "Open the options menu"
-msgstr ""
+msgstr "Открыть настройки"
 
 #: ui/main.ui:52 ui/main.ui:228 ui/shortcuts.ui:78
 msgid "Turn on"
@@ -164,7 +164,7 @@ msgstr "Справка gWakeOnLAN"
 
 #: ui/shortcuts.ui:35
 msgid "Show the shortcuts dialog"
-msgstr ""
+msgstr "Комбинации клавиш"
 
 #: ui/shortcuts.ui:42
 msgid "Quit"
