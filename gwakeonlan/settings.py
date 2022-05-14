@@ -30,7 +30,6 @@ POSITION_TOP = 'top'
 SIZE_WIDTH = 'width'
 SIZE_HEIGHT = 'height'
 
-SECTION_MAINWIN = 'main window'
 SECTION_HOSTS = 'hosts'
 
 
