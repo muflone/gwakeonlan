@@ -22,9 +22,8 @@ from gi.repository import GLib
 from gi.repository import Gtk
 
 from gwakeonlan.constants import FILE_ICON
-from gwakeonlan.functions import (_,
-                                  get_treeview_selected_row,
-                                  text_gtk30)
+from gwakeonlan.functions import get_treeview_selected_row
+from gwakeonlan.localize import _, text_gtk30
 from gwakeonlan.models.arpcache import ModelArpCache
 from gwakeonlan.ui.base import UIBase
 

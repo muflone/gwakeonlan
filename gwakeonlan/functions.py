@@ -18,7 +18,6 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from gettext import gettext, dgettext
 import itertools
 import logging
 import pathlib
@@ -29,8 +28,6 @@ from gi.repository import Gtk
 from gi.repository import GdkPixbuf
 
 from gwakeonlan.constants import DIR_UI
-
-localized_messages = {}
 
 
 def format_mac_address(mac):
@@ -130,26 +127,6 @@ def show_message_dialog_yesno(parent, message, title, default_response):
     return response
 
 
-def text(message, gtk30=False, context=None):
-    """Return a translated message and cache it for reuse"""
-    if message not in localized_messages:
-        if gtk30:
-            # Get a message translated from GTK+ 3 domain
-            full_message = message if not context else f'{context}\04{message}'
-            localized_messages[message] = dgettext('gtk30', full_message)
-            # Fix for untranslated messages with context
-            if context and localized_messages[message] == full_message:
-                localized_messages[message] = dgettext('gtk30', message)
-        else:
-            localized_messages[message] = gettext(message)
-    return localized_messages[message]
-
-
-def text_gtk30(message, context=None):
-    """Return a translated text from GTK+ 3.0"""
-    return text(message=message, gtk30=True, context=context)
-
-
 def wake_on_lan(mac_address, port_number, destination):
     """Turn on remote machine using Wake On LAN."""
     logging.info('turning on: %s through %s using port number %d' % (
@@ -170,8 +147,3 @@ def wake_on_lan(mac_address, port_number, destination):
     data = b''.join(data)
     for _ in range(10):
         sock.sendto(data, (destination, port_number))
-
-
-# This special alias is used to track localization requests to catch
-# by xgettext. The text() calls aren't tracked by xgettext
-_ = text

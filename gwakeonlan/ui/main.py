@@ -29,15 +29,14 @@ from gwakeonlan.constants import (FILE_ICON,
                                   APP_NAME,
                                   BROADCAST_ADDRESS, DEFAULT_UDP_PORT,
                                   FILE_SETTINGS)
-from gwakeonlan.functions import (_,
-                                  format_mac_address,
+from gwakeonlan.functions import (format_mac_address,
                                   get_pixbuf_from_icon_name,
                                   get_treeview_selected_row,
                                   process_events,
                                   show_message_dialog_yesno,
-                                  text_gtk30,
                                   wake_on_lan)
 from gwakeonlan.import_ethers import ImportEthers
+from gwakeonlan.localize import _, text_gtk30
 from gwakeonlan.settings import Settings
 from gwakeonlan.models.machine_item import MachineItem
 from gwakeonlan.models.machines import ModelMachines

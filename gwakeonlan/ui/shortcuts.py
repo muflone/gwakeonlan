@@ -20,7 +20,7 @@
 
 from gi.repository import Gtk
 
-from gwakeonlan.functions import text, text_gtk30
+from gwakeonlan.localize import text, text_gtk30
 from gwakeonlan.ui.base import UIBase
 
 

@@ -32,7 +32,8 @@ from gwakeonlan.constants import (APP_AUTHOR,
                                   FILE_LICENSE,
                                   FILE_RESOURCES,
                                   FILE_TRANSLATORS)
-from gwakeonlan.functions import readlines, _
+from gwakeonlan.functions import readlines
+from gwakeonlan.localize import _
 from gwakeonlan.ui.base import UIBase
 
 

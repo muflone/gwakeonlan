@@ -25,7 +25,8 @@ from gi.repository import Gtk
 
 from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.constants import DIR_ICONS
-from gwakeonlan.functions import get_ui_file, text
+from gwakeonlan.functions import get_ui_file
+from gwakeonlan.localize import text
 
 
 class UIBase(object):
