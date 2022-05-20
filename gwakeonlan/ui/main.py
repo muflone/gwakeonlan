@@ -179,7 +179,7 @@ class UIMain(UIBase):
         self.ui.window.destroy()
         self.application.quit()
 
-    def on_action_add_activate(self, widget):
+    def on_action_add_activate(self, action):
         """Add a new empty machine"""
         self.detail.load_data(machine_name='',
                               mac_address='',
@@ -197,7 +197,7 @@ class UIMain(UIBase):
             # Automatically select the last inserted item
             self.ui.treeview_machines.set_cursor(self.model.count() - 1)
 
-    def on_action_edit_activate(self, widget):
+    def on_action_edit_activate(self, action):
         """Edit the selected machine"""
         treeiter = get_treeview_selected_row(self.ui.treeview_machines)
         if treeiter:
@@ -217,7 +217,7 @@ class UIMain(UIBase):
                 self.model.set_destination(treeiter,
                                            self.detail.get_destination())
 
-    def on_action_delete_activate(self, widget):
+    def on_action_delete_activate(self, action):
         """Delete the selected machine"""
         treeiter = get_treeview_selected_row(self.ui.treeview_machines)
         if treeiter:
@@ -231,7 +231,7 @@ class UIMain(UIBase):
                 # Delete the selected machine
                 self.model.remove(treeiter)
 
-    def on_action_turnon_activate(self, widget):
+    def on_action_turnon_activate(self, action):
         """Launch the Wake On LAN for all the selected machines"""
         selected_count = 0
         for treeiter in self.model:
@@ -247,7 +247,7 @@ class UIMain(UIBase):
             if treeiter:
                 self.do_turn_on(treeiter)
 
-    def on_action_import_arp_cache_activate(self, widget):
+    def on_action_import_arp_cache_activate(self, action):
         """Show the ARP cache picker dialog"""
         dialog = UIArpCache(parent=self.ui.window,
                             settings=self.settings,
@@ -269,7 +269,7 @@ class UIMain(UIBase):
         # Destroy the dialog
         dialog.destroy()
 
-    def on_action_import_ethers_activate(self, widget):
+    def on_action_import_ethers_activate(self, action):
         """Show the Ethers file importer"""
         dialog = Gtk.FileChooserDialog(
             text_gtk30("Select a File"),
@@ -286,11 +286,11 @@ class UIMain(UIBase):
                                  icon=self.icon_empty)
         dialog.destroy()
 
-    def on_action_select_all_activate(self, widget):
+    def on_action_select_all_activate(self, action):
         for treeiter in self.model:
             self.model.set_selected(treeiter, True)
 
-    def on_action_deselect_all_activate(self, widget):
+    def on_action_deselect_all_activate(self, action):
         for treeiter in self.model:
             self.model.set_selected(treeiter, False)
 

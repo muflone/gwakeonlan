@@ -4,12 +4,6 @@ python:
   - "3.6"
 virtualenv:
   system_site_packages: true
-script:
-  - python -m compileall .
-  - flake8 .
-  - python setup.py install --optimize=1 --root=build
-  - ls -laR build
-  - python3 gwakeonlan.py --verbose --autotest
 addons:
   apt:
     packages:
@@ -21,3 +15,9 @@ install:
   - pip install -r requirements_travis.txt
 services:
   - xvfb
+script:
+  - python -m compileall .
+  - flake8 .
+  - python setup.py install --optimize=1 --root=build
+  - ls -laR build
+  - python3 gwakeonlan.py --verbose --autotest
