@@ -100,6 +100,8 @@ class UIMain(UIBase):
         # Set buttons with always show image
         for button in (self.ui.button_turnon, ):
             button.set_always_show_image(True)
+        self.set_buttons_style_suggested_action(
+            buttons=[self.ui.button_turnon])
         # Set various properties
         self.ui.window.set_title(APP_NAME)
         self.ui.window.set_icon_from_file(str(FILE_ICON))

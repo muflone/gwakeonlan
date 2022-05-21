@@ -81,3 +81,8 @@ class UIBase(object):
         if icon_path.is_file():
             image.set_from_file(str(icon_path))
         return icon_path.is_file()
+
+    def set_buttons_style_suggested_action(self, buttons: Iterable):
+        """Add the suggested-action style to a widget"""
+        for button in buttons:
+            button.get_style_context().add_class('suggested-action')

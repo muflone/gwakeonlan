@@ -29,22 +29,6 @@
       <accelerator key="question" modifiers="GDK_CONTROL_MASK"/>
     </child>
   </object>
-  <object class="GtkActionGroup" id="actions_options">
-    <property name="accel-group">accelerators</property>
-    <child>
-      <object class="GtkAction" id="action_options">
-        <property name="label" translatable="yes">Open the options menu</property>
-        <property name="icon-name">open-menu-symbolic</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_options_menu">
-        <property name="label" translatable="yes">Open the options menu</property>
-        <signal name="activate" handler="on_action_options_menu_activate" swapped="no"/>
-      </object>
-      <accelerator key="F10"/>
-    </child>
-  </object>
   <object class="GtkActionGroup" id="actions_machines">
     <property name="accel-group">accelerators</property>
     <child>
@@ -91,6 +75,22 @@
         <property name="label" translatable="yes">Import from ethers file</property>
         <signal name="activate" handler="on_action_import_ethers_activate" swapped="no"/>
       </object>
+    </child>
+  </object>
+  <object class="GtkActionGroup" id="actions_options">
+    <property name="accel-group">accelerators</property>
+    <child>
+      <object class="GtkAction" id="action_options">
+        <property name="label" translatable="yes">Open the options menu</property>
+        <property name="icon-name">open-menu-symbolic</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkAction" id="action_options_menu">
+        <property name="label" translatable="yes">Open the options menu</property>
+        <signal name="activate" handler="on_action_options_menu_activate" swapped="no"/>
+      </object>
+      <accelerator key="F10"/>
     </child>
   </object>
   <object class="GtkActionGroup" id="actions_selection">
@@ -230,7 +230,6 @@
         <property name="visible">True</property>
         <property name="can-focus">True</property>
         <property name="receives-default">True</property>
-        <property name="relief">none</property>
       </object>
       <packing>
         <property name="position">3</property>
