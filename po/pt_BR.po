@@ -8,13 +8,14 @@
 # Translators:
 # ricardomourabraga <ricardomourabraga(at)gmail.com>, 2011
 # Amilton Pereira Cavalcante <amiltonpc(at)gmail.com>, 2016
+# Paguiar735 <github.translation(at)paguiar.dev>, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
 "POT-Creation-Date: 2022-04-18 16:24+0200\n"
-"PO-Revision-Date: 2022-04-18 02:36+0200\n"
-"Last-Translator: Amilton Pereira Cavalcante <amiltonpc(at)gmail.com>\n"
+"PO-Revision-Date: 2022-06-16 02:36+0200\n"
+"Last-Translator: Paguiar735 <github.translation(at)paguiar.dev>\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/p/gwakeonlan/)\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +30,7 @@ msgstr "Versão {VERSION}"
 
 #: gwakeonlan/ui/about.py:58
 msgid "Wake up your machines using Wake on LAN."
-msgstr ""
+msgstr "Ligar máquina com o Wake On LAN"
 
 #: gwakeonlan/ui/about.py:67
 msgid "Contributors:"
@@ -37,19 +38,19 @@ msgstr "Contribuidores:"
 
 #: gwakeonlan/ui/arpcache.py:40
 msgid "Pick a host from the ARP cache"
-msgstr "Escolher um PC a pratir do cache ARP"
+msgstr "Selecionar servidor a partir do cache ARP"
 
 #: gwakeonlan/ui/detail.py:58 ui/main.ui:69 ui/shortcuts.ui:64
 msgid "Edit machine"
-msgstr "Edita PC"
+msgstr "Editar máquina"
 
 #: gwakeonlan/ui/detail.py:60 ui/main.ui:61 ui/shortcuts.ui:57
 msgid "Add machine"
-msgstr "Adicionar PC"
+msgstr "Adicionar máquina"
 
 #: gwakeonlan/ui/detail.py:68
 msgid "Missing machine name"
-msgstr "PC sem nome"
+msgstr "Máquina sem nome"
 
 #: gwakeonlan/ui/detail.py:72
 msgid "Invalid MAC address"
@@ -57,15 +58,15 @@ msgstr "Endereço MAC Inválido"
 
 #: gwakeonlan/ui/detail.py:76
 msgid "Invalid destination host"
-msgstr "PC de destino inválido "
+msgstr "Servidor de destino inválido"
 
 #: gwakeonlan/ui/main.py:228
 msgid "Are you sure you want to remove the selected machine?"
-msgstr "Tem certeza que deseja remover o PC selecionado?"
+msgstr "Tem certeza que deseja remover a máquina selecionada?"
 
 #: gwakeonlan/ui/main.py:229 ui/main.ui:77 ui/shortcuts.ui:71
 msgid "Delete machine"
-msgstr "Deleta PC"
+msgstr "Deletar máquina"
 
 #: ui/arpcache.ui:101
 msgid "IP Address"
@@ -73,7 +74,7 @@ msgstr "Endereço IP"
 
 #: ui/arpcache.ui:113
 msgid "Host Name"
-msgstr "Nome do host"
+msgstr "Nome do servidor"
 
 #: ui/arpcache.ui:125
 msgid "MAC Address"
@@ -85,11 +86,11 @@ msgstr "<b><span foreground=\"red\">ERRO</span></b>"
 
 #: ui/detail.ui:91
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr "<big><b>Insira o nome do PC e seu endereço MAC</b></big>"
+msgstr "<big><b>Insira o nome da máquina e seu endereço MAC</b></big>"
 
 #: ui/detail.ui:120
 msgid "_Machine name:"
-msgstr "_PC nome:"
+msgstr "_Machine name:"
 
 #: ui/detail.ui:148
 msgid "MAC _Address:"
@@ -97,7 +98,7 @@ msgstr "MAC _Address:"
 
 #: ui/detail.ui:162
 msgid "_UDP port number:"
-msgstr "_Número Porta UDP:"
+msgstr "_UDP port number:"
 
 #: ui/detail.ui:191
 msgid "Request type:"
@@ -113,11 +114,11 @@ msgstr "_Internet"
 
 #: ui/detail.ui:240
 msgid "_Destination host:"
-msgstr "_PC Destino:"
+msgstr "_Destination host:"
 
 #: ui/main.ui:36 ui/main.ui:42 ui/shortcuts.ui:28
 msgid "Open the options menu"
-msgstr ""
+msgstr "Abrir menu de opções"
 
 #: ui/main.ui:52 ui/main.ui:228 ui/shortcuts.ui:78
 msgid "Turn on"
@@ -129,19 +130,19 @@ msgstr "Detectar a partir do chache ARP"
 
 #: ui/main.ui:91 ui/main.ui:129
 msgid "Import from ethers file"
-msgstr ""
+msgstr "Importar do arquivo ethers"
 
 #: ui/main.ui:107 ui/main.ui:156 ui/shortcuts.ui:92
 msgid "Deselect All"
-msgstr ""
+msgstr "Deselecionar todos"
 
 #: ui/main.ui:136
 msgid "Select machines"
-msgstr ""
+msgstr "Selecionar máquinas"
 
 #: ui/main.ui:351
 msgid "Machine name"
-msgstr "Nome PC"
+msgstr "Nome da máquina"
 
 #: ui/main.ui:364
 msgid "MAC address"
@@ -157,15 +158,15 @@ msgstr "Destino"
 
 #: ui/main.ui:403
 msgid "Port NR"
-msgstr "Porta NR"
+msgstr "Port NR"
 
 #: ui/shortcuts.ui:21
 msgid "About gWakeOnLAN"
-msgstr "Sobre gWakeOnLAN"
+msgstr "Sobre o gWakeOnLAN"
 
 #: ui/shortcuts.ui:35
 msgid "Show the shortcuts dialog"
-msgstr ""
+msgstr "Mostrar menu de atalhos"
 
 #: ui/shortcuts.ui:42
 msgid "Quit"
@@ -173,4 +174,4 @@ msgstr "Sair"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"
-msgstr ""
+msgstr "Máquinas"
