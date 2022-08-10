@@ -29,7 +29,7 @@ class Application(Gtk.Application):
         """Prepare the GtkApplication"""
         super(self.__class__, self).__init__(application_id=APP_ID)
         self.options = options
-        self.connect("activate", self.activate)
+        self.connect('activate', self.activate)
         self.connect('startup', self.startup)
 
     def startup(self, application):
