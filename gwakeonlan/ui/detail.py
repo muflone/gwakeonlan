@@ -62,7 +62,10 @@ class UIDetail(UIBase):
             if response == Gtk.ResponseType.OK:
                 # Check values for valid response
                 err_msg = ''
-                mac = self.get_mac_address().replace(':', '').replace('.', '').replace('-','')
+                mac = (self.get_mac_address()
+                       .replace(':', '')
+                       .replace('.', '')
+                       .replace('-', ''))
                 if not self.get_machine_name():
                     err_msg = _('Missing machine name')
                     self.ui.text_machine_name.grab_focus()
