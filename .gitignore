@@ -5,6 +5,7 @@ __pycache__/
 # Ignore build and dist folders for PyPI
 /build/
 /dist/
+/*.egg-info/
 
 # Ignore compiled translation files
 /locale/
