@@ -116,7 +116,7 @@ msgstr "_Paskirties serveris:"
 
 #: ui/main.ui:36 ui/main.ui:42 ui/shortcuts.ui:28
 msgid "Open the options menu"
-msgstr ""
+msgstr "Atverti parinkčių meniu"
 
 #: ui/main.ui:52 ui/main.ui:228 ui/shortcuts.ui:78
 msgid "Turn on"
