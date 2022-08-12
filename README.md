@@ -15,7 +15,7 @@
 
 **Translations:** https://explore.transifex.com/muflone/gwakeonlan/
 
-# Usage
+# Description
 
 From the *gWakeOnLAN* main window you can define your hosts along with their
 MAC Addresses, select those you want to turn on and just start them with a
