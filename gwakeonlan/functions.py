@@ -32,7 +32,7 @@ from gwakeonlan.constants import DIR_UI
 
 def format_mac_address(mac):
     """Return the mac address formatted with colon"""
-    mac = mac.replace(':', '').replace('.', '')
+    mac = mac.replace(':', '').replace('.', '').replace('-', '')
     return ':'.join([mac[i:i+2] for i in range(0, len(mac), 2)]).upper()
 
 
