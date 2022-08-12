@@ -29,7 +29,7 @@ msgstr "Version {VERSION}"
 
 #: gwakeonlan/ui/about.py:59
 msgid "Wake up your machines using Wake on LAN."
-msgstr ""
+msgstr "Faites sortir vos machines de veille avec la fonctionnalité Wake on LAN"
 
 #: gwakeonlan/ui/about.py:68
 msgid "Contributors:"
@@ -129,15 +129,15 @@ msgstr "Importer depuis un fichier ethers"
 
 #: ui/main.ui:84 ui/main.ui:90 ui/shortcuts.ui:28
 msgid "Open the options menu"
-msgstr ""
+msgstr "Ouvrir le menu options"
 
 #: ui/main.ui:107 ui/main.ui:156 ui/shortcuts.ui:92
 msgid "Deselect All"
-msgstr ""
+msgstr "Tout désélectionner"
 
 #: ui/main.ui:136
 msgid "Select machines"
-msgstr ""
+msgstr "Sélectionner des machines"
 
 #: ui/main.ui:350
 msgid "Machine name"
@@ -165,7 +165,7 @@ msgstr "À propos de gWakeOnLAN"
 
 #: ui/shortcuts.ui:35
 msgid "Show the shortcuts dialog"
-msgstr ""
+msgstr "Afficher la fenêtre des raccourcis"
 
 #: ui/shortcuts.ui:42
 msgid "Quit"
@@ -173,4 +173,4 @@ msgstr "Quitter"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"
-msgstr ""
+msgstr "Machines"
