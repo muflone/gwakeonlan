@@ -58,28 +58,28 @@ class UIArpCache(UIBase):
         self.ui.dialog.hide()
         return response
 
-    def on_button_refresh_clicked(self, widget):
+    def do_get_hostname(self):
+        """Returns the hostname of the selected row"""
+        treeiter = get_treeview_selected_row(self.ui.treeview_hosts)
+        if treeiter:
+            return self.model.get_hostname(treeiter)
+
+    def do_get_ip_address(self):
+        """Returns the IP address of the selected row"""
+        treeiter = get_treeview_selected_row(self.ui.treeview_hosts)
+        if treeiter:
+            return self.model.get_ip_address(treeiter)
+
+    def do_get_mac_address(self):
+        """Returns the MAC address of the selected row"""
+        treeiter = get_treeview_selected_row(self.ui.treeview_hosts)
+        if treeiter:
+            return self.model.get_mac_address(treeiter)
+
+    def on_action_refresh_activate(self, widget):
         """Reload the ARP cache list"""
         self.model.refresh()
 
     def on_treeview_hosts_row_activated(self, widget, path, column):
         """Treats the double click as the OK button was pressed"""
         self.ui.dialog.response(Gtk.ResponseType.OK)
-
-    def get_ip_address(self):
-        """Returns the IP address of the selected row"""
-        treeiter = get_treeview_selected_row(self.ui.treeview_hosts)
-        if treeiter:
-            return self.model.get_ip_address(treeiter)
-
-    def get_hostname(self):
-        """Returns the hostname of the selected row"""
-        treeiter = get_treeview_selected_row(self.ui.treeview_hosts)
-        if treeiter:
-            return self.model.get_hostname(treeiter)
-
-    def get_mac_address(self):
-        """Returns the MAC address of the selected row"""
-        treeiter = get_treeview_selected_row(self.ui.treeview_hosts)
-        if treeiter:
-            return self.model.get_mac_address(treeiter)

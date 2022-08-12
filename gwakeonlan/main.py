@@ -54,5 +54,5 @@ def main():
     logging.debug(f'DIR_UI={str(DIR_UI)}')
     logging.debug(f'DIR_SETTINGS={str(DIR_SETTINGS)}')
     # Start the application
-    app = Application(options)
+    app = Application(options=options)
     app.run(None)

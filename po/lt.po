@@ -1,5 +1,5 @@
 # gWakeOnLAN
-# Wake up your machines using Wake on LAN.
+# Wake up your machines using Wake on LAN
 # Copyright (C) 2009-2022 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 # Website: https://www.muflone.com/gwakeonlan/
 # This file is distributed under the same license of gWakeOnLAN.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-08-12 18:42+0200\n"
+"POT-Creation-Date: 2022-08-15 22:09+0200\n"
 "PO-Revision-Date: 2022-04-18 02:14+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian\n"
@@ -21,16 +21,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 
-#: gwakeonlan/ui/about.py:56
+#: gwakeonlan/ui/about.py:60
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "Versija {VERSION}"
 
-#: gwakeonlan/ui/about.py:59
-msgid "Wake up your machines using Wake on LAN."
-msgstr "Pažadinkite kompiuterius naudodami žadinimą vietiniame tinkle."
+#: gwakeonlan/ui/about.py:63
+msgid "Wake up your machines using Wake on LAN"
+msgstr "Pažadinkite kompiuterius naudodami žadinimą vietiniame tinkle"
 
-#: gwakeonlan/ui/about.py:68
+#: gwakeonlan/ui/about.py:72
 msgid "Contributors:"
 msgstr "Talkininkai:"
 
@@ -46,35 +46,35 @@ msgstr "Taisyti kompiuterį"
 msgid "Add machine"
 msgstr "Pridėti kompiuterį"
 
-#: gwakeonlan/ui/detail.py:67
+#: gwakeonlan/ui/detail.py:70
 msgid "Missing machine name"
 msgstr "Trūksta kompiuterio pavadinimo"
 
-#: gwakeonlan/ui/detail.py:71
+#: gwakeonlan/ui/detail.py:74
 msgid "Invalid MAC address"
 msgstr "Neteisingas MAC adresas"
 
-#: gwakeonlan/ui/detail.py:75
+#: gwakeonlan/ui/detail.py:78
 msgid "Invalid destination host"
 msgstr "Neteisingas paskirties serveris"
 
-#: gwakeonlan/ui/main.py:229
+#: gwakeonlan/ui/main.py:258
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Ar tikrai norite pašalinti pasirinktą kompiuterį?"
 
-#: gwakeonlan/ui/main.py:230 ui/main.ui:61 ui/shortcuts.ui:71
+#: gwakeonlan/ui/main.py:259 ui/main.ui:61 ui/shortcuts.ui:71
 msgid "Delete machine"
 msgstr "Ištrinti kompiuterį"
 
-#: ui/arpcache.ui:101
+#: ui/arpcache.ui:112
 msgid "IP Address"
 msgstr "IP adresas"
 
-#: ui/arpcache.ui:113
+#: ui/arpcache.ui:124
 msgid "Host Name"
 msgstr "Serverio pavadinimas"
 
-#: ui/arpcache.ui:125
+#: ui/arpcache.ui:136
 msgid "MAC Address"
 msgstr "MAC adresas"
 
@@ -114,15 +114,19 @@ msgstr "_Internetas"
 msgid "_Destination host:"
 msgstr "_Paskirties serveris:"
 
-#: ui/main.ui:36 ui/main.ui:228 ui/shortcuts.ui:78
+#: ui/main.ui:25 ui/shortcuts.ui:35
+msgid "Keyboard shortcuts"
+msgstr "Klaviatūros trumpiniai"
+
+#: ui/main.ui:36 ui/main.ui:222 ui/shortcuts.ui:78
 msgid "Turn on"
 msgstr "Įjungti"
 
-#: ui/main.ui:69 ui/main.ui:121
+#: ui/main.ui:69
 msgid "Detect from ARP cache"
 msgstr "Aptikti iš ARP podėlio"
 
-#: ui/main.ui:75 ui/main.ui:129
+#: ui/main.ui:75
 msgid "Import from ethers file"
 msgstr "Importuoti iš „ethers“ failo"
 
@@ -130,41 +134,37 @@ msgstr "Importuoti iš „ethers“ failo"
 msgid "Open the options menu"
 msgstr "Atverti parinkčių meniu"
 
-#: ui/main.ui:107 ui/main.ui:156 ui/shortcuts.ui:92
+#: ui/main.ui:107 ui/shortcuts.ui:92
 msgid "Deselect All"
 msgstr "Nuimti žymėjimą nuo visų"
 
-#: ui/main.ui:136
+#: ui/main.ui:134
 msgid "Select machines"
 msgstr "Žymėti kompiuterius"
 
-#: ui/main.ui:350
+#: ui/main.ui:344
 msgid "Machine name"
 msgstr "Kompiuterio pavadinimas"
 
-#: ui/main.ui:363
+#: ui/main.ui:357
 msgid "MAC address"
 msgstr "MAC adresas"
 
-#: ui/main.ui:376
+#: ui/main.ui:370
 msgid "Request type"
 msgstr "Užklausos tipas"
 
-#: ui/main.ui:389
+#: ui/main.ui:383
 msgid "Destination"
 msgstr "Paskirtis"
 
-#: ui/main.ui:402
+#: ui/main.ui:396
 msgid "Port NR"
 msgstr "Prievado NR"
 
 #: ui/shortcuts.ui:21
-msgid "About gWakeOnLAN"
-msgstr "Apie gWakeOnLAN"
-
-#: ui/shortcuts.ui:35
-msgid "Show the shortcuts dialog"
-msgstr "Rodyti sparčiųjų klavišų dialogą"
+msgid "Show the about dialog"
+msgstr "Rodyti dialogą su informacija apie programą"
 
 #: ui/shortcuts.ui:42
 msgid "Quit"

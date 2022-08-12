@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
+<!-- Generated with glade 3.40.0 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkAccelGroup" id="accelerators"/>
@@ -22,7 +22,7 @@
     </child>
     <child>
       <object class="GtkAction" id="action_shortcuts">
-        <property name="label" context="gtk30">Shortcuts</property>
+        <property name="label" translatable="yes">Keyboard shortcuts</property>
         <property name="icon-name">help-browser</property>
         <signal name="activate" handler="on_action_shortcuts_activate" swapped="no"/>
       </object>
@@ -118,7 +118,6 @@
         <property name="related-action">action_import_arp_cache</property>
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Detect from ARP cache</property>
       </object>
     </child>
     <child>
@@ -126,7 +125,6 @@
         <property name="related-action">action_import_ethers</property>
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Import from ethers file</property>
       </object>
     </child>
     <child>
@@ -144,7 +142,6 @@
                 <property name="related-action">action_select_all</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" context="gtk30">Select _All</property>
                 <property name="use-underline">True</property>
               </object>
             </child>
@@ -153,7 +150,6 @@
                 <property name="related-action">action_deselect_all</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Deselect All</property>
                 <property name="use-underline">True</property>
               </object>
             </child>
@@ -172,7 +168,6 @@
         <property name="related-action">action_shortcuts</property>
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="label" context="gtk30">Shortcuts</property>
         <property name="use-underline">True</property>
       </object>
     </child>
@@ -181,7 +176,6 @@
         <property name="related-action">action_about</property>
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="label" context="gtk30">About</property>
         <property name="use-underline">True</property>
       </object>
     </child>

@@ -19,8 +19,6 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-import re
-
 from gwakeonlan.constants import BROADCAST_ADDRESS, DEFAULT_UDP_PORT
 from gwakeonlan.models.machine_item import MachineItem
 
@@ -32,15 +30,15 @@ class ImportEthers(object):
     def import_file(self, filepath, model, icon):
         with open(filepath, 'r') as import_fh:
             for line in import_fh:
-                if re.match(r'(?:#|\s*$)', line):
-                    continue
-                mac_address, machine_name = line.split()
-                model.add_data(MachineItem(
-                    name=machine_name,
-                    mac_address=(mac_address
-                                 .replace('.', ':')
-                                 .replace(' ', ':')
-                                 .replace('-', ':')),
-                    port_number=DEFAULT_UDP_PORT,
-                    destination=self.import_l3_dest,
-                    icon=icon))
+                line = line.split(sep='#', maxsplit=1)[0].strip()
+                if line:
+                    mac_address, machine_name = line.split()
+                    model.add_data(MachineItem(
+                        name=machine_name,
+                        mac_address=(mac_address
+                                     .replace('.', ':')
+                                     .replace(' ', ':')
+                                     .replace('-', ':')),
+                        port_number=DEFAULT_UDP_PORT,
+                        destination=self.import_l3_dest,
+                        icon=icon))

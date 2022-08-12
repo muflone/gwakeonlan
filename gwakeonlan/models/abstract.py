@@ -26,7 +26,7 @@ class ModelAbstract(object):
 
     def __init__(self, model):
         self.model = model
-        # Fill the rows dictionary with the model items
+        # Fill the rows' dictionary with the model items
         self.rows = {}
         for row in self.model:
             name = row[self.COL_KEY]

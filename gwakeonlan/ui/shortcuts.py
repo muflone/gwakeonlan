@@ -18,6 +18,8 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+import logging
+
 from gi.repository import Gtk
 
 from gwakeonlan.localize import text, text_gtk30
@@ -25,9 +27,14 @@ from gwakeonlan.ui.base import UIBase
 
 
 class UIShortcuts(UIBase):
-    def __init__(self, parent):
+    def __init__(self, parent, settings, options):
         """Prepare the shortcuts dialog"""
+        logging.debug(f'{self.__class__.__name__} init')
         super().__init__(filename='shortcuts.ui')
+        # Initialize members
+        self.settings = settings
+        self.options = options
+        # Load the user interface
         self.ui.shortcuts.set_transient_for(parent)
         # Initialize translations
         self.ui.shortcut_select_all.props.title = (
@@ -41,9 +48,11 @@ class UIShortcuts(UIBase):
 
     def show(self):
         """Show the shortcuts dialog"""
+        logging.debug(f'{self.__class__.__name__} show')
         self.ui.shortcuts.show()
 
     def destroy(self):
         """Destroy the shortcuts dialog"""
+        logging.debug(f'{self.__class__.__name__} destroy')
         self.ui.shortcuts.destroy()
         self.ui.shortcuts = None

@@ -18,6 +18,8 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+import logging
+
 from gi.repository import GLib
 from gi.repository.GdkPixbuf import Pixbuf
 
@@ -39,8 +41,10 @@ from gwakeonlan.ui.base import UIBase
 
 class UIAbout(UIBase):
     def __init__(self, parent, settings, options):
-        """Prepare the about dialog"""
+        """Prepare the information dialog"""
+        logging.debug(f'{self.__class__.__name__} init')
         super().__init__(filename='about.ui')
+        # Initialize members
         self.settings = settings
         self.options = options
         # Retrieve the translators list
@@ -56,11 +60,11 @@ class UIAbout(UIBase):
         self.ui.dialog.set_version(_('Version {VERSION}').format(
             VERSION=APP_VERSION))
         self.ui.dialog.set_comments(
-            _('Wake up your machines using Wake on LAN.'))
+            _('Wake up your machines using Wake on LAN'))
         self.ui.dialog.set_website(APP_URL)
         self.ui.dialog.set_copyright(APP_COPYRIGHT)
         # Prepare lists for authors and contributors
-        authors = ['%s <%s>' % (APP_AUTHOR, APP_AUTHOR_EMAIL)]
+        authors = [f'{APP_AUTHOR} <{APP_AUTHOR_EMAIL}>']
         contributors = []
         for line in readlines(FILE_CONTRIBUTORS, False):
             contributors.append(line)
@@ -68,14 +72,12 @@ class UIAbout(UIBase):
             contributors.insert(0, _('Contributors:'))
             authors.extend(contributors)
         self.ui.dialog.set_authors(authors)
-        self.ui.dialog.set_license(
-            '\n'.join(readlines(FILE_LICENSE, True)))
+        self.ui.dialog.set_license('\n'.join(readlines(FILE_LICENSE, True)))
         self.ui.dialog.set_translator_credits('\n'.join(translators))
         # Retrieve the external resources links
         for line in readlines(FILE_RESOURCES, False):
             resource_type, resource_url = line.split(':', 1)
-            self.ui.dialog.add_credit_section(
-                resource_type, (resource_url,))
+            self.ui.dialog.add_credit_section(resource_type, (resource_url,))
         icon_logo = Pixbuf.new_from_file(str(FILE_ICON))
         self.ui.dialog.set_logo(icon_logo)
         self.ui.dialog.set_transient_for(parent)
@@ -83,13 +85,15 @@ class UIAbout(UIBase):
         self.ui.connect_signals(self)
 
     def show(self):
-        """Show the About dialog"""
+        """Show the information dialog"""
+        logging.debug(f'{self.__class__.__name__} show')
         if self.options.autotest:
             GLib.timeout_add(500, self.ui.dialog.hide)
         self.ui.dialog.run()
         self.ui.dialog.hide()
 
     def destroy(self):
-        """Destroy the About dialog"""
+        """Destroy the information dialog"""
+        logging.debug(f'{self.__class__.__name__} destroy')
         self.ui.dialog.destroy()
         self.ui.dialog = None

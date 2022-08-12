@@ -56,7 +56,7 @@ def get_pixbuf_from_icon_name(icon_name, size):
     else:
         # The icon was not found in the current theme, search for filenames
         # with png or jpg extensions
-        if (path_icon_name.suffix.lower() in ('.png', '.jpg', '.xpm', '.svg')):
+        if path_icon_name.suffix.lower() in ('.png', '.jpg', '.xpm', '.svg'):
             filenames = (icon_name, )
         else:
             filenames = (f'{icon_name}.png',
@@ -128,7 +128,7 @@ def show_message_dialog_yesno(parent, message, title, default_response):
 
 
 def wake_on_lan(mac_address, port_number, destination):
-    """Turn on remote machine using Wake On LAN."""
+    """Turn on remote machine using Wake On LAN"""
     logging.info('turning on: %s through %s using port number %d' % (
         mac_address, destination, port_number))
     # Magic packet (6 times FF + 16 times MAC address)

@@ -22,7 +22,6 @@ import gettext
 import locale
 
 import gwakeonlan.requires                                         # noqa: F401
-
 from gwakeonlan.constants import DOMAIN_NAME, DIR_LOCALE
 
 

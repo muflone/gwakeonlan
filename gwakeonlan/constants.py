@@ -27,7 +27,7 @@ from xdg import BaseDirectory
 # Application constants
 APP_NAME = 'gWakeOnLAN'
 APP_VERSION = '0.8.4'
-APP_DESCRIPTION = 'Wake up your machines using Wake on LAN.'
+APP_DESCRIPTION = 'Wake up your machines using Wake on LAN'
 APP_ID = 'gwakeonlan.muflone.com'
 APP_URL = 'https://www.muflone.com/gwakeonlan'
 APP_AUTHOR = 'Fabio Castelli'
@@ -35,27 +35,28 @@ APP_AUTHOR_EMAIL = 'muflone@muflone.com'
 APP_COPYRIGHT = 'Copyright 2009-2022 %s' % APP_AUTHOR
 SOURCES_URL = 'https://github.com/muflone/gwakeonlan'
 # Other constants
-DEFAULT_UDP_PORT = 9
-BROADCAST_ADDRESS = '255.255.255.255'
 DOMAIN_NAME = 'gwakeonlan'
 VERBOSE_LEVEL_QUIET = 0
 VERBOSE_LEVEL_NORMAL = 1
 VERBOSE_LEVEL_MAX = 2
+DEFAULT_UDP_PORT = 9
+BROADCAST_ADDRESS = '255.255.255.255'
 
 # Paths constants
 path_xdg_data_home = pathlib.Path(BaseDirectory.xdg_data_home)
-if ((pathlib.Path('data') / 'gwakeonlan.png')).is_file():
+icon_name = f'{DOMAIN_NAME}.png'
+if (pathlib.Path('data') / icon_name).is_file():
     # Use relative paths
     DIR_PREFIX = pathlib.Path('data').parent.absolute()
     DIR_LOCALE = DIR_PREFIX / 'locale'
     DIR_DOCS = DIR_PREFIX / 'doc'
-elif (path_xdg_data_home / DOMAIN_NAME / 'data' / 'gwakeonlan.png').is_file():
+elif (path_xdg_data_home / DOMAIN_NAME / 'data' / icon_name).is_file():
     # Use local user path
     DIR_PREFIX = path_xdg_data_home / DOMAIN_NAME
     DIR_LOCALE = path_xdg_data_home / 'locale'
     DIR_DOCS = path_xdg_data_home / 'doc' / DOMAIN_NAME
 elif (pathlib.Path(__file__).parent.parent / 'share' / DOMAIN_NAME / 'data' /
-      'gwakeonlan.png').is_file():
+      icon_name).is_file():
     # Use local user path in the local Python directory
     DIR_PREFIX = pathlib.Path(__file__).parent.parent / 'share' / DOMAIN_NAME
     DIR_LOCALE = DIR_PREFIX.parent / 'locale'
@@ -72,13 +73,13 @@ DIR_ICONS = DIR_DATA / 'icons'
 DIR_UI = DIR_PREFIX / 'ui'
 try:
     # In read-only environments, the settings folder cannot be created
-    # (eg in a Debian pbuilder fakeroot)
+    # (e.g. in a Debian pbuilder fakeroot)
     DIR_SETTINGS = pathlib.Path(BaseDirectory.save_config_path(DOMAIN_NAME))
-except Exception:
+except PermissionError:
     # Get the settings path without actually creating it
     DIR_SETTINGS = pathlib.Path(BaseDirectory.xdg_config_home) / DOMAIN_NAME
 # Set the paths for the data files
-FILE_ICON = DIR_DATA / 'gwakeonlan.png'
+FILE_ICON = DIR_DATA / icon_name
 FILE_CONTRIBUTORS = DIR_DOCS / 'contributors'
 FILE_TRANSLATORS = DIR_DOCS / 'translators'
 FILE_LICENSE = DIR_DOCS / 'license'

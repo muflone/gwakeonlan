@@ -1,5 +1,5 @@
 # gWakeOnLAN
-# Wake up your machines using Wake on LAN.
+# Wake up your machines using Wake on LAN
 # Copyright (C) 2009-2022 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 # Website: https://www.muflone.com/gwakeonlan/
 # This file is distributed under the same license of gWakeOnLAN.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-08-12 18:42+0200\n"
+"POT-Creation-Date: 2022-08-15 22:09+0200\n"
 "PO-Revision-Date: 2013-11-20 10:36+0000\n"
 "Last-Translator: Fabio Castelli (Muflone) <muflone(at)muflone.com>\n"
 "Language-Team: English\n"
@@ -21,16 +21,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gwakeonlan/ui/about.py:56
+#: gwakeonlan/ui/about.py:60
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "Version {VERSION}"
 
-#: gwakeonlan/ui/about.py:59
-msgid "Wake up your machines using Wake on LAN."
-msgstr "Wake up your machines using Wake on LAN."
+#: gwakeonlan/ui/about.py:63
+msgid "Wake up your machines using Wake on LAN"
+msgstr "Wake up your machines using Wake on LAN"
 
-#: gwakeonlan/ui/about.py:68
+#: gwakeonlan/ui/about.py:72
 msgid "Contributors:"
 msgstr "Contributors:"
 
@@ -46,35 +46,35 @@ msgstr "Edit machine"
 msgid "Add machine"
 msgstr "Add machine"
 
-#: gwakeonlan/ui/detail.py:67
+#: gwakeonlan/ui/detail.py:70
 msgid "Missing machine name"
 msgstr "Missing machine name"
 
-#: gwakeonlan/ui/detail.py:71
+#: gwakeonlan/ui/detail.py:74
 msgid "Invalid MAC address"
 msgstr "Invalid MAC address"
 
-#: gwakeonlan/ui/detail.py:75
+#: gwakeonlan/ui/detail.py:78
 msgid "Invalid destination host"
 msgstr "Invalid destination host"
 
-#: gwakeonlan/ui/main.py:229
+#: gwakeonlan/ui/main.py:258
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Are you sure you want to remove the selected machine?"
 
-#: gwakeonlan/ui/main.py:230 ui/main.ui:61 ui/shortcuts.ui:71
+#: gwakeonlan/ui/main.py:259 ui/main.ui:61 ui/shortcuts.ui:71
 msgid "Delete machine"
 msgstr "Delete machine"
 
-#: ui/arpcache.ui:101
+#: ui/arpcache.ui:112
 msgid "IP Address"
 msgstr "IP Address"
 
-#: ui/arpcache.ui:113
+#: ui/arpcache.ui:124
 msgid "Host Name"
 msgstr "Host Name"
 
-#: ui/arpcache.ui:125
+#: ui/arpcache.ui:136
 msgid "MAC Address"
 msgstr "MAC Address"
 
@@ -114,15 +114,19 @@ msgstr "_Internet"
 msgid "_Destination host:"
 msgstr "_Destination host:"
 
-#: ui/main.ui:36 ui/main.ui:228 ui/shortcuts.ui:78
+#: ui/main.ui:25 ui/shortcuts.ui:35
+msgid "Keyboard shortcuts"
+msgstr "Keyboard shortcuts"
+
+#: ui/main.ui:36 ui/main.ui:222 ui/shortcuts.ui:78
 msgid "Turn on"
 msgstr "Turn on"
 
-#: ui/main.ui:69 ui/main.ui:121
+#: ui/main.ui:69
 msgid "Detect from ARP cache"
 msgstr "Detect from ARP cache"
 
-#: ui/main.ui:75 ui/main.ui:129
+#: ui/main.ui:75
 msgid "Import from ethers file"
 msgstr "Import from ethers file"
 
@@ -130,41 +134,37 @@ msgstr "Import from ethers file"
 msgid "Open the options menu"
 msgstr "Open the options menu"
 
-#: ui/main.ui:107 ui/main.ui:156 ui/shortcuts.ui:92
+#: ui/main.ui:107 ui/shortcuts.ui:92
 msgid "Deselect All"
 msgstr "Deselect All"
 
-#: ui/main.ui:136
+#: ui/main.ui:134
 msgid "Select machines"
 msgstr "Select machine"
 
-#: ui/main.ui:350
+#: ui/main.ui:344
 msgid "Machine name"
 msgstr "Machine name"
 
-#: ui/main.ui:363
+#: ui/main.ui:357
 msgid "MAC address"
 msgstr "MAC address"
 
-#: ui/main.ui:376
+#: ui/main.ui:370
 msgid "Request type"
 msgstr "Request type"
 
-#: ui/main.ui:389
+#: ui/main.ui:383
 msgid "Destination"
 msgstr "Destination"
 
-#: ui/main.ui:402
+#: ui/main.ui:396
 msgid "Port NR"
 msgstr "Port NR"
 
 #: ui/shortcuts.ui:21
-msgid "About gWakeOnLAN"
-msgstr "About gWakeOnLAN"
-
-#: ui/shortcuts.ui:35
-msgid "Show the shortcuts dialog"
-msgstr "Show the shortcuts dialog"
+msgid "Show the about dialog"
+msgstr "Show the about dialog"
 
 #: ui/shortcuts.ui:42
 msgid "Quit"

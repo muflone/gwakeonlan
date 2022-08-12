@@ -55,18 +55,18 @@ class UIDetail(UIBase):
         response = 0
         self.ui.label_error.set_property('visible', False)
         self.ui.dialog.set_title(_('Edit machine')
-                                 if self.get_mac_address()
+                                 if self.do_get_mac_address()
                                  else _('Add machine'))
         while not response:
             response = self.ui.dialog.run()
             if response == Gtk.ResponseType.OK:
                 # Check values for valid response
                 err_msg = ''
-                mac = (self.get_mac_address()
+                mac = (self.do_get_mac_address()
                        .replace(':', '')
                        .replace('.', '')
                        .replace('-', ''))
-                if not self.get_machine_name():
+                if not self.do_get_machine_name():
                     err_msg = _('Missing machine name')
                     self.ui.text_machine_name.grab_focus()
                 elif not (len(mac) == 12 and
@@ -74,7 +74,7 @@ class UIDetail(UIBase):
                     err_msg = _('Invalid MAC address')
                     self.ui.text_mac_address.grab_focus()
                 elif (self.ui.radio_request_internet.get_active() and
-                      self.get_destination() in ('', BROADCAST_ADDRESS)):
+                      self.do_get_destination() in ('', BROADCAST_ADDRESS)):
                     err_msg = _('Invalid destination host')
                     self.ui.text_destination_host.grab_focus()
                 # There was an error, don't close the dialog
@@ -87,44 +87,27 @@ class UIDetail(UIBase):
         self.ui.dialog.hide()
         return response
 
-    def get_machine_name(self):
-        """Return the machine name"""
-        return self.ui.text_machine_name.get_text()
-
-    def get_mac_address(self):
-        """Return the MAC address"""
-        return format_mac_address(self.ui.text_mac_address.get_text())
-
-    def get_port_number(self):
-        """Return the port number"""
-        return self.ui.spin_port_number.get_value_as_int()
-
-    def get_destination(self):
+    def do_get_destination(self):
         """Return the destination host"""
         return self.ui.text_destination_host.get_text()
 
-    def get_request_type_internet(self):
+    def do_get_mac_address(self):
+        """Return the MAC address"""
+        return format_mac_address(self.ui.text_mac_address.get_text())
+
+    def do_get_machine_name(self):
+        """Return the machine name"""
+        return self.ui.text_machine_name.get_text()
+
+    def do_get_port_number(self):
+        """Return the port number"""
+        return self.ui.spin_port_number.get_value_as_int()
+
+    def do_get_request_type_internet(self):
         """Return if the request type is Internet"""
         return self.ui.radio_request_internet.get_active()
 
-    def on_radio_request_type_toggled(self, widget):
-        """A Radio button was pressed"""
-        request_type_internet = self.ui.radio_request_internet.get_active()
-        # Check the request type
-        if request_type_internet:
-            # If there was the broadcast address it will be deleted
-            if self.get_destination() == BROADCAST_ADDRESS:
-                self.ui.text_destination_host.set_text('')
-        else:
-            # For local request type the broadcast address will be used
-            self.ui.text_destination_host.set_text(BROADCAST_ADDRESS)
-        # Enable the destination fields accordingly to the request type
-        self.ui.label_destination_host.set_sensitive(request_type_internet)
-        self.ui.text_destination_host.set_sensitive(request_type_internet)
-        # Hide previous errors
-        self.ui.label_error.set_visible(False)
-
-    def load_data(self, machine_name, mac_address, portnr, destination):
+    def do_load_data(self, machine_name, mac_address, portnr, destination):
         """Load the fields with the specified values"""
         self.ui.text_machine_name.set_text(machine_name)
         self.ui.text_mac_address.set_text(mac_address)
@@ -137,3 +120,20 @@ class UIDetail(UIBase):
             self.ui.radio_request_internet.set_active(True)
             self.ui.text_destination_host.set_sensitive(True)
         self.ui.text_machine_name.grab_focus()
+
+    def on_radio_request_type_toggled(self, widget):
+        """A Radio button was pressed"""
+        request_type_internet = self.ui.radio_request_internet.get_active()
+        # Check the request type
+        if request_type_internet:
+            # If there was the broadcast address it will be deleted
+            if self.do_get_destination() == BROADCAST_ADDRESS:
+                self.ui.text_destination_host.set_text('')
+        else:
+            # For local request type the broadcast address will be used
+            self.ui.text_destination_host.set_text(BROADCAST_ADDRESS)
+        # Enable the destination fields accordingly to the request type
+        self.ui.label_destination_host.set_sensitive(request_type_internet)
+        self.ui.text_destination_host.set_sensitive(request_type_internet)
+        # Hide previous errors
+        self.ui.label_error.set_visible(False)

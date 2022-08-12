@@ -23,9 +23,9 @@ from typing import Iterable
 
 from gi.repository import Gtk
 
-from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.constants import DIR_ICONS
 from gwakeonlan.functions import get_ui_file
+from gwakeonlan.gtkbuilder_loader import GtkBuilderLoader
 from gwakeonlan.localize import text
 
 
@@ -36,6 +36,7 @@ class UIBase(object):
     def set_buttons_icons(self, buttons: Iterable) -> None:
         """
         Set icons for buttons
+
         :param buttons: tuple or list of buttons to customize
         :return: None
         """
@@ -86,3 +87,20 @@ class UIBase(object):
         """Add the suggested-action style to a widget"""
         for button in buttons:
             button.get_style_context().add_class('suggested-action')
+
+    def set_buttons_style_destructive_action(self, buttons: Iterable):
+        """Add the destructive-action style to a widget"""
+        for button in buttons:
+            button.get_style_context().add_class('destructive-action')
+
+    def show_popup_menu(self, menu: Gtk.Menu):
+        """Show a popup menu at the current position"""
+        if not Gtk.check_version(3, 22, 0):
+            menu.popup_at_pointer(trigger_event=None)
+        else:
+            menu.popup(parent_menu_shell=None,
+                       parent_menu_item=None,
+                       func=None,
+                       data=0,
+                       button=0,
+                       activate_time=Gtk.get_current_event_time())

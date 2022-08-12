@@ -3,7 +3,7 @@
 [![Travis CI Build Status](https://img.shields.io/travis/com/muflone/gwakeonlan/master.svg)](https://www.travis-ci.com/github/muflone/gwakeonlan)
 [![CircleCI Build Status](https://img.shields.io/circleci/project/github/muflone/gwakeonlan/master.svg)](https://circleci.com/gh/muflone/gwakeonlan)
 
-**Description:** Wake up your machines using Wake on LAN.
+**Description:** Wake up your machines using Wake on LAN
 
 **Copyright:** 2009-2022 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 
@@ -23,8 +23,8 @@ simple click on the button **Turn on**.
 
 ![Main window](https://www.muflone.com/resources/gwakeonlan/archive/latest/english/main.png)
 
-For each host you can define its name, the MAC address and you can select if you
-want to turn it on on the local network or via internet through a destination
+For each host you can define its name, the MAC address and you can choose to
+turn it on on the local network or via internet through a destination
 host.
 
 ![Detail](https://www.muflone.com/resources/gwakeonlan/archive/latest/english/detail.png)
