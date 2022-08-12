@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-04-18 16:24+0200\n"
+"POT-Creation-Date: 2022-08-12 18:42+0200\n"
 "PO-Revision-Date: 2022-04-18 02:36+0200\n"
 "Last-Translator: Amilton Pereira Cavalcante <amiltonpc(at)gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
@@ -22,48 +22,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: gwakeonlan/ui/about.py:55
+#: gwakeonlan/ui/about.py:56
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "Versão {VERSION}"
 
-#: gwakeonlan/ui/about.py:58
+#: gwakeonlan/ui/about.py:59
 msgid "Wake up your machines using Wake on LAN."
 msgstr ""
 
-#: gwakeonlan/ui/about.py:67
+#: gwakeonlan/ui/about.py:68
 msgid "Contributors:"
 msgstr "Contribuidores:"
 
-#: gwakeonlan/ui/arpcache.py:40
+#: gwakeonlan/ui/arpcache.py:39
 msgid "Pick a host from the ARP cache"
 msgstr "Escolher um PC a pratir do cache ARP"
 
-#: gwakeonlan/ui/detail.py:58 ui/main.ui:69 ui/shortcuts.ui:64
+#: gwakeonlan/ui/detail.py:57 ui/main.ui:53 ui/shortcuts.ui:64
 msgid "Edit machine"
 msgstr "Edita PC"
 
-#: gwakeonlan/ui/detail.py:60 ui/main.ui:61 ui/shortcuts.ui:57
+#: gwakeonlan/ui/detail.py:59 ui/main.ui:45 ui/shortcuts.ui:57
 msgid "Add machine"
 msgstr "Adicionar PC"
 
-#: gwakeonlan/ui/detail.py:68
+#: gwakeonlan/ui/detail.py:67
 msgid "Missing machine name"
 msgstr "PC sem nome"
 
-#: gwakeonlan/ui/detail.py:72
+#: gwakeonlan/ui/detail.py:71
 msgid "Invalid MAC address"
 msgstr "Endereço MAC Inválido"
 
-#: gwakeonlan/ui/detail.py:76
+#: gwakeonlan/ui/detail.py:75
 msgid "Invalid destination host"
 msgstr "PC de destino inválido "
 
-#: gwakeonlan/ui/main.py:228
+#: gwakeonlan/ui/main.py:229
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Tem certeza que deseja remover o PC selecionado?"
 
-#: gwakeonlan/ui/main.py:229 ui/main.ui:77 ui/shortcuts.ui:71
+#: gwakeonlan/ui/main.py:230 ui/main.ui:61 ui/shortcuts.ui:71
 msgid "Delete machine"
 msgstr "Deleta PC"
 
@@ -115,20 +115,20 @@ msgstr "_Internet"
 msgid "_Destination host:"
 msgstr "_PC Destino:"
 
-#: ui/main.ui:36 ui/main.ui:42 ui/shortcuts.ui:28
-msgid "Open the options menu"
-msgstr ""
-
-#: ui/main.ui:52 ui/main.ui:228 ui/shortcuts.ui:78
+#: ui/main.ui:36 ui/main.ui:228 ui/shortcuts.ui:78
 msgid "Turn on"
 msgstr "Ligar"
 
-#: ui/main.ui:85 ui/main.ui:121
+#: ui/main.ui:69 ui/main.ui:121
 msgid "Detect from ARP cache"
 msgstr "Detectar a partir do chache ARP"
 
-#: ui/main.ui:91 ui/main.ui:129
+#: ui/main.ui:75 ui/main.ui:129
 msgid "Import from ethers file"
+msgstr ""
+
+#: ui/main.ui:84 ui/main.ui:90 ui/shortcuts.ui:28
+msgid "Open the options menu"
 msgstr ""
 
 #: ui/main.ui:107 ui/main.ui:156 ui/shortcuts.ui:92
@@ -139,23 +139,23 @@ msgstr ""
 msgid "Select machines"
 msgstr ""
 
-#: ui/main.ui:351
+#: ui/main.ui:350
 msgid "Machine name"
 msgstr "Nome PC"
 
-#: ui/main.ui:364
+#: ui/main.ui:363
 msgid "MAC address"
 msgstr "Endereço MAC"
 
-#: ui/main.ui:377
+#: ui/main.ui:376
 msgid "Request type"
 msgstr "Tipo de requisição"
 
-#: ui/main.ui:390
+#: ui/main.ui:389
 msgid "Destination"
 msgstr "Destino"
 
-#: ui/main.ui:403
+#: ui/main.ui:402
 msgid "Port NR"
 msgstr "Porta NR"
 

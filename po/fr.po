@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
-"POT-Creation-Date: 2022-04-18 16:24+0200\n"
+"POT-Creation-Date: 2022-08-12 18:42+0200\n"
 "PO-Revision-Date: 2022-03-11 00:44+0000\n"
 "Last-Translator: Enguerran P. <contact(at)epoulain.fr>\n"
 "Language-Team: French\n"
@@ -22,48 +22,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: gwakeonlan/ui/about.py:55
+#: gwakeonlan/ui/about.py:56
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "Version {VERSION}"
 
-#: gwakeonlan/ui/about.py:58
+#: gwakeonlan/ui/about.py:59
 msgid "Wake up your machines using Wake on LAN."
 msgstr ""
 
-#: gwakeonlan/ui/about.py:67
+#: gwakeonlan/ui/about.py:68
 msgid "Contributors:"
 msgstr "Contributeurs:"
 
-#: gwakeonlan/ui/arpcache.py:40
+#: gwakeonlan/ui/arpcache.py:39
 msgid "Pick a host from the ARP cache"
 msgstr "Choissisez un hôte depuis le cache ARP"
 
-#: gwakeonlan/ui/detail.py:58 ui/main.ui:69 ui/shortcuts.ui:64
+#: gwakeonlan/ui/detail.py:57 ui/main.ui:53 ui/shortcuts.ui:64
 msgid "Edit machine"
 msgstr "Modifier l'appareil"
 
-#: gwakeonlan/ui/detail.py:60 ui/main.ui:61 ui/shortcuts.ui:57
+#: gwakeonlan/ui/detail.py:59 ui/main.ui:45 ui/shortcuts.ui:57
 msgid "Add machine"
 msgstr "Ajouter un appareil"
 
-#: gwakeonlan/ui/detail.py:68
+#: gwakeonlan/ui/detail.py:67
 msgid "Missing machine name"
 msgstr "Nom de l'appareil manquant"
 
-#: gwakeonlan/ui/detail.py:72
+#: gwakeonlan/ui/detail.py:71
 msgid "Invalid MAC address"
 msgstr "Adresse MAC invalide"
 
-#: gwakeonlan/ui/detail.py:76
+#: gwakeonlan/ui/detail.py:75
 msgid "Invalid destination host"
 msgstr "Hôte de destination invalide"
 
-#: gwakeonlan/ui/main.py:228
+#: gwakeonlan/ui/main.py:229
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Êtes-vous sûr de vouloir supprimer l'appareil sélectionné?"
 
-#: gwakeonlan/ui/main.py:229 ui/main.ui:77 ui/shortcuts.ui:71
+#: gwakeonlan/ui/main.py:230 ui/main.ui:61 ui/shortcuts.ui:71
 msgid "Delete machine"
 msgstr "Supprimer l'appareil"
 
@@ -115,21 +115,21 @@ msgstr "_Internet"
 msgid "_Destination host:"
 msgstr "_Hôte de destination:"
 
-#: ui/main.ui:36 ui/main.ui:42 ui/shortcuts.ui:28
-msgid "Open the options menu"
-msgstr ""
-
-#: ui/main.ui:52 ui/main.ui:228 ui/shortcuts.ui:78
+#: ui/main.ui:36 ui/main.ui:228 ui/shortcuts.ui:78
 msgid "Turn on"
 msgstr "Allumer"
 
-#: ui/main.ui:85 ui/main.ui:121
+#: ui/main.ui:69 ui/main.ui:121
 msgid "Detect from ARP cache"
 msgstr "Détecter depuis le cache ARP"
 
-#: ui/main.ui:91 ui/main.ui:129
+#: ui/main.ui:75 ui/main.ui:129
 msgid "Import from ethers file"
 msgstr "Importer depuis un fichier ethers"
+
+#: ui/main.ui:84 ui/main.ui:90 ui/shortcuts.ui:28
+msgid "Open the options menu"
+msgstr ""
 
 #: ui/main.ui:107 ui/main.ui:156 ui/shortcuts.ui:92
 msgid "Deselect All"
@@ -139,23 +139,23 @@ msgstr ""
 msgid "Select machines"
 msgstr ""
 
-#: ui/main.ui:351
+#: ui/main.ui:350
 msgid "Machine name"
 msgstr "Nom de l'appareil"
 
-#: ui/main.ui:364
+#: ui/main.ui:363
 msgid "MAC address"
 msgstr "Adresse MAC"
 
-#: ui/main.ui:377
+#: ui/main.ui:376
 msgid "Request type"
 msgstr "Type de requête"
 
-#: ui/main.ui:390
+#: ui/main.ui:389
 msgid "Destination"
 msgstr "Destination"
 
-#: ui/main.ui:403
+#: ui/main.ui:402
 msgid "Port NR"
 msgstr "Port NR"
 
