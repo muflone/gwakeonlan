@@ -13,7 +13,7 @@
 
 **Documentation:** https://www.muflone.com/gwakeonlan
 
-**Translations:** https://www.transifex.com/projects/p/gwakeonlan/
+**Translations:** https://explore.transifex.com/muflone/gwakeonlan/
 
 # Usage
 
