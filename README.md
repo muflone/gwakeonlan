@@ -9,9 +9,9 @@
 
 **License:** GPL-3+
 
-**Source code:** https://github.com/muflone/gwakeonlan
+**Source code:** https://github.com/muflone/gwakeonlan/
 
-**Documentation:** https://www.muflone.com/gwakeonlan
+**Documentation:** https://www.muflone.com/gwakeonlan/
 
 **Translations:** https://explore.transifex.com/muflone/gwakeonlan/
 

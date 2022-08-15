@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
-"Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
 "POT-Creation-Date: 2022-08-15 22:09+0200\n"
 "PO-Revision-Date: 2022-04-18 02:53+0200\n"
 "Last-Translator: Cosmo Chene <cosmolax(at)gmail.com>\n"

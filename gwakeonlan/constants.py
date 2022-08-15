@@ -29,11 +29,11 @@ APP_NAME = 'gWakeOnLAN'
 APP_VERSION = '0.8.4'
 APP_DESCRIPTION = 'Wake up your machines using Wake on LAN'
 APP_ID = 'gwakeonlan.muflone.com'
-APP_URL = 'https://www.muflone.com/gwakeonlan'
+APP_URL = 'https://www.muflone.com/gwakeonlan/'
 APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'muflone@muflone.com'
 APP_COPYRIGHT = 'Copyright 2009-2022 %s' % APP_AUTHOR
-SOURCES_URL = 'https://github.com/muflone/gwakeonlan'
+URL_SOURCES = 'https://github.com/muflone/gwakeonlan/'
 # Other constants
 DOMAIN_NAME = 'gwakeonlan'
 VERBOSE_LEVEL_QUIET = 0
