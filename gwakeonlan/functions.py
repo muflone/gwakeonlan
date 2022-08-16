@@ -129,8 +129,9 @@ def show_message_dialog_yesno(parent, message, title, default_response):
 
 def wake_on_lan(mac_address, port_number, destination):
     """Turn on remote machine using Wake On LAN"""
-    logging.info('turning on: %s through %s using port number %d' % (
-        mac_address, destination, port_number))
+    logging.info(f'turning on: {mac_address} '
+                 f'through {destination} '
+                 f'using port number {port_number}')
     # Magic packet (6 times FF + 16 times MAC address)
     packet = 'FF' * 6 + mac_address.replace(':', '') * 16
     data = []
@@ -138,8 +139,7 @@ def wake_on_lan(mac_address, port_number, destination):
         data.append(struct.pack('B', int(packet[i:i+2], 16)))
 
     # Send magic packet to the destination
-    logging.info('sending packet %s [%d/%d]\n' % (
-        packet, len(packet), len(data)))
+    logging.info(f'sending packet {packet} [{len(packet)}/{len(data)}]\n')
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     if destination == '255.255.255.255':

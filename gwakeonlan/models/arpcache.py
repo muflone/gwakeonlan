@@ -54,7 +54,7 @@ class ModelArpCache(ModelAbstract):
                 for line in arpf.readlines()[1:]:
                     if line:
                         # Add IP Address and MAC address to the model
-                        logging.debug('arp line:\n%s' % line)
+                        logging.debug(f'arp line:\n{line}')
                         arp_ip = line[:17].rstrip()
                         arp_mac = line[41:58].upper()
                         # Skip incomplete MAC addresses
@@ -64,8 +64,8 @@ class ModelArpCache(ModelAbstract):
                             # hostname is the same of the source IP address
                             if detected_hostname == arp_ip:
                                 detected_hostname = ''
-                            logging.info('discovered %s with address %s' % (
-                                arp_ip, arp_mac))
+                            logging.info(f'discovered {arp_ip} '
+                                         f'with address {arp_mac}')
                             self.add_data(ArpCacheItem(
                                 ip_address=arp_ip,
                                 mac_address=arp_mac,
@@ -73,7 +73,7 @@ class ModelArpCache(ModelAbstract):
                             ))
                 arpf.close()
             except (FileNotFoundError, PermissionError):
-                logging.error('unable to read %s' % FILE_ARP_CACHE)
+                logging.error(f'unable to read {FILE_ARP_CACHE}')
 
     def get_ip_address(self, treeiter):
         """Returns the IP address for the selected TreeIter"""

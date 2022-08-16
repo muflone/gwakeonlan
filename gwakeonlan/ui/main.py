@@ -140,8 +140,8 @@ class UIMain(UIBase):
             time.sleep(0.2)
         # Show the add host dialog
         for i in range(1, 4):
-            self.detail.do_load_data('testing %d' % i,
-                                     format_mac_address(('%d' % i) * 16),
+            self.detail.do_load_data(f'testing {i}',
+                                     format_mac_address((str(i)) * 16),
                                      i, BROADCAST_ADDRESS)
             self.detail.show()
             process_events()

@@ -32,7 +32,7 @@ APP_ID = 'gwakeonlan.muflone.com'
 APP_URL = 'https://www.muflone.com/gwakeonlan/'
 APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'muflone@muflone.com'
-APP_COPYRIGHT = 'Copyright 2009-2022 %s' % APP_AUTHOR
+APP_COPYRIGHT = f'Copyright 2009-2022 {APP_AUTHOR}'
 URL_SOURCES = 'https://github.com/muflone/gwakeonlan/'
 # Other constants
 DOMAIN_NAME = 'gwakeonlan'

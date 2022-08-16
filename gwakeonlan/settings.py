@@ -166,7 +166,7 @@ class Settings(object):
         self.model = model
         if self.config.has_section(SECTION_HOSTS):
             for machine in self.config.items(SECTION_HOSTS):
-                logging.debug('Loading machine: %s' % machine[0])
+                logging.debug(f'Loading machine: {machine[0]}')
                 # Fix machine configuration from older gWakeOnLAN versions
                 machine = [machine[0], ] + machine[1].split('\\', 4)
                 if len(machine) == 2:
@@ -188,12 +188,11 @@ class Settings(object):
         self.config.add_section(SECTION_HOSTS)
         for machine in model:
             logging.debug(
-                'Saving machine: %s' % self.model.get_machine_name(machine))
+                f'Saving machine: {self.model.get_machine_name(machine)}')
             self.config.set(
                 SECTION_HOSTS,
                 self.model.get_machine_name(machine),
-                '%s\\%s\\%d' % (
-                    self.model.get_mac_address(machine),
-                    self.model.get_destination(machine),
-                    self.model.get_port_number(machine))
+                f'{self.model.get_mac_address(machine)}\\'
+                f'{self.model.get_destination(machine)}\\'
+                f'{self.model.get_port_number(machine)}'
             )

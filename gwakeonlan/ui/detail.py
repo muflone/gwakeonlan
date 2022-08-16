@@ -81,7 +81,7 @@ class UIDetail(UIBase):
                 if err_msg:
                     self.ui.label_error.set_property('visible', True)
                     self.ui.label_error.set_markup(
-                        '<span foreground="red"><b>%s</b></span>' % err_msg)
+                        f'<span foreground="red"><b>{err_msg}</b></span>')
                     # Don't close the dialog if there's some error
                     response = 0
         self.ui.dialog.hide()
