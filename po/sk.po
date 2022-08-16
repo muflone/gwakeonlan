@@ -1,6 +1,6 @@
 # gWakeOnLAN
 # Wake up your machines using Wake on LAN
-# Copyright (C) 2009-2022 Fabio Castelli (Muflone) <muflone(at)muflone.com>
+# Copyright (C) 2009-2022 Fabio Castelli (Muflone) <muflone@muflone.com>
 # Website: https://www.muflone.com/gwakeonlan/
 # This file is distributed under the same license of gWakeOnLAN.
 # Slovak translation for gWakeOnLAN
