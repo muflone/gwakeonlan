@@ -41,7 +41,7 @@ from gwakeonlan.ui.base import UIBase
 
 class UIAbout(UIBase):
     def __init__(self, parent, settings, options):
-        """Prepare the information dialog"""
+        """Prepare the dialog"""
         logging.debug(f'{self.__class__.__name__} init')
         super().__init__(filename='about.ui')
         # Initialize members
@@ -85,7 +85,7 @@ class UIAbout(UIBase):
         self.ui.connect_signals(self)
 
     def show(self):
-        """Show the information dialog"""
+        """Show the dialog"""
         logging.debug(f'{self.__class__.__name__} show')
         if self.options.autotest:
             GLib.timeout_add(500, self.ui.dialog.hide)
@@ -93,7 +93,7 @@ class UIAbout(UIBase):
         self.ui.dialog.hide()
 
     def destroy(self):
-        """Destroy the information dialog"""
+        """Destroy the dialog"""
         logging.debug(f'{self.__class__.__name__} destroy')
         self.ui.dialog.destroy()
         self.ui.dialog = None

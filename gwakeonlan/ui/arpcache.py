@@ -30,7 +30,7 @@ from gwakeonlan.ui.base import UIBase
 
 class UIArpCache(UIBase):
     def __init__(self, parent, settings, options):
-        """Prepare the ARP Cache dialog"""
+        """Prepare the dialog"""
         super().__init__(filename='arpcache.ui')
         self.settings = settings
         self.options = options
@@ -51,7 +51,7 @@ class UIArpCache(UIBase):
         self.ui.dialog = None
 
     def show(self):
-        """Show the ARP Cache picker dialog"""
+        """Show the dialog"""
         if self.options.autotest:
             GLib.timeout_add(500, self.ui.dialog.hide)
         response = self.ui.dialog.run()

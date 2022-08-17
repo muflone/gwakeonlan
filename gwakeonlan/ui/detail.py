@@ -43,13 +43,8 @@ class UIDetail(UIBase):
         # Connect signals from the UI file to the functions with the same name
         self.ui.connect_signals(self)
 
-    def destroy(self):
-        """Hide and destroy the Add/Delete machine dialog"""
-        self.ui.dialog.destroy()
-        self.ui.dialog = None
-
     def show(self):
-        """Show the Add/Edit machine dialog"""
+        """Show the dialog"""
         if self.options.autotest:
             GLib.timeout_add(500, self.ui.dialog.hide)
         response = 0
@@ -86,6 +81,11 @@ class UIDetail(UIBase):
                     response = 0
         self.ui.dialog.hide()
         return response
+
+    def destroy(self):
+        """Destroy the dialog"""
+        self.ui.dialog.destroy()
+        self.ui.dialog = None
 
     def do_get_destination(self):
         """Return the destination host"""

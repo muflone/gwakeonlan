@@ -28,7 +28,7 @@ from gwakeonlan.ui.base import UIBase
 
 class UIShortcuts(UIBase):
     def __init__(self, parent, settings, options):
-        """Prepare the shortcuts dialog"""
+        """Prepare the dialog"""
         logging.debug(f'{self.__class__.__name__} init')
         super().__init__(filename='shortcuts.ui')
         # Initialize members
