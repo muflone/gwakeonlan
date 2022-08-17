@@ -28,12 +28,12 @@ import subprocess
 # Importing distutils after setuptools uses the setuptools distutils
 from distutils.command.install_data import install_data
 
-from gwakeonlan.constants import (APP_NAME,
-                                  APP_VERSION,
-                                  APP_AUTHOR,
+from gwakeonlan.constants import (APP_AUTHOR,
                                   APP_AUTHOR_EMAIL,
-                                  APP_URL,
                                   APP_DESCRIPTION,
+                                  APP_NAME,
+                                  APP_URL,
+                                  APP_VERSION,
                                   DOMAIN_NAME,
                                   URL_SOURCES)
 
