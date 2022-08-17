@@ -25,7 +25,7 @@ import setuptools
 import setuptools.command.install_scripts
 import subprocess
 
-# Importing distutils after setuptools uses the setuptools' distutils
+# Importing distutils after setuptools uses the setuptools distutils
 from distutils.command.install_data import install_data
 
 from gwakeonlan.constants import (APP_NAME,
