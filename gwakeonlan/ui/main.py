@@ -73,6 +73,8 @@ class UIMain(UIBase):
         self.settings_map = {}
         # Load UI
         self.load_ui()
+        # Prepare the models
+        self.model_machines = ModelMachines(self.ui.model)
         # Load the others dialogs
         self.detail = UIDetail(self.ui.window, self.settings, options)
         # Complete initialization
@@ -81,8 +83,6 @@ class UIMain(UIBase):
     def load_ui(self):
         """Load the interface UI"""
         logging.debug(f'{self.__class__.__name__} load UI')
-        # Load the user interface
-        self.model_machines = ModelMachines(self.ui.model)
         # Initialize translations
         self.ui.action_about.set_label(text_gtk30('About'))
         self.ui.action_select_all.set_label(text_gtk30('Select _All'))
