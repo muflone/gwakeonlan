@@ -19,8 +19,8 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from gwakeonlan.main import main
+import gwakeonlan.main
 
 
 if __name__ == '__main__':
-    main()
+    gwakeonlan.main.main()
