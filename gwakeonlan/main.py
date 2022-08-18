@@ -20,6 +20,7 @@
 
 import logging
 
+import gwakeonlan.requires                                         # noqa: F401
 from gwakeonlan.app import Application
 from gwakeonlan.command_line_options import CommandLineOptions
 from gwakeonlan.constants import (DIR_DATA,
@@ -28,6 +29,7 @@ from gwakeonlan.constants import (DIR_DATA,
                                   DIR_PREFIX,
                                   DIR_SETTINGS,
                                   DIR_UI)
+import gwakeonlan.translations                                     # noqa: F401
 
 
 def main():

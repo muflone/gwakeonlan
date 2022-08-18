@@ -17,3 +17,14 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
+
+import gettext
+import locale
+
+from gwakeonlan.constants import DOMAIN_NAME, DIR_LOCALE
+
+
+# Load domain for translation
+for module in (gettext, locale):
+    module.bindtextdomain(DOMAIN_NAME, DIR_LOCALE)
+    module.textdomain(DOMAIN_NAME)
