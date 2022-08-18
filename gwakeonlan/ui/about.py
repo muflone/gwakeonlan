@@ -18,6 +18,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+import collections
 import logging
 
 from gi.repository import GLib
@@ -27,13 +28,15 @@ from gwakeonlan.constants import (APP_AUTHOR,
                                   APP_AUTHOR_EMAIL,
                                   APP_COPYRIGHT,
                                   APP_NAME,
-                                  APP_URL,
                                   APP_VERSION,
                                   FILE_CONTRIBUTORS,
                                   FILE_ICON,
                                   FILE_LICENSE,
-                                  FILE_RESOURCES,
-                                  FILE_TRANSLATORS)
+                                  FILE_TRANSLATORS,
+                                  URL_APPLICATION,
+                                  URL_AUTHOR,
+                                  URL_SOURCES,
+                                  URL_TRANSLATIONS)
 from gwakeonlan.functions import readlines
 from gwakeonlan.localize import _
 from gwakeonlan.ui.base import UIBase
@@ -56,12 +59,15 @@ class UIAbout(UIBase):
             if line not in translators:
                 translators.append(line)
         # Set various properties
+        icon_logo = Pixbuf.new_from_file(str(FILE_ICON))
+        self.ui.dialog.set_logo(icon_logo)
+        self.ui.dialog.set_transient_for(parent)
         self.ui.dialog.set_program_name(APP_NAME)
         self.ui.dialog.set_version(_('Version {VERSION}').format(
             VERSION=APP_VERSION))
         self.ui.dialog.set_comments(
             _('Wake up your machines using Wake on LAN'))
-        self.ui.dialog.set_website(APP_URL)
+        self.ui.dialog.set_website(URL_APPLICATION)
         self.ui.dialog.set_copyright(APP_COPYRIGHT)
         # Prepare lists for authors and contributors
         authors = [f'{APP_AUTHOR} <{APP_AUTHOR_EMAIL}>']
@@ -74,13 +80,15 @@ class UIAbout(UIBase):
         self.ui.dialog.set_authors(authors)
         self.ui.dialog.set_license('\n'.join(readlines(FILE_LICENSE, True)))
         self.ui.dialog.set_translator_credits('\n'.join(translators))
-        # Retrieve the external resources links
-        for line in readlines(FILE_RESOURCES, False):
-            resource_type, resource_url = line.split(':', 1)
-            self.ui.dialog.add_credit_section(resource_type, (resource_url,))
-        icon_logo = Pixbuf.new_from_file(str(FILE_ICON))
-        self.ui.dialog.set_logo(icon_logo)
-        self.ui.dialog.set_transient_for(parent)
+        # Add external URLs
+        resources_urls = collections.OrderedDict({
+            _('Project home page'): URL_APPLICATION,
+            _('Source code'): URL_SOURCES,
+            _('Author information'): URL_AUTHOR,
+            _('Issues and bugs tracking'): f'{URL_APPLICATION}issues/',
+            _('Translations'): URL_TRANSLATIONS})
+        for resource_type, url in resources_urls.items():
+            self.ui.dialog.add_credit_section(resource_type, [url])
         # Connect signals from the UI file to the functions with the same name
         self.ui.connect_signals(self)
 
