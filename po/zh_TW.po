@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
-"POT-Creation-Date: 2022-08-15 22:09+0200\n"
+"POT-Creation-Date: 2022-08-19 01:07+0200\n"
 "PO-Revision-Date: 2022-04-18 02:53+0200\n"
 "Last-Translator: Cosmo Chene <cosmolax(at)gmail.com>\n"
 "Language-Team: Chinese (Taiwan)\n"
@@ -21,40 +21,60 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: gwakeonlan/ui/about.py:60
+#: gwakeonlan/ui/about.py:66
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "版本 {VERSION}"
 
-#: gwakeonlan/ui/about.py:63
+#: gwakeonlan/ui/about.py:69
 msgid "Wake up your machines using Wake on LAN"
 msgstr ""
 
-#: gwakeonlan/ui/about.py:72
+#: gwakeonlan/ui/about.py:78
 msgid "Contributors:"
 msgstr "贡献者"
+
+#: gwakeonlan/ui/about.py:85
+msgid "Project home page"
+msgstr ""
+
+#: gwakeonlan/ui/about.py:86
+msgid "Source code"
+msgstr ""
+
+#: gwakeonlan/ui/about.py:87
+msgid "Author information"
+msgstr ""
+
+#: gwakeonlan/ui/about.py:88
+msgid "Issues and bugs tracking"
+msgstr ""
+
+#: gwakeonlan/ui/about.py:89
+msgid "Translations"
+msgstr ""
 
 #: gwakeonlan/ui/arpcache.py:39
 msgid "Pick a host from the ARP cache"
 msgstr ""
 
-#: gwakeonlan/ui/detail.py:57 ui/main.ui:53 ui/shortcuts.ui:64
+#: gwakeonlan/ui/detail.py:52 ui/main.ui:53 ui/shortcuts.ui:64
 msgid "Edit machine"
 msgstr "編輯主機"
 
-#: gwakeonlan/ui/detail.py:59 ui/main.ui:45 ui/shortcuts.ui:57
+#: gwakeonlan/ui/detail.py:54 ui/main.ui:45 ui/shortcuts.ui:57
 msgid "Add machine"
 msgstr "加入主機"
 
-#: gwakeonlan/ui/detail.py:70
+#: gwakeonlan/ui/detail.py:65
 msgid "Missing machine name"
 msgstr "失聯主機名稱"
 
-#: gwakeonlan/ui/detail.py:74
+#: gwakeonlan/ui/detail.py:69
 msgid "Invalid MAC address"
 msgstr "無效的 MAC 位址"
 
-#: gwakeonlan/ui/detail.py:78
+#: gwakeonlan/ui/detail.py:73
 msgid "Invalid destination host"
 msgstr "無效的目標主機"
 

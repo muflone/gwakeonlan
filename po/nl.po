@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
-"POT-Creation-Date: 2022-08-15 22:09+0200\n"
+"POT-Creation-Date: 2022-08-19 01:07+0200\n"
 "PO-Revision-Date: 2022-03-11 10:42+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss(at)fastmail.com>\n"
 "Language-Team: Dutch\n"
@@ -22,40 +22,60 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gwakeonlan/ui/about.py:60
+#: gwakeonlan/ui/about.py:66
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "Versie {VERSION}"
 
-#: gwakeonlan/ui/about.py:63
+#: gwakeonlan/ui/about.py:69
 msgid "Wake up your machines using Wake on LAN"
 msgstr "Ontwaak uw computers met Wake-on-LAN"
 
-#: gwakeonlan/ui/about.py:72
+#: gwakeonlan/ui/about.py:78
 msgid "Contributors:"
 msgstr "Bijdragers:"
+
+#: gwakeonlan/ui/about.py:85
+msgid "Project home page"
+msgstr "Website"
+
+#: gwakeonlan/ui/about.py:86
+msgid "Source code"
+msgstr "Broncode"
+
+#: gwakeonlan/ui/about.py:87
+msgid "Author information"
+msgstr "Informatie over de maker"
+
+#: gwakeonlan/ui/about.py:88
+msgid "Issues and bugs tracking"
+msgstr "Problemen en bugs"
+
+#: gwakeonlan/ui/about.py:89
+msgid "Translations"
+msgstr "Vertalingen"
 
 #: gwakeonlan/ui/arpcache.py:39
 msgid "Pick a host from the ARP cache"
 msgstr "Kies een host uit de ARP-cache"
 
-#: gwakeonlan/ui/detail.py:57 ui/main.ui:53 ui/shortcuts.ui:64
+#: gwakeonlan/ui/detail.py:52 ui/main.ui:53 ui/shortcuts.ui:64
 msgid "Edit machine"
 msgstr "Computer bewerken"
 
-#: gwakeonlan/ui/detail.py:59 ui/main.ui:45 ui/shortcuts.ui:57
+#: gwakeonlan/ui/detail.py:54 ui/main.ui:45 ui/shortcuts.ui:57
 msgid "Add machine"
 msgstr "Computer toevoegen"
 
-#: gwakeonlan/ui/detail.py:70
+#: gwakeonlan/ui/detail.py:65
 msgid "Missing machine name"
 msgstr "Voer een computernaam in"
 
-#: gwakeonlan/ui/detail.py:74
+#: gwakeonlan/ui/detail.py:69
 msgid "Invalid MAC address"
 msgstr "Ongeldig MAC-adres"
 
-#: gwakeonlan/ui/detail.py:78
+#: gwakeonlan/ui/detail.py:73
 msgid "Invalid destination host"
 msgstr "Ongeldige bestemming"
 
