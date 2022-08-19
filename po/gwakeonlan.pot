@@ -4,8 +4,6 @@
 # Website: https://www.muflone.com/gwakeonlan/
 # This file is distributed under the same license of gWakeOnLAN.
 # X translation for gWakeOnLAN
-# 
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
