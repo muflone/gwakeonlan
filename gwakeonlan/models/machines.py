@@ -49,52 +49,50 @@ class ModelMachines(ModelAbstract):
 
     def get_selected(self, treeiter):
         """Return if the TreeIter is selected"""
-        return self.get_model_data(treeiter, self.__class__.COL_SELECTED)
+        return self.model[treeiter][self.COL_SELECTED]
 
     def set_selected(self, treeiter, value):
         """Set the TreeIter selection"""
-        self.set_model_data(treeiter, self.__class__.COL_SELECTED, value)
+        self.model[treeiter][self.COL_SELECTED] = value
 
     def get_machine_name(self, treeiter):
         """Return the machine name from a TreeIter"""
-        return self.get_model_data(treeiter, self.__class__.COL_KEY)
+        return self.model[treeiter][self.COL_KEY]
 
     def set_machine_name(self, treeiter, value):
         """Set the machine name for a TreeIter"""
-        self.set_model_data(treeiter, self.__class__.COL_KEY, value)
+        self.model[treeiter][self.COL_KEY] = value
 
     def get_mac_address(self, treeiter):
         """Return the MAC address from a TreeIter"""
-        return self.get_model_data(treeiter, self.__class__.COL_MACADDRESS)
+        return self.model[treeiter][self.COL_MACADDRESS]
 
     def set_mac_address(self, treeiter, value):
         """Set the MAC address for a TreeIter"""
-        self.set_model_data(treeiter, self.__class__.COL_MACADDRESS, value)
+        self.model[treeiter][self.COL_MACADDRESS] = value
 
     def get_request_type(self, treeiter):
         """Return the request type from a TreeIter"""
-        return self.get_model_data(treeiter, self.__class__.COL_REQUESTTYPE)
+        return self.model[treeiter][self.COL_REQUESTTYPE]
 
     def get_destination(self, treeiter):
         """Return the destination from a TreeIter"""
-        return self.get_model_data(treeiter, self.__class__.COL_DESTINATION)
+        return self.model[treeiter][self.COL_DESTINATION]
 
     def set_destination(self, treeiter, value):
         """Set the destination for a TreeIter"""
-        self.set_model_data(treeiter, self.__class__.COL_DESTINATION, value)
-        self.set_model_data(treeiter, self.__class__.COL_REQUESTTYPE,
-                            'Local'
-                            if value == BROADCAST_ADDRESS
-                            else 'Internet')
+        self.model[treeiter][self.COL_DESTINATION] = value
+        self.model[treeiter][self.COL_REQUESTTYPE] = (
+            'Local' if value == BROADCAST_ADDRESS else 'Internet')
 
     def get_port_number(self, treeiter):
         """Return the port number from a TreeIter"""
-        return self.get_model_data(treeiter, self.__class__.COL_PORTNR)
+        return self.model[treeiter][self.COL_PORTNR]
 
     def set_port_number(self, treeiter, value):
         """Set the port number for a TreeIter"""
-        self.set_model_data(treeiter, self.__class__.COL_PORTNR, value)
+        self.model[treeiter][self.COL_PORTNR] = value
 
     def set_icon(self, treeiter, value):
         """Set the background color for a TreeIter"""
-        self.set_model_data(treeiter, self.__class__.COL_ICON, value)
+        self.model[treeiter][self.COL_ICON] = value

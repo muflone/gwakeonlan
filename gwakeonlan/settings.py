@@ -187,12 +187,13 @@ class Settings(object):
             self.config.remove_section(SECTION_HOSTS)
         self.config.add_section(SECTION_HOSTS)
         for machine in model:
+            treeiter = self.model.get_iter(machine)
             logging.debug(
-                f'Saving machine: {self.model.get_machine_name(machine)}')
+                f'Saving machine: {self.model.get_machine_name(treeiter)}')
             self.config.set(
                 SECTION_HOSTS,
-                self.model.get_machine_name(machine),
-                f'{self.model.get_mac_address(machine)}\\'
-                f'{self.model.get_destination(machine)}\\'
-                f'{self.model.get_port_number(machine)}'
+                self.model.get_machine_name(treeiter),
+                f'{self.model.get_mac_address(treeiter)}\\'
+                f'{self.model.get_destination(treeiter)}\\'
+                f'{self.model.get_port_number(treeiter)}'
             )

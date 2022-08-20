@@ -219,7 +219,7 @@ class UIMain(UIBase):
                     icon=self.icon_empty))
             # Automatically select the last inserted item
             self.ui.treeview_machines.set_cursor(
-                self.model_machines.count() - 1)
+                len(self.model_machines) - 1)
 
     def on_action_edit_activate(self, widget):
         """Edit the selected machine"""
@@ -262,11 +262,13 @@ class UIMain(UIBase):
     def on_action_turnon_activate(self, widget):
         """Launch the Wake On LAN for all the selected machines"""
         selected_count = 0
-        for treeiter in self.model_machines:
+        for key in self.model_machines:
+            treeiter = self.model_machines.get_iter(key)
             self.model_machines.set_icon(treeiter=treeiter,
                                          value=self.icon_empty)
-        for treeiter in self.model_machines:
+        for key in self.model_machines:
             # Turn on any selected machine
+            treeiter = self.model_machines.get_iter(key)
             if self.model_machines.get_selected(treeiter=treeiter):
                 selected_count += 1
                 self.do_turn_on(treeiter)
@@ -294,7 +296,7 @@ class UIMain(UIBase):
                                 icon=self.icon_empty))
                 # Select the last machine and edit its details
                 self.ui.treeview_machines.set_cursor(
-                    self.model_machines.count() - 1)
+                    len(self.model_machines) - 1)
                 self.ui.action_edit.activate()
         # Destroy the dialog
         dialog.destroy()
@@ -319,12 +321,14 @@ class UIMain(UIBase):
         dialog.destroy()
 
     def on_action_select_all_activate(self, widget):
-        for treeiter in self.model_machines:
+        for key in self.model_machines:
+            treeiter = self.model_machines.get_iter(key)
             self.model_machines.set_selected(treeiter=treeiter,
                                              value=True)
 
     def on_action_deselect_all_activate(self, widget):
-        for treeiter in self.model_machines:
+        for key in self.model_machines:
+            treeiter = self.model_machines.get_iter(key)
             self.model_machines.set_selected(treeiter=treeiter,
                                              value=False)
 

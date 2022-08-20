@@ -77,12 +77,12 @@ class ModelArpCache(ModelAbstract):
 
     def get_ip_address(self, treeiter):
         """Returns the IP address for the selected TreeIter"""
-        return self.get_model_data(treeiter, self.__class__.COL_IPADDRESS)
+        return self.model[treeiter][self.COL_IPADDRESS]
 
     def get_mac_address(self, treeiter):
         """Returns the MAC address for the selected TreeIter"""
-        return self.get_model_data(treeiter, self.__class__.COL_MACADDRESS)
+        return self.model[treeiter][self.COL_MACADDRESS]
 
     def get_hostname(self, treeiter):
         """Returns the hostname for the selected TreeIter"""
-        return self.get_model_data(treeiter, self.__class__.COL_HOSTNAME)
+        return self.model[treeiter][self.COL_HOSTNAME]
