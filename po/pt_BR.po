@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
-"POT-Creation-Date: 2022-08-19 01:07+0200\n"
+"POT-Creation-Date: 2022-08-20 18:50+0200\n"
 "PO-Revision-Date: 2022-04-18 02:36+0200\n"
 "Last-Translator: Paguiar735 <github.translation(at)paguiar.dev>\n"
 "Language-Team: Portuguese (Brazil)\n"
@@ -56,49 +56,45 @@ msgstr ""
 msgid "Translations"
 msgstr ""
 
-#: gwakeonlan/ui/arpcache.py:39
-msgid "Pick a host from the ARP cache"
-msgstr "Selecionar servidor a partir do cache ARP"
-
-#: gwakeonlan/ui/detail.py:52 ui/main.ui:53 ui/shortcuts.ui:64
+#: gwakeonlan/ui/detail.py:73 ui/main.ui:53 ui/shortcuts.ui:64
 msgid "Edit machine"
 msgstr "Editar máquina"
 
-#: gwakeonlan/ui/detail.py:54 ui/main.ui:45 ui/shortcuts.ui:57
+#: gwakeonlan/ui/detail.py:75 ui/main.ui:45 ui/shortcuts.ui:57
 msgid "Add machine"
 msgstr "Adicionar máquina"
 
-#: gwakeonlan/ui/detail.py:65
+#: gwakeonlan/ui/detail.py:86
 msgid "Missing machine name"
 msgstr "Máquina sem nome"
 
-#: gwakeonlan/ui/detail.py:69
+#: gwakeonlan/ui/detail.py:90
 msgid "Invalid MAC address"
 msgstr "Endereço MAC Inválido"
 
-#: gwakeonlan/ui/detail.py:73
+#: gwakeonlan/ui/detail.py:94
 msgid "Invalid destination host"
 msgstr "Servidor de destino inválido"
 
-#: gwakeonlan/ui/main.py:258
+#: gwakeonlan/ui/main.py:255
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Tem certeza que deseja remover a máquina selecionada?"
 
-#: gwakeonlan/ui/main.py:259 ui/main.ui:61 ui/shortcuts.ui:71
+#: gwakeonlan/ui/main.py:256 ui/main.ui:61 ui/shortcuts.ui:71
 msgid "Delete machine"
 msgstr "Deletar máquina"
 
-#: ui/arpcache.ui:112
+#: ui/arpcache.ui:27
+msgid "Pick a host from the ARP cache"
+msgstr "Selecionar servidor a partir do cache ARP"
+
+#: ui/arpcache.ui:113
 msgid "IP Address"
 msgstr "Endereço IP"
 
-#: ui/arpcache.ui:124
+#: ui/arpcache.ui:125
 msgid "Host Name"
 msgstr "Nome do servidor"
-
-#: ui/arpcache.ui:136
-msgid "MAC Address"
-msgstr "Endereço MAC"
 
 #: ui/detail.ui:29
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
@@ -114,7 +110,7 @@ msgstr "_Máquina nome:"
 
 #: ui/detail.ui:148
 msgid "MAC _Address:"
-msgstr "MAC _Address:"
+msgstr "Endereço M_AC:"
 
 #: ui/detail.ui:162
 msgid "_UDP port number:"
@@ -140,7 +136,7 @@ msgstr "_PC Destino:"
 msgid "Keyboard shortcuts"
 msgstr "Atalhos de teclado"
 
-#: ui/main.ui:36 ui/main.ui:222 ui/shortcuts.ui:78
+#: ui/main.ui:36 ui/shortcuts.ui:78
 msgid "Turn on"
 msgstr "Ligar"
 
@@ -160,29 +156,9 @@ msgstr "Abrir o menu de opçõe"
 msgid "Deselect All"
 msgstr "Deselecionar todos"
 
-#: ui/main.ui:134
+#: ui/main.ui:172
 msgid "Select machines"
 msgstr "Selecionar máquinas"
-
-#: ui/main.ui:344
-msgid "Machine name"
-msgstr "Nome da máquina"
-
-#: ui/main.ui:357
-msgid "MAC address"
-msgstr "Endereço MAC"
-
-#: ui/main.ui:370
-msgid "Request type"
-msgstr "Tipo de requisição"
-
-#: ui/main.ui:383
-msgid "Destination"
-msgstr "Destino"
-
-#: ui/main.ui:396
-msgid "Port NR"
-msgstr "Porta NR"
 
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"

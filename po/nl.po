@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
-"POT-Creation-Date: 2022-08-19 01:07+0200\n"
+"POT-Creation-Date: 2022-08-20 18:50+0200\n"
 "PO-Revision-Date: 2022-03-11 10:42+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss(at)fastmail.com>\n"
 "Language-Team: Dutch\n"
@@ -55,49 +55,45 @@ msgstr "Problemen en bugs"
 msgid "Translations"
 msgstr "Vertalingen"
 
-#: gwakeonlan/ui/arpcache.py:39
-msgid "Pick a host from the ARP cache"
-msgstr "Kies een host uit de ARP-cache"
-
-#: gwakeonlan/ui/detail.py:52 ui/main.ui:53 ui/shortcuts.ui:64
+#: gwakeonlan/ui/detail.py:73 ui/main.ui:53 ui/shortcuts.ui:64
 msgid "Edit machine"
 msgstr "Computer bewerken"
 
-#: gwakeonlan/ui/detail.py:54 ui/main.ui:45 ui/shortcuts.ui:57
+#: gwakeonlan/ui/detail.py:75 ui/main.ui:45 ui/shortcuts.ui:57
 msgid "Add machine"
 msgstr "Computer toevoegen"
 
-#: gwakeonlan/ui/detail.py:65
+#: gwakeonlan/ui/detail.py:86
 msgid "Missing machine name"
 msgstr "Voer een computernaam in"
 
-#: gwakeonlan/ui/detail.py:69
+#: gwakeonlan/ui/detail.py:90
 msgid "Invalid MAC address"
 msgstr "Ongeldig MAC-adres"
 
-#: gwakeonlan/ui/detail.py:73
+#: gwakeonlan/ui/detail.py:94
 msgid "Invalid destination host"
 msgstr "Ongeldige bestemming"
 
-#: gwakeonlan/ui/main.py:258
+#: gwakeonlan/ui/main.py:255
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Weet u zeker dat u de gekozen computer wilt verwijderen?"
 
-#: gwakeonlan/ui/main.py:259 ui/main.ui:61 ui/shortcuts.ui:71
+#: gwakeonlan/ui/main.py:256 ui/main.ui:61 ui/shortcuts.ui:71
 msgid "Delete machine"
 msgstr "Computer verwijderen"
 
-#: ui/arpcache.ui:112
+#: ui/arpcache.ui:27
+msgid "Pick a host from the ARP cache"
+msgstr "Kies een host uit de ARP-cache"
+
+#: ui/arpcache.ui:113
 msgid "IP Address"
 msgstr "IP-adres"
 
-#: ui/arpcache.ui:124
+#: ui/arpcache.ui:125
 msgid "Host Name"
 msgstr "Hostnaam"
-
-#: ui/arpcache.ui:136
-msgid "MAC Address"
-msgstr "MAC-adres"
 
 #: ui/detail.ui:29
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
@@ -105,7 +101,8 @@ msgstr "<b><span foreground=\"red\">FOUTMELDING</span></b>"
 
 #: ui/detail.ui:91
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr "<big><b>Voer de computernaam en het bijbehorende MAC-adres in</b></big>"
+msgstr ""
+"<big><b>Voer de computernaam en het bijbehorende MAC-adres in</b></big>"
 
 #: ui/detail.ui:120
 msgid "_Machine name:"
@@ -113,7 +110,7 @@ msgstr "Computernaa_m:"
 
 #: ui/detail.ui:148
 msgid "MAC _Address:"
-msgstr "MAC-_adres:"
+msgstr "M_AC-adres:"
 
 #: ui/detail.ui:162
 msgid "_UDP port number:"
@@ -139,7 +136,7 @@ msgstr "_Bestemming:"
 msgid "Keyboard shortcuts"
 msgstr "Sneltoetsen"
 
-#: ui/main.ui:36 ui/main.ui:222 ui/shortcuts.ui:78
+#: ui/main.ui:36 ui/shortcuts.ui:78
 msgid "Turn on"
 msgstr "Inschakelen"
 
@@ -159,29 +156,9 @@ msgstr "Open het optiesmenu"
 msgid "Deselect All"
 msgstr "Niets selecteren"
 
-#: ui/main.ui:134
+#: ui/main.ui:172
 msgid "Select machines"
 msgstr "Computers selecteren"
-
-#: ui/main.ui:344
-msgid "Machine name"
-msgstr "Computernaam"
-
-#: ui/main.ui:357
-msgid "MAC address"
-msgstr "MAC-adres"
-
-#: ui/main.ui:370
-msgid "Request type"
-msgstr "Soort aanvraag"
-
-#: ui/main.ui:383
-msgid "Destination"
-msgstr "Bestemming"
-
-#: ui/main.ui:396
-msgid "Port NR"
-msgstr "Poortnummer"
 
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"

@@ -37,7 +37,7 @@ from gwakeonlan.functions import (format_mac_address,
                                   show_message_dialog_yesno,
                                   wake_on_lan)
 from gwakeonlan.import_ethers import ImportEthers
-from gwakeonlan.localize import _, text_gtk30
+from gwakeonlan.localize import _, text
 from gwakeonlan.settings import Settings
 from gwakeonlan.models.machine_item import MachineItem
 from gwakeonlan.models.machines import ModelMachines
@@ -83,9 +83,6 @@ class UIMain(UIBase):
     def load_ui(self):
         """Load the interface UI"""
         logging.debug(f'{self.__class__.__name__} load UI')
-        # Initialize translations
-        self.ui.action_about.set_label(text_gtk30('About'))
-        self.ui.action_select_all.set_label(text_gtk30('Select _All'))
         # Initialize titles and tooltips
         self.set_titles()
         # Initialize Gtk.HeaderBar
@@ -306,11 +303,12 @@ class UIMain(UIBase):
         """Show the Ethers file importer"""
         # noinspection PyArgumentList
         dialog = Gtk.FileChooserDialog(
-            text_gtk30("Select a File"),
+            text(message='Select a File',
+                 gtk30=True),
             None,
             Gtk.FileChooserAction.OPEN,
-            (text_gtk30("_Cancel"), Gtk.ResponseType.CANCEL,
-             text_gtk30("_Open"), Gtk.ResponseType.OK))
+            (text(message='_Cancel', gtk30=True), Gtk.ResponseType.CANCEL,
+             text(message='_Open', gtk30=True), Gtk.ResponseType.OK))
         dialog.set_transient_for(self.ui.window)
         response = dialog.run()
         if response == Gtk.ResponseType.OK:

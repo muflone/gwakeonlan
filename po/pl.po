@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
-"POT-Creation-Date: 2022-08-19 01:07+0200\n"
+"POT-Creation-Date: 2022-08-20 18:50+0200\n"
 "PO-Revision-Date: 2022-04-18 02:26+0200\n"
 "Last-Translator: bjfs <bjfs84(at)gmail.com>\n"
 "Language-Team: Polish\n"
@@ -19,7 +19,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 
 #: gwakeonlan/ui/about.py:66
 #, python-brace-format
@@ -54,49 +55,45 @@ msgstr ""
 msgid "Translations"
 msgstr ""
 
-#: gwakeonlan/ui/arpcache.py:39
-msgid "Pick a host from the ARP cache"
-msgstr ""
-
-#: gwakeonlan/ui/detail.py:52 ui/main.ui:53 ui/shortcuts.ui:64
+#: gwakeonlan/ui/detail.py:73 ui/main.ui:53 ui/shortcuts.ui:64
 msgid "Edit machine"
 msgstr "Edytuj komputer"
 
-#: gwakeonlan/ui/detail.py:54 ui/main.ui:45 ui/shortcuts.ui:57
+#: gwakeonlan/ui/detail.py:75 ui/main.ui:45 ui/shortcuts.ui:57
 msgid "Add machine"
 msgstr "Dodaj komputer"
 
-#: gwakeonlan/ui/detail.py:65
+#: gwakeonlan/ui/detail.py:86
 msgid "Missing machine name"
 msgstr "Brak nazwy komputera"
 
-#: gwakeonlan/ui/detail.py:69
+#: gwakeonlan/ui/detail.py:90
 msgid "Invalid MAC address"
 msgstr "Nieprawidłowy adres MAC"
 
-#: gwakeonlan/ui/detail.py:73
+#: gwakeonlan/ui/detail.py:94
 msgid "Invalid destination host"
 msgstr "Nieprawidłowy host docelowy"
 
-#: gwakeonlan/ui/main.py:258
+#: gwakeonlan/ui/main.py:255
 msgid "Are you sure you want to remove the selected machine?"
 msgstr "Czy na pewno usunąć zaznaczony komputer?"
 
-#: gwakeonlan/ui/main.py:259 ui/main.ui:61 ui/shortcuts.ui:71
+#: gwakeonlan/ui/main.py:256 ui/main.ui:61 ui/shortcuts.ui:71
 msgid "Delete machine"
 msgstr "Usuń komputer"
 
-#: ui/arpcache.ui:112
+#: ui/arpcache.ui:27
+msgid "Pick a host from the ARP cache"
+msgstr ""
+
+#: ui/arpcache.ui:113
 msgid "IP Address"
 msgstr ""
 
-#: ui/arpcache.ui:124
+#: ui/arpcache.ui:125
 msgid "Host Name"
 msgstr ""
-
-#: ui/arpcache.ui:136
-msgid "MAC Address"
-msgstr "Adres MAC"
 
 #: ui/detail.ui:29
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
@@ -138,7 +135,7 @@ msgstr "_Docelowy host:"
 msgid "Keyboard shortcuts"
 msgstr "Skróty klawiszowe"
 
-#: ui/main.ui:36 ui/main.ui:222 ui/shortcuts.ui:78
+#: ui/main.ui:36 ui/shortcuts.ui:78
 msgid "Turn on"
 msgstr ""
 
@@ -158,29 +155,9 @@ msgstr ""
 msgid "Deselect All"
 msgstr ""
 
-#: ui/main.ui:134
+#: ui/main.ui:172
 msgid "Select machines"
 msgstr ""
-
-#: ui/main.ui:344
-msgid "Machine name"
-msgstr "Nazwa komputera"
-
-#: ui/main.ui:357
-msgid "MAC address"
-msgstr "Adres MAC"
-
-#: ui/main.ui:370
-msgid "Request type"
-msgstr "Typ żądania"
-
-#: ui/main.ui:383
-msgid "Destination"
-msgstr "Cel"
-
-#: ui/main.ui:396
-msgid "Port NR"
-msgstr "Port NR"
 
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"

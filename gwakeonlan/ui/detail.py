@@ -18,30 +18,51 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+import logging
+
 from gi.repository import GLib
 from gi.repository import Gtk
 
-from gwakeonlan.constants import BROADCAST_ADDRESS, FILE_ICON
+from gwakeonlan.constants import BROADCAST_ADDRESS
 from gwakeonlan.functions import format_mac_address
-from gwakeonlan.localize import _, text_gtk30
+from gwakeonlan.localize import _
 from gwakeonlan.ui.base import UIBase
+
+SECTION_WINDOW_NAME = 'detail'
 
 
 class UIDetail(UIBase):
     def __init__(self, parent, settings, options):
-        """Prepare the detail dialog"""
+        """Prepare the dialog"""
+        logging.debug(f'{self.__class__.__name__} init')
         super().__init__(filename='detail.ui')
+        # Initialize members
+        self.parent = parent
         self.settings = settings
         self.options = options
+        # Load UI
+        self.load_ui()
+        # Complete initialization
+        self.startup()
+
+    def load_ui(self):
+        """Load the interface UI"""
+        logging.debug(f'{self.__class__.__name__} load UI')
+        # Initialize titles and tooltips
+        self.set_titles()
         # Set various properties
-        self.ui.dialog.set_icon_from_file(str(FILE_ICON))
-        self.ui.dialog.set_transient_for(parent)
-        self.ui.button_ok.set_label(text_gtk30('_OK'))
-        self.ui.button_cancel.set_label(text_gtk30('_Cancel'))
+        self.ui.dialog.set_transient_for(self.parent)
         # Load icon from file
         self.load_image_file(self.ui.image_computer)
         # Connect signals from the UI file to the functions with the same name
         self.ui.connect_signals(self)
+
+    def startup(self):
+        """Complete initialization"""
+        logging.debug(f'{self.__class__.__name__} startup')
+        # Restore the saved size and position
+        self.settings.restore_window_position(window=self.ui.dialog,
+                                              section=SECTION_WINDOW_NAME)
 
     def show(self):
         """Show the dialog"""

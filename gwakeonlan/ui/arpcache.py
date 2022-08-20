@@ -18,32 +18,51 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+import logging
+
 from gi.repository import GLib
 from gi.repository import Gtk
 
-from gwakeonlan.constants import FILE_ICON
 from gwakeonlan.functions import get_treeview_selected_row
-from gwakeonlan.localize import _, text_gtk30
 from gwakeonlan.models.arpcache import ModelArpCache
 from gwakeonlan.ui.base import UIBase
+
+SECTION_WINDOW_NAME = 'arp cache'
 
 
 class UIArpCache(UIBase):
     def __init__(self, parent, settings, options):
         """Prepare the dialog"""
+        logging.debug(f'{self.__class__.__name__} init')
         super().__init__(filename='arpcache.ui')
+        # Initialize members
+        self.parent = parent
         self.settings = settings
         self.options = options
+        # Prepare the models
         self.model = ModelArpCache(self.ui.model)
         self.model.refresh()
-        self.ui.dialog.set_title(_('Pick a host from the ARP cache'))
-        self.ui.dialog.set_icon_from_file(str(FILE_ICON))
-        self.ui.dialog.set_transient_for(parent)
-        self.ui.button_ok.set_label(text_gtk30('_OK'))
-        self.ui.button_cancel.set_label(text_gtk30('_Cancel'))
-        self.ui.button_refresh.set_label(text_gtk30('_Refresh', 'Stock label'))
+        # Load UI
+        self.load_ui()
+        # Complete initialization
+        self.startup()
+
+    def load_ui(self):
+        """Load the interface UI"""
+        logging.debug(f'{self.__class__.__name__} load UI')
+        # Initialize titles and tooltips
+        self.set_titles()
+        # Set various properties
+        self.ui.dialog.set_transient_for(self.parent)
         # Connect signals from the UI file to the functions with the same name
         self.ui.connect_signals(self)
+
+    def startup(self):
+        """Complete initialization"""
+        logging.debug(f'{self.__class__.__name__} startup')
+        # Restore the saved size and position
+        self.settings.restore_window_position(window=self.ui.dialog,
+                                              section=SECTION_WINDOW_NAME)
 
     def destroy(self):
         """Hide and destroy the ARP cache picker dialog"""

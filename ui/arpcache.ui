@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.40.0 -->
 <interface>
-  <requires lib="gtk+" version="3.0"/>
+  <requires lib="gtk+" version="3.10"/>
   <object class="GtkAccelGroup" id="accelerators"/>
   <object class="GtkActionGroup" id="actions_actions">
     <child>
@@ -24,6 +24,7 @@
   </object>
   <object class="GtkDialog" id="dialog">
     <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Pick a host from the ARP cache</property>
     <property name="default-width">450</property>
     <property name="default-height">260</property>
     <property name="type-hint">dialog</property>
@@ -39,7 +40,7 @@
             <property name="layout-style">end</property>
             <child>
               <object class="GtkButton" id="button_refresh">
-                <property name="label">_Refresh</property>
+                <property name="label">Refresh</property>
                 <property name="use-action-appearance">True</property>
                 <property name="related-action">action_refresh</property>
                 <property name="visible">True</property>
@@ -56,7 +57,7 @@
             </child>
             <child>
               <object class="GtkButton" id="button_cancel">
-                <property name="label">_Cancel</property>
+                <property name="label">Cancel</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
@@ -70,7 +71,7 @@
             </child>
             <child>
               <object class="GtkButton" id="button_ok">
-                <property name="label">_OK</property>
+                <property name="label">OK</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="can-default">True</property>
@@ -133,7 +134,7 @@
                 <child>
                   <object class="GtkTreeViewColumn" id="column_mac_address">
                     <property name="resizable">True</property>
-                    <property name="title" translatable="yes">MAC Address</property>
+                    <property name="title">MAC Address</property>
                     <child>
                       <object class="GtkCellRendererText" id="cell_mac_address"/>
                       <attributes>

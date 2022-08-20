@@ -82,7 +82,7 @@
               <object class="GtkShortcutsShortcut" id="shortcut_select_all">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;A</property>
-                <property name="title">Select All</property>
+                <property name="title">Select all</property>
               </object>
             </child>
             <child>
