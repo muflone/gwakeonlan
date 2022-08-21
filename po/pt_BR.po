@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
-"POT-Creation-Date: 2022-08-20 18:50+0200\n"
+"POT-Creation-Date: 2022-08-21 02:37+0200\n"
 "PO-Revision-Date: 2022-04-18 02:36+0200\n"
 "Last-Translator: Paguiar735 <github.translation(at)paguiar.dev>\n"
 "Language-Team: Portuguese (Brazil)\n"
@@ -150,10 +150,10 @@ msgstr "Importar do arquivo ethers"
 
 #: ui/main.ui:84 ui/main.ui:90 ui/shortcuts.ui:28
 msgid "Open the options menu"
-msgstr "Abrir o menu de opçõe"
+msgstr "Abrir o menu de opções"
 
 #: ui/main.ui:107 ui/shortcuts.ui:92
-msgid "Deselect All"
+msgid "Deselect all"
 msgstr "Deselecionar todos"
 
 #: ui/main.ui:172
@@ -163,10 +163,6 @@ msgstr "Selecionar máquinas"
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
 msgstr "Exibir caixa de diálogo sobre"
-
-#: ui/shortcuts.ui:42
-msgid "Quit"
-msgstr "Sair"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"

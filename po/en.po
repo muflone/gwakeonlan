@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
-"POT-Creation-Date: 2022-08-20 18:50+0200\n"
+"POT-Creation-Date: 2022-08-21 02:37+0200\n"
 "PO-Revision-Date: 2013-11-20 10:36+0000\n"
 "Last-Translator: Fabio Castelli (Muflone) <muflone(at)muflone.com>\n"
 "Language-Team: English\n"
@@ -151,8 +151,8 @@ msgid "Open the options menu"
 msgstr "Open the options menu"
 
 #: ui/main.ui:107 ui/shortcuts.ui:92
-msgid "Deselect All"
-msgstr "Deselect All"
+msgid "Deselect all"
+msgstr "Deselect all"
 
 #: ui/main.ui:172
 msgid "Select machines"
@@ -161,10 +161,6 @@ msgstr "Select machine"
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
 msgstr "Show the about dialog"
-
-#: ui/shortcuts.ui:42
-msgid "Quit"
-msgstr "Quit"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"

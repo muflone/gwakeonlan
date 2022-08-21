@@ -39,7 +39,7 @@
               <object class="GtkShortcutsShortcut" id="shortcut_quit">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;Q</property>
-                <property name="title" translatable="yes">Quit</property>
+                <property name="title">Quit</property>
               </object>
             </child>
           </object>
@@ -89,7 +89,7 @@
               <object class="GtkShortcutsShortcut" id="shortcut_deselect_all">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;&lt;shift&gt;A</property>
-                <property name="title" translatable="yes">Deselect All</property>
+                <property name="title" translatable="yes">Deselect all</property>
               </object>
             </child>
           </object>

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
-"POT-Creation-Date: 2022-08-20 18:50+0200\n"
+"POT-Creation-Date: 2022-08-21 02:37+0200\n"
 "PO-Revision-Date: 2022-04-18 02:36+0200\n"
 "Last-Translator: Amilton Pereira cavalcante <amiltonpc(at)gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -28,7 +28,7 @@ msgstr "Versão {VERSION}"
 
 #: gwakeonlan/ui/about.py:69
 msgid "Wake up your machines using Wake on LAN"
-msgstr ""
+msgstr "Ligar máquina com o Wake On LAN"
 
 #: gwakeonlan/ui/about.py:78
 msgid "Contributors:"
@@ -144,28 +144,24 @@ msgstr "Detectar a partir do chache ARP"
 
 #: ui/main.ui:75
 msgid "Import from ethers file"
-msgstr ""
+msgstr "Importar do arquivo ethers"
 
 #: ui/main.ui:84 ui/main.ui:90 ui/shortcuts.ui:28
 msgid "Open the options menu"
-msgstr ""
+msgstr "Abrir o menu de opções"
 
 #: ui/main.ui:107 ui/shortcuts.ui:92
-msgid "Deselect All"
-msgstr ""
+msgid "Deselect all"
+msgstr "Deselecionar todos"
 
 #: ui/main.ui:172
 msgid "Select machines"
-msgstr ""
+msgstr "Selecionar máquinas"
 
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
 msgstr "Mostrar diálogo sobre"
 
-#: ui/shortcuts.ui:42
-msgid "Quit"
-msgstr "Sair"
-
 #: ui/shortcuts.ui:52
 msgid "Machines"
-msgstr ""
+msgstr "Máquinas"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
-"POT-Creation-Date: 2022-08-20 18:50+0200\n"
+"POT-Creation-Date: 2022-08-21 02:37+0200\n"
 "PO-Revision-Date: 2022-04-18 02:14+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian\n"
@@ -38,23 +38,23 @@ msgstr "Talkininkai:"
 
 #: gwakeonlan/ui/about.py:85
 msgid "Project home page"
-msgstr ""
+msgstr "Projekto internetinė svetainė"
 
 #: gwakeonlan/ui/about.py:86
 msgid "Source code"
-msgstr ""
+msgstr "Pirminis kodas"
 
 #: gwakeonlan/ui/about.py:87
 msgid "Author information"
-msgstr ""
+msgstr "Informacija apie autorių"
 
 #: gwakeonlan/ui/about.py:88
 msgid "Issues and bugs tracking"
-msgstr ""
+msgstr "Klaidos ir klaidų sekiklis"
 
 #: gwakeonlan/ui/about.py:89
 msgid "Translations"
-msgstr ""
+msgstr "Vertimai"
 
 #: gwakeonlan/ui/detail.py:73 ui/main.ui:53 ui/shortcuts.ui:64
 msgid "Edit machine"
@@ -153,7 +153,7 @@ msgid "Open the options menu"
 msgstr "Atverti parinkčių meniu"
 
 #: ui/main.ui:107 ui/shortcuts.ui:92
-msgid "Deselect All"
+msgid "Deselect all"
 msgstr "Nuimti žymėjimą nuo visų"
 
 #: ui/main.ui:172
@@ -163,10 +163,6 @@ msgstr "Žymėti kompiuterius"
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
 msgstr "Rodyti dialogą su informacija apie programą"
-
-#: ui/shortcuts.ui:42
-msgid "Quit"
-msgstr "Išeiti"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
-"POT-Creation-Date: 2022-08-20 18:50+0200\n"
+"POT-Creation-Date: 2022-08-21 02:37+0200\n"
 "PO-Revision-Date: 2015-07-18 16:35+0000\n"
 "Last-Translator: sahwar <ve4ernik(at)gmail.com>\n"
 "Language-Team: Bulgarian\n"
@@ -151,8 +151,8 @@ msgid "Open the options menu"
 msgstr ""
 
 #: ui/main.ui:107 ui/shortcuts.ui:92
-msgid "Deselect All"
-msgstr ""
+msgid "Deselect all"
+msgstr "Отмаркирване на всичко"
 
 #: ui/main.ui:172
 msgid "Select machines"
@@ -161,10 +161,6 @@ msgstr ""
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
 msgstr ""
-
-#: ui/shortcuts.ui:42
-msgid "Quit"
-msgstr "Спиране"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"
