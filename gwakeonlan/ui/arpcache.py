@@ -66,6 +66,7 @@ class UIArpCache(UIBase):
 
     def destroy(self):
         """Hide and destroy the ARP cache picker dialog"""
+        logging.debug(f'{self.__class__.__name__} destroy')
         self.ui.dialog.destroy()
         self.ui.dialog = None
 

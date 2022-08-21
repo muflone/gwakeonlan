@@ -105,6 +105,7 @@ class UIDetail(UIBase):
 
     def destroy(self):
         """Destroy the dialog"""
+        logging.debug(f'{self.__class__.__name__} destroy')
         self.ui.dialog.destroy()
         self.ui.dialog = None
 
