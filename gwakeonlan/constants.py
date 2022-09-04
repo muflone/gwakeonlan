@@ -26,7 +26,7 @@ from xdg import BaseDirectory
 
 # Application constants
 APP_NAME = 'gWakeOnLAN'
-APP_VERSION = '0.8.4'
+APP_VERSION = '0.8.5'
 APP_DESCRIPTION = 'Wake up your machines using Wake on LAN'
 APP_DOMAIN = 'gwakeonlan'
 APP_AUTHOR = 'Fabio Castelli'

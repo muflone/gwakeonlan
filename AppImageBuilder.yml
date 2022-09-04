@@ -27,7 +27,7 @@ AppDir:
     id: com.muflone.gwakeonlan
     name: gwakeonlan
     icon: gwakeonlan
-    version: 0.8.4
+    version: 0.8.5
     exec: usr/bin/python3
     exec_args: "$APPDIR/usr/share/gwakeonlan/gwakeonlan.py $@"
 
