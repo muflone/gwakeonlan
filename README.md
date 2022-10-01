@@ -11,7 +11,7 @@
 
 **Source code:** https://github.com/muflone/gwakeonlan/
 
-**Documentation:** https://www.muflone.com/gwakeonlan/
+**Documentation:** http://www.muflone.com/gwakeonlan/
 
 **Translations:** https://explore.transifex.com/muflone/gwakeonlan/
 
@@ -21,13 +21,13 @@ From the *gWakeOnLAN* main window you can define your hosts along with their
 MAC Addresses, select those you want to turn on and just start them with a
 simple click on the button **Turn on**.
 
-![Main window](https://www.muflone.com/resources/gwakeonlan/archive/latest/english/main.png)
+![Main window](http://www.muflone.com/resources/gwakeonlan/archive/latest/english/main.png)
 
 For each host you can define its name, the MAC address and you can choose to
 turn it on on the local network or via internet through a destination
 host.
 
-![Detail](https://www.muflone.com/resources/gwakeonlan/archive/latest/english/detail.png)
+![Detail](http://www.muflone.com/resources/gwakeonlan/archive/latest/english/detail.png)
 
 # System Requirements
 
