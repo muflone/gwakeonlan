@@ -7,14 +7,14 @@
 #
 # Translators:
 # Necdet Yücel <necdetyucel(at)gmail.com>, 2012
-# Fatih Altun <fatih.altun(at)pardus.org.tr>, 2022.
+# Fatih Altun <fatih.altun(at)pardus.org.tr>, 2022-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLAN\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
 "POT-Creation-Date: 2022-08-21 02:37+0200\n"
-"PO-Revision-Date: 2022-04-18 16:24+0200\n"
+"PO-Revision-Date: 2023-05-23 12:09+0300\n"
 "Last-Translator: Fatih Altun <fatih.altun(at)pardus.org.tr>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
@@ -38,23 +38,23 @@ msgstr "Katkıda Bulunanlar:"
 
 #: gwakeonlan/ui/about.py:85
 msgid "Project home page"
-msgstr ""
+msgstr "Proje ana sayfası"
 
 #: gwakeonlan/ui/about.py:86
 msgid "Source code"
-msgstr ""
+msgstr "Kaynak kodu"
 
 #: gwakeonlan/ui/about.py:87
 msgid "Author information"
-msgstr ""
+msgstr "Yazar bilgileri"
 
 #: gwakeonlan/ui/about.py:88
 msgid "Issues and bugs tracking"
-msgstr ""
+msgstr "Sorunlar ve hata takibi"
 
 #: gwakeonlan/ui/about.py:89
 msgid "Translations"
-msgstr ""
+msgstr "Çeviriler"
 
 #: gwakeonlan/ui/detail.py:73 ui/main.ui:53 ui/shortcuts.ui:64
 msgid "Edit machine"
@@ -162,7 +162,7 @@ msgstr "Makineleri seç"
 
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
-msgstr ""
+msgstr "Hakkında iletişim kutusunu göster"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"
