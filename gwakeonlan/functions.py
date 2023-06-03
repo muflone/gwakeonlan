@@ -127,6 +127,24 @@ def show_message_dialog_yesno(parent, message, title, default_response):
     return response
 
 
+def split_credentials(destination):
+    """Split the destination: username@destination#interface"""
+    dst = destination.split(sep='@', maxsplit=1)
+    username = None
+    router = None
+    interface = None
+    if len(dst) == 2:
+        username = dst[0]
+        dst = dst[1]
+    else:
+        dst = destination
+    dst = dst.split(sep='#', maxsplit=1)
+    if len(dst) == 2:
+        interface = dst[1]
+    router = dst[0]
+    return username, router, interface
+
+
 def wake_on_lan(mac_address, port_number, destination):
     """Turn on remote machine using Wake On LAN"""
     logging.info(f'turning on: {mac_address} '

@@ -27,6 +27,7 @@ from gwakeonlan.constants import BROADCAST_ADDRESS
 from gwakeonlan.functions import format_mac_address
 from gwakeonlan.localize import _
 from gwakeonlan.ui.base import UIBase
+from gwakeonlan.functions import split_credentials
 
 SECTION_WINDOW_NAME = 'detail'
 
@@ -111,7 +112,15 @@ class UIDetail(UIBase):
 
     def do_get_destination(self):
         """Return the destination host"""
-        return self.ui.text_destination_host.get_text()
+        request_type_mikrotik = self.ui.radio_request_mikrotik.get_active()
+        destination = self.ui.text_destination_host.get_text()
+        if request_type_mikrotik:
+            username = self.ui.text_username.get_text() + '@'
+            interface = self.ui.text_interface.get_text()
+            if interface != "":
+                interface = "#" + interface
+            return f'{username}{destination}{interface}'
+        return destination
 
     def do_get_mac_address(self):
         """Return the MAC address"""
@@ -134,8 +143,18 @@ class UIDetail(UIBase):
         self.ui.text_machine_name.set_text(machine_name)
         self.ui.text_mac_address.set_text(mac_address)
         self.ui.spin_port_number.set_value(portnr)
-        self.ui.text_destination_host.set_text(destination)
-        if destination in (BROADCAST_ADDRESS, ''):
+        username, router, interface = split_credentials(destination)
+        if username:
+            self.ui.text_username.set_text(username)
+        if interface:
+            self.ui.text_interface.set_text(interface)
+        self.ui.text_destination_host.set_text(router)
+        if username or interface:
+            self.ui.radio_request_mikrotik.set_active(True)
+            self.ui.text_destination_host.set_sensitive(True)
+            self.ui.text_username.set_sensitive(True)
+            self.ui.text_interface.set_sensitive(True)
+        elif router in (BROADCAST_ADDRESS, ''):
             self.ui.radio_request_local.set_active(True)
             self.ui.text_destination_host.set_sensitive(False)
         else:
@@ -143,19 +162,51 @@ class UIDetail(UIBase):
             self.ui.text_destination_host.set_sensitive(True)
         self.ui.text_machine_name.grab_focus()
 
+    def get_default_gateway(self):
+        """Use netifaces module to get the default gateway."""
+        try:
+            import netifaces
+            gws = netifaces.gateways()
+            return gws['default'][netifaces.AF_INET][0]
+        except:
+            return ""
+
     def on_radio_request_type_toggled(self, widget):
         """A Radio button was pressed"""
         request_type_internet = self.ui.radio_request_internet.get_active()
+        request_type_mikrotik = self.ui.radio_request_mikrotik.get_active()
+        gateway = self.get_default_gateway()
         # Check the request type
         if request_type_internet:
             # If there was the broadcast address it will be deleted
-            if self.do_get_destination() == BROADCAST_ADDRESS:
+            if self.do_get_destination() == BROADCAST_ADDRESS or self.do_get_destination() == gateway:
                 self.ui.text_destination_host.set_text('')
+        elif request_type_mikrotik:
+            if self.do_get_destination() == BROADCAST_ADDRESS or self.do_get_destination() == "":
+                # Set the default gateway as the default value
+                self.ui.text_destination_host.set_text(gateway)
         else:
             # For local request type the broadcast address will be used
             self.ui.text_destination_host.set_text(BROADCAST_ADDRESS)
         # Enable the destination fields accordingly to the request type
-        self.ui.label_destination_host.set_sensitive(request_type_internet)
-        self.ui.text_destination_host.set_sensitive(request_type_internet)
+        self.ui.label_destination_host.set_sensitive(request_type_internet or request_type_mikrotik)
+        self.ui.text_destination_host.set_sensitive(request_type_internet or request_type_mikrotik)
+
+        if request_type_mikrotik:
+            self.ui.image_computer.set_from_icon_name('network-modem', 72)
+            self.ui.label_destination_host.set_label(_("_Mikrotik Router:"))
+        else:
+            self.ui.image_computer.set_from_icon_name('computer', 72)
+            self.ui.label_destination_host.set_label(_("_Destination host:"))
+
+        self.ui.label_username.set_sensitive(request_type_mikrotik)
+        self.ui.text_username.set_sensitive(request_type_mikrotik)
+
+        self.ui.label_interface.set_sensitive(request_type_mikrotik)
+        self.ui.text_interface.set_sensitive(request_type_mikrotik)
+
+        self.ui.label_port_number.set_sensitive(not request_type_mikrotik)
+        self.ui.spin_port_number.set_sensitive(not request_type_mikrotik)
+
         # Hide previous errors
         self.ui.label_error.set_visible(False)
