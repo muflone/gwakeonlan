@@ -1,8 +1,14 @@
 os: linux
-dist: bionic
+dist: jammy
 language: python
 python:
   - "3.6"
+  - "3.7"
+  - "3.8"
+  - "3.9"
+  - "3.10"
+  - "3.11"
+  - "3.12"
 virtualenv:
   system_site_packages: true
 addons:
