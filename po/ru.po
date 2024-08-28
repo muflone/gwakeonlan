@@ -9,19 +9,17 @@
 # Сергей Богатов <hsh(at)runtu.org>, 2010,2015,2020
 msgid ""
 msgstr ""
-"Project-Id-Version: gWakeOnLAN\n"
+"Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
 "POT-Creation-Date: 2022-08-21 02:37+0200\n"
 "PO-Revision-Date: 2022-04-18 02:43+0200\n"
 "Last-Translator: Сергей Богатов <hsh(at)runtu.org>\n"
 "Language-Team: Russian\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: gwakeonlan/ui/about.py:66
 #, python-brace-format

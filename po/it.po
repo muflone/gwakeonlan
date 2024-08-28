@@ -9,17 +9,17 @@
 # Fabio Castelli (Muflone) <muflone(at)muflone.com>, 2009-2022
 msgid ""
 msgstr ""
-"Project-Id-Version: gWakeOnLAN\n"
+"Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
 "POT-Creation-Date: 2022-08-21 02:37+0200\n"
 "PO-Revision-Date: 2022-04-18 02:06+0200\n"
 "Last-Translator: Fabio Castelli (Muflone) <muflone(at)muflone.com>\n"
 "Language-Team: Italian\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: it\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: gwakeonlan/ui/about.py:66
 #, python-brace-format
@@ -100,8 +100,7 @@ msgstr "<b><span foreground=\"red\">ERRORE</span></b>"
 
 #: ui/detail.ui:91
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr ""
-"<big><b>Inserisci il nome della macchina e il suo indirizzo MAC</b></big>"
+msgstr "<big><b>Inserisci il nome della macchina e il suo indirizzo MAC</b></big>"
 
 #: ui/detail.ui:120
 msgid "_Machine name:"

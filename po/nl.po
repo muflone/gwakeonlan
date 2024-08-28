@@ -6,20 +6,19 @@
 # Dutch translation for gWakeOnLAN
 #
 # Translators:
-# Thomas De Rocker <thomasderocker(at)hotmail.com>, 2010
 # Heimen Stoffels <vistausss(at)fastmail.com>, 2022
 msgid ""
 msgstr ""
-"Project-Id-Version: gWakeOnLAN\n"
+"Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
 "POT-Creation-Date: 2022-08-21 02:37+0200\n"
 "PO-Revision-Date: 2022-03-11 10:42+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss(at)fastmail.com>\n"
 "Language-Team: Dutch\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: gwakeonlan/ui/about.py:66
@@ -101,8 +100,7 @@ msgstr "<b><span foreground=\"red\">FOUTMELDING</span></b>"
 
 #: ui/detail.ui:91
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
-msgstr ""
-"<big><b>Voer de computernaam en het bijbehorende MAC-adres in</b></big>"
+msgstr "<big><b>Voer de computernaam en het bijbehorende MAC-adres in</b></big>"
 
 #: ui/detail.ui:120
 msgid "_Machine name:"
