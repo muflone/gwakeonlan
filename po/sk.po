@@ -7,13 +7,14 @@
 #
 # Translators:
 # Jozef Riha <jose1711(at)gmail.com>, 2010
+# Jozef Gaal <preklady(at)mayday.sk>, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
 "POT-Creation-Date: 2022-08-21 02:37+0200\n"
-"PO-Revision-Date: 2022-04-18 02:46+0200\n"
-"Last-Translator: Jozef Riha <jose1711(at)gmail.com>\n"
+"PO-Revision-Date: 2023-08-28 16:38+0200\n"
+"Last-Translator: Jozef Gaal <preklady(at)mayday.sk>\n"
 "Language-Team: Slovak\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,31 +29,31 @@ msgstr "Verzia {VERSION}"
 
 #: gwakeonlan/ui/about.py:69
 msgid "Wake up your machines using Wake on LAN"
-msgstr ""
+msgstr "Prebuďte svoje počítače pomocou funkcie Wake on LAN"
 
 #: gwakeonlan/ui/about.py:78
 msgid "Contributors:"
-msgstr ""
+msgstr "Prispievatelia:"
 
 #: gwakeonlan/ui/about.py:85
 msgid "Project home page"
-msgstr ""
+msgstr "Domovská stránka projektu"
 
 #: gwakeonlan/ui/about.py:86
 msgid "Source code"
-msgstr ""
+msgstr "Zdrojový kód"
 
 #: gwakeonlan/ui/about.py:87
 msgid "Author information"
-msgstr ""
+msgstr "Informácie o autorovi"
 
 #: gwakeonlan/ui/about.py:88
 msgid "Issues and bugs tracking"
-msgstr ""
+msgstr "Sledovanie problémov a chýb"
 
 #: gwakeonlan/ui/about.py:89
 msgid "Translations"
-msgstr ""
+msgstr "Preklady"
 
 #: gwakeonlan/ui/detail.py:73 ui/main.ui:53 ui/shortcuts.ui:64
 msgid "Edit machine"
@@ -84,19 +85,19 @@ msgstr "Vymazať stroj"
 
 #: ui/arpcache.ui:27
 msgid "Pick a host from the ARP cache"
-msgstr ""
+msgstr "Vybrať hostiteľa z vyrovnávacej pamäte ARP"
 
 #: ui/arpcache.ui:113
 msgid "IP Address"
-msgstr ""
+msgstr "IP adresa"
 
 #: ui/arpcache.ui:125
 msgid "Host Name"
-msgstr ""
+msgstr "Názov hostiteľa"
 
 #: ui/detail.ui:29
 msgid "<b><span foreground=\"red\">ERROR</span></b>"
-msgstr ""
+msgstr "<b><span foreground=\"red\">CHYBA</span></b>"
 
 #: ui/detail.ui:91
 msgid "<big><b>Insert the machine name and its MAC address</b></big>"
@@ -136,32 +137,32 @@ msgstr "Klávesové skratky"
 
 #: ui/main.ui:36 ui/shortcuts.ui:78
 msgid "Turn on"
-msgstr ""
+msgstr "Zapnúť"
 
 #: ui/main.ui:69
 msgid "Detect from ARP cache"
-msgstr ""
+msgstr "Zistiť z vyrovnávacej pamäte ARP"
 
 #: ui/main.ui:75
 msgid "Import from ethers file"
-msgstr ""
+msgstr "Import zo súboru ether"
 
 #: ui/main.ui:84 ui/main.ui:90 ui/shortcuts.ui:28
 msgid "Open the options menu"
-msgstr ""
+msgstr "Otvoriť ponuku možností"
 
 #: ui/main.ui:107 ui/shortcuts.ui:92
 msgid "Deselect all"
-msgstr ""
+msgstr "Zrušiť výber všetkých"
 
 #: ui/main.ui:172
 msgid "Select machines"
-msgstr ""
+msgstr "Vybrať stroje"
 
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
-msgstr ""
+msgstr "Zobraziť dialógové okno o aplikácii"
 
 #: ui/shortcuts.ui:52
 msgid "Machines"
-msgstr ""
+msgstr "Stroje"
