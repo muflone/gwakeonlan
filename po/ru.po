@@ -6,13 +6,13 @@
 # Russian translation for gWakeOnLAN
 #
 # Translators:
-# Сергей Богатов <hsh(at)runtu.org>, 2010,2015,2020
+# Сергей Богатов <hsh(at)runtu.org>, 2010,2015,2020,2022
 msgid ""
 msgstr ""
 "Project-Id-Version: gWakeOnLan\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gwakeonlan/issues/\n"
 "POT-Creation-Date: 2022-08-21 02:37+0200\n"
-"PO-Revision-Date: 2022-04-18 02:43+0200\n"
+"PO-Revision-Date: 2023-08-28 16:36+0200\n"
 "Last-Translator: Сергей Богатов <hsh(at)runtu.org>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -36,11 +36,11 @@ msgstr "Контрибьюторы:"
 
 #: gwakeonlan/ui/about.py:85
 msgid "Project home page"
-msgstr ""
+msgstr "Домашняя страница проекта"
 
 #: gwakeonlan/ui/about.py:86
 msgid "Source code"
-msgstr ""
+msgstr "Исходный код"
 
 #: gwakeonlan/ui/about.py:87
 msgid "Author information"
@@ -164,4 +164,4 @@ msgstr "Показать диалог \"О программе\""
 
 #: ui/shortcuts.ui:52
 msgid "Machines"
-msgstr ""
+msgstr "Компьютеры"
