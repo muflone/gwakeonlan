@@ -43,6 +43,7 @@ jobs:
       - run:
           name: Lint with flake8
           command: |
+            . venv/bin/activate
             python -m flake8 gwakeonlan gwakeonlan.py setup.py
             python setup.py install --optimize=1 --root=build
             ls -laR .
@@ -50,6 +51,7 @@ jobs:
       - run:
           name: Install
           command: |
+            . venv/bin/activate
             python setup.py install --optimize=1 --root=build
             ls -laR .
 
