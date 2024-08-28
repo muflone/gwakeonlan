@@ -26,7 +26,7 @@ jobs:
       run: |
         sudo apt-get update
         # Dependencies for installation
-        sudo apt-get install gettext python-setuptools
+        sudo apt-get install gettext python3-setuptools
         # Dependencies for execution
         sudo apt-get install gir1.2-gtk-3.0 gobject-introspection libcairo2-dev libgirepository1.0-dev python3-gi
 
