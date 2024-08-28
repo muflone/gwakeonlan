@@ -37,20 +37,18 @@ jobs:
         . venv/bin/activate
         pip install -r requirements_ci.txt
 
-    - name: Activate venv
-      run: |
-        . venv/bin/activate
-
     - name: Compile
       run: |
         python -m compileall gwakeonlan gwakeonlan.py setup.py
 
     - name: Lint with flake8
       run: |
-        pycodestyle gwakeonlan gwakeonlan.py setup.py
         python -m flake8 gwakeonlan gwakeonlan.py setup.py
 
     - name: Install
       run: |
         python setup.py install --optimize=1 --root=build
+
+    - name: Show results
+      run: |
         ls -laR .
