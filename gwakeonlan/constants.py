@@ -2,7 +2,7 @@
 #     Project: gWakeOnLAN
 # Description: Wake up your machines using Wake on LAN
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
-#   Copyright: 2009-2022 Fabio Castelli
+#   Copyright: 2009-2024 Fabio Castelli
 #     License: GPL-3+
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ APP_DESCRIPTION = 'Wake up your machines using Wake on LAN'
 APP_DOMAIN = 'gwakeonlan'
 APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'muflone@muflone.com'
-APP_COPYRIGHT = f'Copyright 2009-2022 {APP_AUTHOR}'
+APP_COPYRIGHT = f'Copyright 2009-2024 {APP_AUTHOR}'
 APP_ID = f'{APP_DOMAIN}.muflone.com'
 URL_AUTHOR = 'http://www.muflone.com/'
 URL_APPLICATION = f'{URL_AUTHOR}{APP_DOMAIN}/'

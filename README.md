@@ -5,7 +5,7 @@
 
 **Description:** Wake up your machines using Wake on LAN
 
-**Copyright:** 2009-2022 Fabio Castelli (Muflone) <muflone@muflone.com>
+**Copyright:** 2009-2024 Fabio Castelli (Muflone) <muflone@muflone.com>
 
 **License:** GPL-3+
 
