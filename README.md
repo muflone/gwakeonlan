@@ -1,6 +1,11 @@
 # gWakeOnLAN
 
 [![CircleCI Build Status](https://img.shields.io/circleci/project/github/muflone/gwakeonlan/master.svg)](https://circleci.com/gh/muflone/gwakeonlan)
+[![Python 3.8](https://github.com/muflone/gwakeonlan/actions/workflows/python-3.8.yml/badge.svg)](https://github.com/muflone/gwakeonlan/actions/workflows/python-3.8.yml)
+[![Python 3.9](https://github.com/muflone/gwakeonlan/actions/workflows/python-3.9.yml/badge.svg)](https://github.com/muflone/gwakeonlan/actions/workflows/python-3.9.yml)
+[![Python 3.10](https://github.com/muflone/gwakeonlan/actions/workflows/python-3.10.yml/badge.svg)](https://github.com/muflone/gwakeonlan/actions/workflows/python-3.10.yml)
+[![Python 3.11](https://github.com/muflone/gwakeonlan/actions/workflows/python-3.11.yml/badge.svg)](https://github.com/muflone/gwakeonlan/actions/workflows/python-3.11.yml)
+[![Python 3.12](https://github.com/muflone/gwakeonlan/actions/workflows/python-3.12.yml/badge.svg)](https://github.com/muflone/gwakeonlan/actions/workflows/python-3.12.yml)
 
 **Description:** Wake up your machines using Wake on LAN
 
