@@ -7,7 +7,7 @@
 #
 # Translators:
 # Necdet Yücel <necdetyucel(at)gmail.com>, 2012
-# Fatih Altun <fatih.altun(at)pardus.org.tr>, 2022-2023.
+# Fatih Altun <fatih.altun(at)pardus.org.tr>, 2022-2024
 #
 msgid ""
 msgstr ""
@@ -50,7 +50,7 @@ msgstr "Yazar bilgileri"
 
 #: gwakeonlan/ui/about.py:88
 msgid "Issues and bugs tracking"
-msgstr "Sorunlar ve hata takibi"
+msgstr "Sorun ve hataların takibi"
 
 #: gwakeonlan/ui/about.py:89
 msgid "Translations"
