@@ -1,0 +1,25 @@
+os: linux
+dist: jammy
+language: python
+python:
+  - "3.10"
+virtualenv:
+  system_site_packages: true
+addons:
+  apt:
+    packages:
+    # Dependencies for installation
+    - gettext                                 # msgfmt
+    # Dependencies for execution
+    - python3-gi                              # GObject
+    - libgirepository1.0-dev                  # GObject
+    - gir1.2-gtk-3.0                          # gi.repository.Gtk
+install:
+  - pip install -r requirements_ci.txt
+services:
+  - xvfb
+script:
+  - python -m compileall .
+  - python -m flake8 .
+  - python setup.py install --optimize=1 --root=build
+  - ls -laR build
