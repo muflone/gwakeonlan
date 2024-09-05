@@ -35,7 +35,8 @@ from gwakeonlan.functions import (format_mac_address,
                                   get_treeview_selected_row,
                                   process_events,
                                   show_message_dialog_yesno,
-                                  wake_on_lan)
+                                  wake_on_lan,
+                                  split_credentials)
 from gwakeonlan.import_ethers import ImportEthers
 from gwakeonlan.localize import _, text
 from gwakeonlan.settings import Settings
@@ -45,6 +46,7 @@ from gwakeonlan.ui.about import UIAbout
 from gwakeonlan.ui.base import UIBase
 from gwakeonlan.ui.arpcache import UIArpCache
 from gwakeonlan.ui.detail import UIDetail
+from gwakeonlan.ui.sshlogin import UISSHLogin
 from gwakeonlan.ui.shortcuts import UIShortcuts
 
 SECTION_WINDOW_NAME = 'main window'
@@ -77,6 +79,8 @@ class UIMain(UIBase):
         self.model_machines = ModelMachines(self.ui.model)
         # Load the others dialogs
         self.detail = UIDetail(self.ui.window, self.settings, options)
+        # Load the SSH Login dialog
+        self.sshlogin = UISSHLogin(self.ui.window, self.settings, options)
         # Complete initialization
         self.startup()
 
@@ -155,22 +159,30 @@ class UIMain(UIBase):
 
     def do_turn_on(self, treeiter):
         """Turn on the machine for the specified TreeIter"""
+        machine_name = self.model_machines.get_machine_name(treeiter=treeiter)
         mac_address = self.model_machines.get_mac_address(treeiter=treeiter)
         port_number = self.model_machines.get_port_number(treeiter=treeiter)
         destination = self.model_machines.get_destination(treeiter=treeiter)
-        try:
-            wake_on_lan(mac_address=mac_address,
-                        port_number=port_number,
-                        destination=destination)
-            self.model_machines.set_icon(treeiter=treeiter,
-                                         value=self.icon_yes)
-        except OSError as error:
-            logging.error(f'Unable to turn on: {mac_address} '
-                          f'through {destination} '
-                          f'using port number {port_number}')
-            logging.error(error)
-            self.model_machines.set_icon(treeiter=treeiter,
-                                         value=self.icon_no)
+        username, router, interface = split_credentials(destination)
+        if username or interface:
+            # This is a mikrotik call
+            self.sshlogin.do_load_data(machine_name, mac_address, username, router, interface)
+            self.sshlogin.send_or_show()
+        else:
+            # this is a normal wake on lan
+            try:
+                wake_on_lan(mac_address=mac_address,
+                            port_number=port_number,
+                            destination=destination)
+                self.model_machines.set_icon(treeiter=treeiter,
+                                             value=self.icon_yes)
+            except OSError as error:
+                logging.error(f'Unable to turn on: {mac_address} '
+                              f'through {destination} '
+                              f'using port number {port_number}')
+                logging.error(error)
+                self.model_machines.set_icon(treeiter=treeiter,
+                                             value=self.icon_no)
 
     def on_action_about_activate(self, widget):
         """Show the information dialog"""
@@ -196,6 +208,7 @@ class UIMain(UIBase):
         self.settings.save()
         self.ui.window.destroy()
         self.detail.destroy()
+        self.sshlogin.destroy()
         self.application.quit()
 
     def on_action_options_menu_activate(self, widget):
