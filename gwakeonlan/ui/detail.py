@@ -129,12 +129,17 @@ class UIDetail(UIBase):
         """Return if the request type is Internet"""
         return self.ui.radio_request_internet.get_active()
 
-    def do_load_data(self, machine_name, mac_address, portnr, destination):
+    def do_get_auto_start(self):
+        """Return if auto-start is enabled"""
+        return self.ui.check_auto_start.get_active()
+
+    def do_load_data(self, machine_name, mac_address, portnr, destination, auto_start=False):
         """Load the fields with the specified values"""
         self.ui.text_machine_name.set_text(machine_name)
         self.ui.text_mac_address.set_text(mac_address)
         self.ui.spin_port_number.set_value(portnr)
         self.ui.text_destination_host.set_text(destination)
+        self.ui.check_auto_start.set_active(auto_start)
         if destination in (BROADCAST_ADDRESS, ''):
             self.ui.radio_request_local.set_active(True)
             self.ui.text_destination_host.set_sensitive(False)

@@ -168,18 +168,23 @@ class Settings(object):
             for machine in self.config.items(SECTION_HOSTS):
                 logging.debug(f'Loading machine: {machine[0]}')
                 # Fix machine configuration from older gWakeOnLAN versions
-                machine = [machine[0], ] + machine[1].split('\\', 4)
+                machine = [machine[0], ] + machine[1].split('\\', 5)
                 if len(machine) == 2:
                     machine.append(BROADCAST_ADDRESS)
                 if len(machine) == 3:
                     machine.append(DEFAULT_UDP_PORT)
+                if len(machine) == 4:
+                    machine.append('0')  # auto_start default to False (0)
+                # Parse auto_start flag (convert string '0' or '1' to bool)
+                auto_start = machine[4] == '1' if len(machine) > 4 else False
                 # Add the machine to the model
                 self.model.add_data(
                     MachineItem(name=machine[0],
                                 mac_address=format_mac_address(machine[1]),
                                 port_number=int(machine[3]),
                                 destination=machine[2],
-                                icon=icon))
+                                icon=icon,
+                                auto_start=auto_start))
 
     def save_hosts(self, model):
         """Save hosts settings"""
@@ -190,10 +195,12 @@ class Settings(object):
             treeiter = self.model.get_iter(machine)
             logging.debug(
                 f'Saving machine: {self.model.get_machine_name(treeiter)}')
+            auto_start = '1' if self.model.get_auto_start(treeiter) else '0'
             self.config.set(
                 SECTION_HOSTS,
                 self.model.get_machine_name(treeiter),
                 f'{self.model.get_mac_address(treeiter)}\\'
                 f'{self.model.get_destination(treeiter)}\\'
-                f'{self.model.get_port_number(treeiter)}'
+                f'{self.model.get_port_number(treeiter)}\\'
+                f'{auto_start}'
             )

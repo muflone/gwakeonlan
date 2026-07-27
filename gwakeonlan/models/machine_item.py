@@ -19,9 +19,10 @@
 ##
 
 class MachineItem(object):
-    def __init__(self, name, mac_address, port_number, destination, icon):
+    def __init__(self, name, mac_address, port_number, destination, icon, auto_start=False):
         self.name = name
         self.mac_address = mac_address
         self.port_number = port_number
         self.destination = destination
         self.icon = icon
+        self.auto_start = auto_start

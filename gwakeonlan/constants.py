@@ -26,7 +26,7 @@ from xdg import BaseDirectory
 
 # Application constants
 APP_NAME = 'gWakeOnLAN'
-APP_VERSION = '0.8.6'
+APP_VERSION = '0.8.6+ck1'
 APP_DESCRIPTION = 'Wake up your machines using Wake on LAN'
 APP_DOMAIN = 'gwakeonlan'
 APP_AUTHOR = 'Fabio Castelli'
@@ -43,6 +43,7 @@ VERBOSE_LEVEL_NORMAL = 1
 VERBOSE_LEVEL_MAX = 2
 DEFAULT_UDP_PORT = 9
 BROADCAST_ADDRESS = '255.255.255.255'
+WAKEUP_NAME = ''
 
 # Paths constants
 path_xdg_data_home = pathlib.Path(BaseDirectory.xdg_data_home)

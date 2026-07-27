@@ -26,7 +26,6 @@ from gwakeonlan.constants import (APP_NAME,
                                   VERBOSE_LEVEL_NORMAL,
                                   VERBOSE_LEVEL_MAX)
 
-
 class CommandLineOptions(object):
     """
     Parse command line arguments
@@ -54,6 +53,11 @@ class CommandLineOptions(object):
                                  action='store_true',
                                  help='execute automatic test with no '
                                       'interaction')
+        self.parser.add_argument('-w', '--wakeup',
+                                 dest='wakeup_name',
+                                 action='store',
+                                 default='',
+                                 help='name of the machine to wake-up on start')        
         self.options = None
 
     # noinspection PyProtectedMember,PyUnresolvedReferences

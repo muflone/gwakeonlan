@@ -18,3 +18,4 @@ __pycache__/
 
 # Ignore PyCharm project folder
 /.idea/
+.vscode/settings.json

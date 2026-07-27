@@ -41,4 +41,5 @@ class ImportEthers(object):
                                      .replace('-', ':')),
                         port_number=DEFAULT_UDP_PORT,
                         destination=self.import_l3_dest,
-                        icon=icon))
+                        icon=icon,
+                        auto_start=False))
